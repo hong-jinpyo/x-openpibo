@@ -6,9 +6,12 @@ import os
 from konlpy.tag import Mecab
 import requests
 from .modules.google_trans_new import google_translator
+from . import cfg
 #from google.cloud import speech
 #from google.cloud.speech import enums
 #from google.cloud.speech import types
+current_path = os.path.dirname(os.path.realpath(__file__))
+
 
 def getDiff(aT, bT):
   cnt = 0
@@ -19,9 +22,9 @@ def getDiff(aT, bT):
   return cnt / len(aT)
 
 class cSpeech:
-  def __init__(self, conf=None):
+  def __init__(self):
     self.translator = google_translator()
-    self.kakao_account = conf.KAKAO_ACCOUNT
+    self.kakao_account = cfg['KAKAO_ACCOUNT']
 
   def translate(self, string, to='ko'):
     '''curl -v -X POST "https://dapi.kakao.com/v2/translation/translate" \
@@ -60,7 +63,7 @@ class cSpeech:
       'Authorization': 'KakaoAK ' + self.kakao_account
     }
     r = requests.post(url, headers=headers, data=string.encode('utf-8'))
-    with open(filename, 'wb') as f:
+    with open(cfg['OPENPIBO_DATA_PATH']+filename, 'wb') as f:
       f.write(r.content)
 
   def stt(self, filename="stream.wav", timeout=5):
@@ -89,9 +92,10 @@ class cSpeech:
 
 class cDialog:
   #"dialog_path":"/home/pi/openpibo/lib/text/data/dialog.csv"
-  def __init__(self, conf=None):
+  def __init__(self):
     # self.dialog_path = conf.MODEL_PATH+"/dialog.csv"
-    self.dialog_path = "data/models/dialog.csv"
+
+    self.dialog_path = current_path+"/data/models/dialog.csv"
     self.mecab = Mecab()
     self.dialog_db = []
     with open(self.dialog_path, 'r', encoding='utf-8') as f:

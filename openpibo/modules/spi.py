@@ -1,6 +1,6 @@
 """Generic Linux SPI class using PureIO's SPI class"""
-import oled.pure_spi as spi
-from oled.chip import Chip
+from . import pure_spi as spi
+from .chip import Chip
 
 class SPI:
   """SPI Class"""

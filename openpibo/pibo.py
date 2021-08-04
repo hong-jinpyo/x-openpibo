@@ -1,22 +1,17 @@
 import sys, time, pickle
-# sys.path.append('..')
-from utils.config import Config as cfg
-# sys.path.append(cfg.OPENPIBO_PATH + '/lib')
 
-from audio import cAudio
-from oled import cOled
-from speech import cSpeech
-from speech import cDialog
-from device import cDevice
-from motion import cMotion
-from vision import cCamera
-from vision import cFace
-from vision import cDetect
+from .audio import cAudio
+from .oled import cOled
+from .speech import cSpeech, cDialog
+from .device import cDevice
+from .motion import cMotion
+from .vision import cCamera, cFace, cDetect
 from .modules.stream import VideoStream
 
 from threading import Thread
 from queue import Queue
 from pathlib import Path
+from . import cfg
 
 
 code_list = {
@@ -39,13 +34,13 @@ class Edu_Pibo:
         self.flash = False
         self.device = cDevice()
         self.audio = cAudio()
-        self.oled = cOled(conf=cfg)
-        self.speech = cSpeech(conf=cfg)
-        self.dialog = cDialog(conf=cfg)
-        self.motion = cMotion(conf=cfg)
+        self.oled = cOled()
+        self.speech = cSpeech()
+        self.dialog = cDialog()
+        self.motion = cMotion()
         self.camera = cCamera()
-        self.face = cFace(conf=cfg)
-        self.detect = cDetect(conf=cfg)
+        self.face = cFace()
+        self.detect = cDetect()
         self.que = Queue()
         self.colordb = {
             'black': (0,0,0),
@@ -222,7 +217,7 @@ class Edu_Pibo:
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         try:
-            with open(filename, "w+b") as f:
+            with open(cfg['OPENPIBO_DATA_PATH']+filename, "w+b") as f:
                 pickle.dump(self.colordb, f)
             return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
@@ -238,7 +233,7 @@ class Edu_Pibo:
             if file_exist == False:
                 return self.return_msg(False, "NotFound error", "The filename does not exist", None)
         try:
-            with open(filename, "rb") as f:
+            with open(cfg['OPENPIBO_DATA_PATH']+filename, "rb") as f:
                 self.colordb = pickle.load(f)
                 return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
@@ -885,7 +880,7 @@ class Edu_Pibo:
 
     # Check file exist
     def check_file(self, filename):
-        return Path(filename).is_file()
+        return Path(cfg['OPENPIBO_DATA_PATH']+filename).is_file()
 
     
     # Return msg form

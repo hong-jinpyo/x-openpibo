@@ -4,8 +4,8 @@
 See `CircuitPython:digitalio` in CircuitPython for more details.
 * Author(s): cefn
 """
-from oled.board import Pin
-from oled.util import Enum, ContextManaged
+from .board import Pin
+from .util import Enum, ContextManaged
 
 class DriveMode(Enum):
   """Drive Mode Enumeration"""

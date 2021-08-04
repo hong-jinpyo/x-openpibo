@@ -28,9 +28,9 @@ MicroPython SSD1306 OLED driver, I2C and SPI interfaces
 
 import time
 
-import oled.spi_device as spi_device
+from . import spi_device as spi_device
 
-import oled.framebuf as framebuf
+from . import framebuf as framebuf
 
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_SSD1306.git"

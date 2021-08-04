@@ -4,9 +4,9 @@
 See `CircuitPython:busio` in CircuitPython for more details.
 * Author(s): cefn
 """
-from oled.board import Pin, spiPorts
-from oled.spi import SPI as _SPI
-from oled.util import Enum, Lockable
+from .board import Pin, spiPorts
+from .spi import SPI as _SPI
+from .util import Enum, Lockable
 
 class SPI(Lockable):
   """

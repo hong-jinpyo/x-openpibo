@@ -5,6 +5,9 @@ import pytesseract
 from pyzbar import pyzbar
 import pickle,os,time
 from .modules.stream import VideoStream
+from . import cfg
+import os
+current_path = os.path.dirname(os.path.abspath(__file__))
 
 #class cVision:
   #model_path = "/home/pi/openpibo/lib/vision/models/"
@@ -15,7 +18,7 @@ class cCamera:
     os.system('v4l2-ctl -c vertical_flip=1,horizontal_flip=1,white_balance_auto_preset=3')
 
   def imread(self, filename):
-    return cv2.imread(filename)
+    return cv2.imread(cfg['OPENPIBO_DATA_PATH']+filename)
 
   def read(self, w=640, h=480):
     vs = VideoStream(width=w, height=h).start()
@@ -24,7 +27,7 @@ class cCamera:
     return img
 
   def imwrite(self, filename, img):
-    return cv2.imwrite(filename, img)
+    return cv2.imwrite(cfg['OPENPIBO_DATA_PATH']+filename, img)
 
   def imshow(self, img, title="IMAEGE"):
     # only GUI mode
@@ -105,9 +108,8 @@ class cCamera:
     return cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
 
 class cFace:
-  def __init__(self, conf=None):
-    # self.model_path = conf.MODEL_PATH
-    self.model_path = "data/models"
+  def __init__(self):
+    self.model_path = current_path+"/data/models"
     self.facedb = [[],[]]
     self.threshold = 0.4
     self.age_class = ['(0, 2)','(4, 6)','(8, 12)','(15, 20)','(25, 32)','(38, 43)','(48, 53)','(60, 100)']
@@ -129,11 +131,11 @@ class cFace:
     self.facedb = [[], []]
 
   def load_db(self, filename):
-    with open(filename, "rb") as f :
+    with open(cfg['OPENPIBO_DATA_PATH']+filename, "rb") as f :
       self.facedb = pickle.load(f)
   
   def save_db(self, filename):
-    with open(filename, "w+b") as f:
+    with open(cfg['OPENPIBO_DATA_PATH']+filename, "w+b") as f:
       pickle.dump(self.facedb, f)
 
   def train_face(self, img, face, name):
@@ -211,9 +213,8 @@ class cFace:
     return data
 
 class cDetect:
-  def __init__(self, conf=None):
-    # self.model_path = conf.MODEL_PATH
-    self.model_path = "data/models"
+  def __init__(self):
+    self.model_path = current_path+"/data/models"
     self.object20_class = ["background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus",
                     "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike",
                     "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]

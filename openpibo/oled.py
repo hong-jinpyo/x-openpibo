@@ -2,6 +2,9 @@ from .modules import ssd1306, board, busio, digitalio
 from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 import cv2
+import os
+from . import cfg
+current_path = os.path.dirname(os.path.abspath(__file__))
 
 class cOled:
   #"font_path":"/home/pi/openpibo/lib/oled/NanumGothic.ttf",
@@ -10,7 +13,7 @@ class cOled:
     self.width = 128
     self.height = 64
     # self.font_path = conf.MODEL_PATH+"/KDL.ttf" # KoPub Dotum Light
-    self.font_path = "data/models/KDL.ttf" # KoPub Dotum Light
+    self.font_path = current_path+"/data/models/KDL.ttf" # KoPub Dotum Light
     self.font_size = 10
 
     spi = busio.SPI(11, 10, 9)
@@ -29,14 +32,14 @@ class cOled:
       filename = self.font_path
     if size == None:
       size = self.font_size
-    self.font = ImageFont.truetype(filename, size)
+    self.font = ImageFont.truetype(cfg['OPENPIBO_DATA_PATH']+filename, size)
 
   def draw_text(self, points, text):
     draw = ImageDraw.Draw(self.image)
     draw.text(points, text, font=self.font, fill=255)
 
   def draw_image(self, filename):
-    self.image = Image.open(filename).convert('1')
+    self.image = Image.open(cfg['OPENPIBO_DATA_PATH']+filename).convert('1')
 
   def draw_data(self, img):
     self.image = Image.fromarray(img).convert('1')
@@ -68,4 +71,4 @@ class cOled:
     self.oled.show()
 
   def size_check(self, filename):
-    return cv2.imread(filename).shape
+    return cv2.imread(cfg['OPENPIBO_DATA_PATH']+filename).shape
