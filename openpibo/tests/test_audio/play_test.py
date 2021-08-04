@@ -6,8 +6,8 @@ sys.path.append("../../utils")
 from config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
-sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from audio import cAudio
+sys.path.append(cfg.OPENPIBO_PATH)
+from openpibo.audio import cAudio
 
 def tts_f():
   obj = cAudio()

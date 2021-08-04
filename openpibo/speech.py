@@ -5,7 +5,7 @@ import json
 import os
 from konlpy.tag import Mecab
 import requests
-from speech.google_trans_new import google_translator
+from .modules.google_trans_new import google_translator
 #from google.cloud import speech
 #from google.cloud.speech import enums
 #from google.cloud.speech import types
@@ -90,7 +90,8 @@ class cSpeech:
 class cDialog:
   #"dialog_path":"/home/pi/openpibo/lib/text/data/dialog.csv"
   def __init__(self, conf=None):
-    self.dialog_path = conf.MODEL_PATH+"/dialog.csv"
+    # self.dialog_path = conf.MODEL_PATH+"/dialog.csv"
+    self.dialog_path = "data/models/dialog.csv"
     self.mecab = Mecab()
     self.dialog_db = []
     with open(self.dialog_path, 'r', encoding='utf-8') as f:

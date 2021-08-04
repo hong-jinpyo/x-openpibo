@@ -4,7 +4,7 @@ import numpy as np
 import pytesseract
 from pyzbar import pyzbar
 import pickle,os,time
-from vision.stream import VideoStream
+from .modules.stream import VideoStream
 
 #class cVision:
   #model_path = "/home/pi/openpibo/lib/vision/models/"
@@ -106,7 +106,8 @@ class cCamera:
 
 class cFace:
   def __init__(self, conf=None):
-    self.model_path = conf.MODEL_PATH
+    # self.model_path = conf.MODEL_PATH
+    self.model_path = "data/models"
     self.facedb = [[],[]]
     self.threshold = 0.4
     self.age_class = ['(0, 2)','(4, 6)','(8, 12)','(15, 20)','(25, 32)','(38, 43)','(48, 53)','(60, 100)']
@@ -211,7 +212,8 @@ class cFace:
 
 class cDetect:
   def __init__(self, conf=None):
-    self.model_path = conf.MODEL_PATH
+    # self.model_path = conf.MODEL_PATH
+    self.model_path = "data/models"
     self.object20_class = ["background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus",
                     "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike",
                     "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]

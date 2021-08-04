@@ -1,7 +1,7 @@
 import sys, time, pickle
-sys.path.append('..')
+# sys.path.append('..')
 from utils.config import Config as cfg
-sys.path.append(cfg.OPENPIBO_PATH + '/lib')
+# sys.path.append(cfg.OPENPIBO_PATH + '/lib')
 
 from audio import cAudio
 from oled import cOled
@@ -12,7 +12,7 @@ from motion import cMotion
 from vision import cCamera
 from vision import cFace
 from vision import cDetect
-from vision.stream import VideoStream
+from .modules.stream import VideoStream
 
 from threading import Thread
 from queue import Queue

@@ -1,7 +1,4 @@
-import oled.ssd1306 as ssd1306
-import oled.board as board
-import oled.busio as busio
-import oled.digitalio as digitalio
+from .modules import ssd1306, board, busio, digitalio
 from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 import cv2
@@ -12,7 +9,8 @@ class cOled:
   def __init__(self, conf=None):
     self.width = 128
     self.height = 64
-    self.font_path = conf.MODEL_PATH+"/KDL.ttf" # KoPub Dotum Light
+    # self.font_path = conf.MODEL_PATH+"/KDL.ttf" # KoPub Dotum Light
+    self.font_path = "data/models/KDL.ttf" # KoPub Dotum Light
     self.font_size = 10
 
     spi = busio.SPI(11, 10, 9)
