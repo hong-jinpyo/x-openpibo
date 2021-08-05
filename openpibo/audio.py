@@ -1,5 +1,4 @@
 import os
-from . import cfg
 
 
 HIGH = 1
@@ -15,7 +14,7 @@ class cAudio:
 
   def play(self, filename, out='local', volume='-2000', background=True):
     if background:
-      os.system("omxplayer -o {} --vol {} {} &".format(out, volume, cfg['OPENPIBO_DATA_PATH']+filename))
+      os.system("omxplayer -o {} --vol {} {} &".format(out, volume, filename))
     else:
       os.system("omxplayer -o {} --vol {} {}".format(out, volume, filename))
 

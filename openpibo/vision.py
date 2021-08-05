@@ -5,7 +5,6 @@ import pytesseract
 from pyzbar import pyzbar
 import pickle,os,time
 from .modules.stream import VideoStream
-from . import cfg
 import os
 current_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -18,7 +17,7 @@ class cCamera:
     os.system('v4l2-ctl -c vertical_flip=1,horizontal_flip=1,white_balance_auto_preset=3')
 
   def imread(self, filename):
-    return cv2.imread(cfg['OPENPIBO_DATA_PATH']+filename)
+    return cv2.imread(filename)
 
   def read(self, w=640, h=480):
     vs = VideoStream(width=w, height=h).start()
@@ -27,7 +26,7 @@ class cCamera:
     return img
 
   def imwrite(self, filename, img):
-    return cv2.imwrite(cfg['OPENPIBO_DATA_PATH']+filename, img)
+    return cv2.imwrite(filename, img)
 
   def imshow(self, img, title="IMAEGE"):
     # only GUI mode
@@ -131,11 +130,11 @@ class cFace:
     self.facedb = [[], []]
 
   def load_db(self, filename):
-    with open(cfg['OPENPIBO_DATA_PATH']+filename, "rb") as f :
+    with open(filename, "rb") as f :
       self.facedb = pickle.load(f)
   
   def save_db(self, filename):
-    with open(cfg['OPENPIBO_DATA_PATH']+filename, "w+b") as f:
+    with open(filename, "w+b") as f:
       pickle.dump(self.facedb, f)
 
   def train_face(self, img, face, name):

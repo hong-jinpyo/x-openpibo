@@ -11,7 +11,6 @@ from .modules.stream import VideoStream
 from threading import Thread
 from queue import Queue
 from pathlib import Path
-from . import cfg
 
 
 code_list = {
@@ -217,7 +216,7 @@ class Edu_Pibo:
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         try:
-            with open(cfg['OPENPIBO_DATA_PATH']+filename, "w+b") as f:
+            with open(filename, "w+b") as f:
                 pickle.dump(self.colordb, f)
             return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
@@ -233,7 +232,7 @@ class Edu_Pibo:
             if file_exist == False:
                 return self.return_msg(False, "NotFound error", "The filename does not exist", None)
         try:
-            with open(cfg['OPENPIBO_DATA_PATH']+filename, "rb") as f:
+            with open(filename, "rb") as f:
                 self.colordb = pickle.load(f)
                 return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
@@ -880,7 +879,7 @@ class Edu_Pibo:
 
     # Check file exist
     def check_file(self, filename):
-        return Path(cfg['OPENPIBO_DATA_PATH']+filename).is_file()
+        return Path(filename).is_file()
 
     
     # Return msg form

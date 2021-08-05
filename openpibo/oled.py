@@ -3,7 +3,6 @@ from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 import cv2
 import os
-from . import cfg
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 class cOled:
@@ -32,14 +31,14 @@ class cOled:
       filename = self.font_path
     if size == None:
       size = self.font_size
-    self.font = ImageFont.truetype(cfg['OPENPIBO_DATA_PATH']+filename, size)
+    self.font = ImageFont.truetype(filename, size)
 
   def draw_text(self, points, text):
     draw = ImageDraw.Draw(self.image)
     draw.text(points, text, font=self.font, fill=255)
 
   def draw_image(self, filename):
-    self.image = Image.open(cfg['OPENPIBO_DATA_PATH']+filename).convert('1')
+    self.image = Image.open(filename).convert('1')
 
   def draw_data(self, img):
     self.image = Image.fromarray(img).convert('1')
@@ -71,4 +70,4 @@ class cOled:
     self.oled.show()
 
   def size_check(self, filename):
-    return cv2.imread(cfg['OPENPIBO_DATA_PATH']+filename).shape
+    return cv2.imread(filename).shape
