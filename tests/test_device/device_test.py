@@ -18,10 +18,10 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from device import cDevice
+from device import Device
 
 if __name__ == "__main__":
-  obj = cDevice()
+  obj = Device()
   data = obj.send_cmd(obj.code['PIR'], "on")
 
   while True:

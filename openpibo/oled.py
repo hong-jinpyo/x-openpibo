@@ -1,11 +1,11 @@
-from .modules import ssd1306, board, busio, digitalio
+from .modules.oled import ssd1306, board, busio, digitalio
 from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 import cv2
 import os
 current_path = os.path.dirname(os.path.abspath(__file__))
 
-class cOled:
+class Oled:
   #"font_path":"/home/pi/openpibo/lib/oled/NanumGothic.ttf",
 
   def __init__(self, conf=None):

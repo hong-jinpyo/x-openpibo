@@ -7,10 +7,10 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from oled import cOled
+from oled import Oled
 
 def oled_f():
-  oObj = cOled(conf=cfg)
+  oObj = Oled(conf=cfg)
   oObj.set_font(size=15)
   
   oObj.draw_text((0, 0), "안녕? 난 파이보야 ")

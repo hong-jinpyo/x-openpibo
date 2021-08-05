@@ -18,12 +18,12 @@ sys.path.append('../..')
 from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
-from device import cDevice
+from device import Device
 
 import argparse
 
 def main(args):
-  obj = cDevice()
+  obj = Device()
   print('Send:', args.command)
   data = obj.send_raw(args.command)
   print('Receive:', data)

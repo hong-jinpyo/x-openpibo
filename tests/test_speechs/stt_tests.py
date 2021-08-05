@@ -7,8 +7,8 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from speech import cSpeech
+from speech import Speech
 
-obj = cSpeech(conf=cfg)
+obj = Speech(conf=cfg)
 ret = obj.stt()
 print(ret)

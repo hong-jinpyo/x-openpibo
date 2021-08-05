@@ -4,7 +4,7 @@ import os
 import json
 current_path = os.path.dirname(os.path.abspath(__file__))
 
-class cMotion:
+class Motion:
   #"profile_path":"/home/pi/openpibo/lib/motion/motion_db.json"
   def __init__(self, conf=None):
     # self.profile_path=conf.MODEL_PATH+"/motion_db.json"
@@ -85,7 +85,7 @@ class cMotion:
   def stop(self):
     self.stopped = True
 
-class cPyMotion:
+class PyMotion:
   _defaults = {
     "device_path":"/dev/ttyACM0",
   }

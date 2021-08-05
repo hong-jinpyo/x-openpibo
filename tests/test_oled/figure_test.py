@@ -7,12 +7,12 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from oled import cOled
+from oled import Oled
 
 import time
 
 def oled_f():
-  oObj = cOled(conf=cfg)
+  oObj = Oled(conf=cfg)
   oObj.clear()
   oObj.draw_rectangle((10,10,30,30) ,True)
   oObj.draw_ellipse((70,40,90,60) ,False)

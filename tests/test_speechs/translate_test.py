@@ -7,10 +7,10 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from speech import cSpeech
+from speech import Speech
 
 def translate_f():
-  obj = cSpeech(conf=cfg)
+  obj = Speech(conf=cfg)
   string = "안녕하세요"
   ret = obj.translate(string, to="en")
   print("Input:", string)

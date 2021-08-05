@@ -1,5 +1,5 @@
 from urllib.parse import quote
-from .modules.get_soup import get_soup
+from .modules.collect.get_soup import get_soup
 
 
 class Chapter:

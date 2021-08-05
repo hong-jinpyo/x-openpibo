@@ -7,7 +7,7 @@ from config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 # sys.path.append(cfg.OPENPIBO_PATH)
-from openpibo.speech import cDialog
+from openpibo.speech import Dialog
 
 def weather(cmd):
   lst, _type = ["오늘", "내일"], None
@@ -53,7 +53,7 @@ db = {
 }
 
 def main():
-  obj = cDialog(conf=cfg)
+  obj = Dialog(conf=cfg)
   print("대화 시작합니다.")
   while True:
     c = input("입력 > ")

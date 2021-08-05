@@ -7,11 +7,11 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from motion import cMotion
+from motion import Motion
 
 import time
 
-m = cMotion(conf=cfg)
+m = Motion(conf=cfg)
 
 def move(n, degree, speed, accel):
   m.set_speed(n, speed)

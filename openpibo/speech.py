@@ -5,7 +5,7 @@ import json
 import os
 from konlpy.tag import Mecab
 import requests
-from .modules.google_trans_new import google_translator
+from .modules.speech.google_trans_new import google_translator
 from . import kakao_account
 #from google.cloud import speech
 #from google.cloud.speech import enums
@@ -21,7 +21,7 @@ def getDiff(aT, bT):
         cnt += 1
   return cnt / len(aT)
 
-class cSpeech:
+class Speech:
   def __init__(self):
     self.translator = google_translator()
     self.kakao_account = kakao_account
@@ -90,7 +90,7 @@ class cSpeech:
     result = json.loads(result_json_string)
     return result['value']
 
-class cDialog:
+class Dialog:
   #"dialog_path":"/home/pi/openpibo/lib/text/data/dialog.csv"
   def __init__(self):
     # self.dialog_path = conf.MODEL_PATH+"/dialog.csv"

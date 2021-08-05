@@ -4,7 +4,7 @@ import os
 HIGH = 1
 LOW = 0
 
-class cAudio:
+class Audio:
   # out: local/hdmi/both
   # volume: mdB
   # filename: mp3/wav

@@ -7,11 +7,11 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from vision import cCamera
+from vision import Camera
 
 def test_func():
   # instance
-  cam = cCamera()
+  cam = Camera()
 
   # For streaming (only GUI)
   cam.streaming(timeout=3)

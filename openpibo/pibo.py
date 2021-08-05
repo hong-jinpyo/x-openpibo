@@ -1,11 +1,11 @@
 import sys, time, pickle
 
-from .audio import cAudio
-from .oled import cOled
-from .speech import cSpeech, cDialog
-from .device import cDevice
-from .motion import cMotion
-from .vision import cCamera, cFace, cDetect
+from .audio import Audio
+from .oled import Oled
+from .speech import Speech, Dialog
+from .device import Device
+from .motion import Motion
+from .vision import Camera, Face, Detect
 from .modules.stream import VideoStream
 
 from threading import Thread
@@ -31,15 +31,15 @@ class Edu_Pibo:
         self.img = ""
         self.check = False
         self.flash = False
-        self.device = cDevice()
-        self.audio = cAudio()
-        self.oled = cOled()
-        self.speech = cSpeech()
-        self.dialog = cDialog()
-        self.motion = cMotion()
-        self.camera = cCamera()
-        self.face = cFace()
-        self.detect = cDetect()
+        self.device = Device()
+        self.audio = Audio()
+        self.oled = Oled()
+        self.speech = Speech()
+        self.dialog = Dialog()
+        self.motion = Motion()
+        self.camera = Camera()
+        self.face = Face()
+        self.detect = Detect()
         self.que = Queue()
         self.colordb = {
             'black': (0,0,0),

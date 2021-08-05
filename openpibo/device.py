@@ -2,7 +2,7 @@ import serial
 import time
 from threading import Lock
 
-class cDevice:
+class Device:
   def __init__(self):
     self.code = {
     "VERSION":"10",

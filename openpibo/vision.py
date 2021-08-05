@@ -4,7 +4,7 @@ import numpy as np
 import pytesseract
 from pyzbar import pyzbar
 import pickle,os,time
-from .modules.stream import VideoStream
+from .modules.vision.stream import VideoStream
 import os
 current_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -12,7 +12,7 @@ current_path = os.path.dirname(os.path.abspath(__file__))
   #model_path = "/home/pi/openpibo/lib/vision/models/"
   #data_path = "/home/pi/openpibo/data/"
 
-class cCamera:
+class Camera:
   def __init__(self):
     os.system('v4l2-ctl -c vertical_flip=1,horizontal_flip=1,white_balance_auto_preset=3')
 
@@ -106,7 +106,7 @@ class cCamera:
   def bgr_hls(self, img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
 
-class cFace:
+class Face:
   def __init__(self):
     self.model_path = current_path+"/data/models"
     self.facedb = [[],[]]
@@ -211,7 +211,7 @@ class cFace:
     #cv2.putText(img, "{} {}".format(gender, age), (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,128,128), 2)
     return data
 
-class cDetect:
+class Detect:
   def __init__(self):
     self.model_path = current_path+"/data/models"
     self.object20_class = ["background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus",

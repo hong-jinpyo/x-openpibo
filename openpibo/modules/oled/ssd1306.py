@@ -191,7 +191,7 @@ class SSD1306_I2C(_SSD1306):
   def __init__(
     self, width, height, i2c, *, addr=0x3C, external_vcc=False, reset=None
   ):
-    self.i2c_device = i2c_device.I2CDevice(i2c, addr)
+    self.i2c_device = i2c_device.I2Device(i2c, addr)
     self.addr = addr
     self.temp = bytearray(2)
     # Add an extra byte to the data buffer to hold an I2C data/command byte

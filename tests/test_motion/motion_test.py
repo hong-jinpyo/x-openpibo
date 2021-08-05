@@ -7,8 +7,8 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from motion import cMotion
+from motion import Motion
 
 if __name__ == "__main__":
-  m = cMotion(conf=cfg)
+  m = Motion(conf=cfg)
   m.set_motion(name="wave3", cycle=10)

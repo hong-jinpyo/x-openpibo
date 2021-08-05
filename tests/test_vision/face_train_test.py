@@ -7,13 +7,13 @@ from utils.config import Config as cfg
 
 # openpibo 라이브러리 경로 추가
 sys.path.append(cfg.OPENPIBO_PATH + '/lib')
-from vision import cCamera
-from vision import cFace
+from vision import Camera
+from vision import Face
 
 def test_func():
   # instance
-  cam = cCamera()
-  faceObj = cFace(conf=cfg)
+  cam = Camera()
+  faceObj = Face(conf=cfg)
 
   print("Start DB:", faceObj.get_db()[0])
   
