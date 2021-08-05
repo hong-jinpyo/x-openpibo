@@ -6,7 +6,7 @@ from .speech import Speech, Dialog
 from .device import Device
 from .motion import Motion
 from .vision import Camera, Face, Detect
-from .modules.stream import VideoStream
+from .modules.vision.stream import VideoStream
 
 from threading import Thread
 from queue import Queue
