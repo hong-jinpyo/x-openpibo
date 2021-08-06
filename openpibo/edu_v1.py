@@ -25,7 +25,7 @@ code_list = {
     "Exception error": -8,
 }
 
-class Edu_Pibo:
+class Pibo:
     def __init__(self):
         self.onair = False
         self.img = ""

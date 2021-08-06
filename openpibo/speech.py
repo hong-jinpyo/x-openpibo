@@ -91,10 +91,7 @@ class Speech:
     return result['value']
 
 class Dialog:
-  #"dialog_path":"/home/pi/openpibo/lib/text/data/dialog.csv"
   def __init__(self):
-    # self.dialog_path = conf.MODEL_PATH+"/dialog.csv"
-
     self.dialog_path = current_path+"/data/models/dialog.csv"
     self.mecab = Mecab()
     self.dialog_db = []

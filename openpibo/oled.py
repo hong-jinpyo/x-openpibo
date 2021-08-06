@@ -6,12 +6,9 @@ import os
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 class Oled:
-  #"font_path":"/home/pi/openpibo/lib/oled/NanumGothic.ttf",
-
   def __init__(self, conf=None):
     self.width = 128
     self.height = 64
-    # self.font_path = conf.MODEL_PATH+"/KDL.ttf" # KoPub Dotum Light
     self.font_path = current_path+"/data/models/KDL.ttf" # KoPub Dotum Light
     self.font_size = 10
 

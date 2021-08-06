@@ -5,9 +5,7 @@ import json
 current_path = os.path.dirname(os.path.abspath(__file__))
 
 class Motion:
-  #"profile_path":"/home/pi/openpibo/lib/motion/motion_db.json"
-  def __init__(self, conf=None):
-    # self.profile_path=conf.MODEL_PATH+"/motion_db.json"
+  def __init__(self):
     self.profile_path=current_path+"/data/models/motion_db.json"
     with open(self.profile_path, 'r') as f:
       self.profile = json.load(f)

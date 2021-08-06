@@ -8,10 +8,6 @@ from .modules.vision.stream import VideoStream
 import os
 current_path = os.path.dirname(os.path.abspath(__file__))
 
-#class cVision:
-  #model_path = "/home/pi/openpibo/lib/vision/models/"
-  #data_path = "/home/pi/openpibo/data/"
-
 class Camera:
   def __init__(self):
     os.system('v4l2-ctl -c vertical_flip=1,horizontal_flip=1,white_balance_auto_preset=3')

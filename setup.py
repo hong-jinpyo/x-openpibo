@@ -2,12 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='openpibo',
-    version='1.0.0',
-    description='Openpibo libraries',
-    url='https://github.com/themakerrobot/openpibo-ex',
-    author='Circulus',
-    author_email='hojp7874@circul.us',
-    license='Circulus',
+    version='0.0.1',
     packages=find_packages(exclude=[]),
     python_requires= '>=3',
     install_requires=[
@@ -25,5 +20,8 @@ setup(
         'pyserial==3.5',
         'requests==2.25.1',
         'pytest==6.2.4',
+        'rich==10.6.0',
+        'flask==2.0.1',
+        'flask-socketio==5.1.1',
     ]
 )
