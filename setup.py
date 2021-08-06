@@ -4,6 +4,7 @@ setup(
     name='openpibo',
     version='0.0.1',
     packages=find_packages(exclude=[]),
+    package_data={'':['data/*']},
     python_requires= '>=3',
     install_requires=[
         'opencv-python==4.1.0.25',
