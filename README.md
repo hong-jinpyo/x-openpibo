@@ -1,11 +1,8 @@
-guide:
-```
-git clone https://github.com/themakerrobot/openpibo-ex.git
-cd openpibo-ex
-pip3 install -e .
-```
+# openpibo package
 
-beautifulsoup parser lxml 설치해야 함.
-```
-sudo apt-get install python3-lxml
-```
++ Install
+<pre><code>
+  git clone https://github.com/themakerrobot/x-openpibo
+  cd x-openpibo
+  sudo python3 setup.py install
+</code></pre>
