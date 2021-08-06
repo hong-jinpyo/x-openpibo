@@ -1,12 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='openpibo',
-    version='0.0.1',
-    packages=find_packages(exclude=[]),
-    package_data={'':['data/*']},
-    python_requires= '>=3',
-    install_requires=[
+    name                        = 'openpibo',
+    version                     = '0.0.1',
+    packages                    = find_packages(),
+    package_data                = {'' : ['data/models/*']},
+    include_package_data        = True,
+    zip_safe                    = False,
+    python_requires             = '>=3',
+    install_requires            = [
         'opencv-python==4.1.0.25',
         'opencv-contrib-python==4.1.0.25',
         'dlib==19.19.0',
