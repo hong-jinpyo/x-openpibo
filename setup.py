@@ -28,3 +28,8 @@ setup(
         'flask-socketio==5.1.1',
     ]
 )
+
+import os, json
+if os.path.isfile('/home/pi/config.json') == False:
+  with open('/home/pi/config.json', 'w') as f:
+    json.dump({'OPENPIBO_DATA_PATH':'', 'KAKAO_ACCOUNT':''}, f)
