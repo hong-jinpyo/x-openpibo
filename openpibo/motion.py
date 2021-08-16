@@ -44,40 +44,40 @@ class Motion:
     return ret
 
   def set_motion(self, name, cycle=1):
-    ret = True
     exe = self.profile.get(name)
-
+    return self.set_motion_raw(exe, cycle)
+  
+  def set_motion_raw(self, exe, cycle):
+    ret = True
     if exe == None:
       ret = False
       return ret
-      # print("profile not exist", name)
-    else:
-      seq,cnt,cycle_cnt = 0,0,0
-      self.stopped = False
+    seq,cnt,cycle_cnt = 0,0,0
+    self.stopped = False
 
-      if exe["init_def"] == 1:
-        self.set_motors(exe["init"], seq)
-      
-      if "pos" not in exe:
-        return ret
+    if exe["init_def"] == 1:
+      self.set_motors(exe["init"], seq)
+    
+    if "pos" not in exe:
+      return ret
 
-      time.sleep(0.5)
-      while True:
-        if self.stopped:
-          break
+    time.sleep(0.5)
+    while True:
+      if self.stopped:
+        break
 
-        d, intv = exe["pos"][cnt]["d"], exe["pos"][cnt]["seq"]-seq
-        seq = exe["pos"][cnt]["seq"]
+      d, intv = exe["pos"][cnt]["d"], exe["pos"][cnt]["seq"]-seq
+      seq = exe["pos"][cnt]["seq"]
 
-        self.set_motors(d, intv)
-        time.sleep(intv/1000)
-        cnt += 1
-        if cnt == len(exe["pos"]):
-          cycle_cnt += 1
-          if cycle > cycle_cnt:
-            cnt,seq = 0,0
-            continue
-          break
+      self.set_motors(d, intv)
+      time.sleep(intv/1000)
+      cnt += 1
+      if cnt == len(exe["pos"]):
+        cycle_cnt += 1
+        if cycle > cycle_cnt:
+          cnt,seq = 0,0
+          continue
+        break
     return ret
 
   def stop(self):
