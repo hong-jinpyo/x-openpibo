@@ -51,7 +51,7 @@ Temporary Items
 #build and release folders
 */CMakeFiles
 */CMakeCache.txt
-*/Makefile
+# */Makefile
 */cmake_install.cmake
 
 ### Python ###
