@@ -1,4 +1,9 @@
+"""
+교육용 파이보 패키지
+"""
 import os, sys, json
+
+__version__ = '0.0.1'
 
 with open('/home/pi/config.json', 'r') as f:
   _cfg = json.load(f)

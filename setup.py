@@ -1,8 +1,9 @@
 from setuptools import setup, find_packages
+from openpibo import __version__ as VERSION
 
 setup(
     name                        = 'openpibo',
-    version                     = '0.0.1',
+    version                     = VERSION,
     packages                    = find_packages(),
     package_data                = {'' : ['data/models/*']},
     include_package_data        = True,
