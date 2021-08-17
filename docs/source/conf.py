@@ -18,8 +18,8 @@ from openpibo import __version__ as VERSION
 # -- Project information -----------------------------------------------------
 
 project = 'openpibo'
-copyright = '2021, Jinpyo'
-author = 'Jinpyo'
+copyright = '2021, Circulus'
+author = 'Circulus'
 
 # The full version, including alpha/beta/rc tags
 release = VERSION
