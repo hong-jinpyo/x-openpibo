@@ -17,3 +17,4 @@ sphinx-apidoc -f -o docs/source openpibo/ --separate
 cd docs
 make html
 ```
+이후 `~/x-openpibo/docs/index.html` 실행

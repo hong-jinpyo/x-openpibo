@@ -30,9 +30,11 @@ release = VERSION
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+html_baseurl = 'https://themakerrobot.github.io/x-openpibo/'
 extensions = [
     'myst_parser',
-    'sphinx.ext.autodoc'
+    'sphinx.ext.autodoc',
+    'sphinx.ext.githubpages',
 ]
 source_suffix = {
     '.rst': 'restructuredtext',
