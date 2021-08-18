@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpibo.modules.oled.ssd1306 module &#8212; openpibo 0.0.1 문서</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/openpibo.modules.oled.ssd1306.html" />
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-openpibo.modules.oled.ssd1306">
+<span id="openpibo-modules-oled-ssd1306-module"></span><h1>openpibo.modules.oled.ssd1306 module<a class="headerlink" href="#module-openpibo.modules.oled.ssd1306" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<div class="section" id="adafruit-ssd1306">
+<h2><cite>adafruit_ssd1306</cite><a class="headerlink" href="#adafruit-ssd1306" title="이 표제에 대한 퍼머링크">¶</a></h2>
+<p>MicroPython SSD1306 OLED driver, I2C and SPI interfaces
+* Author(s): Tony DiCola, Michael McWethy</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_I2C">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.modules.oled.ssd1306.</span></span><span class="sig-name descname"><span class="pre">SSD1306_I2C</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i2c</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_vcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_I2C" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">openpibo.modules.oled.ssd1306._SSD1306</span></code></p>
+<p>I2C class for SSD1306
+:param width: the width of the physical screen in pixels,
+:param height: the height of the physical screen in pixels,
+:param i2c: the I2C peripheral to use,
+:param addr: the 8-bit bus address of the device,
+:param external_vcc: whether external high-voltage source is connected.
+:param reset: if needed, DigitalInOut designating reset pin</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_I2C.write_cmd">
+<span class="sig-name descname"><span class="pre">write_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_I2C.write_cmd" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>Send a command to the SPI device</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_I2C.write_framebuf">
+<span class="sig-name descname"><span class="pre">write_framebuf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_I2C.write_framebuf" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>Blast out the frame buffer using a single I2C transaction to support
+hardware I2C interfaces.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_SPI">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.modules.oled.ssd1306.</span></span><span class="sig-name descname"><span class="pre">SSD1306_SPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external_vcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_SPI" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">openpibo.modules.oled.ssd1306._SSD1306</span></code></p>
+<p>SPI class for SSD1306
+:param width: the width of the physical screen in pixels,
+:param height: the height of the physical screen in pixels,
+:param spi: the SPI peripheral to use,
+:param dc: the data/command pin to use (often labeled 《D/C》),
+:param reset: the reset pin to use,
+:param cs: the chip-select pin to use (sometimes labeled 《SS》).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_SPI.write_cmd">
+<span class="sig-name descname"><span class="pre">write_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_SPI.write_cmd" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>Send a command to the SPI device</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.ssd1306.SSD1306_SPI.write_framebuf">
+<span class="sig-name descname"><span class="pre">write_framebuf</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.ssd1306.SSD1306_SPI.write_framebuf" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>write to the frame buffer via SPI</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">openpibo</a></h1>
+
+
+
+
+
+
+
+
+<h3>탐색</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.edu_v1.html">openpibo.edu_v1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.audio.html">openpibo.audio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.collect.html">openpibo.collect module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.device.html">openpibo.device module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.motion.html">openpibo.motion module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.oled.html">openpibo.oled module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.speech.html">openpibo.speech module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.vision.html">openpibo.vision module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">빠른 검색</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="이동" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Circulus.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/openpibo.modules.oled.ssd1306.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

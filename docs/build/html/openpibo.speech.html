@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>openpibo.speech module &#8212; openpibo 0.0.1 문서</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/openpibo.speech.html" />
+    <link rel="index" title="색인" href="genindex.html" />
+    <link rel="search" title="검색" href="search.html" />
+    <link rel="next" title="openpibo.vision module" href="openpibo.vision.html" />
+    <link rel="prev" title="openpibo.oled module" href="openpibo.oled.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-openpibo.speech">
+<span id="openpibo-speech-module"></span><h1>openpibo.speech module<a class="headerlink" href="#module-openpibo.speech" title="이 표제에 대한 퍼머링크">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpibo.speech.Dialog">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Dialog</span></span><a class="headerlink" href="#openpibo.speech.Dialog" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Dialog.get_dialog">
+<span class="sig-name descname"><span class="pre">get_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.get_dialog" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_morphs">
+<span class="sig-name descname"><span class="pre">mecab_morphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_morphs" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_nouns">
+<span class="sig-name descname"><span class="pre">mecab_nouns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_nouns" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_pos">
+<span class="sig-name descname"><span class="pre">mecab_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_pos" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openpibo.speech.Speech">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Speech</span></span><a class="headerlink" href="#openpibo.speech.Speech" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Speech.stt">
+<span class="sig-name descname"><span class="pre">stt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stream.wav'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.stt" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Speech.translate">
+<span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ko'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.translate" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>curl -v -X POST 《<a class="reference external" href="https://dapi.kakao.com/v2/translation/translate">https://dapi.kakao.com/v2/translation/translate</a>》     -d 《src_lang=kr》     -d 《target_lang=en》     –data-urlencode 《query=지난해 3월 오픈한 카카오톡 주문하기는 현재까지 약 250만명의 회원을 확보했으며, 주문 가능한 프랜차이즈 브랜드는 38개, 가맹점수는 약 1만 5천여곳에 달한다. 전 국민에게 친숙한 카카오톡 UI를 활용하기 때문에 남녀노소 누구나 쉽게 이용할 수 있으며, 별도의 앱을 설치할 필요 없이 카카오톡 내에서 모든 과정이 이뤄지는 것이 특징이다. 지난해 9월 업계 최초로 날짜와 시간을 예약한 뒤 설정한 매장에서 주문 음식을 찾아가는 ‘픽업’ 기능을 도입했고, 올해 1월 스마트스피커 ‘카카오미니’에서 음성을 통해 주문 가능한 메뉴를 안내받을 수 있도록 서비스를 연동하며 차별화를 꾀했다. 중소사업자들이 카카오톡 주문하기에 입점하게 되면 4,300만 카카오톡 이용자들과의 접점을 확보하고, 간편한 주문 과정으로 만족도를 높일 수 있게 된다. 카카오톡 메시지를 통해 신메뉴 출시, 프로모션 등의 소식을 전달할 수 있고, 일대일 채팅 기능을 적용하면 고객과 직접 상담도 가능하다.》     -H 《Authorization: KakaoAK {REST_API_KEY}》</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.speech.Speech.tts">
+<span class="sig-name descname"><span class="pre">tts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tts.mp3'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ko'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.tts" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd><p>curl -v 《<a class="reference external" href="https://kakaoi-newtone-openapi.kakao.com/v1/synthesize">https://kakaoi-newtone-openapi.kakao.com/v1/synthesize</a>》     -H 《Content-Type: application/xml》     -H 《Authorization: KakaoAK API_KEY》     -d 〈&lt;speak&gt; 그는 그렇게 말했습니다.
+&lt;voice name=》MAN_DIALOG_BRIGHT》&gt;잘 지냈어? 나도 잘 지냈어.&lt;/voice&gt;
+&lt;voice name=》WOMAN_DIALOG_BRIGHT》 speechStyle=》SS_ALT_FAST_1》&gt;금요일이 좋아요.&lt;/voice&gt; &lt;/speak&gt;〉 &gt; result.mp3</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="openpibo.speech.getDiff">
+<span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">getDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.getDiff" title="이 정의에 대한 퍼머링크">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">openpibo</a></h1>
+
+
+
+
+
+
+
+
+<h3>탐색</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="openpibo.edu_v1.html">openpibo.edu_v1 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.audio.html">openpibo.audio module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.collect.html">openpibo.collect module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.device.html">openpibo.device module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.motion.html">openpibo.motion module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.oled.html">openpibo.oled module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">openpibo.speech module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpibo.vision.html">openpibo.vision module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="openpibo.oled.html" title="이전 장">openpibo.oled module</a></li>
+      <li>Next: <a href="openpibo.vision.html" title="다음 장">openpibo.vision module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">빠른 검색</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="이동" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Circulus.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/openpibo.speech.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
