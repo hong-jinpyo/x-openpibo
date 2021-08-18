@@ -1,3 +1,10 @@
+import os, json
+
+if os.path.isfile('/home/pi/config.json') == False:
+  with open('/home/pi/config.json', 'w') as f:
+    json.dump({"OPENPIBO_DATA_PATH":"/home/pi/x-openpibo-data/data", "KAKAO_ACCOUNT":"", "robotId":""}, f)
+
+
 from setuptools import setup, find_packages
 from openpibo import __version__ as VERSION
 
@@ -18,7 +25,6 @@ setup(
         'beautifulsoup4==4.6.0',
         'konlpy==0.5.2',
         'future==0.18.2',
-        'google_trans_new==1.1.9',
         'pillow==7.2.0',
         'RPi.gpio==0.7.0',
         'pyserial==3.5',
@@ -29,8 +35,3 @@ setup(
         'flask-socketio==5.1.1',
     ]
 )
-
-import os, json
-if os.path.isfile('/home/pi/config.json') == False:
-  with open('/home/pi/config.json', 'w') as f:
-    json.dump({'OPENPIBO_DATA_PATH':'', 'KAKAO_ACCOUNT':''}, f)
