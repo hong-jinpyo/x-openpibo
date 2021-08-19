@@ -6,3 +6,8 @@
   cd x-openpibo
   sudo python3 setup.py install
 </code></pre>
+or
+<pre><code>
+  sudo pip3 install git+https://github.com/themakerrobot/x-openpibo
+</code></pre>
+
