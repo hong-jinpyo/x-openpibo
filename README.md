@@ -5,6 +5,22 @@
 > 코드블럭에서 나타나는 부등호 `< >` 는 변수에 대한 설명이므로 타이핑하지 않습니다.
 >
 
+## INDEX
+- 0. 설치 및 설정
+- 1. 기존 openpibo 대비 변경사항
+  - Class name 변경
+  - 경로 변경
+    - import 경로 변경
+    - data 경로 변경
+  - 파일 구조 변경
+    - data 파일 구조 변경
+    - 라이브러리 구조 변경
+- 2. 추가된 기능
+  - HTML Docs
+  - Process Test
+  - Motion Creator
+  - Device Simulator
+ 
 [TOC]
 
 ## 0. 설치 및 설정
