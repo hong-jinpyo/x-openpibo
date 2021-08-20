@@ -6,8 +6,8 @@
 >
 
 ## INDEX
-- 0. 설치 및 설정
-- 1. 기존 openpibo 대비 변경사항
+- 설치 및 설정
+- 기존 openpibo 대비 변경사항
   - Class name 변경
   - 경로 변경
     - import 경로 변경
@@ -15,13 +15,12 @@
   - 파일 구조 변경
     - data 파일 구조 변경
     - 라이브러리 구조 변경
-- 2. 추가된 기능
+- 추가된 기능
   - HTML Docs
   - Process Test
   - Motion Creator
   - Device Simulator
- 
-[TOC]
+
 
 ## 0. 설치 및 설정
 
@@ -93,23 +92,23 @@
 
    1. 로그인 후 [내 애플리케이션] 클릭
 
-      [![api1](x-openpibo Guide.assets/api1.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api1.png)
+      ![api1](README.assets/api1.png)
 
    2. [애플리케이션 추가하기] 클릭
 
-      [![api2](x-openpibo Guide.assets/api2.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api2.png)
+      ![api2](README.assets/api2.png)
 
    3. 앱 이름 및 사업자명 입력 후 저장
 
-      [![api3](x-openpibo Guide.assets/api3.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api3.png)
+      ![api3](README.assets/api3.png)
 
    4. 새로 생성한 애플리케이션 클릭
 
-      [![api4](x-openpibo Guide.assets/api4.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api4.png)
+      ![api4](README.assets/api4.png)
 
    5. config.py에 발급받은 REST API 키 입력 후, 왼쪽의 [음성] 클릭
 
-      [![api5](x-openpibo Guide.assets/api5.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api5.png)
+      ![api5](README.assets/api5.png)
 
    6. 이후 `/home/pi/config.json`의 `KAKAO_ACCOUNT`에 발급받은 `REST API 키` 입력
 
@@ -123,15 +122,15 @@
    
    7. 활성화 설정의 [OFF] 버튼 클릭
    
-      [![api6](x-openpibo Guide.assets/api6.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api6.png)
+      ![api6](README.assets/api6.png)
    
    8. 사용 목적 입력 후 저장
    
-      [![api7](x-openpibo Guide.assets/api7.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api7.png)
+      ![api7](README.assets/api7.png)
    
    9. 활성화 설정의 상태가 [ON]으로 바뀌면 완료
    
-      [![api8](x-openpibo Guide.assets/api8.png)](https://github.com/themakerrobot/openpibo/blob/master/edu/README_Images/api8.png)
+      ![api8](README.assets/api8.png)
    
 
 
@@ -461,7 +460,7 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > 이후에는 함수 설명 뿐만 아니라 openpibo에 대한 모든 `README.md` 의 내용이 저장 될 것입니다.
 
-![image-20210820093614186](x-openpibo Guide.assets/image-20210820093614186-16294197759991.png)
+![image-20210820093614186](README.assets/htmldoc.png)
 
 
 
@@ -477,7 +476,7 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > 일부 디자인이 변경되었습니다.
 
-![image-20210820110653606](x-openpibo Guide.assets/image-20210820110653606-16294252234392.png)
+![image-20210820110653606](README.assets/processtest.png)
 
 ### Motion Creator
 
@@ -489,7 +488,7 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > python으로 재구성되었으며, 일부 디자인이 변경되었습니다.
 
-![image-20210820111320876](x-openpibo Guide.assets/image-20210820111320876-16294256041283.png)
+![image-20210820111320876](README.assets/motioncreator.png)
 
 ### Device Simulator
 
@@ -497,4 +496,4 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > 디바이스 부품(neopixel, battery, dc, button, pir, touch)을 제어하거나 상태를 확인할 수 있습니다.
 
-![image-20210820112314329](x-openpibo Guide.assets/image-20210820112314329-16294261956234.png)
+![image-20210820112314329](README.assets/devicesimulator.png)
