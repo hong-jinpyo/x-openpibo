@@ -5,7 +5,6 @@ Submodules
 ----------
 
 .. toctree::
-   :maxdepth: 4
 
    openpibo.modules.oled.board
    openpibo.modules.oled.busio
@@ -22,6 +21,6 @@ Module contents
 ---------------
 
 .. automodule:: openpibo.modules.oled
-   :members:
-   :undoc-members:
-   :show-inheritance:
+    :members:
+    :undoc-members:
+    :show-inheritance:

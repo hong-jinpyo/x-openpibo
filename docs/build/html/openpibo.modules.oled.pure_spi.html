@@ -1,164 +1,93 @@
 
+
 <!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openpibo.modules.oled.pure_spi module &mdash; openpibo 0.0.1 documentation</title>
+  
 
-<html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>openpibo.modules.oled.pure_spi module &#8212; openpibo 0.0.1 문서</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/openpibo.modules.oled.pure_spi.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
     <link rel="index" title="색인" href="genindex.html" />
-    <link rel="search" title="검색" href="search.html" />
+    <link rel="search" title="검색" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
           
 
-          <div class="body" role="main">
+          
+            <a href="index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
             
-  <div class="section" id="module-openpibo.modules.oled.pure_spi">
-<span id="openpibo-modules-oled-pure-spi-module"></span><h1>openpibo.modules.oled.pure_spi module<a class="headerlink" href="#module-openpibo.modules.oled.pure_spi" title="이 표제에 대한 퍼머링크">¶</a></h1>
-<div class="section" id="adafruit-pureio-spi">
-<h2><cite>Adafruit_PureIO.spi</cite><a class="headerlink" href="#adafruit-pureio-spi" title="이 표제에 대한 퍼머링크">¶</a></h2>
-<p>Pure python (i.e. no native extensions) access to Linux IO SPI interface that is
-similar to the SpiDev API.
-* Author(s): Melissa LeBlanc-Williams
-Implementation Notes
-——————–
-<strong>Software and Dependencies:</strong>
-* Linux and Python 3.5 or Higher</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.modules.oled.pure_spi.</span></span><span class="sig-name descname"><span class="pre">SPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs_high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lsb_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">three_wire</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class is similar to SpiDev, but instead of opening and closing
-for each call, it is set up on initialization making it fast.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.bits_per_word">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bits_per_word</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.bits_per_word" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Number of bits per word of SPI transfer.
-A value of 0 is equivalent to 8 bits per word</p>
-</dd></dl>
+            
+          
 
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.cs_high">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">cs_high</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.cs_high" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>SPI chip select active level</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.loop">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">loop</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.loop" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>SPI loopback mode</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.lsb_first">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">lsb_first</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.lsb_first" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Bit order of SPI word transfers</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.max_speed_hz">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">max_speed_hz</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.max_speed_hz" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Maximum SPI transfer speed in Hz.
-Note that the controller cannot necessarily assign the requested
-speed.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.mode">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.mode" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Mode that SPI is currently running in</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.no_cs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">no_cs</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.no_cs" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>No chipselect. Single device on bus.</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.phase">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">phase</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.phase" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>SPI clock phase bit</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.polarity">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">polarity</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.polarity" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>SPI polarity bit</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.readbytes">
-<span class="sig-name descname"><span class="pre">readbytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.readbytes" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Perform half-duplex SPI read as a binary string</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.ready">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">ready</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.ready" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Slave pulls low to pause</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.three_wire">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">three_wire</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.three_wire" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>SPI 3-wire mode</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.transfer">
-<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.transfer" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Perform full-duplex SPI transfer</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.writebytes">
-<span class="sig-name descname"><span class="pre">writebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.writebytes" title="이 정의에 대한 퍼머링크">¶</a></dt>
-<dd><p>Perform half-duplex SPI write.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
-
-          </div>
           
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">openpibo</a></h1>
 
-
-
-
-
-
-
-
-<h3>탐색</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="openpibo.edu_v1.html">openpibo.edu_v1 module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="openpibo.audio.html">openpibo.audio module</a></li>
@@ -170,49 +99,222 @@ speed.</p>
 <li class="toctree-l1"><a class="reference internal" href="openpibo.vision.html">openpibo.vision module</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>openpibo.modules.oled.pure_spi module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openpibo.modules.oled.pure_spi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
 </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">빠른 검색</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="이동" />
-    </form>
-    </div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-openpibo.modules.oled.pure_spi">
+<span id="openpibo-modules-oled-pure-spi-module"></span><h1>openpibo.modules.oled.pure_spi module<a class="headerlink" href="#module-openpibo.modules.oled.pure_spi" title="제목 주소">¶</a></h1>
+<div class="section" id="adafruit-pureio-spi">
+<h2><cite>Adafruit_PureIO.spi</cite><a class="headerlink" href="#adafruit-pureio-spi" title="제목 주소">¶</a></h2>
+<p>Pure python (i.e. no native extensions) access to Linux IO SPI interface that is
+similar to the SpiDev API.
+* Author(s): Melissa LeBlanc-Williams
+Implementation Notes
+——————–
+<strong>Software and Dependencies:</strong>
+* Linux and Python 3.5 or Higher</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.modules.oled.pure_spi.</span></span><span class="sig-name descname"><span class="pre">SPI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cs_high</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lsb_first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">three_wire</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_cs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI" title="정의 주소">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is similar to SpiDev, but instead of opening and closing
+for each call, it is set up on initialization making it fast.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.bits_per_word">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bits_per_word</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.bits_per_word" title="정의 주소">¶</a></dt>
+<dd><p>Number of bits per word of SPI transfer.
+A value of 0 is equivalent to 8 bits per word</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.cs_high">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">cs_high</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.cs_high" title="정의 주소">¶</a></dt>
+<dd><p>SPI chip select active level</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.loop">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">loop</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.loop" title="정의 주소">¶</a></dt>
+<dd><p>SPI loopback mode</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.lsb_first">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">lsb_first</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.lsb_first" title="정의 주소">¶</a></dt>
+<dd><p>Bit order of SPI word transfers</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.max_speed_hz">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">max_speed_hz</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.max_speed_hz" title="정의 주소">¶</a></dt>
+<dd><p>Maximum SPI transfer speed in Hz.
+Note that the controller cannot necessarily assign the requested
+speed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.mode">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.mode" title="정의 주소">¶</a></dt>
+<dd><p>Mode that SPI is currently running in</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.no_cs">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">no_cs</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.no_cs" title="정의 주소">¶</a></dt>
+<dd><p>No chipselect. Single device on bus.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.phase">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">phase</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.phase" title="정의 주소">¶</a></dt>
+<dd><p>SPI clock phase bit</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.polarity">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">polarity</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.polarity" title="정의 주소">¶</a></dt>
+<dd><p>SPI polarity bit</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.readbytes">
+<span class="sig-name descname"><span class="pre">readbytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.readbytes" title="정의 주소">¶</a></dt>
+<dd><p>Perform half-duplex SPI read as a binary string</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.ready">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">ready</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.ready" title="정의 주소">¶</a></dt>
+<dd><p>Slave pulls low to pause</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.three_wire">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">three_wire</span></span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.three_wire" title="정의 주소">¶</a></dt>
+<dd><p>SPI 3-wire mode</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.transfer">
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.transfer" title="정의 주소">¶</a></dt>
+<dd><p>Perform full-duplex SPI transfer</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.modules.oled.pure_spi.SPI.writebytes">
+<span class="sig-name descname"><span class="pre">writebytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_speed_hz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bits_per_word</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.modules.oled.pure_spi.SPI.writebytes" title="정의 주소">¶</a></dt>
+<dd><p>Perform half-duplex SPI write.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<script>$('#searchbox').show(0);</script>
+</div>
 
 
+           </div>
+           
+          </div>
+          <footer>
 
+  <hr/>
 
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
 
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-
-
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Circulus.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/openpibo.modules.oled.pure_spi.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
 
-    
+    </section>
 
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-  </body>
+   
+
+</body>
 </html>
