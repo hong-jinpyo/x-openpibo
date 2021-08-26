@@ -476,6 +476,12 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > 일부 디자인이 변경되었습니다.
 
+__사용 방법__
+```python
+cd ~/x-openpibo-tools/process-test
+python3 main.py
+```
+
 ![image-20210820110653606](README.assets/processtest.png)
 
 ### Motion Creator
@@ -488,6 +494,13 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 >
 > python으로 재구성되었으며, 일부 디자인이 변경되었습니다.
 
+__사용 방법__
+```python
+cd ~/x-openpibo-tools/motion-creator
+python3 main.py
+```
+이후 `https://<PIBO IP>:8888`에 접속
+
 ![image-20210820111320876](README.assets/motioncreator.png)
 
 ### Device Simulator
@@ -495,5 +508,12 @@ edu.pibo.Edu_Pibo -> openpibo.edu_v1.Pibo
 > 파이보의 device를 제어할 수 있는 툴 입니다.
 >
 > 디바이스 부품(neopixel, battery, dc, button, pir, touch)을 제어하거나 상태를 확인할 수 있습니다.
+
+__사용 방법__
+```python
+cd ~/x-openpibo-tools/device-test
+python3 main.py
+```
+이후 `https://<PIBO IP>:8888`에 접속
 
 ![image-20210820112314329](README.assets/devicesimulator.png)
