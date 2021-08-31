@@ -6,7 +6,7 @@ import os
 from konlpy.tag import Mecab
 import requests
 from .modules.speech.google_trans_new import google_translator
-from . import kakao_account
+from . import config
 #from google.cloud import speech
 #from google.cloud.speech import enums
 #from google.cloud.speech import types
@@ -24,7 +24,7 @@ def getDiff(aT, bT):
 class Speech:
   def __init__(self):
     self.translator = google_translator()
-    self.kakao_account = kakao_account
+    self.kakao_account = config['KAKAO_ACCOUNT']
 
   def translate(self, string, to='ko'):
     '''curl -v -X POST "https://dapi.kakao.com/v2/translation/translate" \
