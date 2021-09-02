@@ -1,14 +1,12 @@
+import os
+
+HIGH = 1
+LOW = 0
+
 """
 Audio
 -----
 """
-
-
-import os
-
-
-HIGH = 1
-LOW = 0
 
 class Audio:
   """

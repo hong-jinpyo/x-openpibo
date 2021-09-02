@@ -22,6 +22,10 @@ def getDiff(aT, bT):
   return cnt / len(aT)
 
 class Speech:
+  """
+  파이보에서 자연어처리 인공지능 역할을 하는 
+  """
+
   def __init__(self):
     self.translator = google_translator()
     self.kakao_account = config['KAKAO_ACCOUNT']
