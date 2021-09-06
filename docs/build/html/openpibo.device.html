@@ -171,56 +171,97 @@
 <dl class="field-list simple">
 <dt class="field-odd">메시지 상세 설명</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p>VERSION</p>
+<li><p>VERSION (10)</p>
 <ul>
 <li><p>get: 버전정보</p></li>
 </ul>
 </li>
-<li><p>HALT</p>
+<li><p>HALT (11)</p>
 <ul>
-<li><p>set: 전원종료 요청(데이터 필요없음)</p></li>
-<li><p>get: 전원종료 통보</p></li>
+<li><p>set: 전원종료 요청</p></li>
 </ul>
 </li>
-<li><p>DC_CONN</p>
+<li><p>DC_CONN (14)</p>
 <ul>
 <li><p>get: DC잭 연결정보</p></li>
 </ul>
 </li>
-<li><p>BATTERY</p>
+<li><p>BATTERY (15)</p>
 <ul>
 <li><p>get: 배터리정보</p></li>
 </ul>
 </li>
-<li><p>NEOPIXEL</p>
+<li><p>REBOOT (17)</p>
+<ul>
+<li><p>set: device 설정 초기화 요청</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL (20)</p>
 <ul>
 <li><p>data: 255,255,255</p></li>
 <li><p>set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정</p></li>
-<li><p>get: 《ok》</p></li>
 </ul>
 </li>
-<li><p>NEOPIXEL_EACH</p>
+<li><p>NEOPIXEL_FADE (21)</p>
+<ul>
+<li><p>data: 255,255,255</p></li>
+<li><p>set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정 (색상 연속적으로 변경)</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL_BRIGHTNESS (22)</p>
+<ul>
+<li><p>set: 네오픽셀설정 밝기를 설정한다. (기본: 64)</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL_EACH (23)</p>
 <ul>
 <li><p>data: 255,255,255,255,255,255</p></li>
 <li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정</p></li>
-<li><p>get: 《ok》</p></li>
 </ul>
 </li>
-<li><p>PIR</p>
+<li><p>NEOPIXEL_FADE_EACH (24)</p>
 <ul>
-<li><p>data: 《on》 or 《off》</p></li>
-<li><p>set: pir sensor 《on》 (활성화) / 《off》(비활성화)</p></li>
+<li><p>data: 255,255,255,255,255,255</p></li>
+<li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (색상 연속적으로 변경)</p></li>
 </ul>
 </li>
-<li><p>TOUCH</p></li>
-<li><p>SYSTEM</p>
+<li><p>NEOPIXEL_LOOP (25)</p>
+<ul>
+<li><p>data: 10 (delay time)</p></li>
+<li><p>set: 네오픽셀 무지개색으로 일정시간 반복</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL_OFFSET_SET (26)</p>
+<ul>
+<li><p>data: 255,255,255,255,255,255</p></li>
+<li><p>set: 네오픽셀 최댓값 설정 (255,255,0,255,255,0 이면, white로 설정해도 노란색으로 표현됨.)</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL_OFFSET_GET (27)</p>
+<ul>
+<li><p>get: 네오픽셀 오프셋 정보</p></li>
+</ul>
+</li>
+<li><p>NEOPIXEL_EACH_ORG (28)</p>
+<ul>
+<li><p>data: 255,255,255,255,255,255</p></li>
+<li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (OFFSET의 영향을 받지 않음)</p></li>
+</ul>
+</li>
+<li><p>PIR (30)</p>
+<ul>
+<li><p>data: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+<li><p>set: pir sensor <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> (활성화) / <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code> (비활성화)</p></li>
+</ul>
+</li>
+<li><p>SYSTEM (40)</p>
 <ol class="arabic simple">
-<li><p>PIR 감지: 《person》 or 《nobody》</p></li>
-<li><p>Touch 감지: 《touch》 or 《》</p></li>
-<li><p>DC잭 연결감지: 《on》 of 《off》</p></li>
-<li><p>버튼 감지: 《on》 or 《》</p></li>
+<li><p>PIR 감지: <code class="docutils literal notranslate"><span class="pre">&quot;person&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;nobody&quot;</span></code></p></li>
+<li><p>Touch 감지: <code class="docutils literal notranslate"><span class="pre">&quot;touch&quot;</span> <span class="pre">``or</span> <span class="pre">``&quot;&quot;</span></code></p></li>
+<li><p>DC잭 연결감지: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> of <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+<li><p>버튼 감지: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
 <li><p>시스템리셋: not support</p></li>
-<li><p>전원종료: 《on》 or 《》</p></li>
+<li><p>전원종료: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
 </ol>
 </li>
 </ul>
@@ -283,15 +324,16 @@
 <li><p><strong>data</strong> (<em>str</em>) – <p>메시지</p>
 <p><code class="docutils literal notranslate"><span class="pre">code</span></code> 의 값에 따라 데이터의 형식이 다릅니다.</p>
 <ul>
-<li><p>.send_cmd(20, 〈255,255,255〉)</p></li>
-<li><p>.send_cmd(21, 〈255,255,255,10〉)</p></li>
-<li><p>.send_cmd(22, 〈64〉)</p></li>
-<li><p>.send_cmd(23, 〈255,255,255,255,255,255〉)</p></li>
-<li><p>.send_cmd(24, 〈255,255,255,255,255,255,10〉)</p></li>
-<li><p>.send_cmd(25, 〈2〉)</p></li>
-<li><p>.send_cmd(26, 〈255,255,255,255,255,255〉)</p></li>
-<li><p>.send_cmd(28, 〈255,255,255,255,255,255〉)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(20,</span> <span class="pre">'255,255,255')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(21,</span> <span class="pre">'255,255,255,10')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(22,</span> <span class="pre">'64')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(23,</span> <span class="pre">'255,255,255,255,255,255')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(24,</span> <span class="pre">'255,255,255,255,255,255,10')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(25,</span> <span class="pre">'2')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(26,</span> <span class="pre">'255,255,255,255,255,255')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(28,</span> <span class="pre">'255,255,255,255,255,255')</span></code></p></li>
 </ul>
+<p><strong>자세한 설명은 상단 《메시지 상세 설명》 참고하시기 바랍니다</strong></p>
 </p></li>
 </ul>
 </dd>
@@ -313,11 +355,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>raw</strong> (<em>str</em>) – <p>실제 전달되는 메시지</p>
-<p><code class="docutils literal notranslate"><span class="pre">send_cmd</span></code> 의 <strong>code</strong> 와 <strong>data</strong> 를 다음과 같은 형식으로 조합한 메시지를 뜻합니다.:</p>
+<p><code class="docutils literal notranslate"><span class="pre">send_cmd</span></code> 의 <strong>code</strong> 와 <strong>data</strong> 를 다음과 같은 형식으로 조합:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;#</span><span class="si">{code}</span><span class="s2">:</span><span class="si">{data}</span><span class="s2">!&quot;</span>
 </pre></div>
 </div>
-<p>자세한 사항은 <code class="docutils literal notranslate"><span class="pre">send_cmd</span></code> 메서드를 참고하시기 바랍니다.</p>
+<p><strong>자세한 설명은 상단 《메시지 상세 설명》 참고하시기 바랍니다</strong></p>
 </p>
 </dd>
 <dt class="field-even">반환</dt>

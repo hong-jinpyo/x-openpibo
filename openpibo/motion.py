@@ -24,6 +24,18 @@
   * 7번 : ± 35˚
   * 8번 : ± 80˚
   * 9번 : ± 30˚
+
+:모션 프로파일: 모션 데이터가 저장되어있는 JSON형태의 데이터
+
+  기본 모션 프로파일 내 모션 리스트::
+
+    stop, stop_body, sleep, lookup, left, left_half, right, right_half, foward1-2, 
+    backward1-2, step1-2, hifive, cheer1-3, wave1-6, think1-4, wake_up1-3, hey1-2, 
+    yes_h, no_h, breath1-3, breath_long, head_h, spin_h, clapping1-2, hankshaking, 
+    bow, greeting, hand1-4, foot1-2, speak1-2, speak_n1-2, speak_q, speak_r1-2, 
+    speak_l1-2, welcome, happy1-3, excite1-2, boring1-2, sad1-3, handup_r, 
+    handup_l, look_r, look_l, dance1-5, motion_test, test1-4
+    # foward1-2는 forward1, forward2 두 종류가 있음을 의미합니다.
 """
 
 import serial
@@ -50,8 +62,6 @@ class Motion:
 
   def set_profile(self, path):
     """모터 프로파일을 설정합니다.
-
-    모터 프로파일은 각종 모션이 기록되어있는 json 파일입니다.
 
     모션은 **openpibo-tools** 의 **motion_creator** 를 이용해 생성할 수 있습니다.
 
@@ -196,7 +206,7 @@ class Motion:
   def set_motion(self, name, cycle=1):
     """
     모션 프로파일의 동작을 실행하는 ``set_motion_raw`` 메서드를 호출합니다.
-    ``motion_db`` 에서 ``name`` 에 해당하는 **JSON** 형식의 데이터를 불러와 set_motion_raw 메서드에게 넘겨줍니다.
+    ``motion_db`` 에서 ``name`` 에 해당하는 **JSON** 형식의 데이터를 불러와 ``set_motion_raw`` 메서드에게 넘겨줍니다.
 
     example::
 
@@ -229,7 +239,7 @@ class Motion:
     
     :param str exe: 특정 동작을 위한 각 모터의 움직임이 기록된 데이터 입니다.
 
-      다음과 같은 양식을 따릅니다.::
+      다음과 같은 양식을 따릅니다::
 
         {
           "init":[0,0,-70,-25,0,0,0,0,70,25],
@@ -298,10 +308,6 @@ class PyMotion:
   파이보의 움직임을 제어하는 클래스.
 
   ``Motion`` 클래스와의 차이점은, 모터 컨트롤러와 직접 통신한다는 점입니다.
-
-  따라서 주고받는 데이터가 정규화 되어있지 않아, ``Motion`` 클래스에 비해 사용이 어렵습니다.
-
-  파라미터를 받지 않습니다.
 
   example::
 

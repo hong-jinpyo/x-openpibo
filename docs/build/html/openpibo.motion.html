@@ -168,7 +168,7 @@
             
   <div class="section" id="module-openpibo.motion">
 <span id="openpibo-motion-module"></span><h1>openpibo.motion module<a class="headerlink" href="#module-openpibo.motion" title="제목 주소">¶</a></h1>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">모터 번호당 위치</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p>0번 : 〈Right Foot〉</p></li>
@@ -197,6 +197,19 @@
 <li><p>8번 : ± 80˚</p></li>
 <li><p>9번 : ± 30˚</p></li>
 </ul>
+</dd>
+<dt class="field-odd">모션 프로파일</dt>
+<dd class="field-odd"><p>모션 데이터가 저장되어있는 JSON형태의 데이터</p>
+<p>기본 모션 프로파일 내 모션 리스트:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stop</span><span class="p">,</span> <span class="n">stop_body</span><span class="p">,</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">left_half</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">right_half</span><span class="p">,</span> <span class="n">foward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">backward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">step1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hifive</span><span class="p">,</span> <span class="n">cheer1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">wave1</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="n">think1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">wake_up1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">hey1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">yes_h</span><span class="p">,</span> <span class="n">no_h</span><span class="p">,</span> <span class="n">breath1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">breath_long</span><span class="p">,</span> <span class="n">head_h</span><span class="p">,</span> <span class="n">spin_h</span><span class="p">,</span> <span class="n">clapping1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hankshaking</span><span class="p">,</span> 
+<span class="n">bow</span><span class="p">,</span> <span class="n">greeting</span><span class="p">,</span> <span class="n">hand1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">foot1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak_n1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak_q</span><span class="p">,</span> <span class="n">speak_r1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">speak_l1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">welcome</span><span class="p">,</span> <span class="n">happy1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">excite1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">boring1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">sad1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">handup_r</span><span class="p">,</span> 
+<span class="n">handup_l</span><span class="p">,</span> <span class="n">look_r</span><span class="p">,</span> <span class="n">look_l</span><span class="p">,</span> <span class="n">dance1</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">motion_test</span><span class="p">,</span> <span class="n">test1</span><span class="o">-</span><span class="mi">4</span>
+<span class="c1"># foward1-2는 forward1, forward2 두 종류가 있음을 의미합니다.</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 <dl class="py class">
@@ -268,7 +281,7 @@
 <dt class="sig sig-object py" id="openpibo.motion.Motion.set_motion">
 <span class="sig-name descname"><span class="pre">set_motion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.motion.Motion.set_motion" title="정의 주소">¶</a></dt>
 <dd><p>모션 프로파일의 동작을 실행하는 <code class="docutils literal notranslate"><span class="pre">set_motion_raw</span></code> 메서드를 호출합니다.
-<code class="docutils literal notranslate"><span class="pre">motion_db</span></code> 에서 <code class="docutils literal notranslate"><span class="pre">name</span></code> 에 해당하는 <strong>JSON</strong> 형식의 데이터를 불러와 set_motion_raw 메서드에게 넘겨줍니다.</p>
+<code class="docutils literal notranslate"><span class="pre">motion_db</span></code> 에서 <code class="docutils literal notranslate"><span class="pre">name</span></code> 에 해당하는 <strong>JSON</strong> 형식의 데이터를 불러와 <code class="docutils literal notranslate"><span class="pre">set_motion_raw</span></code> 메서드에게 넘겨줍니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_motion</span><span class="p">(</span><span class="s1">&#39;dance1&#39;</span><span class="p">)</span>
 </pre></div>
@@ -301,7 +314,7 @@
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>exe</strong> (<em>str</em>) – <p>특정 동작을 위한 각 모터의 움직임이 기록된 데이터 입니다.</p>
-<p>다음과 같은 양식을 따릅니다.:</p>
+<p>다음과 같은 양식을 따릅니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="s2">&quot;init&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">25</span><span class="p">],</span>
   <span class="s2">&quot;pos&quot;</span><span class="p">:[</span>
@@ -373,7 +386,6 @@
 <dt class="sig sig-object py" id="openpibo.motion.Motion.set_profile">
 <span class="sig-name descname"><span class="pre">set_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.motion.Motion.set_profile" title="정의 주소">¶</a></dt>
 <dd><p>모터 프로파일을 설정합니다.</p>
-<p>모터 프로파일은 각종 모션이 기록되어있는 json 파일입니다.</p>
 <p>모션은 <strong>openpibo-tools</strong> 의 <strong>motion_creator</strong> 를 이용해 생성할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;/data/models/motion_db.json&#39;</span><span class="p">)</span>
@@ -443,8 +455,6 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>파이보의 움직임을 제어하는 클래스.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Motion</span></code> 클래스와의 차이점은, 모터 컨트롤러와 직접 통신한다는 점입니다.</p>
-<p>따라서 주고받는 데이터가 정규화 되어있지 않아, <code class="docutils literal notranslate"><span class="pre">Motion</span></code> 클래스에 비해 사용이 어렵습니다.</p>
-<p>파라미터를 받지 않습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_pymotion</span> <span class="o">=</span> <span class="n">PyMotion</span><span class="p">()</span>
 </pre></div>
