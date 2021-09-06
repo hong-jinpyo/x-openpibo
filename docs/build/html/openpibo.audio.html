@@ -168,12 +168,12 @@
             
   <div class="section" id="module-openpibo.audio">
 <span id="openpibo-audio-module"></span><h1>openpibo.audio module<a class="headerlink" href="#module-openpibo.audio" title="제목 주소">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">mp3</span></code> , <code class="docutils literal notranslate"><span class="pre">wav</span></code> 파일을 재생 및 정지합니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.audio.Audio">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.audio.</span></span><span class="sig-name descname"><span class="pre">Audio</span></span><a class="headerlink" href="#openpibo.audio.Audio" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보의 오디오를 컨트롤 하는 클래스.</p>
-<p>파라미터를 받지 않습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mp3</span></code> , <code class="docutils literal notranslate"><span class="pre">wav</span></code> 파일을 재생 및 정지합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">()</span>
 </pre></div>
@@ -196,9 +196,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.audio.Audio.play">
 <span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-2000'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.audio.Audio.play" title="정의 주소">¶</a></dt>
-<dd><p>입력한 경로의 파일을 재생합니다.</p>
+<dd><p><code class="docutils literal notranslate"><span class="pre">mp3</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">wav</span></code> 파일을 재생합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/data/audio/opening.mp3&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../test.mp3&#39;</span><span class="p">,</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;-2000&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -207,13 +207,13 @@
 <li><p><strong>filename</strong> (<em>str</em>) – <p>재생할 파일의 경로.</p>
 <p><code class="docutils literal notranslate"><span class="pre">mp3</span></code> 와 <code class="docutils literal notranslate"><span class="pre">wav</span></code> 형식을 지원합니다.</p>
 </p></li>
-<li><p><strong>out</strong> (<em>str</em>) – <p>어느 포트에서 재생할지 선택합니다.</p>
+<li><p><strong>out</strong> (<em>str</em>) – <p>출력 대상을 설정합니다.</p>
 <p><code class="docutils literal notranslate"><span class="pre">local</span></code>, <code class="docutils literal notranslate"><span class="pre">hdmi</span></code>, <code class="docutils literal notranslate"><span class="pre">both</span></code> 만 입력할 수 있습니다.</p>
 <p>(default: <code class="docutils literal notranslate"><span class="pre">local</span></code>)</p>
 </p></li>
-<li><p><strong>volume</strong> (<em>str</em><em> or </em><em>int</em>) – <p>볼륨을 설정합니다.</p>
-<p>단위는 mdB 이고, 값이 커질수록 볼륨이 커집니다.</p>
-<p>해당 값을 양수로 키우면 볼륨이 매우 커지므로 음수로 사용하는 것을 권장합니다.</p>
+<li><p><strong>volume</strong> (<em>str</em><em> or </em><em>int</em>) – <p>음량을 설정합니다.</p>
+<p>단위는 <code class="docutils literal notranslate"><span class="pre">mdB</span></code> 이고, 값이 커질수록 음량이 커집니다.</p>
+<p>음량이 매우 크므로 <code class="docutils literal notranslate"><span class="pre">-2000</span></code> 정도로 사용하는 것을 권장합니다.</p>
 <p>(default: <code class="docutils literal notranslate"><span class="pre">-2000</span></code>)</p>
 </p></li>
 <li><p><strong>background</strong> (<em>bool</em>) – <p>오디오 파일을 백그라운드에서 실행할지 여부를 결정합니다.</p>
@@ -231,15 +231,13 @@
 <dt class="sig sig-object py" id="openpibo.audio.Audio.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.audio.Audio.stop" title="정의 주소">¶</a></dt>
 <dd><p>background에서 재생중인 오디오를 정지합니다.</p>
-<p>파라미터를 받지 않습니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="openpibo.audio.LOW">
-<span class="sig-prename descclassname"><span class="pre">openpibo.audio.</span></span><span class="sig-name descname"><span class="pre">LOW</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#openpibo.audio.LOW" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 

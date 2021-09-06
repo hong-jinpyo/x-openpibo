@@ -34,14 +34,11 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 
 class Motion:
   """
-  파이보의 움직임을 제어하는 클래스.
-
-  파라미터를 받지 않습니다.
+  파이보의 움직임을 제어합니다.
 
   example::
 
     pibo_motion = Motion()
-  
   """
 
   def __init__(self):
@@ -55,6 +52,7 @@ class Motion:
     """모터 프로파일을 설정합니다.
 
     모터 프로파일은 각종 모션이 기록되어있는 json 파일입니다.
+
     모션은 **openpibo-tools** 의 **motion_creator** 를 이용해 생성할 수 있습니다.
 
     example::
@@ -87,7 +85,7 @@ class Motion:
 
     os.system("servo write {} {}".format(no, position*10))
 
-  def set_motors(self, positions, movetime=None): # pos array
+  def set_motors(self, positions, movetime=None):
     """전체 모터를 특정 위치로 이동합니다.
 
     example::
@@ -98,7 +96,9 @@ class Motion:
     
     :param int movetime: 모터 이동 시간(ms)
     
-      50ms 단위, 모터가 정해진 위치까지 이동하는 시간(모터컨드롤러와의 overhead문제로 정밀하지는 않음)"""
+      50ms 단위, 모터가 정해진 위치까지 이동하는 시간
+      
+      (모터컨드롤러와의 overhead문제로 정밀하지는 않음)"""
 
     mpos = [positions[i]*10 for i in range(len(positions))]
     
@@ -299,7 +299,7 @@ class PyMotion:
 
   ``Motion`` 클래스와의 차이점은, 모터 컨트롤러와 직접 통신한다는 점입니다.
 
-  따라서 주고받는 데이터가 정규화 되어있지 않아, Motion 클래스에 비해 사용이 어렵습니다.
+  따라서 주고받는 데이터가 정규화 되어있지 않아, ``Motion`` 클래스에 비해 사용이 어렵습니다.
 
   파라미터를 받지 않습니다.
 
@@ -334,6 +334,8 @@ class PyMotion:
     :param int degree: 모터 각도. -80~80 사이의 정수입니다.
     
       자세한 범위는 상단의 ``모터 제한각도`` 를 참고해주세요.
+
+    :returns: ``True`` / ``False``
     """
 
     ret = True
@@ -359,6 +361,8 @@ class PyMotion:
     :param list d_lst: 0~9번 모터각도.
     
       **d_lst** 에 들어가는 범위는 상단의 ``모터 제한각도`` 와 같습니다.
+
+    :returns: ``True`` / ``False``
     """
 
     ret = True
@@ -387,6 +391,8 @@ class PyMotion:
     :param int n: 모터 번호. 0~9 정수입니다.
 
     :param int val: 모터 속도. 0~255 정수입니다.
+
+    :returns: ``True`` / ``False``
     """
 
     ret = True
@@ -411,6 +417,8 @@ class PyMotion:
     :param int n: 모터 번호. 0~9 정수입니다.
 
     :param int val: 모터 가속도. 0~255 정수입니다.
+    
+    :returns: ``True`` / ``False``
     """
 
     ret = True
@@ -431,6 +439,8 @@ class PyMotion:
     example::
 
       pibo_pymotion.set_init()
+
+    :returns: ``True`` / ``False``
     """
 
     ret = True

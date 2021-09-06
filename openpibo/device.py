@@ -1,66 +1,64 @@
+"""
+:메시지 상세 설명:
+
+  * VERSION
+
+    * get: 버전정보
+
+  * HALT
+
+    * set: 전원종료 요청(데이터 필요없음)
+    * get: 전원종료 통보
+
+  * DC_CONN
+
+    * get: DC잭 연결정보
+
+  * BATTERY
+
+    * get: 배터리정보
+
+  * NEOPIXEL
+  
+    * data: 255,255,255
+    * set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정
+    * get: "ok"
+
+  * NEOPIXEL_EACH
+  
+    * data: 255,255,255,255,255,255
+    * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정
+    * get: "ok"
+    
+  * PIR
+  
+    * data: "on" or "off"
+    * set: pir sensor "on" (활성화) / "off"(비활성화)
+
+  * TOUCH
+
+  * SYSTEM
+  
+    1. PIR 감지: "person" or "nobody"
+    #. Touch 감지: "touch" or ""
+    #. DC잭 연결감지: "on" of "off"
+    #. 버튼 감지: "on" or ""
+    #. 시스템리셋: not support
+    #. 전원종료: "on" or ""
+"""
+
 import serial
 import time
 from threading import Lock
 
-"""
-Device
-------
-"""
 
 class Device:
   """
-  파이보의 여러가지 상태를 체크하거나, 눈 색깔을 컨트롤 할 수 있는 클래스.
-
-  파라미터를 받지 않습니다.
+  파이보의 여러가지 상태를 체크하거나, 눈 색깔을 제어합니다.
 
   example::
 
     pibo_device = Device()
-
-  :메시지 상세 설명:
-
-    * Device.VERSION
-
-    * get: 버전정보
-
-      * Device.HALT
-
-    * set: 전원종료 요청(데이터 필요없음)
-
-      * get: 전원종료 통보
-      * Device.DC_CONN
-
-    * get: DC잭 연결정보
-
-      * Device.BATTERY
-
-    * get: 배터리정보
-
-      * Device.NEOPIXEL / data: 255,255,255
-
-    * set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정
-
-      * get: "ok"
-      * Device.NEOPIXEL_EACH / data: 255,255,255,255,255,255
-
-    * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정
-
-      * get: "ok"
-      * Device.PIR / data: "on" or "off"
-
-    * set: pir sensor "on"(활성화)/"off"(비활성화)
-
-      * Device.TOUCH
-
-    * Device.SYSTEM / data: (1)-(2)-(3)-(4)-(5)-(6)
-
-      * PIR 감지: "person" or "nobody"
-      * Touch 감지: "touch" or ""
-      * DC잭 연결감지: "on" of "off"
-      * 버튼 감지: "on" or ""
-      * 시스템리셋: not support
-      * 전원종료: "on" or ""
-
   """
   def __init__(self):
     """Device 클래스를 초기화합니다."""
@@ -84,7 +82,7 @@ class Device:
     """
     Device가 사용 중인지 확인합니다.
 
-    :returns bool: ``True`` / ``False``
+    :returns: ``True`` / ``False``
     """
 
     return self.lock.locked()
@@ -152,9 +150,9 @@ class Device:
 
         "#{code}:{data}!"
 
-      자세한 사항은 ``send_cmd`` 의 문서를 참고하시기 바랍니다.
+      자세한 사항은 ``send_cmd`` 메서드를 참고하시기 바랍니다.
     
-    :returns str: Device로부터 받은 응답
+    :returns: Device로부터 받은 응답
     """
     if self.lock.locked() == True:
       return False

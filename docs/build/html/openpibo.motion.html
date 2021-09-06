@@ -203,8 +203,7 @@
 <dt class="sig sig-object py" id="openpibo.motion.Motion">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.motion.</span></span><span class="sig-name descname"><span class="pre">Motion</span></span><a class="headerlink" href="#openpibo.motion.Motion" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보의 움직임을 제어하는 클래스.</p>
-<p>파라미터를 받지 않습니다.</p>
+<p>파이보의 움직임을 제어합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span> <span class="o">=</span> <span class="n">Motion</span><span class="p">()</span>
 </pre></div>
@@ -362,7 +361,8 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>position</strong> (<em>list</em>) – 0-9번 모터 각도 배열</p></li>
 <li><p><strong>movetime</strong> (<em>int</em>) – <p>모터 이동 시간(ms)</p>
-<p>50ms 단위, 모터가 정해진 위치까지 이동하는 시간(모터컨드롤러와의 overhead문제로 정밀하지는 않음)</p>
+<p>50ms 단위, 모터가 정해진 위치까지 이동하는 시간</p>
+<p>(모터컨드롤러와의 overhead문제로 정밀하지는 않음)</p>
 </p></li>
 </ul>
 </dd>
@@ -373,8 +373,8 @@
 <dt class="sig sig-object py" id="openpibo.motion.Motion.set_profile">
 <span class="sig-name descname"><span class="pre">set_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.motion.Motion.set_profile" title="정의 주소">¶</a></dt>
 <dd><p>모터 프로파일을 설정합니다.</p>
-<p>모터 프로파일은 각종 모션이 기록되어있는 json 파일입니다.
-모션은 <strong>openpibo-tools</strong> 의 <strong>motion_creator</strong> 를 이용해 생성할 수 있습니다.</p>
+<p>모터 프로파일은 각종 모션이 기록되어있는 json 파일입니다.</p>
+<p>모션은 <strong>openpibo-tools</strong> 의 <strong>motion_creator</strong> 를 이용해 생성할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;/data/models/motion_db.json&#39;</span><span class="p">)</span>
 </pre></div>
@@ -443,7 +443,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>파이보의 움직임을 제어하는 클래스.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Motion</span></code> 클래스와의 차이점은, 모터 컨트롤러와 직접 통신한다는 점입니다.</p>
-<p>따라서 주고받는 데이터가 정규화 되어있지 않아, Motion 클래스에 비해 사용이 어렵습니다.</p>
+<p>따라서 주고받는 데이터가 정규화 되어있지 않아, <code class="docutils literal notranslate"><span class="pre">Motion</span></code> 클래스에 비해 사용이 어렵습니다.</p>
 <p>파라미터를 받지 않습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_pymotion</span> <span class="o">=</span> <span class="n">PyMotion</span><span class="p">()</span>
@@ -464,6 +464,9 @@
 <li><p><strong>val</strong> (<em>int</em>) – 모터 가속도. 0~255 정수입니다.</p></li>
 </ul>
 </dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -475,6 +478,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_pymotion</span><span class="o">.</span><span class="n">set_init</span><span class="p">()</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">반환</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -494,6 +502,9 @@
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -510,6 +521,9 @@
 <dd class="field-odd"><p><strong>d_lst</strong> (<em>list</em>) – <p>0~9번 모터각도.</p>
 <p><strong>d_lst</strong> 에 들어가는 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한각도</span></code> 와 같습니다.</p>
 </p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -528,6 +542,9 @@
 <li><p><strong>n</strong> (<em>int</em>) – 모터 번호. 0~9 정수입니다.</p></li>
 <li><p><strong>val</strong> (<em>int</em>) – 모터 속도. 0~255 정수입니다.</p></li>
 </ul>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
 </dl>
 </dd></dl>

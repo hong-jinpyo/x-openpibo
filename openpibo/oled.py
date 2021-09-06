@@ -7,16 +7,18 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 
 class Oled:
   """
-  파이보의 OLED를 컨트롤 하는 클래스.
+  파이보의 OLED를 통해 다양한 그림을 표현합니다.
 
-  파라미터를 받지 않습니다.
+  * 사진 보기
+  * 글자 나타내기
+  * 도형 그리기
 
   example::
 
     pibo_oled = Oled()
   """
 
-  def __init__(self, conf=None):
+  def __init__(self):
     """
     Oled 클래스를 초기화
     """
@@ -68,9 +70,9 @@ class Oled:
 
       pibo_oled.draw_text((10, 10), '안녕하세요!')
 
-    :param tuple points: 문자열 좌측/상단 좌표 (x, y)
+    :param tuple(int, int) points: 문자열 좌측상단 좌표 (x, y)
 
-    :param str text: 문자영 내용
+    :param str text: 문자열 내용
     """
 
     draw = ImageDraw.Draw(self.image)
@@ -93,11 +95,17 @@ class Oled:
 
   def draw_data(self, img):
     """
-    배열을 입력받아 이미지로 변환합니다.
+    numpy 이미지 데이터를 입력받아 이미지로 변환합니다.
 
-    배열 형태인 카메라 출력값을 OLED화면에 띄우기 위해 사용됩니다.
+    카메라 출력값을 OLED화면에 띄우기 위해 사용됩니다.
 
-    :param list img: 이미지 정보를 담고있는 배열
+    example::
+
+      img = pibo_camera.read(128, 64)
+      pibo.draw_data(img)
+      pibo.show()
+
+    :param numpy.ndarray img: 이미지 객체
     """
     self.image = Image.fromarray(img).convert('1')
 
@@ -109,7 +117,7 @@ class Oled:
 
       pibo_oled.draw_rectangle((10, 10, 80, 40), True)
     
-    :param tuple points: 사각형의 좌측/상단 좌표, 사각형의 우측/하단 좌표 (x, y, x1, y1)
+    :param tuple points: 사각형의 좌측상단 좌표, 사각형의 우측하단 좌표 (x, y, x1, y1)
     
     :param bool fill: 채움.
 
@@ -128,7 +136,7 @@ class Oled:
 
       pibo_oled.draw_ellipse((10, 10, 80, 40), False)
 
-    :param tuple points: 원을 둘러 싼 사각형의 좌측/상단 좌표, 사각형의 우측/하단 자표 (x, y, x1, y1)
+    :param tuple points: 원을 둘러 싼 사각형의 좌측상단 좌표, 사각형의 우측하단 자표 (x, y, x1, y1)
 
     :param bool fill: 채움.
 
@@ -174,8 +182,9 @@ class Oled:
     
     example::
     
-      pibo_oled.shoe()
+      pibo_oled.show()
     """
+    
     self.oled.image(self.image)
     self.oled.show()
  
@@ -187,6 +196,7 @@ class Oled:
     
       pibo_oled.clear()
     """
+
     self.image = Image.new("1", (self.width, self.height))
     self.oled.fill(0)
     self.oled.show()
@@ -195,10 +205,19 @@ class Oled:
     """
     이미지의 크기를 확인합니다.
 
-    주로 128x64 크기인지 확인하기 위해 사용됩니다.
+    주로 oled의 크기인 128x64 사이즈인지 확인하기 위해 사용됩니다.
 
     example::
 
       pibo_oled.size_check('/home/pi/.../image.png')
+    
+    :param str filename: 확인 할 파일 경로
+
+    :returns: 이미지의 크기
+
+      tuple 타입 입니다.
+
+      ``(y축 길이, x축 길이, 채널 수)`` 로 표현됩니다.
     """
+
     return cv2.imread(filename).shape

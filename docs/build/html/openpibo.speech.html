@@ -168,29 +168,93 @@
             
   <div class="section" id="module-openpibo.speech">
 <span id="openpibo-speech-module"></span><h1>openpibo.speech module<a class="headerlink" href="#module-openpibo.speech" title="제목 주소">¶</a></h1>
+<p>Kakao 음성 API를 사용하여 PIBO에 장착되어 있는 마이크와 스피커를 통해 사람의 음성 언어를 인식하거나 합성할 수 있습니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.speech.Dialog">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Dialog</span></span><a class="headerlink" href="#openpibo.speech.Dialog" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다.</p>
+<ul class="simple">
+<li><p>형태소 및 명사 분석</p></li>
+<li><p>챗봇 기능</p></li>
+</ul>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Dialog.get_dialog">
 <span class="sig-name descname"><span class="pre">get_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.get_dialog" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>일상대화에 대한 답을 추출합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span><span class="o">.</span><span class="n">get_dialog</span><span class="p">(</span><span class="s1">&#39;나랑 같이 놀자&#39;</span><span class="p">)</span>
+<span class="c1"># &#39;지금 그러고 있어요.&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_morphs">
 <span class="sig-name descname"><span class="pre">mecab_morphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_morphs" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>형태소를 morphs모드로 추출합니다.</p>
+<p>exmaple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span><span class="o">.</span><span class="n">mecab_morphs</span><span class="p">(</span><span class="s1">&#39;아버지가 방에 들어가셨다.&#39;</span><span class="p">)</span>
+<span class="c1"># [&#39;아버지&#39;, &#39;가&#39;, &#39;방&#39;, &#39;에&#39;, &#39;들어가&#39;, &#39;셨&#39;, &#39;다&#39;, &#39;.&#39;]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><p>분석한 결과</p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_nouns">
 <span class="sig-name descname"><span class="pre">mecab_nouns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_nouns" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>명사를 추출합니다.</p>
+<p>exmaple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span><span class="o">.</span><span class="n">mecab_nouns</span><span class="p">(</span><span class="s1">&#39;아버지가 방에 들어가셨다.&#39;</span><span class="p">)</span>
+<span class="c1"># [&#39;아버지&#39;, &#39;방&#39;]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><p>분석한 결과</p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Dialog.mecab_pos">
 <span class="sig-name descname"><span class="pre">mecab_pos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Dialog.mecab_pos" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>형태소를 pos모드로 추출합니다.</p>
+<p>exmaple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span><span class="o">.</span><span class="n">mecab_pos</span><span class="p">(</span><span class="s1">&#39;아버지가 방에 들어가셨다.&#39;</span><span class="p">)</span>
+<span class="c1"># [(&#39;아버지&#39;, &#39;NNG&#39;), (&#39;가&#39;, &#39;JKS&#39;), (&#39;방&#39;, &#39;NNG&#39;), (&#39;에&#39;, &#39;JKB&#39;), (&#39;들어가&#39;, &#39;VV&#39;), (&#39;셨&#39;, &#39;EP+EP&#39;), (&#39;다&#39;, &#39;EF&#39;), (&#39;.&#39;, &#39;SF&#39;)]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><p>분석한 결과</p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -198,24 +262,78 @@
 <dt class="sig sig-object py" id="openpibo.speech.Speech">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Speech</span></span><a class="headerlink" href="#openpibo.speech.Speech" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보에서 자연어처리 인공지능 역할을 하는</p>
+<p>파이보에서 말과 관련된 자연어처리 기능을 하는 클래스 입니다.</p>
+<ul class="simple">
+<li><p>번역 (한국어, 영어)</p></li>
+<li><p>TTS (Text to Speech)</p></li>
+<li><p>STT (Speech to Text)</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">config.json</span></code> 의 KAKAO_ACCOUNT에 본인의 <code class="docutils literal notranslate"><span class="pre">KAKAO</span> <span class="pre">REST</span> <span class="pre">API</span> <span class="pre">KEY</span></code> 를 입력해야 사용할 수 있습니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span> <span class="o">=</span> <span class="n">Speech</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Speech.stt">
 <span class="sig-name descname"><span class="pre">stt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stream.wav'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.stt" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>STT(Speech to Speech)</p>
+<p>Speech(말)을 Speech(문자)로 변환합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> 초 동안 녹음 후 <code class="docutils literal notranslate"><span class="pre">filename</span></code> 의 이름으로 저장하고, 이를 텍스트변환하여 출력합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">stt</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../stream.wav&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – 저장할 파일 이름</p></li>
+<li><p><strong>timeout</strong> (<em>int</em>) – 녹음할 시간(s)</p></li>
+</ul>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Speech.translate">
 <span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ko'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.translate" title="정의 주소">¶</a></dt>
-<dd><p>curl -v -X POST 《<a class="reference external" href="https://dapi.kakao.com/v2/translation/translate">https://dapi.kakao.com/v2/translation/translate</a>》     -d 《src_lang=kr》     -d 《target_lang=en》     –data-urlencode 《query=지난해 3월 오픈한 카카오톡 주문하기는 현재까지 약 250만명의 회원을 확보했으며, 주문 가능한 프랜차이즈 브랜드는 38개, 가맹점수는 약 1만 5천여곳에 달한다. 전 국민에게 친숙한 카카오톡 UI를 활용하기 때문에 남녀노소 누구나 쉽게 이용할 수 있으며, 별도의 앱을 설치할 필요 없이 카카오톡 내에서 모든 과정이 이뤄지는 것이 특징이다. 지난해 9월 업계 최초로 날짜와 시간을 예약한 뒤 설정한 매장에서 주문 음식을 찾아가는 ‘픽업’ 기능을 도입했고, 올해 1월 스마트스피커 ‘카카오미니’에서 음성을 통해 주문 가능한 메뉴를 안내받을 수 있도록 서비스를 연동하며 차별화를 꾀했다. 중소사업자들이 카카오톡 주문하기에 입점하게 되면 4,300만 카카오톡 이용자들과의 접점을 확보하고, 간편한 주문 과정으로 만족도를 높일 수 있게 된다. 카카오톡 메시지를 통해 신메뉴 출시, 프로모션 등의 소식을 전달할 수 있고, 일대일 채팅 기능을 적용하면 고객과 직접 상담도 가능하다.》     -H 《Authorization: KakaoAK {REST_API_KEY}》</p>
+<dd><p>구글 번역기를 이용해서 문장을 번역합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 정말 반가워요!&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+<span class="c1"># &quot;Hello! I&#39;m really happy to meet you!&quot;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) – 번역할 문장</p></li>
+<li><p><strong>to</strong> (<em>str</em>) – <p>번역될 언어</p>
+<p><code class="docutils literal notranslate"><span class="pre">en</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">ko</span></code></p>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Speech.tts">
-<span class="sig-name descname"><span class="pre">tts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tts.mp3'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ko'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.tts" title="정의 주소">¶</a></dt>
-<dd><p>curl -v 《<a class="reference external" href="https://kakaoi-newtone-openapi.kakao.com/v1/synthesize">https://kakaoi-newtone-openapi.kakao.com/v1/synthesize</a>》     -H 《Content-Type: application/xml》     -H 《Authorization: KakaoAK API_KEY》     -d 〈&lt;speak&gt; 그는 그렇게 말했습니다.
-&lt;voice name=》MAN_DIALOG_BRIGHT》&gt;잘 지냈어? 나도 잘 지냈어.&lt;/voice&gt;
-&lt;voice name=》WOMAN_DIALOG_BRIGHT》 speechStyle=》SS_ALT_FAST_1》&gt;금요일이 좋아요.&lt;/voice&gt; &lt;/speak&gt;〉 &gt; result.mp3</p>
+<span class="sig-name descname"><span class="pre">tts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tts.mp3'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.tts" title="정의 주소">¶</a></dt>
+<dd><p>TTS(Speech to Speech)</p>
+<p>Speech(문자)를 Speech(말)로 변환합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 반가워요!&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/pi/.../tts.mp3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) – 변환할 문구</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – 변환된 음성파일의 경로</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -223,7 +341,8 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="openpibo.speech.getDiff">
 <span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">getDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.getDiff" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>숨길까?</p>
+</dd></dl>
 
 </div>
 

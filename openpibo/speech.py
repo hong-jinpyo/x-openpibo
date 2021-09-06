@@ -1,3 +1,7 @@
+"""
+Kakao 음성 API를 사용하여 PIBO에 장착되어 있는 마이크와 스피커를 통해 사람의 음성 언어를 인식하거나 합성할 수 있습니다.
+"""
+
 import csv
 import random
 #import io
@@ -14,6 +18,7 @@ current_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def getDiff(aT, bT):
+  """숨길까?"""
   cnt = 0
   for i in aT:
     for j in bT:
@@ -23,7 +28,17 @@ def getDiff(aT, bT):
 
 class Speech:
   """
-  파이보에서 자연어처리 인공지능 역할을 하는 
+  파이보에서 말과 관련된 자연어처리 기능을 하는 클래스 입니다.
+
+  * 번역 (한국어, 영어)
+  * TTS (Text to Speech)
+  * STT (Speech to Text)
+
+  ``config.json`` 의 KAKAO_ACCOUNT에 본인의 ``KAKAO REST API KEY`` 를 입력해야 사용할 수 있습니다.
+
+  example::
+
+    pibo_speech = Speech()
   """
 
   def __init__(self):
@@ -31,6 +46,21 @@ class Speech:
     self.kakao_account = config['KAKAO_ACCOUNT']
 
   def translate(self, string, to='ko'):
+    """
+    구글 번역기를 이용해서 문장을 번역합니다.
+
+    example::
+
+      pibo_speech.translate('안녕하세요! 만나서 정말 반가워요!', to='ko')
+      # "Hello! I'm really happy to meet you!"
+
+    :param str string: 번역할 문장
+
+    :param str to: 번역될 언어
+
+      ``en`` 또는 ``ko``
+    """
+
     '''curl -v -X POST "https://dapi.kakao.com/v2/translation/translate" \
     -d "src_lang=kr" \
     -d "target_lang=en" \
@@ -54,13 +84,28 @@ class Speech:
     return result['value']'''
     return self.translator.translate(string, lang_tgt=to)
 
-  def tts(self, string, filename="tts.mp3", lang="ko"):
+  def tts(self, string, filename="tts.mp3"):
+    """
+    TTS(Speech to Speech)
+    
+    Speech(문자)를 Speech(말)로 변환합니다.
+
+    example::
+
+      pibo_speech.tts('안녕하세요! 만나서 반가워요!', '/home/pi/.../tts.mp3')
+    
+    :param str string: 변환할 문구
+
+    :param str filename: 변환된 음성파일의 경로
+    """
+
     '''curl -v "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize" \
     -H "Content-Type: application/xml" \
     -H "Authorization: KakaoAK API_KEY" \
     -d '<speak> 그는 그렇게 말했습니다.
     <voice name="MAN_DIALOG_BRIGHT">잘 지냈어? 나도 잘 지냈어.</voice>
     <voice name="WOMAN_DIALOG_BRIGHT" speechStyle="SS_ALT_FAST_1">금요일이 좋아요.</voice> </speak>' > result.mp3'''
+
     url = "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize"
     headers = {
       'Content-Type': 'application/xml',
@@ -71,6 +116,24 @@ class Speech:
       f.write(r.content)
 
   def stt(self, filename="stream.wav", timeout=5):
+    """
+    STT(Speech to Speech)
+    
+    Speech(말)을 Speech(문자)로 변환합니다.
+
+    ``timeout`` 초 동안 녹음 후 ``filename`` 의 이름으로 저장하고, 이를 텍스트변환하여 출력합니다.
+
+    example::
+
+      pibo_speech.stt('/home/pi/.../stream.wav', 5)
+
+    :param str filename: 저장할 파일 이름
+
+    :param int timeout: 녹음할 시간(s)
+  
+    :returns: ``True`` / ``False``
+    """
+
     cmd = "arecord -D dmic_sv -c2 -r 16000 -f S32_LE -d {} -t wav -q -vv -V streo stream.raw;sox stream.raw -c 1 -b 16 stream.wav;rm stream.raw".format(timeout)
     os.system(cmd)
 
@@ -95,6 +158,17 @@ class Speech:
     return result['value']
 
 class Dialog:
+  """
+  파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다.
+
+  * 형태소 및 명사 분석
+  * 챗봇 기능
+
+  example::
+
+    pibo_dialog = Dialog()
+  """
+
   def __init__(self):
     self.dialog_path = current_path+"/data/models/dialog.csv"
     self.mecab = Mecab()
@@ -103,17 +177,71 @@ class Dialog:
       rdr = csv.reader(f)
       self.dialog_db = [[self.mecab_morphs(line[0]), line[1], line[2]]for line in rdr]
 
-  # mecab function
   def mecab_pos(self, string):
+    """
+    형태소를 pos모드로 추출합니다.
+
+    exmaple::
+
+      pibo_dialog.mecab_pos('아버지가 방에 들어가셨다.')
+      # [('아버지', 'NNG'), ('가', 'JKS'), ('방', 'NNG'), ('에', 'JKB'), ('들어가', 'VV'), ('셨', 'EP+EP'), ('다', 'EF'), ('.', 'SF')]
+    
+    :param str string: 분석할 문장 (한글)
+
+    :returns: 분석한 결과
+
+      ``list`` 타입 입니다.
+    """
+
     return self.mecab.pos(string)
 
   def mecab_morphs(self, string):
+
+    """
+    형태소를 morphs모드로 추출합니다.
+
+    exmaple::
+
+      pibo_dialog.mecab_morphs('아버지가 방에 들어가셨다.')
+      # ['아버지', '가', '방', '에', '들어가', '셨', '다', '.']
+    
+    :param str string: 분석할 문장 (한글)
+
+    :returns: 분석한 결과
+
+      ``list`` 타입 입니다.
+    """
+
     return self.mecab.morphs(string)
 
   def mecab_nouns(self, string):
+
+    """
+    명사를 추출합니다.
+
+    exmaple::
+
+      pibo_dialog.mecab_nouns('아버지가 방에 들어가셨다.')
+      # ['아버지', '방']
+    
+    :param str string: 분석할 문장 (한글)
+
+    :returns: 분석한 결과
+
+      ``list`` 타입 입니다.
+    """
     return self.mecab.nouns(string)
 
   def get_dialog(self, q):
+    """
+    일상대화에 대한 답을 추출합니다.
+
+    example::
+
+      pibo_dialog.get_dialog('나랑 같이 놀자')
+      # '지금 그러고 있어요.'
+    """
+
     max_acc = 0
     max_ans = []
     c = self.mecab_morphs(q)

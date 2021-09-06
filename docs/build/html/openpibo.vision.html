@@ -171,12 +171,11 @@
 <dt class="sig sig-object py" id="openpibo.vision.Camera">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.vision.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><a class="headerlink" href="#openpibo.vision.Camera" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보의 카메라를 제어하는 클래스.</p>
+<p>파이보의 카메라를 제어합니다.</p>
 <ul class="simple">
 <li><p>사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.</p></li>
 <li><p>스트리밍, Cartoonize 기능을 사용할 수 있습니다.</p></li>
 </ul>
-<p>파라미터를 받지 않습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
 </pre></div>
@@ -221,6 +220,9 @@
 <li><p><strong>w</strong> (<em>int</em>) – 변환될 이미지의 가로 크기입니다. (픽셀 단위)</p></li>
 <li><p><strong>h</strong> (<em>int</em>) – 변환될 이미지의 세로 크기입니다. (픽셀 단위)</p></li>
 </ul>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p>크기 변환 후의 이미지 객체</p>
 </dd>
 </dl>
 </dd></dl>
@@ -301,13 +303,16 @@
 <li><p><strong>h</strong> (<em>int</em>) – 촬영할 이미지의 세로 픽셀 크기 입니다.</p></li>
 </ul>
 </dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 타입의 이미지 객체</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.vision.Camera.rectangle">
 <span class="sig-name descname"><span class="pre">rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(255,</span> <span class="pre">255,</span> <span class="pre">255)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.rectangle" title="정의 주소">¶</a></dt>
-<dd><p>이미지에 네모를 그립니다.</p>
+<dd><p>이미지에 사각형을 그립니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">pibo_camera</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
@@ -396,7 +401,7 @@
 <dt class="sig sig-object py" id="openpibo.vision.Detect.detect_object">
 <span class="sig-name descname"><span class="pre">detect_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Detect.detect_object" title="정의 주소">¶</a></dt>
 <dd><p>이미지 안의 객체를 인식합니다. (20개 class의 사물 인식 가능)</p>
-<p>인식 가능한 사물은 다음과 같습니다.:</p>
+<p>인식 가능한 사물은 다음과 같습니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;boat&quot;</span><span class="p">,</span> <span class="s2">&quot;bottle&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;chair&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;diningtable&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="s2">&quot;motorbike&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;pottedplant&quot;</span><span class="p">,</span> <span class="s2">&quot;sheep&quot;</span><span class="p">,</span> <span class="s2">&quot;sofa&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;tvmonitor&quot;</span>
 </pre></div>
 </div>
@@ -409,13 +414,14 @@
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p>
 </dd>
-<dt class="field-even">Returns dict</dt>
-<dd class="field-even"><p>{《name》:이름, 《score》:정확도, 《position》:사물좌표(startX, startY, endX, endY)}</p>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><p><code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:이름,</span> <span class="pre">&quot;score&quot;:정확도,</span> <span class="pre">&quot;position&quot;:사물좌표(startX,</span> <span class="pre">startY,</span> <span class="pre">endX,</span> <span class="pre">endY)}</span></code></p>
+<ul class="simple">
+<li><p>score는 0~100 사이의 float 값 입니다.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-<ul class="simple">
-<li><p>score: 0~100 사이의 float이다.</p></li>
-</ul>
 </dd></dl>
 
 <dl class="py method">
@@ -431,8 +437,8 @@
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p>
 </dd>
-<dt class="field-even">Returns dict</dt>
-<dd class="field-even"><p>{《type》: <code class="docutils literal notranslate"><span class="pre">바코드</span></code> / <code class="docutils literal notranslate"><span class="pre">QR코드</span></code> , 《data》:내용}</p>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">{&quot;type&quot;:</span> <span class="pre">바코드</span> <span class="pre">/</span> <span class="pre">QR코드</span> <span class="pre">,</span> <span class="pre">&quot;data&quot;:내용}</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -450,7 +456,7 @@
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>numpy.ndarray</strong> – 이미지 객체</p>
 </dd>
-<dt class="field-even">Returns str</dt>
+<dt class="field-even">반환</dt>
 <dd class="field-even"><p>인식된 문자열</p>
 </dd>
 </dl>
@@ -528,7 +534,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns dict</dt>
-<dd class="field-even"><p>{《age》: 나이, 《gender》: 성별}</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">{&quot;age&quot;:</span> <span class="pre">나이,</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">성별}</span></code></p>
 <ul class="simple">
 <li><p>age: 나이의 범위를 tuple() 형태로 출력한다. ex) (15, 20) # 15살에서 20살 정도</p></li>
 </ul>
@@ -541,15 +547,15 @@
 <dt class="sig sig-object py" id="openpibo.vision.Face.get_db">
 <span class="sig-name descname"><span class="pre">get_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Face.get_db" title="정의 주소">¶</a></dt>
 <dd><p>사용중인 얼굴 데이터베이스를 확인합니다.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns list(list, list)</dt>
-<dd class="field-odd"><p>2중 list 형태의 데이터베이스</p>
-</dd>
-</dl>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_face</span><span class="o">.</span><span class="n">get_db</span><span class="p">()</span>
 </pre></div>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">반환</dt>
+<dd class="field-odd"><p>`` list(list, list)`` 형태의 데이터베이스</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -589,7 +595,7 @@
 <span class="n">pibo_face</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">face</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p></li>
@@ -597,11 +603,11 @@
 </ul>
 </dd>
 <dt class="field-even">Returns dict</dt>
-<dd class="field-even"><p>{《name》: 이름, 《score》: 오차도}</p>
-</dd>
-</dl>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;:</span> <span class="pre">이름,</span> <span class="pre">&quot;score&quot;:</span> <span class="pre">오차도}</span></code></p>
 <p>얼굴이 비슷할수록 오차도가 낮게 측정됩니다.</p>
 <p>오차도가 0.4 이하일 때 동일인으로 판정합니다.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

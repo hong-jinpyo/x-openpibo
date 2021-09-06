@@ -10,12 +10,10 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 
 class Camera:
   """
-  파이보의 카메라를 제어하는 클래스.
+  파이보의 카메라를 제어합니다.
 
   * 사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.
   * 스트리밍, Cartoonize 기능을 사용할 수 있습니다.
-
-  파라미터를 받지 않습니다.
 
   example::
 
@@ -54,6 +52,8 @@ class Camera:
     :param int w: 촬영할 이미지의 가로 픽셀 크기 입니다.
 
     :param int h: 촬영할 이미지의 세로 픽셀 크기 입니다.
+
+    :returns: ``numpy.ndarray`` 타입의 이미지 객체
     """
 
     vs = VideoStream(width=w, height=h).start()
@@ -91,7 +91,6 @@ class Camera:
     :param str title: 윈도우 창 타이틀
     """
 
-    # only GUI mode
     return cv2.imshow(title, img)
 
   def waitKey(self, timeout=1000):
@@ -107,7 +106,6 @@ class Camera:
     :param int timeout: 이미지를 보는 시간(ms)
     """
 
-    #timeout: millisecond
     return cv2.waitKey(timeout)
 
   def streaming(self, w=640, h=480, timeout=5):
@@ -135,7 +133,7 @@ class Camera:
 
   def rectangle(self, img, p1, p2, color=(255,255,255), tickness=1):
     """
-    이미지에 네모를 그립니다.
+    이미지에 사각형을 그립니다.
 
     example::
 
@@ -153,7 +151,6 @@ class Camera:
     :param int tickness: 사각형 모서리의 두께 (픽셀 값입니다)
     """
 
-    #p1: (startX, startY) / p2: (endX, endY)
     return cv2.rectangle(img, p1, p2, color, tickness)
 
   def putText(self, img, text, p, size=1, color=(255,255,255), tickness=1):
@@ -178,15 +175,18 @@ class Camera:
 
     :param int tickness: 글자 두께
     """
-    # :returns: 글자가 입혀진 ``numpy.ndarray`` 이미지 객체
+    # :returns: text가 입혀진 ``numpy.ndarray`` 이미지 객체
 
-    size = int(size*30)
-    fontpath = current_path+'/data/models/KDL.ttf'
-    font = ImageFont.truetype(fontpath, size)
-    img_pil = Image.fromarray(img)
-    draw = ImageDraw.Draw(img_pil)
-    draw.text(p, text, font=font, fill=color)
-    img = np.array(img_pil)
+    # 아래 주석을 해제하면 한글 사용 가능.
+    # 단, cv2가 아닌 PIL을 사용하기 때문에 return 으로 이미지를 받아 사용해야 됨.
+
+    # size = int(size*30)
+    # fontpath = current_path+'/data/models/KDL.ttf'
+    # font = ImageFont.truetype(fontpath, size)
+    # img_pil = Image.fromarray(img)
+    # draw = ImageDraw.Draw(img_pil)
+    # draw.text(p, text, font=font, fill=color)
+    # img = np.array(img_pil)
     # return img
 
     return cv2.putText(img, text, p, cv2.FONT_HERSHEY_SIMPLEX, size, color, tickness)
@@ -251,6 +251,8 @@ class Camera:
     :param int w: 변환될 이미지의 가로 크기입니다. (픽셀 단위)
 
     :param int h: 변환될 이미지의 세로 크기입니다. (픽셀 단위)
+
+    :returns: 크기 변환 후의 이미지 객체
     """
 
     img = cv2.resize(img, (w, h))
@@ -321,11 +323,11 @@ class Face:
     """
     사용중인 얼굴 데이터베이스를 확인합니다.
 
-    :returns list(list, list): 2중 list 형태의 데이터베이스
-
     example::
 
       pibo_face.get_db()
+
+    :returns: `` list(list, list)`` 형태의 데이터베이스
     """
 
     return self.facedb
@@ -441,11 +443,11 @@ class Face:
 
     :param numpy.ndarray face: 얼굴의 좌표 (x, y, w, h)
 
-    :returns dict: {"name": 이름, "score": 오차도}
+    :returns dict: ``{"name": 이름, "score": 오차도}``
 
-    얼굴이 비슷할수록 오차도가 낮게 측정됩니다.
+      얼굴이 비슷할수록 오차도가 낮게 측정됩니다.
 
-    오차도가 0.4 이하일 때 동일인으로 판정합니다.
+      오차도가 0.4 이하일 때 동일인으로 판정합니다.
     """
 
     if len(self.facedb[0]) < 1:
@@ -498,7 +500,7 @@ class Face:
 
     :param numpy.ndarray face: 얼굴의 좌표 (x, y, w, h)
 
-    :returns dict: {"age": 나이, "gender": 성별}
+    :returns dict: ``{"age": 나이, "gender": 성별}``
 
       * age: 나이의 범위를 tuple() 형태로 출력한다. ex) (15, 20) # 15살에서 20살 정도
     
@@ -559,7 +561,7 @@ class Detect:
     """
     이미지 안의 객체를 인식합니다. (20개 class의 사물 인식 가능)
 
-    인식 가능한 사물은 다음과 같습니다.::
+    인식 가능한 사물은 다음과 같습니다::
 
       "background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
 
@@ -570,9 +572,9 @@ class Detect:
     
     :param numpy.ndarray img: 이미지 객체
 
-    :returns dict: {"name":이름, "score":정확도, "position":사물좌표(startX, startY, endX, endY)}
+    :returns: ``{"name":이름, "score":정확도, "position":사물좌표(startX, startY, endX, endY)}``
 
-    * score: 0~100 사이의 float이다.
+      * score는 0~100 사이의 float 값 입니다.
     """
 
     data = []
@@ -606,7 +608,7 @@ class Detect:
     
     :param numpy.ndarray img: 이미지 객체
 
-    :returns dict: {"type": ``바코드`` / ``QR코드`` , "data":내용}
+    :returns: ``{"type": 바코드 / QR코드 , "data":내용}``
     """
 
     barcodes = pyzbar.decode(img)
@@ -623,7 +625,7 @@ class Detect:
 
     :param numpy.ndarray: 이미지 객체
 
-    :returns str: 인식된 문자열
+    :returns: 인식된 문자열
     """
 
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
