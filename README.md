@@ -126,7 +126,7 @@
 ```json
 {
     "DATA_PATH": "home/pi/openpibo-data/data/",
-    "KAKAO_ACCOUNT": ...
+    "KAKAO_ACCOUNT": "..."
 }
 ```
 
@@ -136,7 +136,7 @@
 {
     "DATA_PATH": "home/pi/openpibo-data/data/",
     "MY_DATA_PATH": "<my_data_path>/",
-    "KAKAO_ACCOUNT": ...
+    "KAKAO_ACCOUNT": "..."
 }
 ```
 
