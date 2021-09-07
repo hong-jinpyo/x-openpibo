@@ -1,14 +1,23 @@
+"""
+인터넷에서 유용한 정보를 가져옵니다.
+
+단어정보, 날씨정보, 뉴스정보를 가져올 수 있습니다.
+"""
+
 from urllib.parse import quote
 from .modules.collect.get_soup import get_soup
 
 
-class Chapter:
+class _Chapter:
     """위키백과에서의 한 쳅터에 대한 클래스입니다."""
 
     def __init__(self, title):
         self._title = title
         self._content = ''
         self._parent = None
+
+    def init_content(self):
+        self._content = ''
     
     def add_content(self, content):
         self._content += content
@@ -18,22 +27,41 @@ class Chapter:
 
 
 class Wikipedia:
-    """위키백과에서 'search_text'를 검색한 결과를 저장하는 클래스입니다."""
+    """
+    위키백과에서 단어를 검색합니다.
+    """
 
-    def __init__(self, search_text: str):
-        """'search_text'는 위키백과에서의 검색어 입니다.
-        
-        example:
-            wiki = Wikipedia('강아지')"""
-        
+    def __init__(self):
         self._summary = ''
-        self._chapters = {'0': Chapter('개요')}
+        self._chapters = {'0': _Chapter('개요')}
         self._titles = []
         
+    def __str__(self):
+        """클래스를 출력하면 첫 번째 쳅터(주로 '개요')의 내용을 출력합니다.
+        
+        example::
+
+            print(wiki) 
+            >>> 강아지 (dog)는 개의 새끼를 일컫는다 ..."""
+
+        return self._chapters['0']._content
+    
+    def search(self, search_text: str):
+        """
+        위키백과에서 ``search_text`` 를 검색합니다.
+        
+        example::
+
+            wiki.search('강아지')
+        
+        :param str search_text: 위키백과에서의 검색어
+        """
+
+        self._chapters = {'0': _Chapter('개요')}
+        self._titles = []
         encode_text = quote(search_text)
         url = f'https://ko.wikipedia.org/wiki/{encode_text}'
         soup = get_soup(url)
-        # total_content: 위키백과에서 검색한 단어에 대한 모든 내용.
         total_content = soup.find('div', {'class': 'mw-parser-output'})
         if not total_content:
             self._chapters['0'].add_content(f"'{search_text}'에 대한 검색결과가 없습니다.")
@@ -53,44 +81,46 @@ class Wikipedia:
                 else:
                     chapter_list.append(1)
                 chapter_idx = '.'.join(map(str, chapter_list))
-                self._chapters[chapter_idx] = Chapter(title=content.text.split('[')[0])
+                self._chapters[chapter_idx] = _Chapter(title=content.text.split('[')[0])
                 self._titles.append(content.text)
             elif tag == 'p':
                 self._chapters[chapter_idx].add_content(content.text)
             elif tag == 'ul':
                 self._chapters[chapter_idx].add_content(content.text)
-
-    
-    def __str__(self):
-        """클래스를 출력하면 첫 번째 쳅터(주로 '개요')의 내용을 출력합니다.
-        
-        example:
-            print(wiki)
-
-            >> 어린 개를 일컫는 순우리말이다. (...이하 중략)"""
-
-        return self._chapters['0']._content
     
     def get_list(self):
-        """쳅터의 목록을 list 형태로 가져옵니다.
+        """
+        챕터의 목록을 list 형태로 가져옵니다.
         
-        example:
+        example::
+
             print(wiki.get_list)
-            
-            >> ['1', '1.1', '2', '3', '3.1']"""
+            # ['1', '1.1', '2', '3', '3.1']
+        
+        :returns: list 형태의 챕터 목록입니다.
+        """
         
         return list(self._chapters.keys())
 
     def get(self, chapter_num):
-        """'chapter_num'에 해당하는 내용을 출력합니다.
+        """
+        ``chapter_num`` 에 해당하는 내용을 출력합니다.
         
-        example:
-            print(wiki.get(2))
-            
-            >> 2. 본래 뜻과 다르게 사용하는 경우
-                어린 자식이나 손주를 부르는 말로도 쓰며, (...이하 중략)
-            
-        참고로, 내용이 존재하지 않을 수도 있습니다."""
+        example::
+        
+            print(wiki.get('2'))
+            # 2. 본래 뜻과 다르게 사용하는 경우 어린 자식이나 손주를 부르는 말로도 쓰며, ...
+        
+        :param str chapter_num: 챕터의 번호
+
+            ``1.3.1`` 과 같이 표현되기 때문에 ``int`` 또는 ``float`` 타입이 아닌 ``str`` 타입 입니다.
+        
+        :returns: 해당 챕터 번호에 해당하는 내용입니다.
+
+            내용이 존재하지 않을 경우 다음과 같이 출력됩니다::
+
+                'xxx'에 대한 검색결과가 없습니다.
+        """
         
         title = self._chapters[chapter_num]._title
         content = self._chapters[chapter_num]._content
@@ -123,10 +153,44 @@ region_table = {
     '제주': 184
 }
 class Weather:
-    """날씨 정보를 가져오는 클래스 입니다."""
+    """
+    오늘, 내일, 모레의 날씨 정보를 가져옵니다.
+    
+    example::
+    
+        pibo_weather = Weather()"""
 
-    def __init__(self, region: str='전국'):
+    def __init__(self):
         """해당 지역의 날씨를 가져옵니다."""
+
+        self._region = None
+        self._forecast = ""
+        self._today = {}
+        self._tomorrow = {}
+        self._after_tomorrow = {}
+
+    def __str__(self):
+        """해당 지역의 단기예보를 반환합니다."""
+
+        if self._forecast:
+            return self._forecast
+        return "검색된 지역이 없습니다. '.search()' 를 하십시오."
+    
+    def search(self, region:str='전국'):
+        """
+        해당 지역의 날씨 정보를 가져옵니다.
+
+        example::
+
+            pibo_weather.search('서울')
+        
+        :param str region: 검색 하려는 지역 (default: 전국)
+
+            검색할 수 있는 지역은 다음과 같습니다::
+                
+                '전국', '서울', '인천', '경기', '부산', '울산', '경남', '대구', '경북', 
+                '광주', '전남', '전북', '대전', '세종', '충남', '충북', '강원', '제주'
+        """
 
         self._region = region
         self._forecast = ''
@@ -140,32 +204,86 @@ class Weather:
             raise Exception(f"""'region'에 들어갈 수 있는 단어는 다음과 같습니다.\n\t{tuple(region_table.keys())}""")
         url = f'https://www.weather.go.kr/w/weather/forecast/short-term.do?stnId={region_num}'
         soup = get_soup(url)
-        forecast = soup.find('div', {'class': 'cmp-view-content'}).text
-        # self._forecast = forecast[1:-1]
-        forecast = forecast.split('\n')[1].split('○')
-        self._forecast, self._today['weather'], self._tomorrow['weather'], self._after_tomorrow['weather'] = map(lambda x: x.split(') ')[1], forecast[:4])
+        forecasts = soup.find('div', {'class': 'cmp-view-content'}).text
+        forecasts = forecasts.split('□')[1].split('○')
+        for forecast in map(str.strip, forecasts):
+            split_point = forecast.index(')')
+            date = forecast[:split_point+1]
+            desc = forecast[split_point+2:]
+            if '종합' in date:
+                self._forecast = desc
+            if '오늘' in date:
+                self._today['weather'] = desc
+            if '내일' in date or '~' in date:
+                self._tomorrow['weather'] = desc
+            if '모레' in date:
+                self._after_tomorrow['weather'] = desc
+
         temp_table = soup.find('tbody')
         all_temps = list(map(lambda x: x.text, temp_table.select('td')[:10]))
         self._today['minimum_temp'], self._tomorrow['minimum_temp'], self._after_tomorrow['minimum_temp'] = all_temps[2:5]
         self._today['highst_temp'], self._tomorrow['highst_temp'], self._after_tomorrow['highst_temp'] = all_temps[7:10]
     
-    def __str__(self):
-        """해당 지역의 단기예보를 반환합니다."""
-
-        return self._forecast
-    
     def get_today(self):
-        """오늘의 날씨를 반환합니다."""
+        """
+        오늘의 날씨를 반환합니다.
+        
+        example::
+        
+            pibo_weather.get_today()
+        
+        :returns: 오늘의 날씨 및 기온을 반환합니다.
+
+            example::
+
+                {
+                    'weather': '전국 대체로 흐림, 서쪽지역에 내리는 비는 밤에 동해안을 제외한 전국으로 확대되겠음',
+                    'minimum_temp': '15.3 ~ 21.6', 
+                    'highst_temp': '23.1 ~ 27.6'
+                }
+        """
 
         return self._today
     
     def get_tomorrow(self):
-        """내일의 날씨를 반환합니다."""
+        """
+        내일의 날씨를 반환합니다.
+        
+        example::
+        
+            pibo_weather.get_tomorrow()
+        
+        :returns: 내일의 날씨 및 기온을 반환합니다.
+
+            example::
+
+                {
+                    'weather': '전국 대체로 흐리고 비, 낮에 남부지방과 제주도부터 차차 그침', 
+                    'minimum_temp': '16 ~ 24', 
+                    'highst_temp': '20.8 ~ 26.6'
+                }
+        """
 
         return self._tomorrow
     
     def get_after_tomorrow(self):
-        """모레의 날씨를 반환합니다."""
+        """
+        모레의 날씨를 반환합니다.
+        
+        example::
+        
+            pibo_weather.get_after_tomorrow()
+        
+        :returns: 모레의 날씨 및 기온을 반환합니다.
+
+            example::
+
+                {
+                    'weather': '전국 대체로 흐리다가 오후에 서쪽지방부터 차차 맑아짐', 
+                    'minimum_temp': '17 ~ 22', 
+                    'highst_temp': '22 ~ 30'
+                }
+        """
 
         return self._after_tomorrow
 
@@ -187,15 +305,60 @@ topic_table = {
     '정치부회의': 'politicaldesk',
 }
 class News:
-    """JTBC뉴스 RSS서비스를 사용해 가져온 뉴스 자료입니다."""
+    """
+    JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.
+    
+    example::
+    
+        pibo_news = News()
+    """
 
-    def __init__(self, topic='뉴스랭킹'):
+    def __init__(self):
         f"""'topic'에는 아래와 같은 단어가 들어갈 수 있습니다.\n\t{tuple(topic_table.keys())}"""
+
+        self._topic = ''
+        self._articles = []
+        self._titles = []
+    
+    def __str__(self):
+        """가장 최근 기사의 제목을 반환합니다."""
+
+        if self._titles:
+            return self._titles[0]
+        return "검색된 주제가 없습니다. '.search()' 를 하십시오."
+    
+    def search(self, topic='뉴스랭킹'):
+        """
+        주제에 맞는 뉴스를 검색합니다.
+
+        example::
+
+            pibo_news.search('속보')
+        
+        :param str topic: 검색할 뉴스 주제
+
+            다음과 같은 단어가 들어갈 수 있습니다.
+
+            * ``속보``
+            * ``정치``
+            * ``경제``
+            * ``사회``
+            * ``국제``
+            * ``문화``
+            * ``연예``
+            * ``스포츠``
+            * ``풀영상``
+            * ``뉴스랭킹``
+            * ``뉴스룸``
+            * ``아침&``
+            * ``썰전 라이브``
+            * ``정치부회의``
+        """
 
         self._topic = topic
         self._articles = []
         self._titles = []
-        
+
         topic_code = topic_table[topic]
         url = f'https://fs.jtbc.joins.com//RSS/{topic_code}.xml'
         soup = get_soup(url, 'xml')
@@ -214,18 +377,26 @@ class News:
             self._articles.append(article)
             self._titles.append(title)
     
-    def __str__(self):
-        """가장 최근 기사의 제목을 반환합니다."""
+    def get_titles(self):
+        """
+        기사 제목 목록을 모두 보여줍니다.
 
-        return self._titles[0]
-    
-    def get_titles(self, article_num=None):
-        """기사들의 목록을 'num'개 만큼 반환합니다."""
+        example::
 
-        return self._titles[:article_num]
+            pibo_news.get_titles()
+        
+        :returns: ``key=기사번호`` , ``value=title`` 인 dictionary 입니다.
 
-    def get_idx(self):
-        "기사 번호에 해당하는 기사 제목을 보여줍니다. 'get_article'을 사용하기 위해 존재합니다."
+            example::
+
+                {
+                    0: '또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다', 
+                    1: '"죽은 줄 알았던 11살 아들, 40살이 돼 돌아왔습니다"', 
+                    2: "이런 영웅은 처음이지?…마블 '아시아 히어로' 통할까", 
+                    ...
+                    19: "[크로스체크] 5시간 새 100배 증식…'식중독 주범' 살모넬라균 추적"
+                }
+        """
 
         article_mapping = {}
         for idx, title in enumerate(self._titles):
@@ -233,8 +404,28 @@ class News:
         return article_mapping
     
     def get_article(self, article_idx):
-        """기사에 대한 정보를 반환합니다.
-        'article_idx'는 해당 기사의 번호이며, 번호는 'get_list'를 통해 조회할 수 있습니다."""
+        """
+        기사 번호에 해당하는 기사 정보를 보여줍니다.
+
+        example::
+
+            pibo_news.get_article(1)
+        
+        :param int article_idx: 기사 번호
+
+            기사 번호는 0~19 사이 정수입니다.
+        
+        :returns: title, link, description, pubDate 요소가 있는 dictionary 입니다.
+
+            example::
+
+                {
+                    'title': '또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다', 
+                    'link': 'https://news.jtbc.joins.com/article/article.aspx?news_id=xxx',
+                    'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습. 〈사진-JTBC ...,
+                    'pubDate': '2021.09.03'
+                }
+        """
 
         return self._articles[article_idx]
 

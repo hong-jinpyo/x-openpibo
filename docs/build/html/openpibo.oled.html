@@ -168,64 +168,212 @@
             
   <div class="section" id="module-openpibo.oled">
 <span id="openpibo-oled-module"></span><h1>openpibo.oled module<a class="headerlink" href="#module-openpibo.oled" title="제목 주소">¶</a></h1>
+<p>OLED Display에 문자나 이미지를 출력합니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.oled.Oled">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.oled.</span></span><span class="sig-name descname"><span class="pre">Oled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled" title="정의 주소">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.oled.</span></span><span class="sig-name descname"><span class="pre">Oled</span></span><a class="headerlink" href="#openpibo.oled.Oled" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>파이보의 OLED를 통해 다양한 그림을 표현합니다.</p>
+<ul class="simple">
+<li><p>사진 보기</p></li>
+<li><p>글자 나타내기</p></li>
+<li><p>도형 그리기</p></li>
+</ul>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span> <span class="o">=</span> <span class="n">Oled</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.clear" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>OLED 화면을 지웁니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_data">
 <span class="sig-name descname"><span class="pre">draw_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_data" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>numpy 이미지 데이터를 입력받아 이미지로 변환합니다.</p>
+<p>카메라 출력값을 OLED화면에 띄우기 위해 사용됩니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.vision</span> <span class="kn">import</span> <span class="n">Camera</span>
+
+<span class="n">pibo_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+
+<span class="n">pibo</span><span class="o">.</span><span class="n">draw_data</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">pibo</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_ellipse">
 <span class="sig-name descname"><span class="pre">draw_ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_ellipse" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>원 그리기</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>tuple</em>) – 원을 둘러 싼 사각형의 좌측상단 좌표, 사각형의 우측하단 자표 (x, y, x1, y1)</p></li>
+<li><p><strong>fill</strong> (<em>bool</em>) – <p>채움.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> : 사각형 내부를 채웁니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> : 사각형 내부를 채우지 않습니다.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_image">
 <span class="sig-name descname"><span class="pre">draw_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_image" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>그림 그리기</p>
+<p><strong>128x64</strong> 크기의 <strong>png</strong> 확장자만 허용됩니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../image.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 그림파일 경로</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_line">
 <span class="sig-name descname"><span class="pre">draw_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_line" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>선 그리기</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">draw_line</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>points</em>) – 선의 시작 좌표, 선의 끝 좌표 (x, y, x1, y1)</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_rectangle">
 <span class="sig-name descname"><span class="pre">draw_rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_rectangle" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>사각형 그리기</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>tuple</em>) – 사각형의 좌측상단 좌표, 사각형의 우측하단 좌표 (x, y, x1, y1)</p></li>
+<li><p><strong>fill</strong> (<em>bool</em>) – <p>채움.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code> : 사각형 내부를 채웁니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code> : 사각형 내부를 채우지 않습니다.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.draw_text">
 <span class="sig-name descname"><span class="pre">draw_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.draw_text" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>문자 그리기(한글, 영어 지원)</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;안녕하세요!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>points</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – 문자열 좌측상단 좌표 (x, y)</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – 문자열 내용</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.invert">
 <span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.invert" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>이미지를 흑백 반전시킨다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">invert</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.set_font">
 <span class="sig-name descname"><span class="pre">set_font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.set_font" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>oled에 사용할 폰트를 설정합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../font.ttf&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – <p>폰트 파일 이름</p>
+<p>폰트 확장자는 <strong>ttf</strong> 와 <strong>otf</strong> 모두 지원합니다.</p>
+</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – <p>폰트 사이즈</p>
+<p>초기화 시 default는 10 입니다.</p>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.show">
 <span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.show" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>화면에 표시하기</p>
+<p><strong>이 메서드를 사용하지 않으면 화면에 출력되지 않습니다.</strong></p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.oled.Oled.size_check">
 <span class="sig-name descname"><span class="pre">size_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.oled.Oled.size_check" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>이미지의 크기를 확인합니다.</p>
+<p>주로 oled의 크기인 128x64 사이즈인지 확인하기 위해 사용됩니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_oled</span><span class="o">.</span><span class="n">size_check</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../image.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 확인 할 파일 경로</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><p>이미지의 크기</p>
+<p>tuple 타입 입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(y축</span> <span class="pre">길이,</span> <span class="pre">x축</span> <span class="pre">길이,</span> <span class="pre">채널</span> <span class="pre">수)</span></code> 로 표현됩니다.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

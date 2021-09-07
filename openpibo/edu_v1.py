@@ -1,3 +1,27 @@
+"""
+각 메서드의 반환값은 다음과 같은 형식으로 구성됩니다.
+
+* 실행 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": data 또는 None}``
+
+    * 메서드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.
+
+* 실행 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+
+    * ``errcode`` 에 err 숫자 코드가, ``errmsg`` 에 해당 error 발생 원인이 출력됩니다.
+    * err 숫자코드의 의미와 발생 원인은 다음과 같습니다.
+
+        *  ``0`` : 메서드 실행 성공
+        * ``-1`` : Argument error - 메서드 실행에 필요한 필수 인자 값 미기입
+        * ``-2`` : Extension error - filename에 확장자 미기입 또는 잘못된 확장자 형식 입력
+        * ``-3`` : NotFound error - 존재하지 않는 데이터 입력
+        * ``-4`` : Exist error - 이미 존재하는 데이터의 중복 생성
+        * ``-5`` : Range error - 지정된 범위를 벗어난 값 입력
+        * ``-6`` : Running error - 이미 실행 중인 함수의 중복 사용
+        * ``-7`` : Syntax error - 잘못된 형식의 인자 값 입력
+        * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메서드 실행에 실패한 경우
+"""
+
+
 import sys, time, pickle
 
 from .audio import Audio
@@ -26,6 +50,28 @@ code_list = {
 }
 
 class Pibo:
+    """
+    ``openpibo`` 의 다양한 기능들을 한번에 사용할 수 있는 클래스 입니다.
+
+    다음 클래스의 기능을 모두 사용할 수 있습니다.
+
+    * Device
+    * Audio
+    * Oled
+    * Speech
+    * Dialog
+    * Motion
+    * Camera
+    * Face
+    * Detect
+
+    example::
+
+        from openpibo.edu_v1 import Pibo
+        pibo_edu_v1 = Pibo()
+        # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
+    """
+
     def __init__(self):
         self.onair = False
         self.img = ""
@@ -58,6 +104,38 @@ class Pibo:
 
     # [Audio] - Play mp3/wav files
     def play_audio(self, filename=None, out='local', volume='-2000', background=True):
+        """
+        입력한 경로의 파일을 재생합니다.
+
+        example::
+
+            pibo_edu_v1.play_audio('/home/pi/.../opening.mp3')
+            
+        :param str filename: 재생할 파일의 경로.
+        
+            ``mp3`` 와 ``wav`` 형식을 지원합니다.
+
+        :param str out: 어느 포트에서 재생할지 선택합니다.
+        
+            ``local``, ``hdmi``, ``both`` 만 입력할 수 있습니다.
+        
+            (default: ``local``)
+
+        :param str or int volume: 음량을 설정합니다.
+        
+            단위는 mdB 이고, 값이 커질수록 음량이 커집니다.
+        
+            음량이 매우 크므로 -2000 정도로 사용하는 것을 권장합니다.
+
+            (default: ``-2000``)
+
+        :param bool background: 오디오 파일을 백그라운드에서 실행할지 여부를 결정합니다.
+
+            * ``True``: 오디오 재생 중에 다른 명령어를 사용할 수 있습니다. (default)
+            * ``False``: 오디오 파일이 종료될 때 까지 다른 명령어를 실행할 수 없습니다.
+
+        """
+
         if filename != None:
             file_list = ('mp3', 'wav')
             ext = filename.rfind('.')
@@ -80,6 +158,19 @@ class Pibo:
 
     # [Audio] - Stop audio
     def stop_audio(self):
+        """
+        background에서 재생중인 오디오를 정지합니다.
+    
+        example::
+
+            pibo_edu_v1.stop_audio()
+        
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.audio.stop()
             return self.return_msg(True, "Success", "Success", None)
@@ -89,6 +180,12 @@ class Pibo:
 
     # [Neopixel] - Determine number or letter    
     def isAlpha(self, *value):
+        """
+        (``eye_on`` 의 내부함수)
+
+        ``eye_on`` 메서드에서 입력값이 숫자인지 문자인지 판단하기 위한 메서드 입니다.
+        """
+        
         alpha_cnt = 0
 
         if len(value) == 1 and type(*value) == str:
@@ -104,6 +201,35 @@ class Pibo:
 
     # [Neopixel] - LED ON
     def eye_on(self, *color):
+        """
+        LED를 켭니다.
+
+        example::
+
+            pibo_edu_v1.eye_on(255,0,0)	# 양쪽 눈 제어
+            pibo_edu_v1.eye_on(0,255,0,0,0,255) # 양쪽 눈 개별 제어
+            pibo_edu_v1.eye_on('Red') # 양쪽 눈 제어('RED', 'red' 가능)
+            pibo_edu_v1.eye_on('aqua', 'pink') # 양쪽 눈 개별 제어
+        
+        :param color:
+        
+            * RGB (0~255 숫자)
+            * color name (영어 대소문자 모두 가능)
+
+                color_list::
+                    
+                    black, white, red, orange, yellow, green, blue, aqua, purple, pink
+        
+            두 가지 방식을 동시에 사용할 수 없습니다::
+
+                pibo.eye_on('blue', 0, 255, 0) (X)
+        
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if len(color) == 0:
             return self.return_msg(False, "Argument error", "RGB or Color is required", None)
         try:
@@ -149,6 +275,19 @@ class Pibo:
 
     # [Neopixel] - LED OFF
     def eye_off(self):
+        """
+        LED를 끕니다.
+
+        example::
+
+            pibo_edu_v1.eye_off()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             cmd = "#20:0,0,0!"
             if self.check:
@@ -162,6 +301,23 @@ class Pibo:
 
     # [Neopixel] - Create the color
     def add_color(self, color=None, *rgb):
+        """
+        colordb에 원하는 색상을 추가합니다.
+
+        example::
+
+            pibo_edu_v1.add_color('sky', 85, 170, 255)
+
+        :param str color: 추가할 색상 이름
+
+        :param *rgb: RGB. 0~255 사이의 정수 입니다.
+
+        :returns:
+
+        * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+        * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if color == None or type(color) != str:
             return self.return_msg(False, "Argument error", "Color is required", None)
         else:
@@ -185,6 +341,21 @@ class Pibo:
 
     # [Neopixel] - Get colordb
     def get_colordb(self):
+        """
+        사용 중인 ``colordb`` 를 확인합니다.
+        
+        (``pibo.eye_on()`` 에 입력할 수 있는 color 목록 조회)
+
+        example::
+
+            pibo_edu_v1.get_colordb()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 현재 사용 중인 colordb}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             return self.return_msg(True, "Success", "Success", self.colordb)
         except Exception as e:
@@ -193,6 +364,19 @@ class Pibo:
 
     # [Neopixel] - Reset colordb
     def init_colordb(self):
+        """
+        ``colordb`` 를 기존에 제공하는 ``colordb`` 상태로 초기화합니다.
+
+        example::
+
+            pibo_edu_v1.init_colordb()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.colordb = {
                 'black': (0,0,0),
@@ -213,6 +397,21 @@ class Pibo:
 
     # [Neopixel] - Save the colordb as a file
     def save_colordb(self, filename=None):
+        """
+        colordb를 파일로 저장합니다.
+
+        example::
+
+            pibo_edu_v1.save_colordb('/home/pi/.../new_colordb')
+
+        :param str filename: 저장할 데이터베이스 파일 경로
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         try:
@@ -225,6 +424,21 @@ class Pibo:
 
     # [Neopixel] - Load colordb
     def load_colordb(self, filename=None):
+        """
+        colordb를 불러옵니다.
+
+        example::
+
+            pibo_edu_v1.load_colordb('/home/pi/.../colordb)
+        
+        :param str filename: 불러올 데이터베이스 파일 경로
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         else:
@@ -241,6 +455,21 @@ class Pibo:
 
     # [Neopixel] - Delete color in the colordb
     def delete_color(self, color=None):
+        """
+        colordb에 등록된 색상을 삭제합니다.
+
+        example::
+
+            pibo_edu_v1.delete_color('red')
+        
+        :param str color: 삭제할 색상 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if color == None:
             return self.return_msg(False, "Argument error", "Color is required", None)
         try:
@@ -255,6 +484,23 @@ class Pibo:
 
     # [Device] - Check device
     def check_device(self, system=None):
+        """
+        디바이스의 상태를 확인합니다. (일회성)
+
+        example::
+
+            pibo_edu_v1.check_device('battery')
+
+        :param str system: ``system`` / ``battery`` (대문자도 가능)
+
+            ``system`` 입력 시 PIR, TOUCH, DC_CONN, BUTTON의 상태를 조회할 수 있습니다.
+        
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": Device로부터 응답}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         device_list = ('BATTERY', 'SYSTEM')
         if system:
             system = system.upper()
@@ -281,6 +527,14 @@ class Pibo:
 
     # [Device] - start_devices thread
     def thread_device(self, func):
+        """
+        (``start_devices`` 의 내부함수)
+
+        ``start_devices`` 메서드에서 디바이스의 상태를 파악하여 해당 메시지를 ``func`` 하는 메서드입니다.
+
+        ``func`` 에는 print 함수가 들어가서 메시지가 계속해서 출력(print) 됩니다.
+        """
+
         self.system_check_time = time.time()
         self.battery_check_time = time.time()
         while True:
@@ -307,6 +561,27 @@ class Pibo:
 
     # [Device] - Check device(thread)
     def start_devices(self, func=None):
+        """
+        디바이스의 상태를 확인합니다.
+
+        example::
+
+            def msg_device(msg):
+                print(msg)
+            
+            def check_devices():
+                pibo_edu_v1.start_devices(msg_device)
+            
+            check_devices()
+
+        :param func: Device로부터 받은 응답을 확인하기 위한 함수
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if func == None:
             return self.return_msg(False, "Argument error", "Func is required", None)
         if self.check:
@@ -323,6 +598,19 @@ class Pibo:
 
     # [Device] - Stop check device
     def stop_devices(self):
+        """
+        디바이스의 상태 확인을 종료합니다.
+
+        example::
+
+            pibo_edu_v1.stop_devices()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.check = False
             return self.return_msg(True, "Success", "Success", None)
@@ -332,6 +620,36 @@ class Pibo:
 
     # [Motion] - Control 1 motor(position/speed/accel)
     def motor(self, n=None, position=None, speed=None, accel=None):
+        """
+        모터 1개를 제어합니다.
+
+        example::
+
+            pibo_edu_v1.motor(2, 30, 100, 10)
+
+        :param int n: 모터 번호 (0~9)
+
+        :param int position: 모터 각도
+
+            모터별 허용 각도 범위 절대값::
+                
+                [25,35,80,30,50,25,25,35,80,30]
+                # 0번 모터는 -25 ~ 25 범위의 모터 각도를 가집니다.
+        
+        :param int speed: 모터 속도 (0~255)
+        
+            default: None - 사용자가 이전에 설정한 값으로 제어
+
+        :param int accel: 모터 가속도 (0~255)
+        
+            default: None- 사용자가 이전에 설정한 값으로 제어
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if n != None:
             if n < 0 or n > 9:
                 return self.return_msg(False, "Range error", "Channel value should be 0~9", None)
@@ -359,6 +677,38 @@ class Pibo:
 
     # [Motion] - Control all motors(position/speed/accel)
     def motors(self, positions=None, speed=None, accel=None):
+        """
+        10개의 모터를 개별 제어합니다.
+
+        example::
+
+            pibo_edu_v1.motors(
+                positions=[0,0,0,10,0,10,0,0,0,20],
+                speed=[0,0,0,15,0,10,0,0,0,10],
+                accel=[0,0,10,5,0,0,0,0,5,10]
+            )
+
+        :param list positions: 0-9번 모터 각도 배열
+
+            모터별 허용 각도 범위 절대값::
+            
+                [25,35,80,30,50,25,25,35,80,30]
+                # 0번 모터는 -25 ~ 25 범위의 모터 각도를 가집니다.
+
+        :param list speed: 0-9번 모터 속도 (0~255)
+        
+            default: None - 사용자가 이전에 설정한 값으로 제어
+
+        :param list accel: 0-9번 모터 가속도 (0~255)
+        
+            default: None - 사용자가 이전에 설정한 값으로 제어
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         check = self.check_motor("position", positions)
         if check["result"] == False:
             return check
@@ -381,6 +731,34 @@ class Pibo:
 
     # [Motion] - Control all motors(movetime)
     def motors_movetime(self, positions=None, movetime=None):
+        """
+        입력한 시간 내에 모든 모터를 특정 위치로 이동합니다.
+
+        example::
+
+            pibo_edu_v1.motors_movetime(positions=[0,0,30,20, 30,0, 0,0,30,20], movetime=1000)
+            # 1000ms 내에 모든 모터가 [0,0,30,20,30,0,0,0,30,20]의 위치로 이동
+
+        :param list positions: 0-9번 모터 각도 배열
+
+            모터별 허용 각도 범위 절대값::
+            
+                [25,35,80,30,50,25,25,35,80,30]
+                # 0번 모터는 -25 ~ 25 범위의 모터 각도를 가집니다.
+
+        :param int movetime: 모터 이동 시간(ms)
+        
+            모터가 정해진 위치까지 이동하는 시간
+
+            * ``movetime`` 이 있으면 해당 시간까지 모터를 이동시키기 위한 속도, 가속도 값을 계산하여 모터를 제어합니다.
+            * ``movetime`` 이 없으면 이전에 설정한 속도, 가속도 값에 의해 모터를 이동시킵니다.
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         check = self.check_motor("position", positions)
         if check["result"] == False:
             return check
@@ -395,6 +773,39 @@ class Pibo:
 
     # [Motion] - Get motion type or motion details
     def get_motion(self, name=None):
+        """
+        모션 종류 및 정보를 조회합니다.
+
+        ``set_motion(name, cycle)`` 에서 사용할 name 값을 조회할 수 있습니다.
+
+        ``get_motion()`` 으로 모션 목록을 조회한 후, 모션을 하나 선택하여 ``get_motion(name)`` 에서 해당 모션에 대한 상세 정보를 얻을 수 있습니다.
+
+        example::
+
+            pibo_edu_v1.get_motion()
+            # ['stop', 'stop_body', 'sleep', 'lookup', 'left', ...]
+
+            pibo_edu_v1.get_motion("sleep")
+            # {'comment': 'sleep', 'init': [0,0,-70,-25,0,15,0,0,70,25], 'init_def': 0, ...}
+
+        :param str name: 모션 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": profile로부터 응답}``
+
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        
+        [전체 모션 리스트]::
+
+            stop, stop_body, sleep, lookup, left, left_half, right, right_half, foward1-2, backward1-2, 
+            step1-2, hifive, cheer1-3, wave1-6, think1-4, wake_up1-3, hey1-2, yes_h, no_h, breath1-3, 
+            breath_long, head_h, spin_h, clapping1-2, hankshaking, bow, greeting, hand1-4, foot1-2, 
+            speak1-2, speak_n1-2, speak_q, speak_r1-2, speak_l1-2, welcome, happy1-3, excite1-2, 
+            boring1-2, sad1-3, handup_r, handup_l, look_r, look_l, dance1-5, motion_test, test1-4
+            # foward1-2는 forward1, forward2 두 종류가 있음을 의미합니다.
+        """
+
         try:
             ret = self.motion.get_motion(name)
             return self.return_msg(True, "Success", "Success", ret)
@@ -404,6 +815,23 @@ class Pibo:
 
     # [Motion] - Set motion
     def set_motion(self, name=None, cycle=1):
+        """
+        모션의 동작을 실행합니다.
+
+        example::
+
+            pibo_edu_v1.set_motion("dance1", 5)
+
+        :param str name: 모션 이름
+
+        :param int cycle: 모션 반복 횟수
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+        
         if name == None:
             return self.return_msg(False, "Argument error", "Name is required", None)
         try:
@@ -417,6 +845,17 @@ class Pibo:
 
     # [Motion] - Check motors array
     def check_motor(self, mode, values):
+        """
+        (``motors`` , ``motors_movetime`` 메서드의 내부함수 입니다.)
+
+        모터의 각도를 설정할 때, 허용 각도 범위 내에 해당하는지 판별하기 위한 함수입니다.
+
+        각 모터의 허용 각도 범위는 아래와 같습니다::
+
+            [25,35,80,30,50,25,25,35,80,30]
+            # 0번 모터는 -25 ~ 25 범위의 모터 각도를 가집니다.
+        """
+
         try:
             if values == None or len(values) != 10:
                 return self.return_msg(False, "Syntax error", "10 {}s are required".format(mode), None)
@@ -435,6 +874,25 @@ class Pibo:
 
     # [OLED] - Draw a text
     def draw_text(self, points=None, text=None, size=None):
+        """
+        문자를 씁니다. (한글/영어)
+
+        example::
+        
+            pibo_edu_v1.draw_text((10, 10), '안녕하세요.', 15)
+        
+        :param tuple(int, int) points: 문자열의 좌측상단 좌표 튜플(x,y)
+
+        :param str text: 문자열 내용
+
+        :param int size: 폰트 크기
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         check = self.points_check("text", points)
         if check["result"] == False:
             return check
@@ -451,6 +909,23 @@ class Pibo:
 
     # [OLED] - Draw an image
     def draw_image(self, filename=None):
+        """
+        이미지를 그립니다. (128X64 png 파일)
+        
+        128X64 png 파일 외에는 지원하지 않습니다.
+
+        example::
+
+            pibo_edu_v1.draw_image("/home/pi/.../test.png")
+
+        :param str filename: 이미지 파일의 경로
+        
+        :returns:
+
+        * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+        * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+        
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         else:
@@ -474,6 +949,29 @@ class Pibo:
 
     # [OLED] - Draw a shpae
     def draw_figure(self, points=None, shape=None, fill=None):
+        """
+        도형을 그립니다. (사각형, 원, 선)
+
+        example::
+
+            pibo_edu_v1.draw_figure((10,10,30,30), "rectangle", True)
+            pibo_edu_v1.draw_figure((70,40,90,60), "circle", False)
+            pibo_edu_v1.draw_figure((15,15,80,50), "line")
+
+        :param tuple(int, int, int, int) points: 선 - 시작 좌표, 끝 좌표(x, y, x1, y1)
+        
+            사각형, 원 - 좌측상단, 우측하단 좌표 튜플(x, y, x1, y1)
+
+        :param str shape: 도형 종류 - ``rectangle`` / ``circle`` / ``line``
+
+        :param bool fill: ``True`` (채움) / ``False`` (채우지 않음)
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+        
         check = self.points_check("figure", points)
         if check["result"] == False:
             return check
@@ -495,6 +993,19 @@ class Pibo:
 
     # [OLED] - Color inversion
     def invert(self):
+        """
+        이미지를 반전시킵니다. (색 반전)
+
+        example::
+
+            pibo_edu_v1.invert()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.oled.invert()
             return self.return_msg(True, "Success", "Success", None)
@@ -504,6 +1015,22 @@ class Pibo:
 
     # [OLED] - Show display
     def show_display(self):
+        """
+        화면에 표시합니다.
+
+        이 메서드를 사용해야만 파이보의 oled에 표시가 됩니다.
+
+        example::
+
+            pibo_edu_v1.draw_text((10, 10), '안녕하세요', 10)
+            pibo.show_display()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.oled.show()
             return self.return_msg(True, "Success", "Success", None)
@@ -513,6 +1040,19 @@ class Pibo:
 
     # [OLED] - Clear display
     def clear_display(self):
+        """
+        OLED 화면을 지웁니다.
+
+        example::
+
+            pibo_edu_v1.clear_display()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.oled.clear()
             return self.return_msg(True, "Success", "Success", None)
@@ -522,6 +1062,16 @@ class Pibo:
 
     # [OLED] - Check points
     def points_check(self, mode, points=None):
+        """
+        (``draw_text`` , ``draw_figure`` 의 내부함수 입니다.)
+
+        text와 figure의 위치를 결정하는 points가 적절한 포멧인지 확인하기 위한 메서드입니다.
+
+        text는 point가 2개 (x, y) 필요합니다. (시작지점)
+
+        figure는 point가 4개 (x, y, x1, y1) 필요합니다. (시작지점, 끝지점)
+        """
+
         number = 2
         if mode == "figure":
             number = 4
@@ -541,6 +1091,23 @@ class Pibo:
 
     # [Speech] - Sentence translation
     def translate(self, string=None, to='ko'):
+        """
+        구글 번역기를 이용해 문장을 번역합니다.
+
+        example::
+
+            pibo_edu_v1.translate('즐거운 금요일', 'en')
+
+        :param str string: 번역할 문장
+
+        :param str to: 번역할 언어(한글-ko / 영어-en)
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 번역된 문장}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         to_list = ('ko', 'en')
         if string == None:
             return self.return_msg(False, "Argument error", "String is required", None)
@@ -555,6 +1122,61 @@ class Pibo:
 
     # [Speech] - TTS
     def tts(self, string=None, filename='tts.mp3'):
+        """
+        Text(문자)를 Speech(음성)로 변환합니다.
+
+        example::
+
+            pibo_edu_v1.tts(
+                "<speak><voice name='MAN_READ_CALM'>안녕하세요. 반갑습니다.<break time='500ms'/></voice></speak>", 
+                "/home/pi/.../tts.mp3"
+                )
+
+        :param str string: 변환할 문장
+
+            * <speak>
+
+                * 기본적으로 모든 음성은 태그로 감싸져야 합니다.
+                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다.
+                
+                  한 문장 안에서 단어별로 태그를 감싸지 않습니다.
+
+                * <speak> 안녕하세요. 반가워요. </speak>
+
+            * <voice>
+
+                * 음성의 목소리를 변경하기 위해 사용하며,
+                
+                  name attribute를 통해 원하는 목소리를 지정합니다. 
+                
+                  제공되는 목소리는 4가지입니다.
+
+                  * WOMAN_READ_CALM: 여성 차분한 낭독체 (default)
+                  * MAN_READ_CALM: 남성 차분한 낭독체
+                  * WOMAN_DIALOG_BRIGHT: 여성 밝은 대화체
+                  * MAN_DIALOG_BRIGHT: 남성 밝은 대화체
+
+                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다. 
+                
+                  한 문장 안에서 단어별로 태그를 감싸지 않습니다.
+
+                example::
+
+                    <speak>
+                        <voice name="WOMAN_READ_CALM"> 지금은 여성 차분한 낭독체입니다.</voice>
+                        <voice name="MAN_READ_CALM"> 지금은 남성 차분한 낭독체입니다.</voice>
+                        <voice name="WOMAN_DIALOG_BRIGHT"> 여성 밝은 대화체예요.</voice>
+                        <voice name="MAN_DIALOG_BRIGHT"> 남성 밝은 대화체예요.</voice>
+                    </speak>
+
+        :param str filename: 저장할 파일 경로(mp3, wav)
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if string == None:
             return self.return_msg(False, "Argument error", "String is required", None)
         ext = filename.rfind('.')
@@ -579,6 +1201,23 @@ class Pibo:
 
     # [Speech] - STT
     def stt(self, filename='stream.wav', timeout=5):
+        """
+        Speech(음성)를 Text(문자)로 변환합니다.
+
+        example::
+
+            pibo_edu_v1.stt('/home/pi/.../stream.wav', 5)
+
+        :param str filename: 저장할 파일 경로
+
+        :param int timeout: 녹음할 시간(s)
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 변환된 문장}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             ret = self.speech.stt(filename, timeout)
             return self.return_msg(True, "Success", "Success", ret)
@@ -588,6 +1227,22 @@ class Pibo:
 
     # [Speech] - Conversation
     def conversation(self, q=None):
+        """
+        질문에 대한 답을 추출합니다.
+
+        example::
+
+            pibo_edu_v1.conversation('주말에 뭐하지?')
+            # answer: 사탕 만들어요.
+
+        :param str q: 질문
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 질문에 대한 응답}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if q:
             if type(q) != str:
                 return self.return_msg(False, "Syntax error", "Q is only available str type", None)
@@ -602,6 +1257,12 @@ class Pibo:
 
     # [Vision] - start_camera thread
     def camera_on(self):
+        """
+        (``start_camera`` 메서드의 내부함수 입니다.)
+
+        카메라로 짧은 주기로 사진을 찍어 128x64 크기로 변환한 후 OLED에 보여줍니다.
+        """
+
         vs = VideoStream().start()
 
         while True:
@@ -625,6 +1286,19 @@ class Pibo:
 
     # [Vision] - Camera ON
     def start_camera(self):
+        """
+        카메라가 촬영하는 영상을 OLED에 보여줍니다.
+
+        example::
+
+            pibo_edu_v1.start_camera()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             if self.onair:
                 return self.return_msg(False, "Running error", "start_camera() is already running", None)
@@ -639,6 +1313,19 @@ class Pibo:
 
     # [Vision] - Camera OFF
     def stop_camera(self):
+        """
+        카메라를 종료합니다.
+
+        example::
+
+            pibo_edu_v1.stop_camera()
+        
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.onair = False
             time.sleep(0.5)
@@ -649,6 +1336,23 @@ class Pibo:
 
     # [Vision] - Capture
     def capture(self, filename="capture.png"):
+        """
+        사진을 촬영하여 이미지로 저장합니다.
+
+        example::
+
+            pibo_edu_v1.capture('/home/pi/.../test.png')
+
+        :param str filename: 저장할 파일 경로
+
+            이미지 파일 형식 기입 필수 - jpg, jpeg, png, bmp
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         file_list = ("png", "jpg", "jpeg", "bmp")
         ext = filename.rfind('.')
         file_ext = filename[ext+1:]
@@ -672,6 +1376,34 @@ class Pibo:
 
     # [Vision] - Detect object
     def search_object(self):
+        """
+        이미지 안의 객체를 인식합니다.
+
+        example::
+
+            pibo_edu_v1.search_object()
+
+        인식 가능한 사물 목록::
+
+            "background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", 
+            "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", 
+            "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
+
+        :returns:
+
+            * 성공::
+            
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": {
+                        "name": 이름, "score": 점수, 
+                        "position": 사물좌표(startX, startY, endX, endY)
+                    }
+                }
+
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             img = self.check_onair()
             ret = self.detect.detect_object(img)
@@ -682,6 +1414,25 @@ class Pibo:
 
     # [Vision] - Detect QR/barcode
     def search_qr(self):
+        """
+        이미지 안의 QR 코드 및 바코드를 인식합니다.
+
+        example::
+
+            pibo_edu_v1.search_qr()
+
+        :returns:
+        
+            * 성공::
+            
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": {"data": 내용, "type": 바코드/QR코드}
+                }
+
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             img = self.check_onair()
             ret = self.detect.detect_qr(img)
@@ -692,6 +1443,19 @@ class Pibo:
 
     # [Vision] - Detect text
     def search_text(self):
+        """
+        이미지 안의 문자를 인식합니다.
+
+        example::
+
+            pibo_edu_v1.search_text()
+
+        :returns:
+        
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 인식된 문자열}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             img = self.check_onair()
             ret = self.detect.detect_text(img)
@@ -702,6 +1466,21 @@ class Pibo:
 
     # [Vision] - Detect color
     def search_color(self):
+        """
+        이미지(단색 이미지) 안의 색상을 인식합니다.
+
+        (Red, Orange, Yellow, Green, Skyblue, Blue, Purple, Magenta)
+
+        example::
+
+            pibo_edu_v1.search_color()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 인식된 색상}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             img = self.check_onair()
             height, width = img.shape[:2]
@@ -740,6 +1519,25 @@ class Pibo:
 
     # [Vision] - Detect face
     def detect_face(self):
+        """
+        이미지 안의 얼굴을 탐색합니다.
+
+        example::
+
+            pibo_edu_v1.detect_face()
+
+        :returns:
+
+            * 성공::
+            
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": 얼굴 좌표(startX, startY, endX, endY)
+                }
+
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             img = self.check_onair()
             faceList = self.face.detect(img)
@@ -752,6 +1550,30 @@ class Pibo:
 
     # [Vision] - Recognize face
     def search_face(self, filename="face.png"):
+        """
+        이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.
+        
+        (인식한 얼굴 중 가장 크게 인식한 얼굴에 적용됩니다.)
+
+        example::
+
+            pibo_edu_v1.search_face("/home/pi/.../face.png")
+
+        :param str filename: 저장할 파일 경로
+
+            (이미지 파일 형식 기입 필수 - jpg, jpeg, png, bmp)
+
+        :returns:
+
+            * 성공::
+
+                {"result": True, "errcode": 0, "errmsg": "Success", 
+                "data": {"name": 이름, "score": 정확도, "gender": 성별, "age": 나이}}
+                # 정확도 0.4 이하 동일인 판정
+
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         max_w = -1
         selected_face = []
         if filename != None:
@@ -790,6 +1612,22 @@ class Pibo:
 
     # [Vision] - Train face
     def train_face(self, name=None):
+        """
+        사진 촬영 후 얼굴을 학습합니다. (인식된 얼굴 중 가장 크게 인식한 얼굴에 적용됩니다.)
+
+        example::
+
+            pibo_edu_v1.train_face("kim")
+
+        :param str name: 학습할 얼굴의 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+
+        """
+
         max_w = -1
         if name == None:
             return self.return_msg(False, "Argument error", "Name is required", None)
@@ -813,6 +1651,19 @@ class Pibo:
 
     # [Vision] - Get facedb
     def get_facedb(self):
+        """
+        사용 중인 facedb를 확인합니다.
+
+        example::
+
+            pibo_edu_v1.get_facedb()
+
+        :returns:
+        
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 현재 사용 중인 facedb}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             facedb = self.face.get_db()
             return self.return_msg(True, "Success", "Success", facedb)
@@ -822,6 +1673,19 @@ class Pibo:
 
     # [Vision] - Reset facedb
     def init_facedb(self):
+        """
+        facedb를 초기화합니다.
+
+        example::
+
+            pibo_edu_v1.init_facedb()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         try:
             self.face.init_db()
             return self.return_msg(True, "Success", "Success", None)
@@ -831,6 +1695,21 @@ class Pibo:
 
     # [Vision] - Load facedb
     def load_facedb(self, filename=None):
+        """
+        facedb를 불러옵니다.
+
+        example::
+
+            pibo_edu_v1.load_facedb("/home/pi/.../facedb")
+
+        :param str filename: 불러올 데이터베이스 파일 경로
+        
+        :returns:
+        
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         else:
@@ -846,6 +1725,21 @@ class Pibo:
 
     # [Vision] - Save the facedb as a file
     def save_facedb(self, filename=None):
+        """
+        facedb를 파일로 저장합니다.
+
+        example::
+
+            pibo_edu_v1.save_facedb("/home/pi/.../facedb")
+
+        :param str filename: 저장할 데이터베이스 파일 경로
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if filename == None:
             return self.return_msg(False, "Argument error", "Filename is required", None)
         try:
@@ -857,6 +1751,21 @@ class Pibo:
 
     # [Vision] - Delete face in the facedb
     def delete_face(self, name=None):
+        """
+        facedb에 등록된 얼굴을 삭제합니다.
+
+        example::
+
+            pibo_edu_v1.delete_face("kim")
+
+        :param str name: 삭제할 얼굴 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         if name == None:
             return self.return_msg(False, "Argument error", "Name is required", None)
         try:
@@ -870,6 +1779,11 @@ class Pibo:
 
     # [Vision] - Determine image
     def check_onair(self):
+        """
+        (내부함수 입니다.)
+
+        카메라로부터 현재 이미지를 가져옵니다.
+        """
         if self.onair:
             img = self.img
         else:
@@ -879,17 +1793,44 @@ class Pibo:
 
     # Check file exist
     def check_file(self, filename):
+        """
+        (내부함수 입니다.)
+
+        파일을 불러올 때, 불러오려는 파일이 존재하는지 여부를 판단합니다.
+        """
+
         return Path(filename).is_file()
 
     
     # Return msg form
     def return_msg(self, status, errcode, errmsg, data):
+        """
+        (내부함수 입니다.)
+
+        정규 return 메시지 양식을 만듭니다.
+        """
+
         global code_list
         return {"result": status, "errcode": code_list[errcode], "errmsg": errmsg, "data": data}
 
 
     # Getting the meaning of error code
     def get_codeMean(self, errcode):
+        """
+        err 숫자코드의 의미를 조회합니다.
+
+        example::
+
+            pibo_edu_v1.get_codeMean(-3)
+
+        :param int errcode: 조회하고자 하는 errcode 숫자
+        
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": errcode 의미}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
         global code_list
         n_list = {value:key for key, value in code_list.items()}
 
