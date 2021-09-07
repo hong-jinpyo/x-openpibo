@@ -1,3 +1,6 @@
+# KAKAO API
+
+> 본 문서는 `kakao rest api key` 를 발급받는 방법에 대해 안내합니다.
 > *Speech* 기능을 사용하기 위해 [kakao developers](https://developers.kakao.com/) 회원가입 후 REST API 키를 발급받아야 합니다.
 
 1. 로그인 후 [내 애플리케이션] 클릭
