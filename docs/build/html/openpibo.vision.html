@@ -167,6 +167,8 @@
             
   <div class="section" id="module-openpibo.vision">
 <span id="openpibo-vision-module"></span><h1>openpibo.vision module<a class="headerlink" href="#module-openpibo.vision" title="제목 주소">¶</a></h1>
+<p>PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)</p>
+<p>카메라 기능, 얼굴 인식, 객체/바코드/문자 인식 수행</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.vision.Camera">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.vision.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><a class="headerlink" href="#openpibo.vision.Camera" title="정의 주소">¶</a></dt>
@@ -186,20 +188,36 @@
 <dd><p>BGR 이미지 모델을 HLS 이미지 모델로 변환한다.</p>
 <p>BGR: Blue, Green, Red</p>
 <p>HLS: Hue(색상), Luminance(명도), Saturation(채도)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.vision.Camera.cartoonize">
-<span class="sig-name descname"><span class="pre">cartoonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.cartoonize" title="정의 주소">¶</a></dt>
-<dd><p>이미지에 문자를 입력합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">pibo_camera</span><span class="o">.</span><span class="n">cartoonize</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">new_img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">bgr_hls</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p>변환된 <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 이미지 객체</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.vision.Camera.cartoonize">
+<span class="sig-name descname"><span class="pre">cartoonize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.cartoonize" title="정의 주소">¶</a></dt>
+<dd><p>만화같은 이미지로 변경합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">new_image</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">cartoonize</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p>변환된 <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 이미지 객체</p>
 </dd>
 </dl>
 </dd></dl>
@@ -286,7 +304,25 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.vision.Camera.putText">
 <span class="sig-name descname"><span class="pre">putText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(255,</span> <span class="pre">255,</span> <span class="pre">255)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.putText" title="정의 주소">¶</a></dt>
-<dd></dd></dl>
+<dd><p>이미지에 문자를 입력합니다. (영어만 가능)</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">new_img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;안녕하세요&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – 표시할 문자열</p></li>
+<li><p><strong>p</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – 좌측상단 좌표 (x, y)</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – 표시할 글자의 크기</p></li>
+<li><p><strong>color</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>)</em>) – 글자 색깔 RGB 값 (r, g, b)</p></li>
+<li><p><strong>tickness</strong> (<em>int</em>) – 글자 두께</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.vision.Camera.read">
@@ -304,7 +340,7 @@
 </ul>
 </dd>
 <dt class="field-even">반환</dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 타입의 이미지 객체</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 타입 이미지 객체</p>
 </dd>
 </dl>
 </dd></dl>
@@ -402,7 +438,9 @@
 <span class="sig-name descname"><span class="pre">detect_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Detect.detect_object" title="정의 주소">¶</a></dt>
 <dd><p>이미지 안의 객체를 인식합니다. (20개 class의 사물 인식 가능)</p>
 <p>인식 가능한 사물은 다음과 같습니다:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;boat&quot;</span><span class="p">,</span> <span class="s2">&quot;bottle&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;chair&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;diningtable&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="s2">&quot;motorbike&quot;</span><span class="p">,</span> <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;pottedplant&quot;</span><span class="p">,</span> <span class="s2">&quot;sheep&quot;</span><span class="p">,</span> <span class="s2">&quot;sofa&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;tvmonitor&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;background&quot;</span><span class="p">,</span> <span class="s2">&quot;aeroplane&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;boat&quot;</span><span class="p">,</span> <span class="s2">&quot;bottle&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> 
+<span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;chair&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;diningtable&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;horse&quot;</span><span class="p">,</span> <span class="s2">&quot;motorbike&quot;</span><span class="p">,</span> 
+<span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;pottedplant&quot;</span><span class="p">,</span> <span class="s2">&quot;sheep&quot;</span><span class="p">,</span> <span class="s2">&quot;sofa&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;tvmonitor&quot;</span>
 </pre></div>
 </div>
 <p>example:</p>
@@ -475,6 +513,7 @@
 <li><p>학습된 얼굴을 인식합니다.</p></li>
 <li><p>얼굴로 나이/성별을 추정합니다.</p></li>
 </ul>
+<p>인스턴스마다 <strong>facedb</strong> 를 가지고 있으며, 여기에서 얼굴 데이터를 등록하고 불러오고 삭제합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_face</span> <span class="o">=</span> <span class="n">Face</span><span class="p">()</span>
 </pre></div>
@@ -522,11 +561,11 @@
 <dd><p>얼굴의 나이, 성별을 추정합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">face</span> <span class="o">=</span> <span class="n">pibo_face</span><span class="o">.</span><span class="n">detect</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">face</span> <span class="o">=</span> <span class="n">pibo_face</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">img</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pibo_face</span><span class="o">.</span><span class="n">get_ageGender</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">face</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>img</strong> (<em>numpy.ndarray</em>) – 이미지 객체</p></li>
@@ -535,8 +574,10 @@
 </dd>
 <dt class="field-even">Returns dict</dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">{&quot;age&quot;:</span> <span class="pre">나이,</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">성별}</span></code></p>
-<ul class="simple">
-<li><p>age: 나이의 범위를 tuple() 형태로 출력한다. ex) (15, 20) # 15살에서 20살 정도</p></li>
+<ul>
+<li><p>age: 나이의 범위를 tuple() 형태로 출력한다.</p>
+<p>ex) (15, 20) # 15살에서 20살 정도</p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -553,7 +594,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">반환</dt>
-<dd class="field-odd"><p>`` list(list, list)`` 형태의 데이터베이스</p>
+<dd class="field-odd"><p><strong>facedb</strong> (<code class="docutils literal notranslate"><span class="pre">list(list,</span> <span class="pre">list)</span></code> 타입)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -591,7 +632,7 @@
 <dd><p>등록된 얼굴을 인식합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">face</span> <span class="o">=</span> <span class="n">pibo_face</span><span class="o">.</span><span class="n">detect</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">face</span> <span class="o">=</span> <span class="n">pibo_face</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">img</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">pibo_face</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">face</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -635,7 +676,7 @@
 <span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">faces</span> <span class="o">=</span> <span class="n">pibo_face</span><span class="o">.</span><span class="n">detect</span><span class="p">()</span>
-<span class="n">face</span> <span class="o">=</span> <span class="n">faces</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="c1"># face는 faces 중 1</span>
+<span class="n">face</span> <span class="o">=</span> <span class="n">faces</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="c1"># face는 faces중 하나</span>
 <span class="n">pibo_face</span><span class="o">.</span><span class="n">train_face</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">face</span><span class="p">,</span> <span class="s1">&#39;홍길동&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

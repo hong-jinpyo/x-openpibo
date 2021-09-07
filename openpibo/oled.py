@@ -1,3 +1,7 @@
+"""
+OLED Display에 문자나 이미지를 출력합니다.
+"""
+
 from .modules.oled import ssd1306, board, busio, digitalio
 from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
@@ -101,7 +105,11 @@ class Oled:
 
     example::
 
+      from openpibo.vision import Camera
+
+      pibo_camera = Camera()
       img = pibo_camera.read(128, 64)
+      
       pibo.draw_data(img)
       pibo.show()
 
@@ -178,7 +186,7 @@ class Oled:
     """
     화면에 표시하기
     
-    이 메서드를 사용하지 않으면 화면에 출력되지 않습니다.
+    **이 메서드를 사용하지 않으면 화면에 출력되지 않습니다.**
     
     example::
     

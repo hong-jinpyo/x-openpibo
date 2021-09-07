@@ -1,4 +1,6 @@
 """
+MCU(Atmega328p)를 제어합니다.
+
 :메시지 상세 설명:
 
   * VERSION (10)
@@ -23,36 +25,37 @@
 
   * NEOPIXEL (20)
   
-    * data: 255,255,255
+    * data: 255,255,255 (R,G,B)
     * set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정
 
   * NEOPIXEL_FADE (21)
 
-    * data: 255,255,255
-    * set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정 (색상 연속적으로 변경)
+    * data: 255,255,255,10 (R,G,B,time)
+    * set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정 (색상 천천히 변경)
 
   * NEOPIXEL_BRIGHTNESS (22)
 
+    * data: 64 (brightness)
     * set: 네오픽셀설정 밝기를 설정한다. (기본: 64)
 
   * NEOPIXEL_EACH (23)
   
-    * data: 255,255,255,255,255,255
+    * data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))
     * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정
     
   * NEOPIXEL_FADE_EACH (24)
 
-    * data: 255,255,255,255,255,255
-    * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (색상 연속적으로 변경)
+    * data: 255,255,255,255,255,255,10 (left(R,G,B), right(R,G,B), time)
+    * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (색상 천천히 변경)
   
   * NEOPIXEL_LOOP (25)
 
-    * data: 10 (delay time)
+    * data: 10 (time)
     * set: 네오픽셀 무지개색으로 일정시간 반복
   
   * NEOPIXEL_OFFSET_SET (26)
 
-    * data: 255,255,255,255,255,255
+    * data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))
     * set: 네오픽셀 최댓값 설정 (255,255,0,255,255,0 이면, white로 설정해도 노란색으로 표현됨.)
 
   * NEOPIXEL_OFFSET_GET (27)
@@ -61,22 +64,26 @@
   
   * NEOPIXEL_EACH_ORG (28)
 
-    * data: 255,255,255,255,255,255
+    * data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))
     * set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (OFFSET의 영향을 받지 않음)
 
   * PIR (30)
   
-    * data: ``"on"`` or ``"off"``
+    * data: ``"on"`` or ``"off"`` (sensor on/off switch)
     * set: pir sensor ``"on"`` (활성화) / ``"off"`` (비활성화)
 
   * SYSTEM (40)
   
-    1. PIR 감지: ``"person"`` or ``"nobody"``
-    #. Touch 감지: ``"touch" ``or ``""``
-    #. DC잭 연결감지: ``"on"`` of ``"off"``
-    #. 버튼 감지: ``"on"`` or ``""``
-    #. 시스템리셋: not support
-    #. 전원종료: ``"on"`` or ``""``
+    * data: ``"battery"`` or ``"system"``
+
+      system 입력시:
+
+      1. PIR 감지: ``"person"`` or ``"nobody"``
+      #. Touch 감지: ``"touch" ``or ``""``
+      #. DC잭 연결감지: ``"on"`` of ``"off"``
+      #. 버튼 감지: ``"on"`` or ``""``
+      #. 시스템리셋: not support
+      #. 전원종료: ``"on"`` or ``""``
 """
 
 import serial
@@ -131,11 +138,8 @@ class Device:
     
       * 10 : VERSION
       * 11 : HALT
-      * 12 : RESET
-      * 13 : BUTTON (no Send)
       * 14 : DC_CONN
       * 15 : BATTERY
-      * 16 : AUDIO_EN
       * 17 : REBOOT
       * 20 : NEOPIXEL
       * 21 : NEOPIXEL_FADE
@@ -147,7 +151,7 @@ class Device:
       * 27 : NEOPIXEL_OFFSET_GET
       * 28 : NEOPIXEL_EACH_ORG
       * 30 : PIR
-      * 31 : TOUCH (no Send)
+      * 40 : SYSTEM
     
     :param str data: 메시지
 
@@ -161,6 +165,8 @@ class Device:
       * ``.send_cmd(25, '2')``
       * ``.send_cmd(26, '255,255,255,255,255,255')``
       * ``.send_cmd(28, '255,255,255,255,255,255')``
+      * ``.send_cmd(30, 'on')``
+      * ``.send_cmd(40, 'system')``
 
       **자세한 설명은 상단 "메시지 상세 설명" 참고하시기 바랍니다**
     

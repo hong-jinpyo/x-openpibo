@@ -497,7 +497,7 @@ class Pibo:
         
         :returns:
 
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": Device로부터 받은 응답}``
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": Device로부터 응답}``
             * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         """
 
@@ -782,14 +782,18 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.get_motion()	    # ['stop', 'stop_body', 'sleep', 'lookup', 'left', ...]
-            pibo_edu_v1.get_motion("sleep")	# {'comment': 'sleep', 'init': [0, 0, -70, -25, 0, 15, 0, 0, 70, 25], 'init_def': 0, ...}
+            pibo_edu_v1.get_motion()
+            # ['stop', 'stop_body', 'sleep', 'lookup', 'left', ...]
+
+            pibo_edu_v1.get_motion("sleep")
+            # {'comment': 'sleep', 'init': [0,0,-70,-25,0,15,0,0,70,25], 'init_def': 0, ...}
 
         :param str name: 모션 이름
 
         :returns:
 
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": motion profile로부터 받은 응답}``
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": profile로부터 응답}``
+
             * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         
         [전체 모션 리스트]::
@@ -1133,27 +1137,36 @@ class Pibo:
             * <speak>
 
                 * 기본적으로 모든 음성은 태그로 감싸져야 합니다.
-                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다. 한 문장 안에서 단어별로 태그를 감싸지 않습니다.
+                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다.
+                
+                  한 문장 안에서 단어별로 태그를 감싸지 않습니다.
+
                 * <speak> 안녕하세요. 반가워요. </speak>
 
             * <voice>
 
-                * 음성의 목소리를 변경하기 위해 사용하며, name attribute를 통해 원하는 목소리를 지정합니다. 제공되는 목소리는 4가지입니다.
+                * 음성의 목소리를 변경하기 위해 사용하며,
+                
+                  name attribute를 통해 원하는 목소리를 지정합니다. 
+                
+                  제공되는 목소리는 4가지입니다.
 
-                    * WOMAN_READ_CALM: 여성 차분한 낭독체 (default)
-                    * MAN_READ_CALM: 남성 차분한 낭독체
-                    * WOMAN_DIALOG_BRIGHT: 여성 밝은 대화체
-                    * MAN_DIALOG_BRIGHT: 남성 밝은 대화체
+                  * WOMAN_READ_CALM: 여성 차분한 낭독체 (default)
+                  * MAN_READ_CALM: 남성 차분한 낭독체
+                  * WOMAN_DIALOG_BRIGHT: 여성 밝은 대화체
+                  * MAN_DIALOG_BRIGHT: 남성 밝은 대화체
 
-                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다. 한 문장 안에서 단어별로 태그를 감싸지 않습니다.
+                * 문장, 문단 단위로 적용하는 것을 원칙으로 합니다. 
+                
+                  한 문장 안에서 단어별로 태그를 감싸지 않습니다.
 
                 example::
 
                     <speak>
                         <voice name="WOMAN_READ_CALM"> 지금은 여성 차분한 낭독체입니다.</voice>
                         <voice name="MAN_READ_CALM"> 지금은 남성 차분한 낭독체입니다.</voice>
-                        <voice name="WOMAN_DIALOG_BRIGHT"> 안녕하세요. 여성 밝은 대화체예요.</voice>
-                        <voice name="MAN_DIALOG_BRIGHT"> 안녕하세요. 남성 밝은 대화체예요.</voice>
+                        <voice name="WOMAN_DIALOG_BRIGHT"> 여성 밝은 대화체예요.</voice>
+                        <voice name="MAN_DIALOG_BRIGHT"> 남성 밝은 대화체예요.</voice>
                     </speak>
 
         :param str filename: 저장할 파일 경로(mp3, wav)
@@ -1380,8 +1393,13 @@ class Pibo:
 
             * 성공::
             
-                {"result": True, "errcode": 0, "errmsg": "Success", 
-                "data": {"name": 이름, "score": 점수, "position": 사물좌표(startX, startY, endX, endY)}}
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": {
+                        "name": 이름, "score": 점수, 
+                        "position": 사물좌표(startX, startY, endX, endY)
+                    }
+                }
 
             * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         """
@@ -1405,7 +1423,13 @@ class Pibo:
 
         :returns:
         
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": {"data": 내용, "type": 바코드/QR코드}}``
+            * 성공::
+            
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": {"data": 내용, "type": 바코드/QR코드}
+                }
+
             * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         """
 
@@ -1504,7 +1528,13 @@ class Pibo:
 
         :returns:
 
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": 얼굴 좌표(startX, startY, endX, endY)}``
+            * 성공::
+            
+                {
+                    "result": True, "errcode": 0, "errmsg": "Success", 
+                    "data": 얼굴 좌표(startX, startY, endX, endY)
+                }
+
             * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         """
 

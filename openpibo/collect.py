@@ -237,7 +237,7 @@ class Weather:
             example::
 
                 {
-                    'weather': '전국 대체로 흐림, 서쪽지역에 내리는 비는 밤에 동해안을 제외한 전국으로 확대되겠음', 
+                    'weather': '전국 대체로 흐림, 서쪽지역에 내리는 비는 밤에 동해안을 제외한 전국으로 확대되겠음',
                     'minimum_temp': '15.3 ~ 21.6', 
                     'highst_temp': '23.1 ~ 27.6'
                 }
@@ -421,8 +421,8 @@ class News:
 
                 {
                     'title': '또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다', 
-                    'link': 'https://news.jtbc.joins.com/article/article.aspx?news_id=NB12022442', 
-                    'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습. 〈사진-JTBC ..., 
+                    'link': 'https://news.jtbc.joins.com/article/article.aspx?news_id=xxx',
+                    'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습. 〈사진-JTBC ...,
                     'pubDate': '2021.09.03'
                 }
         """

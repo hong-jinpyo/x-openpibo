@@ -18,7 +18,12 @@ current_path = os.path.dirname(os.path.realpath(__file__))
 
 
 def getDiff(aT, bT):
-  """숨길까?"""
+  """
+  (``get_dialog`` 메서드의 내부함수)
+
+  ``get_dialog`` 의 과정 중 사용자의 질문과 유사한 데이터를 찾는 함수입니다.
+  """
+
   cnt = 0
   for i in aT:
     for j in bT:
@@ -179,7 +184,7 @@ class Dialog:
 
   def mecab_pos(self, string):
     """
-    형태소를 pos모드로 추출합니다.
+    형태소를 품사와 함께 추출합니다.
 
     exmaple::
 
@@ -198,7 +203,7 @@ class Dialog:
   def mecab_morphs(self, string):
 
     """
-    형태소를 morphs모드로 추출합니다.
+    형태소를 추출합니다.
 
     exmaple::
 

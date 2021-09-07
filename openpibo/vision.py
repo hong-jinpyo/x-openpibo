@@ -1,3 +1,9 @@
+"""
+PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)
+
+카메라 기능, 얼굴 인식, 객체/바코드/문자 인식 수행
+"""
+
 import cv2
 import dlib
 import numpy as np
@@ -53,7 +59,7 @@ class Camera:
 
     :param int h: 촬영할 이미지의 세로 픽셀 크기 입니다.
 
-    :returns: ``numpy.ndarray`` 타입의 이미지 객체
+    :returns: ``numpy.ndarray`` 타입 이미지 객체
     """
 
     vs = VideoStream(width=w, height=h).start()
@@ -154,9 +160,8 @@ class Camera:
     return cv2.rectangle(img, p1, p2, color, tickness)
 
   def putText(self, img, text, p, size=1, color=(255,255,255), tickness=1):
-    from PIL import ImageFont, ImageDraw, Image
     """
-    이미지에 문자를 입력합니다.
+    이미지에 문자를 입력합니다. (영어만 가능)
 
     example::
 
@@ -180,6 +185,8 @@ class Camera:
     # 아래 주석을 해제하면 한글 사용 가능.
     # 단, cv2가 아닌 PIL을 사용하기 때문에 return 으로 이미지를 받아 사용해야 됨.
 
+    # from PIL import ImageFont, ImageDraw, Image
+
     # size = int(size*30)
     # fontpath = current_path+'/data/models/KDL.ttf'
     # font = ImageFont.truetype(fontpath, size)
@@ -193,14 +200,16 @@ class Camera:
 
   def cartoonize(self, img):
     """
-    이미지에 문자를 입력합니다.
+    만화같은 이미지로 변경합니다.
 
     example::
 
       img = pibo_camera.read()
-      pibo_camera.cartoonize(img)
+      new_image = pibo_camera.cartoonize(img)
     
     :param numpy.ndarray img: 이미지 객체
+
+    :returns: 변환된 ``numpy.ndarray`` 이미지 객체
     """
 
     numDownSamples = 2 # number of downscaling steps
@@ -285,6 +294,15 @@ class Camera:
     BGR: Blue, Green, Red
 
     HLS: Hue(색상), Luminance(명도), Saturation(채도)
+
+    example::
+
+      img = pibo_camera.read()
+      new_img = pibo_camera.bgr_hls(img)
+    
+    :param numpy.ndarray img: 이미지 객체
+
+    :returns: 변환된 ``numpy.ndarray`` 이미지 객체
     """
 
     return cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
@@ -297,6 +315,8 @@ class Face:
   * 얼굴을 학습/저장/삭제합니다.
   * 학습된 얼굴을 인식합니다.
   * 얼굴로 나이/성별을 추정합니다.
+
+  인스턴스마다 **facedb** 를 가지고 있으며, 여기에서 얼굴 데이터를 등록하고 불러오고 삭제합니다.
 
   example::
 
@@ -327,7 +347,7 @@ class Face:
 
       pibo_face.get_db()
 
-    :returns: `` list(list, list)`` 형태의 데이터베이스
+    :returns: **facedb** (``list(list, list)`` 타입)
     """
 
     return self.facedb
@@ -387,7 +407,7 @@ class Face:
       img = pibo_camera.read()
 
       faces = pibo_face.detect()
-      face = faces[n] # face는 faces 중 1
+      face = faces[n] # face는 faces중 하나
       pibo_face.train_face(img, face, '홍길동')
     
     :param numpy.ndarray img: 이미지 객체
@@ -436,7 +456,7 @@ class Face:
     example::
 
       img = pibo_camera.read()
-      face = pibo_face.detect()[0]
+      face = pibo_face.detect(img)[0]
       pibo_face.recognize(img, face)
     
     :param numpy.ndarray img: 이미지 객체
@@ -493,7 +513,7 @@ class Face:
     example::
 
       img = pibo_camera.read()
-      face = pibo_face.detect()[0]
+      face = pibo_face.detect(img)[0]
       pibo_face.get_ageGender(img, face)
     
     :param numpy.ndarray img: 이미지 객체
@@ -502,7 +522,9 @@ class Face:
 
     :returns dict: ``{"age": 나이, "gender": 성별}``
 
-      * age: 나이의 범위를 tuple() 형태로 출력한다. ex) (15, 20) # 15살에서 20살 정도
+      * age: 나이의 범위를 tuple() 형태로 출력한다.
+      
+        ex) (15, 20) # 15살에서 20살 정도
     
     참고: https://github.com/kairess/age_gender_estimation
     """
@@ -563,7 +585,9 @@ class Detect:
 
     인식 가능한 사물은 다음과 같습니다::
 
-      "background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
+      "background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", 
+      "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", 
+      "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"
 
     example::
 

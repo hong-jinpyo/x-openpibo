@@ -168,93 +168,98 @@
             
   <div class="section" id="module-openpibo.device">
 <span id="openpibo-device-module"></span><h1>openpibo.device module<a class="headerlink" href="#module-openpibo.device" title="제목 주소">¶</a></h1>
-<dl class="field-list simple">
+<p>MCU(Atmega328p)를 제어합니다.</p>
+<dl class="field-list">
 <dt class="field-odd">메시지 상세 설명</dt>
-<dd class="field-odd"><ul class="simple">
+<dd class="field-odd"><ul>
 <li><p>VERSION (10)</p>
-<ul>
+<ul class="simple">
 <li><p>get: 버전정보</p></li>
 </ul>
 </li>
 <li><p>HALT (11)</p>
-<ul>
+<ul class="simple">
 <li><p>set: 전원종료 요청</p></li>
 </ul>
 </li>
 <li><p>DC_CONN (14)</p>
-<ul>
+<ul class="simple">
 <li><p>get: DC잭 연결정보</p></li>
 </ul>
 </li>
 <li><p>BATTERY (15)</p>
-<ul>
+<ul class="simple">
 <li><p>get: 배터리정보</p></li>
 </ul>
 </li>
 <li><p>REBOOT (17)</p>
-<ul>
+<ul class="simple">
 <li><p>set: device 설정 초기화 요청</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL (20)</p>
-<ul>
-<li><p>data: 255,255,255</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255 (R,G,B)</p></li>
 <li><p>set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_FADE (21)</p>
-<ul>
-<li><p>data: 255,255,255</p></li>
-<li><p>set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정 (색상 연속적으로 변경)</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255,10 (R,G,B,time)</p></li>
+<li><p>set: 네오픽셀설정 (R,G,B) 양쪽 동일하게 설정 (색상 천천히 변경)</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_BRIGHTNESS (22)</p>
-<ul>
+<ul class="simple">
+<li><p>data: 64 (brightness)</p></li>
 <li><p>set: 네오픽셀설정 밝기를 설정한다. (기본: 64)</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_EACH (23)</p>
-<ul>
-<li><p>data: 255,255,255,255,255,255</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))</p></li>
 <li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_FADE_EACH (24)</p>
-<ul>
-<li><p>data: 255,255,255,255,255,255</p></li>
-<li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (색상 연속적으로 변경)</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255,255,255,255,10 (left(R,G,B), right(R,G,B), time)</p></li>
+<li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (색상 천천히 변경)</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_LOOP (25)</p>
-<ul>
-<li><p>data: 10 (delay time)</p></li>
+<ul class="simple">
+<li><p>data: 10 (time)</p></li>
 <li><p>set: 네오픽셀 무지개색으로 일정시간 반복</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_OFFSET_SET (26)</p>
-<ul>
-<li><p>data: 255,255,255,255,255,255</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))</p></li>
 <li><p>set: 네오픽셀 최댓값 설정 (255,255,0,255,255,0 이면, white로 설정해도 노란색으로 표현됨.)</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_OFFSET_GET (27)</p>
-<ul>
+<ul class="simple">
 <li><p>get: 네오픽셀 오프셋 정보</p></li>
 </ul>
 </li>
 <li><p>NEOPIXEL_EACH_ORG (28)</p>
-<ul>
-<li><p>data: 255,255,255,255,255,255</p></li>
+<ul class="simple">
+<li><p>data: 255,255,255,255,255,255 (left(R,G,B), right(R,G,B))</p></li>
 <li><p>set: 네오픽셀설정 (R,G,B,R,G,B) 양쪽 각각 설정 (OFFSET의 영향을 받지 않음)</p></li>
 </ul>
 </li>
 <li><p>PIR (30)</p>
-<ul>
-<li><p>data: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
+<ul class="simple">
+<li><p>data: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code> (sensor on/off switch)</p></li>
 <li><p>set: pir sensor <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> (활성화) / <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code> (비활성화)</p></li>
 </ul>
 </li>
 <li><p>SYSTEM (40)</p>
+<ul>
+<li><p>data: <code class="docutils literal notranslate"><span class="pre">&quot;battery&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;system&quot;</span></code></p>
+<p>system 입력시:</p>
 <ol class="arabic simple">
 <li><p>PIR 감지: <code class="docutils literal notranslate"><span class="pre">&quot;person&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;nobody&quot;</span></code></p></li>
 <li><p>Touch 감지: <code class="docutils literal notranslate"><span class="pre">&quot;touch&quot;</span> <span class="pre">``or</span> <span class="pre">``&quot;&quot;</span></code></p></li>
@@ -263,6 +268,8 @@
 <li><p>시스템리셋: not support</p></li>
 <li><p>전원종료: <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
 </ol>
+</li>
+</ul>
 </li>
 </ul>
 </dd>
@@ -302,11 +309,8 @@
 <ul>
 <li><p>10 : VERSION</p></li>
 <li><p>11 : HALT</p></li>
-<li><p>12 : RESET</p></li>
-<li><p>13 : BUTTON (no Send)</p></li>
 <li><p>14 : DC_CONN</p></li>
 <li><p>15 : BATTERY</p></li>
-<li><p>16 : AUDIO_EN</p></li>
 <li><p>17 : REBOOT</p></li>
 <li><p>20 : NEOPIXEL</p></li>
 <li><p>21 : NEOPIXEL_FADE</p></li>
@@ -318,7 +322,7 @@
 <li><p>27 : NEOPIXEL_OFFSET_GET</p></li>
 <li><p>28 : NEOPIXEL_EACH_ORG</p></li>
 <li><p>30 : PIR</p></li>
-<li><p>31 : TOUCH (no Send)</p></li>
+<li><p>40 : SYSTEM</p></li>
 </ul>
 </p></li>
 <li><p><strong>data</strong> (<em>str</em>) – <p>메시지</p>
@@ -332,6 +336,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(25,</span> <span class="pre">'2')</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(26,</span> <span class="pre">'255,255,255,255,255,255')</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(28,</span> <span class="pre">'255,255,255,255,255,255')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(30,</span> <span class="pre">'on')</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.send_cmd(40,</span> <span class="pre">'system')</span></code></p></li>
 </ul>
 <p><strong>자세한 설명은 상단 《메시지 상세 설명》 참고하시기 바랍니다</strong></p>
 </p></li>
