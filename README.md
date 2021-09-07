@@ -14,22 +14,11 @@
 
 
 ## INDEX
-- [0. 설치 및 설정](#0--------)
-- [1. 기존 openpibo 대비 변경사항](#1----openpibo--------)
-  * [Class name 변경](#class-name---)
-  * [경로 변경](#-----)
-    + [import 경로 변경](#import------)
-    + [data 경로 변경](#data------)
-  * [파일 구조 변경](#--------)
-    + [data 파일 구조 변경](#data---------)
-    + [라이브러리 구조 변경](#-----------)
-- [2. 추가된 기능](#2-------)
-  * [HTML Docs](#html-docs)
-  * [Process Test](#process-test)
-  * [Motion Creator](#motion-creator)
-  * [Device Simulator](#device-simulator)
-
-
+* [설치 및 설정](#설치-및-설정)
+* [사용법](#사용법)
+  + [라이브러리 사용법](#라이브러리-사용법)
+  + [Tools](#Tools)
+* [공식 문서](#공식-문서)
 
 
 ## 설치 및 설정
@@ -106,53 +95,7 @@
       git clone https://github.com/themakerrobot/x-openpibo-tools.git
       ```
 
-8. 카카오 api키를 발급받습니다. `수정 요. README 분리 또는 pororo로 변경`
-
-   **Kakao open API** (https://developers.kakao.com/)
-
-   *Speech* 기능을 사용하기 위해 [kakao developers](https://developers.kakao.com/) 회원가입 후 REST API 키를 발급받아야 합니다.
-
-   1. 로그인 후 [내 애플리케이션] 클릭
-
-      ![api1](README.assets/api1.png)
-
-   2. [애플리케이션 추가하기] 클릭
-
-      ![api2](README.assets/api2.png)
-
-   3. 앱 이름 및 사업자명 입력 후 저장
-
-      ![api3](README.assets/api3.png)
-
-   4. 새로 생성한 애플리케이션 클릭
-
-      ![api4](README.assets/api4.png)
-
-   5. config.py에 발급받은 REST API 키 입력 후, 왼쪽의 [음성] 클릭
-
-      ![api5](README.assets/api5.png)
-
-   6. 이후 `/home/pi/config.json`의 `KAKAO_ACCOUNT`에 발급받은 `REST API 키` 입력
-
-      ```json
-      {
-          "DATA_PATH":"/home/pi/openpibo-data/data/",
-          "KAKAO_ACCOUNT": "<여기에 발급받은 REST API 키를 입력해주세요>",
-          "robotId": ""
-      }
-      ```
-
-   7. 활성화 설정의 [OFF] 버튼 클릭
-
-      ![api6](README.assets/api6.png)
-
-   8. 사용 목적 입력 후 저장
-
-      ![api7](README.assets/api7.png)
-
-   9. 활성화 설정의 상태가 [ON]으로 바뀌면 완료
-
-      ![api8](README.assets/api8.png)
+8. [카카오 api키를 발급받습니다.](https://github.com/themakerrobot/x-openpibo/tree/master/docs/kakao_api.md) `수정 요. README 분리 또는 pororo로 변경`
 
 
 
@@ -216,6 +159,18 @@
 >>> pibo = Audio()
 >>> pibo.play(openpibo.config['MY_DATA_PATH'] + 'test.mp3')
 ```
+
+
+
+### Tools
+
+파이보 사용에 도움이 되는 각종 툴에 대한 사용법입니다.
+
+다음 도구들을 사용할 수 있습니다.
+
+- [process test](https://github.com/themakerrobot/openpibo-tools/blob/master/README.md#Process-Test)
+- [motion creator](https://github.com/themakerrobot/openpibo-tools/blob/master/README.md#Motion-Creator)
+- [device simulator](https://github.com/themakerrobot/openpibo-tools/blob/master/README.md#Device-Simulator)
 
 
 
