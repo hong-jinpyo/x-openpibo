@@ -105,6 +105,9 @@
 ### 라이브러리 사용법
 
 > 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리나 메서드는 [document](https://themakerrobot.github.io/x-openpibo/build/html/index.html)를 참고해주시기 바랍니다.
+> 가이드는 두 가지 전제 하에 작성되었습니다.
+> 1. `openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
+> 2. `openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
 
 - 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
 
