@@ -138,7 +138,8 @@ $ sudo python3
 - `config.json` 파일을 수정하기 위해서는 sudo 권한이 필요합니다.
 
 ```bash
-$ quit()
+>>> quit()
+
 $ cd ~
 $ sudo vi config.json
 ```
