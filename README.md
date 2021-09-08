@@ -106,7 +106,13 @@
 
 > 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리나 메서드는 [document](https://themakerrobot.github.io/x-openpibo/build/html/index.html)를 참고해주시기 바랍니다.
 
-- 먼저 사용하고자 하는 라이브러리를 import합니다.
+- 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
+
+```bash
+sudo python3
+```
+
+- 사용하고자 하는 라이브러리를 import합니다.
 
 ```python
 >>> from openpibo.audio import Audio
