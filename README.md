@@ -138,10 +138,7 @@ $ sudo python3
 - 만약 너무 긴 경로를 반복해서 입력하기 번거롭다면, `config.json` 에 경로를 저장할 수 있습니다.
 
 ```json
-{
-    "DATA_PATH": "...",
-    "KAKAO_ACCOUNT": "..."
-}
+{"DATA_PATH": "...", "KAKAO_ACCOUNT": "..."}
 ```
 
 - `config.json` 파일을 수정하기 위해서는 sudo 권한이 필요합니다.
@@ -158,7 +155,7 @@ $ sudo vi config.json
 ```json
 {
     "DATA_PATH": "/home/pi/openpibo-data/data/",
-    "MY_DATA_PATH": "/home/pi/openpibo-data/data/audio",
+    "MY_DATA_PATH": "/home/pi/openpibo-data/data/audio/",
     "KAKAO_ACCOUNT": "..."
 }
 ```
