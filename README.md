@@ -95,7 +95,7 @@
       git clone https://github.com/themakerrobot/x-openpibo-tools.git
       ```
 
-8. [카카오 api키를 발급받습니다.](https://github.com/themakerrobot/x-openpibo/tree/master/docs/kakao_api.md) `수정 요. README 분리 또는 pororo로 변경`
+8. [카카오 api키를 발급받습니다.](https://github.com/themakerrobot/x-openpibo/tree/master/docs/kakao_api.md)
 
 
 
