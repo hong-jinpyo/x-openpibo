@@ -180,6 +180,7 @@ $ sudo python3
 >>> import openpibo
 >>> pibo = Audio()
 >>> pibo.play(openpibo.config['MY_DATA_PATH'] + 'test.mp3')
+>>> pibo.stop()
 ```
 
 
