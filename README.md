@@ -129,6 +129,12 @@ $ sudo python3
 >>> pibo.play('/home/pi/x-openpibo-data/data/audio/test.mp3')
 ```
 
+- `stop` 메서드로 음악을 정지시킵니다.
+
+```python
+>>> pibo.stop()
+```
+
 - 만약 너무 긴 경로를 반복해서 입력하기 번거롭다면, `config.json` 에 경로를 저장할 수 있습니다.
 
 ```json
