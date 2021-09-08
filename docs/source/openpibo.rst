@@ -5,13 +5,15 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
-    openpibo.modules
+   openpibo.modules
 
 Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    openpibo.audio
    openpibo.collect
@@ -26,6 +28,6 @@ Module contents
 ---------------
 
 .. automodule:: openpibo
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
