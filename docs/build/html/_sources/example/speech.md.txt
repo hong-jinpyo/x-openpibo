@@ -150,7 +150,7 @@ Output:  ['아버지', '가방', '에', '들어가', '신다']
 
 - NNG: 일반 명사 / JKB: 부사격 조사 / VV: 동사 / EP: 선어말 어미 / EC: 연결 어미
 
-  ( 품사 태그표: https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0 )
+  ( 품사 태그표: [https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0](https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0))
 
 ## stt_test.py
 
@@ -213,7 +213,7 @@ from openpibo.audio import Audio
 # tts.mp3 파일의 문자 데이터를 음성 언어로 변환 후, 파이보 스피커에 출력
 def tts_f():
   tObj = Speech()
-  filename = openpibo.config['DATA_PATH']+"/tts.mp3"
+  filename = openpibo.config['DATA_PATH']+"audio/tts.mp3"
   tObj.tts("<speak>\
               <voice name='MAN_READ_CALM'>안녕하세요. 반갑습니다.<break time='500ms'/></voice>\
             </speak>"\

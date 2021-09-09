@@ -11,7 +11,7 @@ if __name__ == "__main__":
   m.set_motion(name="wave3", cycle=10)
 ```
 
-아래는 motion_db.json의 일부입니다. motion_db는 `Motion.get_motion(name=None)` 함수로 확인할 수 있습니다.( [1.3.3 Motion 생성-Motion 클래스] 참고 )
+아래는 motion_db.json의 일부입니다. motion_db는 `Motion.get_motion(name=None)` 함수로 확인할 수 있습니다.
 
 ```
 {
