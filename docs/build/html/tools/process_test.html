@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Process Test &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/tools/process_test.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Motion Creator" href="motion_creator.html" />
+    <link rel="prev" title="Edu version 1" href="../edu_pibo/edu_v1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Process Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion_creator.html">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Process Test</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tools/process_test.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="process-test">
+<h1>Process Test<a class="headerlink" href="#process-test" title="제목 주소">¶</a></h1>
+<blockquote>
+<div><p>파이보 부품들의 정상 동작 여부를 테스트하는 프로그램입니다.</p>
+</div></blockquote>
+<p><strong>사용 방법</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">~/</span><span class="n">x</span><span class="o">-</span><span class="n">openpibo</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">process</span><span class="o">-</span><span class="n">test</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><img alt="image-20210820110653606" src="../_images/processtest.png" /></p>
+<p><strong>Command</strong></p>
+<ul>
+<li><p><strong>oled</strong> : OLED 패널을 테스트합니다.</p>
+<ul class="simple">
+<li><p>파이보 OLED 화면에 <code class="docutils literal notranslate"><span class="pre">Oled</span> <span class="pre">Testing...</span></code> 이라고 출력</p></li>
+</ul>
+<p><img alt="image-20210907145853637" src="../_images/image-20210907145853637.png" /></p>
+</li>
+<li><p><strong>audio</strong> : 스피커를 테스트합니다.</p>
+<ul class="simple">
+<li><p>5초간 음악 재생 -&gt; 2초 음소거 -&gt; 5초간 음악 재생 -&gt; 음악 중지</p></li>
+</ul>
+</li>
+<li><p><strong>motor</strong> : 서보모터의 작동을 테스트합니다.</p>
+<p>모터당 3회씩 동작하며, 하나라도 작동이 안되면 실패 입니다.</p>
+<p>순서는 아래와 같습니다.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">foot_right</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leg_right</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shoulder_right</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hand_right</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head_pan</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head_tilt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foot_left</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leg_left</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shoulder_left</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hand_left</span></code></p></li>
+</ol>
+</li>
+<li><p><strong>mic</strong> : 마이크를 테스트합니다.</p>
+<ol>
+<li><p>5초간 음성을 녹음합니다.</p>
+<p>(아래 화면이 출력됩니다)</p>
+<p><img alt="image-20210907141722024" src="../_images/image-20210907141722024.png" /></p>
+</li>
+<li><p>5초 뒤 녹음한 음성이 그대로 출력되는지 확인합니다.</p></li>
+</ol>
+</li>
+<li><p><strong>camera</strong> : 카메라를 테스트합니다.</p>
+<p>OLED 화면에 5초간 카메라 캡쳐 이미지 출력 후 꺼짐</p>
+<p><img alt="image-20210907150123624" src="../_images/image-20210907150123624.png" /></p>
+</li>
+<li><p><strong>neopixel</strong> : LED (파이보 눈) 를 테스트합니다.</p>
+<p>R -&gt; G -&gt; B 순서대로 변함 (각 2초씩)</p>
+<p><img alt="image-20210907150306438" src="../_images/image-20210907150306438.png" /></p>
+</li>
+<li><p><strong>pir</strong> : PIR 센서를 테스트합니다.</p>
+<p>20초간 테스트 진행, 1초마다 테스트 메시지 출력</p>
+<ul class="simple">
+<li><p>파이보 앞에 사람이 있으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">person</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+<li><p>사람이 없으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">nobody</span> <span class="pre">]</span></code> 메시지가 출력되며, 다시 사람이 올때까지 메시지 출력 중지</p></li>
+</ul>
+<p>(테스트 결과는 아래 화면처럼 출력됩니다)</p>
+<p><img alt="image-20210907143454951" src="../_images/image-20210907143454951.png" /></p>
+</li>
+<li><p><strong>touch</strong> : 터치센서를 테스트합니다.</p>
+<p>10초간 테스트 진행, 1초마다 테스트 메시지 출력</p>
+<ul>
+<li><p>파이보 이마를 쓰다듬으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">touch</span> <span class="pre">]</span></code> 메시지 출력</p>
+<p>단, 계속 쓰다듬으면 소용이 없고, 쓰다듬기 시작할때만 출력</p>
+</li>
+<li><p>이마를 쓰다듬지 않으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">No</span> <span class="pre">signal</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+</ul>
+<p>(테스트 결과는 아래 화면처럼 출력됩니다)</p>
+<p><img alt="image-20210907144023124" src="../_images/image-20210907144023124.png" /></p>
+</li>
+<li><p><strong>button</strong> : 전원 버튼을 테스트합니다.</p>
+<p>10초간 진행, 1초마다 테스트 메시지 출력</p>
+<ul>
+<li><p>전원버튼을 누르고 있으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">on</span> <span class="pre">]</span></code> 메시지 출력</p>
+<p>(한번만 눌렀다 떼면 신호를 감지하지 못 함)</p>
+</li>
+<li><p>전원버튼을 누르지 않으면 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">No</span> <span class="pre">signal</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+</ul>
+<p>(테스트 결과는 아래 화면처럼 출력됩니다)</p>
+<p><img alt="image-20210907144318481" src="../_images/image-20210907144318481.png" /></p>
+</li>
+<li><p><strong>dc</strong> : 충전기 연결상태를 테스트합니다.</p>
+<p>10초간 진행, 1초마다 테스트 메시지 출력</p>
+<ul class="simple">
+<li><p>충전기를 연결할 때 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">on</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+<li><p>충전기 연결을 해제할 때 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">off</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+<li><p>충전기 연결상태에 변화가 없을 때 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">No</span> <span class="pre">signal</span> <span class="pre">]</span></code> 메시지 출력</p></li>
+</ul>
+<p>(테스트 결과는 아래 화면처럼 출력됩니다)</p>
+<p><img alt="image-20210907144633893" src="../_images/image-20210907144633893.png" /></p>
+</li>
+<li><p><strong>battery</strong> : 배터리를 테스트합니다.</p>
+<p>배터리 잔량 화면에 표시</p>
+<p>(테스트 결과)</p>
+<p><img alt="image-20210907144753187" src="../_images/image-20210907144753187.png" /></p>
+</li>
+<li><p><strong>quit</strong> : 테스트를 종료합니다.</p>
+<p>테스트 종료 및 테스트 결과 반환</p>
+<p><img alt="image-20210907150707394" src="../_images/image-20210907150707394.png" /></p>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="motion_creator.html" class="btn btn-neutral float-right" title="Motion Creator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../edu_pibo/edu_v1.html" class="btn btn-neutral float-left" title="Edu version 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

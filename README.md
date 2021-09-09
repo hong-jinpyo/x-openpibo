@@ -1,9 +1,5 @@
 # x-openpibo Guide
 
-> 새로운 버전의 파이보의 사용법에 대한 가이드입니다.
->
-> 코드블럭에서 나타나는 부등호 `< >` 는 변수에 대한 설명이므로 타이핑하지 않습니다.
->
 > PIBO 교육용 라이브러리입니다. 아래와 같은 폴더들로 구성되어 있습니다.
 
 1. x-openpibo: 기능 구현을 위한 패키지
@@ -105,6 +101,7 @@
 ### 라이브러리 사용법
 
 > 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리나 메서드는 [document](https://themakerrobot.github.io/x-openpibo/build/html/index.html)를 참고해주시기 바랍니다.
+>
 > 가이드는 두 가지 전제 하에 작성되었습니다.
 > 1. `x-openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
 > 2. `x-openpibo`를 `sudo pip3 install`명령어로 설치 하였음.

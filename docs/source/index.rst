@@ -10,7 +10,10 @@ Welcome to OPENPIBO's documentation!
    :maxdepth: 1
    :caption: Notes
 
-
+   notes/installation
+   notes/usage
+   notes/device
+   notes/kakao_api
 
 .. toctree::
    :maxdepth: 1
@@ -25,11 +28,38 @@ Welcome to OPENPIBO's documentation!
    libraries/vision
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Edu Pibo
 
    edu_pibo/edu_v1
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Tools
+
+   tools/process_test
+   tools/motion_creator
+   tools/device_simulator
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Example
+
+   example/audio
+   example/collect
+   example/device
+   example/motion
+   example/oled
+   example/speech
+   example/vision
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Data
+
+   data/audio
+   data/icon
+   data/images
 
 Indices and tables
 ==================

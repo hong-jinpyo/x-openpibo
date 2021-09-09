@@ -1,0 +1,1318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2.1.2 예제 파일 실행 &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/example/total.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/process_test.html">Process Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/motion_creator.html">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>2.1.2 예제 파일 실행</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/example/total.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2.1.2 예제 파일 실행<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+<p>다음의 코드를 입력하여 예제 파일을 실행할 수 있습니다.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~ $ git clone https://github.com/themakerrobot/openpibo-example.git
+~ $ <span class="nb">cd</span> openpibo-example/<span class="o">{</span>폴더명<span class="o">}</span>
+~/openpibo-example/<span class="o">{</span>폴더명<span class="o">}</span> $ sudo python3 <span class="o">{</span>파일명<span class="o">}</span>
+</pre></div>
+</div>
+<p>아래는 audio 폴더 내에 있는 play_test.py를 실행하는 예제 코드입니다.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>~ $ <span class="nb">cd</span> openpibo-example/audio
+~/openpibo-example/audio $ sudo python3 play_test.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>2.2 예제 파일 코드 설명<a class="headerlink" href="#id2" title="제목 주소">¶</a></h1>
+<p>openpibo-example의 코드는 다음과 같은 구조를 이루고 있습니다.</p>
+<img src="images/openpibo_example.png" alt="openpibo_example" style="zoom: 67%;" /> 
+<div class="section" id="id3">
+<h2>2.2.0 사전 학습<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p>예제 파일에 공통으로 들어가는 코드 및 openpibo 라이브러리에 정의되어 있는 함수 사용에 관한 설명입니다.</p>
+</div></blockquote>
+<ul>
+<li><p><strong>import</strong></p>
+<p>openpibo의 lib를 import하여 구현합니다. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">{package}.{module}</span> <span class="pre">import</span> <span class="pre">{class}</span></code></p>
+<p>아래는 openpibo에 있는 audiolib의 cAudio 클래스를 import하는 예제입니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># openpibo-example/audio/play_test.py</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># 상위 디렉토리 추가 (for utils.config)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))))</span>
+<span class="kn">from</span> <span class="nn">utils.config</span> <span class="kn">import</span> <span class="n">Config</span> <span class="k">as</span> <span class="n">cfg</span>
+
+<span class="c1"># openpibo 라이브러리 경로 추가</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">OPENPIBO_PATH</span> <span class="o">+</span> <span class="s1">&#39;/lib&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">audio.audiolib</span> <span class="kn">import</span> <span class="n">cAudio</span>
+
+<span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>함수</strong></p>
+<p>클래스를 사용하려면 인스턴스를 생성해야 하며, 인스턴스를 통해 해당 클래스의 함수를 호출할 수 있습니다.</p>
+<p>아래는 cAudio 클래스의 함수를 호출하여 test.mp3 파일을 재생하는 코드입니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># openpibo-example/audio/play_test.py</span>
+<span class="o">...</span>
+<span class="kn">from</span> <span class="nn">audio.audiolib</span> <span class="kn">import</span> <span class="n">cAudio</span>
+
+<span class="k">def</span> <span class="nf">tts_f</span><span class="p">():</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cAudio</span><span class="p">()</span>	<span class="c1"># 인스턴스 생성, obj는 cAudio 클래스의 인스턴스</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">)</span>	<span class="c1"># &#39;인스턴스.메서드&#39;로 cAudio 클래스의 play 호출</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">tts_f</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>함수의 호출</strong></p>
+<ol>
+<li><p>함수 호출 시, 해당 함수가 요구하는 매개변수(parameter)를 같이 넘겨줘야 합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out='local'</span></code>, <code class="docutils literal notranslate"><span class="pre">volume='-2000'</span></code>처럼 기본 인자 값이 설정되어 있는 경우, 인자(argument)를 넘겨주지 않아도 함수 호출이 가능합니다.</p>
+<p>(호출 시 인자가 없으면 기본 인자 값이 활용됨)</p>
+</li>
+<li><p>함수는 기본적으로 인자를 위치로 판단합니다.</p></li>
+<li><p>키워드 인자로 전달시 순서가 바뀌어도 함수 호출이 가능합니다.</p></li>
+</ol>
+<p>아래는 cAudio 클래스 및 함수 호출 예제 코드입니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># openpibo/lib/audio/audiolib.py</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">cAudio</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=</span><span class="s1">&#39;-2000&#39;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;omxplayer -o </span><span class="si">{}</span><span class="s2"> --vol </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> &amp;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;sudo pkill omxplayer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># play 함수 호출</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">)</span> <span class="c1"># 방법1</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">)</span> 							<span class="c1"># 방법2 (local, volume 기본 인자값이 있으므로 가능)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">,</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2000</span><span class="p">)</span>						<span class="c1"># 방법3 (인자의 순서가 맞기 때문에 변수명 안써도 가능)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">)</span>	<span class="c1"># 방법4 (키워드 인자의 경우 순서가 바뀌어도 가능)</span>
+</pre></div>
+</div>
+<p>단, 아래와 같이 키워드 인자를 활용한 뒤에 위치 인자를 활용할 수는 없습니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">,</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2000</span><span class="p">)</span>  <span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__name__</span></code>: 현재 모듈의 이름을 담고 있는 내장 변수입니다.</p></li>
+<li><p>해당 프로그램을 직접 실행했을 경우, 참이 되어 main 함수를 실행합니다.</p></li>
+<li><p>다른 프로그램에서 import하여 사용할 경우, main 함수는 실행하지 않습니다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="audio">
+<h2>2.2.1 Audio<a class="headerlink" href="#audio" title="제목 주소">¶</a></h2>
+<p><strong>play_test.py</strong></p>
+<blockquote>
+<div><p>mp3 파일을 재생 및 정지합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">audio.audiolib</span> <span class="kn">import</span> <span class="n">cAudio</span>
+
+<span class="c1"># test.mp3 파일 5초 재생 후 정지</span>
+<span class="k">def</span> <span class="nf">tts_f</span><span class="p">():</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cAudio</span><span class="p">()</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/test.mp3&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">)</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>	<span class="c1"># 5초동안 프로세스 정지</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">tts_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>play_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/audio $ sudo python3 play_test.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="device">
+<h2>2.2.2 Device<a class="headerlink" href="#device" title="제목 주소">¶</a></h2>
+<p><strong>1) device_once_test.py</strong></p>
+<blockquote>
+<div><p>인자값으로 명령어를 입력하여 파이보를 제어합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">device.devicelib</span> <span class="kn">import</span> <span class="n">cDevice</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cDevice</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Send:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">command</span><span class="p">)</span>		<span class="c1"># 실행한 명령어 출력</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_raw</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">command</span><span class="p">)</span>	<span class="c1"># Device에 메시지 전송하고 응답받음</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Receive:&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>			<span class="c1"># Device로부터 받은 응답 출력</span>
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>	<span class="c1"># 인자값을 받을 수 있는 인스턴스 생성</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--command&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;check specific decvice&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#default=0, 입력받고자 하는 인자의 조건 설정</span>
+  <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>			<span class="c1"># 명령창(터미널)에 주어진 인자를 파싱하여 args에 저장</span>
+  <span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>							<span class="c1"># 입력받은 인자값을 인수로 main 함수 실행</span>
+</pre></div>
+</div>
+<p><strong>device_once_test.py 실행</strong></p>
+<p>아래는 PIBO의 양쪽 눈 색깔을 변경(24)하는 명령어 입력 코드입니다. (command 구조는 [1.3.2 Device제어-참고자료]에 있습니다.)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/device $ sudo python3 device_once_test.py --command <span class="s2">&quot;#24:255,0,0,0,0,255:!&quot;</span>
+</pre></div>
+</div>
+<p><strong>device_once_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Send: <span class="c1">#24:255,0,0,0,0,255:!</span>
+Receive: <span class="m">24</span>:oK
+</pre></div>
+</div>
+<img src="images/Device_device_once_test.JPG" alt="Device_device_once_test" style="zoom:25%;" />
+<p><strong>2) device_test.py</strong></p>
+<blockquote>
+<div><p>명령어를 입력하여 파이보를 제어합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">device.devicelib</span> <span class="kn">import</span> <span class="n">cDevice</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cDevice</span><span class="p">()</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_cmd</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;PIR&#39;</span><span class="p">],</span> <span class="s2">&quot;on&quot;</span><span class="p">)</span>
+
+  <span class="c1"># q를 입력할 때까지 계속해서 명령어 입력 가능</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pkt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">pkt</span> <span class="o">==</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span>
+      <span class="k">break</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_raw</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>device_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/device $ sudo python3 device_test.py
+</pre></div>
+</div>
+<p><strong>device_test.py 결과</strong></p>
+<p>아래는 PIBO의 눈 색깔을 변경(20), 배터리 체크(15), 버전 확인(10) 명령어를 입력했을 때의 결과입니다.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#20:255,0,255:!</span>
+<span class="m">20</span>:ok
+<span class="c1">#15:!</span>
+<span class="m">15</span>:100%
+<span class="c1">#10:!</span>
+<span class="m">10</span>:FWN200312A
+q
+</pre></div>
+</div>
+<img src="images/Device_device2.JPG" alt="Device_device2" style="zoom:25%;" />
+<p><strong>3) device_test_with_thread.py</strong></p>
+<blockquote>
+<div><p>thread를 사용하여 코드를 병렬 수행합니다.</p>
+</div></blockquote>
+<ul>
+<li><p>파이썬은 기본적으로 Single Thread에서 순차적으로 코드를 실행합니다.</p>
+<p>따라서, 코드 실행 중 Blocking Function(ex. input)을 만나면 그 함수의 실행이 끝날 때까지 대기합니다.</p>
+<p>이때 threading 모듈을 이용한 multi thread를 사용하면 코드의 병렬 실행이 가능합니다.</p>
+</li>
+<li><p>thread: 프로세스 내에서 실제로 작업을 수행하는 주체, 프로그램(프로세스) 실행 단위</p></li>
+<li><p>daemon thread</p>
+<ul class="simple">
+<li><p>메인 스레드가 종료될 때 자신의 실행 상태와 상관없이 종료되는 서브 스레드</p></li>
+<li><p>daemon 속성을 True로 변경하여 사용 (default: False)</p></li>
+<li><p>start()가 호출되기 전에 설정</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">device.devicelib</span> <span class="kn">import</span> <span class="n">cDevice</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span> <span class="n">Lock</span>
+<span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queue</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">cDevice</span><span class="p">()</span>
+<span class="n">que</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">decode_pkt</span><span class="p">(</span><span class="n">pkt</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recv:&quot;</span><span class="p">,</span> <span class="n">pkt</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
+  <span class="c1"># 현재 timestamp 얻기</span>
+  <span class="n">system_check_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+  <span class="n">battery_check_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># que에 pkt가 존재하면 pkt를 제거하고 반환하여 Device에 메시지 전송 &amp; decode_pkt 실행</span>
+    <span class="k">if</span> <span class="n">que</span><span class="o">.</span><span class="n">qsize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_raw</span><span class="p">(</span><span class="n">que</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+      <span class="n">decode_pkt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">system_check_time</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># 시스템 메시지 1초 간격 전송</span>
+      <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_cmd</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;SYSTEM&#39;</span><span class="p">])</span>
+      <span class="n">decode_pkt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+      <span class="n">system_check_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">battery_check_time</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c1"># 배터리 메시지 10초 간격 전송</span>
+      <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">send_cmd</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;BATTERY&#39;</span><span class="p">])</span>
+      <span class="n">decode_pkt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+      <span class="n">battery_check_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">send_cmd</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;PIR&#39;</span><span class="p">],</span> <span class="s2">&quot;on&quot;</span><span class="p">)</span>
+
+  <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">update</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">())</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>	<span class="c1"># main thread 종료시 update 메서드 종료</span>
+  <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>			<span class="c1"># update 메서드 실행</span>
+
+  <span class="c1"># main thread  </span>
+  <span class="c1"># 사용자가 q를 입력할 때까지 무한 반복, que에 pkt 삽입</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">pkt</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pkt</span> <span class="o">==</span> <span class="s1">&#39;q&#39;</span><span class="p">:</span>
+      <span class="k">break</span>
+
+    <span class="n">que</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="Device_thread_flow" src="../_images/Device_thread_flow.png" /></p>
+<p><strong>device_test_with_thread.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/device $ sudo python3 device_test_with_thread.py 
+</pre></div>
+</div>
+<p><strong>device_test_with_thread.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">15</span>:100%
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:nobody-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">15</span>:100%
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+Recv: <span class="m">40</span>:person-----
+q
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>1초마다 PIR Sensor의 값 전송, 10초 간격으로 배터리 메시지 전송</p></li>
+<li><p>q 입력시 메인 스레드가 종료되므로 update 메서드 종료</p></li>
+</ul>
+</div>
+<div class="section" id="motion">
+<h2>2.2.3 Motion<a class="headerlink" href="#motion" title="제목 주소">¶</a></h2>
+<p><strong>1) motion_test.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">motion.motionlib</span> <span class="kn">import</span> <span class="n">cMotion</span>
+
+<span class="c1"># wave3 모션 10번 반복</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">cMotion</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_motion</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;wave3&quot;</span><span class="p">,</span> <span class="n">cycle</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>아래는 motion_db.json의 일부입니다. motion_db는 <code class="docutils literal notranslate"><span class="pre">cMotion.get_motion(name=None)</span></code> 함수로 확인할 수 있습니다.( [1.3.3 Motion 생성-cMotion 클래스] 참고 )</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="o">...</span>
+  <span class="s2">&quot;wave3&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;wave&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init_def&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;init&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">],</span>
+    <span class="s2">&quot;pos&quot;</span><span class="p">:[</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>  <span class="mi">25</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">450</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">900</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">1350</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>  <span class="mi">25</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">1800</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">2250</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>  <span class="mi">20</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">2700</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>  <span class="mi">25</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">3150</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="mi">999</span> <span class="p">]</span> <span class="p">,</span> <span class="s2">&quot;seq&quot;</span><span class="p">:</span> <span class="mi">3600</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>motion_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/motion $ sudo python3 motion_test.py
+</pre></div>
+</div>
+<p><strong>2) motor_test.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">motion.motionlib</span> <span class="kn">import</span> <span class="n">cMotion</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">cMotion</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">degree</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">accel</span><span class="p">):</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>			<span class="c1"># n번 모터의 속도를 speed로 변경</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_acceleration</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">accel</span><span class="p">)</span>	<span class="c1"># n번 모터의 가속도를 accel로 변경</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>		<span class="c1"># n번 모터의 위치를 degree로 이동</span>
+
+<span class="c1"># &#39;move() 실행 -&gt; 1초 휴식 -&gt; move() 실행 -&gt; 1초 휴식&#39;을 무한 반복</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">move</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>	<span class="c1"># 단위: 초(sec)</span>
+
+    <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">move</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span>  <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>motor_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/motion $ sudo python3 motor_test.py 
+</pre></div>
+</div>
+<p><strong>3) multi_motor_test.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">motion.motionlib</span> <span class="kn">import</span> <span class="n">cMotion</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># &#39;set_motors() 실행 -&gt; 1.1초 휴식 -&gt; set_motors() 실행 -&gt; 1.1초 휴식&#39;을 무한 반복</span>
+<span class="k">def</span> <span class="nf">move_test</span><span class="p">():</span>
+  <span class="n">m</span> <span class="o">=</span> <span class="n">cMotion</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">set_motors</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span> <span class="n">movetime</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">set_motors</span><span class="p">(</span><span class="n">positions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">],</span> <span class="n">movetime</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">move_test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>multi_motor_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/motion $ sudo python3 multi_motor_test.py
+</pre></div>
+</div>
+<p><strong>4) pymotor_test.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">motion.motionlib</span> <span class="kn">import</span> <span class="n">cPyMotion</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">cPyMotion</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">accel</span><span class="p">,</span> <span class="n">degree</span><span class="p">):</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_speed</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_acceleration</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">accel</span><span class="p">)</span>
+  <span class="n">m</span><span class="o">.</span><span class="n">set_motor</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">degree</span><span class="p">)</span>
+
+<span class="c1"># 2초 간격으로 move() 실행 무한 반복</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  
+    <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Init 출력 -&gt; move() -&gt; 1초  휴식 -&gt; Start 출력 -&gt; test()</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Init&quot;</span><span class="p">)</span>
+  <span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start&quot;</span><span class="p">)</span>
+  <span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>pymotor_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/motion $ sudo python3 pymotor_test.py 
+</pre></div>
+</div>
+<p><strong>pymotor_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Init
+Start
+</pre></div>
+</div>
+</div>
+<div class="section" id="oled">
+<h2>2.2.4 OLED<a class="headerlink" href="#oled" title="제목 주소">¶</a></h2>
+<p><strong>1) figure_test.py</strong></p>
+<blockquote>
+<div><p>OLED display에 도형과 선을 출력합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">oled.oledlib</span> <span class="kn">import</span> <span class="n">cOled</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">cOled</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>								<span class="c1"># 화면 지우기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="p">,</span><span class="kc">True</span><span class="p">)</span>	<span class="c1"># 길이가 20인 채워진 사각형 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="p">,</span><span class="kc">False</span><span class="p">)</span>	<span class="c1"># 지름이 20인 빈 원 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_line</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>				<span class="c1"># 선 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>								<span class="c1"># 화면에 표시</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>figure_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/oled $ sudo python3 figure_test.py 
+</pre></div>
+</div>
+<p><strong>figure_test.py 결과</strong></p>
+<img src="images/OLED_figure_test.JPG" alt="OLED_figure_test" style="zoom:25%;" />
+<p><strong>2) image_test.py</strong></p>
+<blockquote>
+<div><p>OLED display에 이미지를 출력합니다. (128X64만 가능합니다.)</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">oled.oledlib</span> <span class="kn">import</span> <span class="n">cOled</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># 화면에 clear.png 이미지 5초간 표시</span>
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">cOled</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span> <span class="o">+</span><span class="s2">&quot;/clear.png&quot;</span><span class="p">)</span>	<span class="c1"># clear.png 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>		<span class="c1"># 화면에 표시</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>		<span class="c1"># 5초동안 프로세스 정지</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>		<span class="c1"># 화면 지우기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>image_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/oled $ sudo python3 image_test.py
+</pre></div>
+</div>
+<p><strong>image_test.py 결과</strong></p>
+<p><img alt="OLED_image" src="../_images/OLED_image.png" /></p>
+<p><strong>3) self_test.py</strong></p>
+<blockquote>
+<div><p>직접 실습해보세요.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">oled.oledlib</span> <span class="kn">import</span> <span class="n">cOled</span>
+
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my oled design&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>self_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/oled $ sudo python3 self_test.py
+</pre></div>
+</div>
+<p><strong>4) text_test.py</strong></p>
+<blockquote>
+<div><p>OLED display에 문자열을 출력합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">oled.oledlib</span> <span class="kn">import</span> <span class="n">cOled</span>
+
+<span class="c1"># (0,0), (0,20)에 15 크기의 text 표시</span>
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">cOled</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+  
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;안녕? 난 파이보야 &quot;</span><span class="p">)</span>	  <span class="c1"># (0,0)에 문자열 출력</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="s2">&quot;☆  ★ &quot;</span><span class="p">)</span>			<span class="c1"># (0,20)에 문자열 출력</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>	<span class="c1"># 화면에 표시</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  for count in range(5):</span>
+<span class="sd">    oObj.clear()</span>
+<span class="sd">    oObj.draw_text((10,10), &quot;Hello World:{}&quot;.format(count))</span>
+<span class="sd">    oObj.show()</span>
+<span class="sd">    time.sleep(1)</span>
+<span class="sd">  oObj.clear()</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>text_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/oled $ sudo python3 text_test.py
+</pre></div>
+</div>
+<p><strong>text_test.py 결과</strong></p>
+<img src="images/OLED_text_test.JPG" alt="OLED_text_test" style="zoom:25%;" />
+</div>
+<div class="section" id="speech">
+<h2>2.2.5 Speech<a class="headerlink" href="#speech" title="제목 주소">¶</a></h2>
+<p><strong>1) chatbot_test.py</strong></p>
+<blockquote>
+<div><p>입력한 문장에 대해 형태소 분석을 실시하여 파이보와 대화를 시작합니다.</p>
+<p>사용자가 입력한 문장에 db의 key 값(날씨, 음악, 뉴스)이 있으면 해당 함수를 실행하고, 없다면 대화봇을 실행합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">speech.speechlib</span> <span class="kn">import</span> <span class="n">cDialog</span>
+
+<span class="k">def</span> <span class="nf">weather</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+  <span class="n">lst</span><span class="p">,</span> <span class="n">_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;오늘&quot;</span><span class="p">,</span> <span class="s2">&quot;내일&quot;</span><span class="p">],</span> <span class="kc">None</span>
+  
+  <span class="c1"># 분석한 문장 중 &quot;오늘&quot;, &quot;내일&quot;이 있다면 _type=item으로 설정</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cmd</span><span class="p">:</span>
+      <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span>
+
+  <span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; 오늘, 내일 날씨만 가능해요. &quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; </span><span class="si">{}</span><span class="s2"> 뉴스 알려줄게요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_type</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">music</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+  <span class="n">lst</span><span class="p">,</span> <span class="n">_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;발라드&quot;</span><span class="p">,</span> <span class="s2">&quot;댄스&quot;</span><span class="p">,</span> <span class="s2">&quot;락&quot;</span><span class="p">],</span> <span class="kc">None</span>
+
+  <span class="c1"># 분석한 문장 중 &quot;발라드&quot;, &quot;댄스&quot;, &quot;락&quot;이 있다면 _type=item으로 설정</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cmd</span><span class="p">:</span>
+      <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span>
+
+  <span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; 발라드, 락, 댄스 음악만 가능해요.&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; </span><span class="si">{}</span><span class="s2"> 음악 틀어줄게요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_type</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">news</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+  <span class="n">lst</span><span class="p">,</span> <span class="n">_type</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;경제&quot;</span><span class="p">,</span> <span class="s2">&quot;스포츠&quot;</span><span class="p">,</span> <span class="s2">&quot;문화&quot;</span><span class="p">],</span> <span class="kc">None</span>
+
+  <span class="c1"># 분석한 문장 중 &quot;경제&quot;, &quot;스포츠&quot;, &quot;문화&quot;가 있다면 _type=item으로 설정</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cmd</span><span class="p">:</span>
+      <span class="n">_type</span> <span class="o">=</span> <span class="n">item</span>
+
+  <span class="k">if</span> <span class="n">_type</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; 경제, 문화, 스포츠 뉴스만 가능해요.&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BOT &gt; </span><span class="si">{}</span><span class="s2"> 뉴스 알려줄게요.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_type</span><span class="p">))</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;날씨&quot;</span><span class="p">:</span><span class="n">weather</span><span class="p">,</span>
+  <span class="s2">&quot;음악&quot;</span><span class="p">:</span><span class="n">music</span><span class="p">,</span> 
+  <span class="s2">&quot;뉴스&quot;</span><span class="p">:</span><span class="n">news</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># 사용자가 입력한 문장에 대해 형태소 분석을 실시하여 파이보가 실행하는 함수가 달라짐</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cDialog</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;대화 시작합니다.&quot;</span><span class="p">)</span>
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;입력 &gt; &quot;</span><span class="p">)</span>
+    <span class="n">matched</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;그만&quot;</span><span class="p">:</span>
+      <span class="k">break</span>
+	
+    <span class="c1"># 사용자가 입력한 질문에 대한 형태소 분석</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">mecab_morphs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="c1">#print(&quot;형태소 분석: &quot;, d)</span>
+    <span class="c1"># 분석한 문장 중 &quot;날씨&quot;, &quot;음악&quot;, &quot;뉴스&quot;가 있다면 해당 key값의 함수 실행</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">db</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+      <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+        <span class="n">db</span><span class="p">[</span><span class="n">key</span><span class="p">](</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">matched</span> <span class="o">=</span> <span class="kc">True</span>
+	
+    <span class="c1"># key 값이 없다면 대화봇 실행</span>
+    <span class="k">if</span> <span class="n">matched</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;대화봇 &gt; &quot;</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">get_dialog</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+  <img src="images/Speech_chatbot_flow.png" alt="Speech_chatbot_flow"  /> 
+<p><strong>chatbot_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/speech $ sudo python3 chatbot_test.py 
+</pre></div>
+</div>
+<p><strong>chatbot_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>대화 시작합니다.
+입력 &gt; 댄스 음악 추천해줘
+BOT &gt; 댄스 음악 틀어줄게요.
+입력 &gt; 주말에 뭐하지
+대화봇 &gt;  사탕 만들어요.
+입력 &gt; 사탕 싫어
+대화봇 &gt;  싫어하지 말아요.
+입력 &gt; 그만
+</pre></div>
+</div>
+<p><strong>2) mecab_test.py</strong></p>
+<blockquote>
+<div><p>사용자가 입력한 문장을 분석합니다. 3가지 모드 선택이 가능합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">speech.speechlib</span> <span class="kn">import</span> <span class="n">cDialog</span>
+
+<span class="c1"># mode(pos, morphs, nouns)에 따른 문장 분석</span>
+<span class="k">def</span> <span class="nf">mecab_f</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input: &quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cDialog</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  
+  <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;pos&quot;</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">mecab_pos</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;morphs&quot;</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">mecab_morphs</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;nouns&quot;</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">mecab_nouns</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output: &quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">mecab_f</span><span class="p">(</span><span class="s2">&quot;아버지 가방에 들어가신다&quot;</span><span class="p">,</span> <span class="s2">&quot;nouns&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>mecab_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/speech $ sudo python3 mecab_test.py 
+</pre></div>
+</div>
+<p><strong>mecab_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Input:  아버지 가방에 들어가신다
+Output:  <span class="o">[</span><span class="s1">&#39;아버지&#39;</span>, <span class="s1">&#39;가방&#39;</span><span class="o">]</span>
+
+<span class="c1"># (+) pos 결과</span>
+Input:  아버지 가방에 들어가신다
+Output:  <span class="o">[(</span><span class="s1">&#39;아버지&#39;</span>, <span class="s1">&#39;NNG&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;가방&#39;</span>, <span class="s1">&#39;NNG&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;에&#39;</span>, <span class="s1">&#39;JKB&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;들어가&#39;</span>, <span class="s1">&#39;VV&#39;</span><span class="o">)</span>, <span class="o">(</span><span class="s1">&#39;신다&#39;</span>, <span class="s1">&#39;EP+EC&#39;</span><span class="o">)]</span>
+
+<span class="c1"># (+) morphs 결과</span>
+Input:  아버지 가방에 들어가신다
+Output:  <span class="o">[</span><span class="s1">&#39;아버지&#39;</span>, <span class="s1">&#39;가방&#39;</span>, <span class="s1">&#39;에&#39;</span>, <span class="s1">&#39;들어가&#39;</span>, <span class="s1">&#39;신다&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul>
+<li><p>NNG: 일반 명사 / JKB: 부사격 조사 / VV: 동사 / EP: 선어말 어미 / EC: 연결 어미</p>
+<p>( 품사 태그표: https://docs.google.com/spreadsheets/d/1OGAjUvalBuX-oZvZ_-9tEfYD2gQe7hTGsgUpiiBSXI8/edit#gid=0 )</p>
+</li>
+</ul>
+<p><strong>3) stt_test.py</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">speech.speechlib</span> <span class="kn">import</span> <span class="n">cSpeech</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">cSpeech</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+<span class="c1"># 음성 언어를 문자 데이터로 변환하여 출력</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">stt</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>stt_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/speech $ sudo python3 stt_test.py 
+</pre></div>
+</div>
+<p><strong>4) translate_test.py</strong></p>
+<blockquote>
+<div><p>문장을 번역합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">speech.speechlib</span> <span class="kn">import</span> <span class="n">cSpeech</span>
+
+<span class="c1"># &quot;안녕하세요&quot;를 영어로 번역 후 출력</span>
+<span class="k">def</span> <span class="nf">translate_f</span><span class="p">():</span>
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">cSpeech</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;안녕하세요&quot;</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input:&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output:&quot;</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">translate_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>translate_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/speech $ sudo python3 translate_test.py 
+</pre></div>
+</div>
+<p><strong>translate_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Input: 안녕하세요
+Output: Good morning 
+</pre></div>
+</div>
+<p><strong>5) tts_test.py</strong></p>
+<blockquote>
+<div><p>문자 데이터를 음성 언어로 변환합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">speech.speechlib</span> <span class="kn">import</span> <span class="n">cSpeech</span>
+<span class="kn">from</span> <span class="nn">audio.audiolib</span> <span class="kn">import</span> <span class="n">cAudio</span>
+
+<span class="c1"># tts.mp3 파일의 문자 데이터를 음성 언어로 변환 후, 파이보 스피커에 출력</span>
+<span class="k">def</span> <span class="nf">tts_f</span><span class="p">():</span>
+  <span class="n">tObj</span> <span class="o">=</span> <span class="n">cSpeech</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">TESTDATA_PATH</span><span class="o">+</span><span class="s2">&quot;/tts.mp3&quot;</span>
+  <span class="n">tObj</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span><span class="s2">&quot;&lt;speak&gt;</span><span class="se">\</span>
+<span class="s2">              &lt;voice name=&#39;MAN_READ_CALM&#39;&gt;안녕하세요. 반갑습니다.&lt;break time=&#39;500ms&#39;/&gt;&lt;/voice&gt;</span><span class="se">\</span>
+<span class="s2">            &lt;/speak&gt;&quot;</span>\
+          <span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+  <span class="n">aObj</span> <span class="o">=</span> <span class="n">cAudio</span><span class="p">()</span>
+  <span class="n">aObj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">1500</span><span class="p">)</span>	<span class="c1">#  파이보 스피커로 filename 출력</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">tts_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul>
+<li><p>speak</p>
+<ul class="simple">
+<li><p>기본적으로 모든 음성은 태그로 감싸져야 한다.</p></li>
+<li><p>태그 하위로 <code class="docutils literal notranslate"><span class="pre">,</span></code>를 제외한 모든 태그가 존재할 수 있다.</p></li>
+<li><p>문장, 문단 단위로 적용하는 것을 원칙으로 한다. 한 문장 안에서 단어별로 태그를 감싸지 않는다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">speak</span><span class="o">&gt;</span> <span class="n">안녕하세요</span><span class="o">.</span> <span class="n">반가워요</span><span class="o">.</span> <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>voice</p>
+<ul class="simple">
+<li><p>음성의 목소리를 변경하기 위해 사용하며, name attribute를 통해 원하는 목소리를 지정한다. 제공되는 목소리는 4가지이다.</p>
+<ul>
+<li><p>WOMAN_READ_CALM: 여성 차분한 낭독체 (default)</p></li>
+<li><p>MAN_READ_CALM: 남성 차분한 낭독체</p></li>
+<li><p>WOMAN_DIALOG_BRIGHT: 여성 밝은 대화체</p></li>
+<li><p>MAN_DIALOG_BRIGHT: 남성 밝은 대화체</p></li>
+</ul>
+</li>
+<li><p>하위로 <code class="docutils literal notranslate"><span class="pre">,</span></code>를 제외한 모든 태그(kakao: effet, prosody, break, audio, say-as, sub)가 존재할 수 있다.</p></li>
+<li><p>문장, 문단 단위로 적용하는 것을 원칙으로 한다. 한 문장 안에서 단어별로 태그를 감싸지 않는다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">speak</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WOMAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">지금은</span> <span class="n">여성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">지금은</span> <span class="n">남성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WOMAN_DIALOG_BRIGHT&quot;</span><span class="o">&gt;</span> <span class="n">안녕하세요</span><span class="o">.</span> <span class="n">여성</span> <span class="n">밝은</span> <span class="n">대화체예요</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAN_DIALOG_BRIGHT&quot;</span><span class="o">&gt;</span> <span class="n">안녕하세요</span><span class="o">.</span> <span class="n">남성</span> <span class="n">밝은</span> <span class="n">대화체예요</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>tts_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/speech $ sudo python3 tts_test.py 
+</pre></div>
+</div>
+</div>
+<div class="section" id="vision">
+<h2>2.2.6 Vision<a class="headerlink" href="#vision" title="제목 주소">¶</a></h2>
+<ul class="simple">
+<li><p>OpenCV DNN 모듈</p>
+<ul>
+<li><p>딥러닝 학습은 Caffe 프레임워크에서 진행하고, 학습된 모델을 dnn 모듈로 불러와서 실행(<code class="docutils literal notranslate"><span class="pre">cv2.dnn.readNet()</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>1) camera_test.py</strong></p>
+<blockquote>
+<div><p>사진을 촬영하고 저장합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+
+<span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
+  <span class="c1"># instance</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>
+
+  <span class="c1"># Capture / Read file</span>
+  <span class="c1"># 이미지 촬영</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1">#img = cam.imread(&quot;/home/pi/test.jpg&quot;)</span>
+
+  <span class="c1"># Write(test.jpg라는 이름을 촬영한 이미지 저장)</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&quot;test.jpg&quot;</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+
+  <span class="c1"># display (only GUI): 3초동안 &#39;TITLE&#39;이라는 제목으로 이미지 보여줌</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">&quot;TITLE&quot;</span><span class="p">)</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>	<span class="c1"># 단위: ms</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>camera_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 camera_test.py 
+</pre></div>
+</div>
+<p><strong>camera_test.py 결과</strong></p>
+<p><img alt="Vision_camera" src="../_images/Vision_camera.png" /></p>
+<p><strong>2) detect_test.py</strong></p>
+<blockquote>
+<div><p>이미지의 객체/QR코드/문자를 인식합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cDetect</span>
+
+<span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>	<span class="c1"># cCamera 클래스에 대한 객체 생성</span>
+  <span class="n">det</span> <span class="o">=</span> <span class="n">cDetect</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+
+  <span class="c1"># Capture / Read file</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1">#img = cam.imread(&quot;image.jpg&quot;)</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Object Detect: &quot;</span><span class="p">,</span> <span class="n">det</span><span class="o">.</span><span class="n">detect_object</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>	<span class="c1"># 객체 인식</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Qr Detect:&quot;</span><span class="p">,</span> <span class="n">det</span><span class="o">.</span><span class="n">detect_qr</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>			<span class="c1"># QR코드 인식</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text Detect:&quot;</span><span class="p">,</span> <span class="n">det</span><span class="o">.</span><span class="n">detect_text</span><span class="p">(</span><span class="n">img</span><span class="p">))</span>		<span class="c1"># 문자 인식</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>detect_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 detect_test.py 
+</pre></div>
+</div>
+<p><strong>detect_test.py 결과</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Object Detect:  <span class="o">[{</span><span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;bus&#39;</span>, <span class="s1">&#39;score&#39;</span>: <span class="m">80</span>.67924976348877, <span class="s1">&#39;position&#39;</span>: <span class="o">(</span><span class="m">2</span>, <span class="m">0</span>, <span class="m">627</span>, <span class="m">478</span><span class="o">)}]</span>
+Qr Detect: <span class="o">{</span><span class="s1">&#39;data&#39;</span>: <span class="s1">&#39;http://www.wando.go.kr/l04xd2@&#39;</span>, <span class="s1">&#39;type&#39;</span>: <span class="s1">&#39;QRCODE&#39;</span><span class="o">}</span>
+Text Detect: ’
+&gt; fxr
+cends, This restaurant has ungie portions
+—ARBTSORE
+ㅅ 피 메 엔 로
+oO a <span class="p">|</span>
+Fs
+</pre></div>
+</div>
+<img src="images/Vision_detect1.JPG" alt="Vision_detect1" style="zoom: 25%;" />
+<p><strong>3) draw_test.py</strong></p>
+<blockquote>
+<div><p>이미지에 그림과 글씨를 입력합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+
+<span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>
+
+  <span class="c1"># Capture / Read file</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1">#img = cam.imread(&quot;/home/pi/test.jpg&quot;)</span>
+
+  <span class="n">cam</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>		<span class="c1"># 화면의 (100,100), (300,300) 위치에 사각형 그리기</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">&quot;Hello Camera&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>	<span class="c1"># 화면의 (50,50) Hello Camera 쓰기</span>
+
+  <span class="n">cam</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&quot;test.jpg&quot;</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>	<span class="c1"># test.jpg로 이미지 저장</span>
+
+  <span class="c1"># display (only GUI): 3초동안 &#39;TITLE&#39;이라는 제목으로 이미지 보여줌</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">&quot;TITLE&quot;</span><span class="p">)</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>draw_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 draw_test.py
+</pre></div>
+</div>
+<p><strong>draw_test.py 결과</strong></p>
+<img src="images/Vision_draw.png" alt="Vision_draw_test" style="zoom: 25%;" />
+<p><strong>4) face_recognize_test.py</strong></p>
+<blockquote>
+<div><p>이미지에서 얼굴을 찾아 나이와 성별을 추정합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cFace</span>
+
+<span class="k">def</span> <span class="nf">test_f</span><span class="p">():</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>
+  <span class="n">faceObj</span> <span class="o">=</span> <span class="n">cFace</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+
+  <span class="c1"># 이미지 촬영</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1">#img = cam.imread(&quot;/home/pi/test.jpg&quot;)</span>
+ 
+  <span class="n">disp</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+  <span class="c1"># 이미지에서 얼굴 탐색</span>
+  <span class="n">faceList</span> <span class="o">=</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">faceList</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No face&quot;</span><span class="p">)</span>
+    <span class="k">return</span> 
+ 
+  <span class="c1"># 나이, 성별 추정</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_ageGender</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">faceList</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span>
+  <span class="n">gender</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span>
+
+  <span class="c1"># 얼굴 위치 좌표에 사각형 그리기</span>
+  <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">h</span> <span class="o">=</span> <span class="n">faceList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+  <span class="n">cam</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">disp</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">w</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="n">h</span><span class="p">))</span>
+
+  <span class="c1"># 등록된 얼굴 인식(동일인이라 판정되면 이름, 아니면 Guest)</span>
+  <span class="n">ret</span> <span class="o">=</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">faceList</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Guest&quot;</span> <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="kc">False</span> <span class="k">else</span> <span class="n">ret</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+  <span class="n">cam</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">disp</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/ </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">gender</span><span class="p">,</span><span class="n">age</span><span class="p">),</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+  <span class="c1"># 모니터에서 3초간 VIEW라는 제목으로 이미지 확인</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">disp</span><span class="p">,</span> <span class="s2">&quot;VIEW&quot;</span><span class="p">)</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>
+
+  <span class="c1"># test.jpg로 이미지 저장</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&quot;test.jpg&quot;</span><span class="p">,</span> <span class="n">disp</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>face_recognize_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 face_recognize_test.py 
+</pre></div>
+</div>
+<p><strong>face_recognize_test.py 결과</strong></p>
+<img src="images/Vision_face_reog.png" alt="Vision_face_reog" style="zoom: 50%;" />
+<p><strong>5) face_train_test.py</strong></p>
+<blockquote>
+<div><p>이미지에서 얼굴을 찾아 학습하여 데이터베이스에 저장하고 로드한  뒤 다시 삭제합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cFace</span>
+
+<span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>
+  <span class="n">faceObj</span> <span class="o">=</span> <span class="n">cFace</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start DB:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_db</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+  
+  <span class="c1"># 이미지 촬영</span>
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="c1">#img = cam.imread(&quot;/home/pi/test.jpg&quot;)</span>
+
+  <span class="n">faces</span> <span class="o">=</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; No face&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="c1"># 얼굴 학습(학습할  이미지 데이터, 얼굴 1개 위치, 학습할 얼굴 이름)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Train:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">train_face</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">faces</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;yjlee&quot;</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After Train, DB:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_db</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">img</span> <span class="o">=</span> <span class="n">cam</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+  <span class="n">faces</span> <span class="o">=</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; No face&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Recognize:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">recognize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">faces</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+  <span class="c1"># 얼굴 데이터베이스를 파일로 저장</span>
+  <span class="n">faceObj</span><span class="o">.</span><span class="n">save_db</span><span class="p">(</span><span class="s2">&quot;./facedb&quot;</span><span class="p">)</span>
+
+  <span class="c1"># 얼굴 데이터베이스 초기화</span>
+  <span class="n">faceObj</span><span class="o">.</span><span class="n">init_db</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After reset db, DB:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_db</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+  
+  <span class="c1"># 얼굴 데이터베이스 파일 로드</span>
+  <span class="n">faceObj</span><span class="o">.</span><span class="n">load_db</span><span class="p">(</span><span class="s2">&quot;facedb&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After Load db, DB:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_db</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+  <span class="c1"># 등록된 얼굴 삭제</span>
+  <span class="n">faceObj</span><span class="o">.</span><span class="n">delete_face</span><span class="p">(</span><span class="s2">&quot;yjlee&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After Delete face:&quot;</span><span class="p">,</span> <span class="n">faceObj</span><span class="o">.</span><span class="n">get_db</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>face_train_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 face_train_test.py
+</pre></div>
+</div>
+<p><strong>face_train_test.py 결과</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span> <span class="n">DB</span><span class="p">:</span> <span class="p">[]</span>
+ <span class="n">Train</span><span class="p">:</span> <span class="kc">None</span>
+<span class="n">After</span> <span class="n">Train</span><span class="p">,</span> <span class="n">DB</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;yjlee&#39;</span><span class="p">]</span>
+ <span class="n">Recognize</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;yjlee&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">}</span>
+<span class="n">After</span> <span class="n">reset</span> <span class="n">db</span><span class="p">,</span> <span class="n">DB</span><span class="p">:</span> <span class="p">[]</span>
+<span class="n">After</span> <span class="n">Load</span> <span class="n">db</span><span class="p">,</span> <span class="n">DB</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;yjlee&#39;</span><span class="p">]</span>
+<span class="n">After</span> <span class="n">Delete</span> <span class="n">face</span><span class="p">:</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p><strong>6) streaming_test.py</strong></p>
+<blockquote>
+<div><p>모니터에 이미지를 스트리밍합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">vision.visionlib</span> <span class="kn">import</span> <span class="n">cCamera</span>
+
+<span class="c1"># 모니터에 3초간 이미지 스트리밍</span>
+<span class="k">def</span> <span class="nf">test_func</span><span class="p">():</span>
+  <span class="c1"># instance</span>
+  <span class="n">cam</span> <span class="o">=</span> <span class="n">cCamera</span><span class="p">()</span>
+
+  <span class="c1"># For streaming (only GUI)</span>
+  <span class="n">cam</span><span class="o">.</span><span class="n">streaming</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">test_func</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>streaming_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/vision $ sudo python3 streaming_test.py 
+</pre></div>
+</div>
+<p><strong>streaming_test.py 결과</strong></p>
+<p><img alt="Vision_streaming_test" src="../_images/Vision_streaming_test.png" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

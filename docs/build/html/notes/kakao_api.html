@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>KAKAO API &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/kakao_api.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Audio" href="../libraries/audio.html" />
+    <link rel="prev" title="PIBO Device" href="device.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">PIBO Device</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/process_test.html">Process Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/motion_creator.html">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>KAKAO API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/notes/kakao_api.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="kakao-api">
+<h1>KAKAO API<a class="headerlink" href="#kakao-api" title="제목 주소">¶</a></h1>
+<blockquote>
+<div><p>본 문서는 <code class="docutils literal notranslate"><span class="pre">kakao</span> <span class="pre">rest</span> <span class="pre">api</span> <span class="pre">key</span></code> 를 발급받는 방법에 대해 안내합니다.</p>
+<p><em>Speech</em> 기능을 사용하기 위해 <a class="reference external" href="https://developers.kakao.com/">kakao developers</a> 회원가입 후 REST API 키를 발급받아야 합니다.</p>
+</div></blockquote>
+<ol>
+<li><p>로그인 후 [내 애플리케이션] 클릭</p>
+<p><img alt="api1" src="../_images/api1.png" /></p>
+</li>
+<li><p>[애플리케이션 추가하기] 클릭</p>
+<p><img alt="api2" src="../_images/api2.png" /></p>
+</li>
+<li><p>앱 이름 및 사업자명 입력 후 저장</p>
+<p><img alt="api3" src="../_images/api3.png" /></p>
+</li>
+<li><p>새로 생성한 애플리케이션 클릭</p>
+<p><img alt="api4" src="../_images/api4.png" /></p>
+</li>
+<li><p>config.py에 발급받은 REST API 키 입력 후, 왼쪽의 [음성] 클릭</p>
+<p><img alt="api5" src="../_images/api5.png" /></p>
+</li>
+<li><p>이후 <code class="docutils literal notranslate"><span class="pre">/home/pi/config.json</span></code>의 <code class="docutils literal notranslate"><span class="pre">KAKAO_ACCOUNT</span></code>에 발급받은 <code class="docutils literal notranslate"><span class="pre">REST</span> <span class="pre">API</span> <span class="pre">키</span></code> 입력</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/x-openpibo-data/data/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;KAKAO_ACCOUNT&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;여기에 발급받은 REST API 키를 입력해주세요&gt;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;robotId&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>활성화 설정의 [OFF] 버튼 클릭</p>
+<p><img alt="api6" src="../_images/api6.png" /></p>
+</li>
+<li><p>사용 목적 입력 후 저장</p>
+<p><img alt="api7" src="../_images/api7.png" /></p>
+</li>
+<li><p>활성화 설정의 상태가 [ON]으로 바뀌면 완료</p>
+<p><img alt="api8" src="../_images/api8.png" /></p>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../libraries/audio.html" class="btn btn-neutral float-right" title="Audio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="device.html" class="btn btn-neutral float-left" title="PIBO Device" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

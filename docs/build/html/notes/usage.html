@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Usage &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/usage.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="PIBO Device" href="device.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kakao_api.html">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/process_test.html">Process Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/motion_creator.html">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/notes/usage.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="제목 주소">¶</a></h1>
+<blockquote>
+<div><p>아래는 <code class="docutils literal notranslate"><span class="pre">Audio</span></code> 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리와 메서드는 좌측 <strong>LIBRARIES</strong> 탭을 참고해주시기 바랍니다.</p>
+<p>가이드는 두 가지 전제 하에 작성되었습니다.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x-openpibo-data</span></code>를 <code class="docutils literal notranslate"><span class="pre">/home/pi/</span></code> 경로에 clone 하였음.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x-openpibo</span></code>를 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span></code>명령어로 설치 하였음.</p></li>
+</ol>
+</div></blockquote>
+<ul class="simple">
+<li><p>먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo python3
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>사용하고자 하는 라이브러리를 import하고, <code class="docutils literal notranslate"><span class="pre">Audio</span></code> 인스턴스를 만듭니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpibo.audio</span> <span class="kn">import</span> <span class="n">Audio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">play</span></code> 메서드를 사용해 음악을 재생시킵니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;오디오</span> <span class="pre">데이터</span> <span class="pre">경로&gt;</span></code> 에는 절대경로, 또는 상대경로가 들어갑니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/x-openpibo-data/data/audio/test.mp3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stop</span></code> 메서드로 음악을 정지시킵니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>만약 너무 긴 경로를 반복해서 입력하기 번거롭다면, <code class="docutils literal notranslate"><span class="pre">config.json</span></code> 에 경로를 저장할 수 있습니다.</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="nt">&quot;KAKAO_ACCOUNT&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config.json</span></code> 파일을 수정하기 위해서는 sudo 권한이 필요합니다.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; quit<span class="o">()</span>
+
+$ <span class="nb">cd</span> ~
+$ sudo vi config.json
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>기본적으로 <code class="docutils literal notranslate"><span class="pre">DATA_PATH</span></code>가 <code class="docutils literal notranslate"><span class="pre">/home/pi/x-openpibo-data/data/</span></code> 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/x-openpibo-data/data/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/x-openpibo-data/data/audio/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;KAKAO_ACCOUNT&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config.json</span></code> 는 <code class="docutils literal notranslate"><span class="pre">openpibo.config</span></code> 에 저장되어 있습니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>$ sudo python3
+
+&gt;&gt;&gt; import openpibo
+&gt;&gt;&gt; openpibo.config
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/x-openpibo-data/data/&quot;</span><span class="p">,</span> <span class="s2">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/ ...}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>이를 활용하여 아래와 같이 데이터를 불러올 수 있습니다.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpibo.audio</span> <span class="kn">import</span> <span class="n">Audio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openpibo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;MY_DATA_PATH&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;test.mp3&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="device.html" class="btn btn-neutral float-right" title="PIBO Device" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

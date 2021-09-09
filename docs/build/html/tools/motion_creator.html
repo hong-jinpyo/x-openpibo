@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Motion Creator &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/tools/motion_creator.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Device Simulator" href="device_simulator.html" />
+    <link rel="prev" title="Process Test" href="process_test.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="process_test.html">Process Test</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Motion Creator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tools/motion_creator.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="motion-creator">
+<h1>Motion Creator<a class="headerlink" href="#motion-creator" title="제목 주소">¶</a></h1>
+<blockquote>
+<div><p>파이보의 동작을 생성하는 툴 입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Chrome</span></code> 브라우저 사용을 권장합니다.</p>
+</div></blockquote>
+<p><strong>사용 방법</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">~/</span><span class="n">x</span><span class="o">-</span><span class="n">openpibo</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">motion</span><span class="o">-</span><span class="n">creator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sudo</span> <span class="n">python3</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">port</span> <span class="mi">8888</span>
+</pre></div>
+</div>
+<ul>
+<li><p>프로그램을 시작합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--port</span></code> : 연결할 포트를 입력합니다. 만약 설정하지 않으면, 기본 포트는 <code class="docutils literal notranslate"><span class="pre">8888</span></code>입니다.</p>
+<p><img alt="image-20210907151423678" src="../_images/image-20210907151423678.png" /></p>
+<p>이후 <code class="docutils literal notranslate"><span class="pre">http://&lt;PIBO</span> <span class="pre">IP&gt;:&lt;PORT&gt;</span></code>에 접속합니다.</p>
+<p>(출력된 주소를 <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">click</span></code> 해도 됩니다)</p>
+</li>
+<li><p>모션을 생성합니다.</p>
+<p><img alt="image-20210907151751536" src="../_images/image-20210907151751536.png" /></p>
+<ul>
+<li><p>왼쪽은 모터를 제어하는 부분이고, 오른쪽은 저장된 모션이 보여지는 부분입니다.</p></li>
+<li><p>왼쪽의 입력값을 조작하면 파이보의 모터가 실시간으로 움직입니다.</p></li>
+<li><p>시간을 설정하고 아래 저장 버튼을 누르면 오른쪽 테이블에 동작 하나가 추가됩니다.</p>
+<p>(시간은 50ms 간격으로 설정할 수 있습니다.)</p>
+<p><img alt="image-20210907155124034" src="../_images/image-20210907155124034.png" /></p>
+</li>
+<li><p>동작테이블 각 행에 마우스를 올리면 빨간색으로 변하고, 클릭하면 해당 동작이 삭제됩니다.</p>
+<p><img alt="image-20210820111320876" src="../_images/motioncreator.png" /></p>
+</li>
+<li><p>동작을 테스트하려면, 우측 상단의 <code class="docutils literal notranslate"><span class="pre">재생</span></code> 버튼을 누릅니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cycle</span></code> 을 설정해 여러번 반복할 수도 있습니다. (cycle이 3이면, 동작이 3번 반복됩니다.)</p>
+<p><img alt="image-20210907155722348" src="../_images/image-20210907155722348.png" /></p>
+</li>
+<li><p>우측 하단 입력창에 모션 이름을 적고 <code class="docutils literal notranslate"><span class="pre">Export</span></code> 버튼을 누르면, 코드가 생성됩니다.</p>
+<p><img alt="image-20210907155919438" src="../_images/image-20210907155919438.png" /></p>
+<p>또한 <code class="docutils literal notranslate"><span class="pre">/motion-creator/</span></code> 경로에 <code class="docutils literal notranslate"><span class="pre">&lt;모션</span> <span class="pre">이름&gt;.json</span></code> 의 이름으로도 저장된 것을 확인할 수 있습니다.</p>
+<p><img alt="image-20210907160525410" src="../_images/image-20210907160525410.png" /></p>
+</li>
+<li><p>우측 상단의 <code class="docutils literal notranslate"><span class="pre">초기화</span></code> 버튼을 누르면, 기록했던 동작들이 모두 초기화됩니다.</p>
+<p><img alt="image-20210907160326781" src="../_images/image-20210907160326781.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>생성한 모션을 사용합니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">openpibo.motion</span> <span class="kn">import</span> <span class="n">Motion</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo_motion</span> <span class="o">=</span> <span class="n">Motion</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;hello.json&#39;</span><span class="p">)</span>	 <span class="c1"># 생성된 json 파일 경로 입력</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">get_motion</span><span class="p">()</span>				 <span class="c1"># [&#39;hello&#39;]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_motion</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>			 <span class="c1"># 동작 실행</span>
+</pre></div>
+</div>
+<p>또는 생성한 파일에서 코드를 복사해서 사용할 수 있습니다.</p>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="device_simulator.html" class="btn btn-neutral float-right" title="Device Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="process_test.html" class="btn btn-neutral float-left" title="Process Test" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

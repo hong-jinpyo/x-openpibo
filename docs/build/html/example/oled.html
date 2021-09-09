@@ -1,0 +1,372 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ko" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OLED &mdash; openpibo 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/example/oled.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="색인" href="../genindex.html" />
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Speech" href="speech.html" />
+    <link rel="prev" title="Motion" href="motion.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> openpibo
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tools/process_test.html">Process Test</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/motion_creator.html">Motion Creator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/device_simulator.html">Device Simulator</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collect.html">Collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OLED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#figure-test-py">figure_test.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#image-test-py">image_test.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#self-test-py">self_test.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-test-py">text_test.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">openpibo</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OLED</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/example/oled.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="oled">
+<h1>OLED<a class="headerlink" href="#oled" title="제목 주소">¶</a></h1>
+<div class="section" id="figure-test-py">
+<h2>figure_test.py<a class="headerlink" href="#figure-test-py" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p>OLED display에 도형과 선을 출력합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.oled</span> <span class="kn">import</span> <span class="n">Oled</span>
+
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">Oled</span><span class="p">()</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>                              <span class="c1"># 화면 지우기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_rectangle</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="p">,</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 길이가 20인 채워진 사각형 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_ellipse</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="p">,</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 지름이 20인 빈 원 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_line</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>             <span class="c1"># 선 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                               <span class="c1"># 화면에 표시</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>figure_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 figure_test.py 
+</pre></div>
+</div>
+<p><strong>figure_test.py 결과</strong></p>
+<p><img alt="" src="../_images/OLED_figure_test.JPG" /></p>
+</div>
+<div class="section" id="image-test-py">
+<h2>image_test.py<a class="headerlink" href="#image-test-py" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p>OLED display에 이미지를 출력합니다. (128X64만 가능합니다.)</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpibo</span>
+<span class="kn">from</span> <span class="nn">openpibo.oled</span> <span class="kn">import</span> <span class="n">Oled</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># 화면에 clear.png 이미지 5초간 표시</span>
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">Oled</span><span class="p">()</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;images/clear.png&quot;</span><span class="p">)</span>  <span class="c1"># clear.png 그리기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>   <span class="c1"># 화면에 표시</span>
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5초동안 프로세스 정지</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>  <span class="c1"># 화면 지우기</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>image_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 image_test.py
+</pre></div>
+</div>
+<p><strong>image_test.py 결과</strong></p>
+<p><img alt="OLED_image" src="../_images/OLED_image.png" /></p>
+</div>
+<div class="section" id="self-test-py">
+<h2>self_test.py<a class="headerlink" href="#self-test-py" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p>직접 실습해보세요.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.oled</span> <span class="kn">import</span> <span class="n">Oled</span>
+
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;my oled design&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>self_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 self_test.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="text-test-py">
+<h2>text_test.py<a class="headerlink" href="#text-test-py" title="제목 주소">¶</a></h2>
+<blockquote>
+<div><p>OLED display에 문자열을 출력합니다.</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.oled</span> <span class="kn">import</span> <span class="n">Oled</span>
+
+<span class="c1"># (0,0), (0,20)에 15 크기의 text 표시</span>
+<span class="k">def</span> <span class="nf">oled_f</span><span class="p">():</span>
+  <span class="n">oObj</span> <span class="o">=</span> <span class="n">Oled</span><span class="p">()</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">set_font</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+  
+<span class="n">oObj</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;안녕? 난 파이보야 &quot;</span><span class="p">)</span>  <span class="c1"># (0,0)에 문자열 출력</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="s2">&quot;☆  ★ &quot;</span><span class="p">)</span> <span class="c1"># (0,20)에 문자열 출력</span>
+  <span class="n">oObj</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1"># 화면에 표시</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  for count in range(5):</span>
+<span class="sd">    oObj.clear()</span>
+<span class="sd">    oObj.draw_text((10,10), &quot;Hello World:{}&quot;.format(count))</span>
+<span class="sd">    oObj.show()</span>
+<span class="sd">    time.sleep(1)</span>
+
+<span class="sd">  oObj.clear()</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+  <span class="n">oled_f</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>text_test.py 실행</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 text_test.py
+</pre></div>
+</div>
+<p><strong>text_test.py 결과</strong></p>
+<p><img alt="" src="../_images/OLED_text_test.JPG" /></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="speech.html" class="btn btn-neutral float-right" title="Speech" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="motion.html" class="btn btn-neutral float-left" title="Motion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Circulus.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
