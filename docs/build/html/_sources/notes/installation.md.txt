@@ -72,4 +72,4 @@
       git clone https://github.com/themakerrobot/x-openpibo-tools.git
       ```
 
-8. [카카오 api키를 발급받습니다.](http://https://themakerrobot.github.io/x-openpibo/docs/build/html/notes/kakao_api.html)
+8. [카카오 api키를 발급받습니다.](https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html)
