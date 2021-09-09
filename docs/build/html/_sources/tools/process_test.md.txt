@@ -6,8 +6,8 @@
 __사용 방법__
 
 ```python
->>> cd ~/x-openpibo-tools/process-test
->>> sudo python3 main.py
+$ cd ~/x-openpibo-tools/process-test
+$ sudo python3 main.py
 ```
 
 ![image-20210820110653606](README.assets/processtest.png)

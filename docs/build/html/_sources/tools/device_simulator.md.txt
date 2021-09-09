@@ -9,8 +9,8 @@
 __사용 방법__
 
 ```python
-cd ~/x-openpibo-tools/device-simulator
-sudo python3 main.py --port 8888
+$ cd ~/x-openpibo-tools/device-simulator
+$ sudo python3 main.py --port 8888
 ```
 
 - 프로그램을 실행합니다.
