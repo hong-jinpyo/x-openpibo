@@ -1,4 +1,4 @@
-# openpibo Guide
+# x-openpibo Guide
 
 > 새로운 버전의 파이보의 사용법에 대한 가이드입니다.
 >
@@ -6,10 +6,10 @@
 >
 > PIBO 교육용 라이브러리입니다. 아래와 같은 폴더들로 구성되어 있습니다.
 
-1. openpibo: 기능 구현을 위한 패키지
-2. openpibo-example: 각 분야 예제 파일 모음
-3. openpibo-data: 기능 구현을 위한 실험 데이터
-4. openpibo-tools: 교육에 필요한 tools
+1. x-openpibo: 기능 구현을 위한 패키지
+2. x-openpibo-example: 각 분야 예제 파일 모음
+3. x-openpibo-data: 기능 구현을 위한 실험 데이터
+4. x-openpibo-tools: 교육에 필요한 tools
 
 
 
@@ -68,9 +68,9 @@
    sudo apt-get install python3-lxml -y
    ```
 
-7. 각종 openpibo 패키지와 도구들을 설치합니다.
+7. 각종 x-openpibo 패키지와 도구들을 설치합니다.
 
-   - 패키지 설치 `수정 요. x 제거`
+   - 패키지 설치
 
       ```bash
       git clone https://github.com/themakerrobot/x-openpibo.git
@@ -82,7 +82,7 @@
       sudo pip3 install git+https://github.com/themakerrobot/x-openpibo
       ```
 
-   - 추가 도구 설치 `수정 요. x`
+   - 추가 도구 설치
 
       ```bash
       # 샘플 데이터
@@ -106,8 +106,8 @@
 
 > 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리나 메서드는 [document](https://themakerrobot.github.io/x-openpibo/build/html/index.html)를 참고해주시기 바랍니다.
 > 가이드는 두 가지 전제 하에 작성되었습니다.
-> 1. `openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
-> 2. `openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
+> 1. `x-openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
+> 2. `x-openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
 
 - 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
 
@@ -123,7 +123,7 @@ $ sudo python3
 ```
 
 - `play` 메서드를 사용해 음악을 재생시킵니다.
-- `<오디오 데이터 경로>` 에는 절대경로, 또는 상대경로가 들어갑니다. `수정 요. x`
+- `<오디오 데이터 경로>` 에는 절대경로, 또는 상대경로가 들어갑니다.
 
 ```python
 >>> pibo.play('/home/pi/x-openpibo-data/data/audio/test.mp3')
@@ -150,12 +150,12 @@ $ cd ~
 $ sudo vi config.json
 ```
 
-- 기본적으로 `DATA_PATH`가 `/home/pi/openpibo-data/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
+- 기본적으로 `DATA_PATH`가 `/home/pi/x-openpibo-data/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
 
 ```json
 {
-    "DATA_PATH": "/home/pi/openpibo-data/data/",
-    "MY_DATA_PATH": "/home/pi/openpibo-data/data/audio/",
+    "DATA_PATH": "/home/pi/x-openpibo-data/data/",
+    "MY_DATA_PATH": "/home/pi/x-openpibo-data/data/audio/",
     "KAKAO_ACCOUNT": "..."
 }
 ```
@@ -170,7 +170,7 @@ $ sudo python3
 ```
 
 ```
-{"DATA_PATH":"/home/pi/openpibo-data/data/", "MY_DATA_PATH":"/home/pi/ ...}
+{"DATA_PATH":"/home/pi/x-openpibo-data/data/", "MY_DATA_PATH":"/home/pi/ ...}
 ```
 
 - 이를 활용하여 아래와 같이 데이터를 불러올 수 있습니다.
