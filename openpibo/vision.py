@@ -1,7 +1,7 @@
 """
-PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)
+`OpenCV` 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)
 
-카메라 기능, 얼굴 인식, 객체/바코드/문자 인식 수행
+카메라 기능, 얼굴 인식, 객체/바코드/문자 인식을 수행합니다.
 """
 
 import cv2
@@ -19,7 +19,7 @@ class Camera:
   파이보의 카메라를 제어합니다.
 
   * 사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.
-  * 스트리밍, Cartoonize 기능을 사용할 수 있습니다.
+  * Streaming, Cartoonize 기능을 사용할 수 있습니다.
 
   example::
 
@@ -51,13 +51,19 @@ class Camera:
     """
     카메라를 통해 이미지를 촬영합니다.
 
+    해상도 변경 시 이미지가 깨질 수 있으므로, 기본 해상도를 권장합니다.
+
     example::
 
       pibo_camera.read(640, 480)
     
     :param int w: 촬영할 이미지의 가로 픽셀 크기 입니다.
 
+      w의 최댓값은 2592 입니다.
+
     :param int h: 촬영할 이미지의 세로 픽셀 크기 입니다.
+
+      h의 최댓값은 1944 입니다.
 
     :returns: ``numpy.ndarray`` 타입 이미지 객체
     """
@@ -87,6 +93,10 @@ class Camera:
     """
     모니터에서 이미지를 확인합니다. (GUI 환경에서만 동작)
 
+    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
+
+    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
+
     example::
 
       img = pibo.camera.read(640, 480)
@@ -103,7 +113,11 @@ class Camera:
     """
     이미지를 보는 시간을 설정합니다.
 
-    **show** 함수와 함께 사용합니다.
+    **imshow** 함수와 함께 사용합니다. (GUI 환경에서만 동작)
+
+    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
+
+    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
 
     example::
 
@@ -117,6 +131,10 @@ class Camera:
   def streaming(self, w=640, h=480, timeout=5):
     """
     모니터에서 이미지를 스트리밍합니다. (GUI 환경에서만 동작)
+
+    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
+
+    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
 
     :param int w: 사진의 width 값
     
@@ -166,7 +184,7 @@ class Camera:
     example::
 
       img = pibo_camera.read()
-      new_img = pibo_camera.putText(img, '안녕하세요', (15, 10), 10, (255, 255, 255), 1)
+      new_img = pibo_camera.putText(img, 'hello', (15, 10), 10, (255, 255, 255), 1)
 
     :param numpy.ndarray img: 이미지 객체
 
@@ -408,7 +426,7 @@ class Face:
 
       faces = pibo_face.detect()
       face = faces[n] # face는 faces중 하나
-      pibo_face.train_face(img, face, '홍길동')
+      pibo_face.train_face(img, face, 'honggildong')
     
     :param numpy.ndarray img: 이미지 객체
 
@@ -433,7 +451,7 @@ class Face:
 
     example::
 
-      pibo_face.delete_face('홍길동')
+      pibo_face.delete_face('honggildong')
     
     :param str name: 삭제할 얼굴의 이름
 
@@ -561,8 +579,8 @@ class Detect:
   """
   얼굴 인식과 관련된 다양한 기능을 사용할 수 있는 클래스 입니다.
 
-  * 20개 class 안에서의 객체 인식
-  * QR/바코드 인식
+  * 20개 class 안에서의 객체 인식 (MobileNetSSD)
+  * QR/바코드 인식 (pyzbar)
   * 문자 인식(OCR, Tesseract)
 
   example::

@@ -14,7 +14,9 @@ PIBO의 움직임을 제어합니다.
   * 8번 : 'Left Arm'
   * 9번 : 'Left Hand'
 
-:모터 제한각도: 각 모터가 회적할 수 있는 범위가 제한되어있습니다.
+  **(파이보의 입장에서 오른쪽, 왼쪽 입니다.)**
+
+:모터 제한각도: 각 모터가 회전할 수 있는 범위가 제한되어있습니다.
 
   * 0번 : ± 25˚
   * 1번 : ± 35˚
@@ -98,8 +100,13 @@ class Motion:
     os.system("servo write {} {}".format(no, position*10))
 
   def set_motors(self, positions, movetime=None):
-    """전체 모터를 특정 위치로 이동합니다.
+    """
+    전체 모터를 특정 위치로 이동합니다.
 
+    모션을 취하는 속도는 ``(회전각도 / movetime)`` 이므로, movetime이 짧을수록 빨라집니다.
+
+    만약 ``movetime`` 이 ``None`` 이라면, 속도는 이전 설정값이 됩니다.
+    
     example::
 
       pibo_motion.set_motors([0, 0, -80, 0, 0, 0, 0, 0, 80, 0])
@@ -110,7 +117,7 @@ class Motion:
     
       50ms 단위, 모터가 정해진 위치까지 이동하는 시간
       
-      (모터컨드롤러와의 overhead문제로 정밀하지는 않음)"""
+      (모터 컨트롤러와의 overhead문제로 정밀하지는 않음)"""
 
     mpos = [positions[i]*10 for i in range(len(positions))]
     
@@ -141,6 +148,8 @@ class Motion:
   def set_acceleration(self, n, accl):
     """
     모터 1개의 가속도를 설정합니다.
+
+    가속도를 설정하게 되면, 속도가 0에서 시작하여 점점 빨라지고, 가속도...
     
     example::
     
@@ -148,7 +157,7 @@ class Motion:
     
     :param int n: 모터 번호
 
-    :param int spd: 모터 속도
+    :param int accl: 모터 속도
 
       0~255 사이 값입니다.
       숫자가 클수록 가속도가 커집니다.
@@ -179,7 +188,7 @@ class Motion:
 
       pibo_motion.set_accelerations([10, 10, 10, 10, 20, 20, 10, 10, 10, 10])
     
-    :param list spds: 0-9번 모터 가속도 배열
+    :param list accls: 0-9번 모터 가속도 배열
 
       배열 안의 각 가속도는 0~255 사이 정수입니다.
     """
@@ -189,6 +198,8 @@ class Motion:
   def get_motion(self, name=None):
     """
     모션 프로파일을 조회합니다.
+
+    ``name`` 매개변수가 ``None`` 이면, 현재 ``profile`` 에 저장되어있는 모든 **moiton** 을 출력합니다.
     
     example::
     
@@ -228,7 +239,7 @@ class Motion:
     exe = self.profile.get(name)
     return self.set_motion_raw(exe, cycle)
   
-  def set_motion_raw(self, exe, cycle):
+  def set_motion_raw(self, exe, cycle=1):
     """
     모션 프로파일의 동작을 실행합니다.
 

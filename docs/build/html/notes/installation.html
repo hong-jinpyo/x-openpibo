@@ -92,6 +92,7 @@
               <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#option">Option</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">PIBO Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kakao_api.html">KAKAO API</a></li>
@@ -202,10 +203,9 @@
 <h1>Installation<a class="headerlink" href="#installation" title="제목 주소">¶</a></h1>
 <ol>
 <li><p>파이보 SD카드에 <code class="docutils literal notranslate"><span class="pre">CIRCULUS_EDU_OS</span></code>를 설치</p></li>
-<li><p>SD카드 <code class="docutils literal notranslate"><span class="pre">boot</span></code> 레포지토리에서 파일을 생성 및 수정</p>
+<li><p>wifi 연결하기</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span></code> 라는 이름의 빈 파일 생성</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code>  파일 수정</p>
+<li><p>SD카드 <code class="docutils literal notranslate"><span class="pre">boot</span></code> 디렉토리에서 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일을 수정합니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">country</span><span class="o">=</span><span class="n">KR</span>
 <span class="n">ctrl_interface</span><span class="o">=</span><span class="n">DIR</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span> <span class="n">GROUP</span><span class="o">=</span><span class="n">netdev</span>
 <span class="n">network</span><span class="o">=</span><span class="p">{</span>
@@ -220,12 +220,16 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">YOUR_PASSWORD</span></code> : wifi 주소의 비밀번호로 수정</p></li>
 </ul>
 </li>
+<li><p>SD카드로 부팅을 하게되면 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일이 사라집니다.</p>
+<p>만약 새로운 네트워크에 접속하려면, <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf.bak</span></code> 파일을 복사하여</p>
+<p>새로운 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 를 만들어 wifi 설정 후 사용하시면 됩니다.</p>
+</li>
 </ul>
 </li>
 <li><p>파이보에 SD카드 결합 후 전원 on</p></li>
 <li><p>컴퓨터에서도 파이보와 같은 네트워크에 접속</p></li>
 <li><p>컴퓨터에서 파이보로 ssh 접속</p>
-<p>Terminal을 켜고 다름과 같이 입력</p>
+<p>Terminal을 켜고 다음과 같이 입력</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh pi@&lt;xxx.xxx.xxx.xxx&gt;
 
 pi@xxx.xxx.xxx.xxx&#39;s password: raspberry
@@ -241,34 +245,42 @@ pi@xxx.xxx.xxx.xxx&#39;s password: raspberry
 </pre></div>
 </div>
 </li>
-<li><p>각종 x-openpibo 패키지와 도구들을 설치합니다.</p>
+</ol>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="option">
+<h1>Option<a class="headerlink" href="#option" title="제목 주소">¶</a></h1>
+<ol>
+<li><p>TTS(Text to Speech), STT(Speech to Text) 등의 기능을 사용하기 위해서는 <code class="docutils literal notranslate"><span class="pre">KAKAO</span> <span class="pre">REST</span> <span class="pre">API</span> <span class="pre">KEY</span></code> 가 있어야 합니다.</p>
+<p>해당 설정을 하는 방법은 <a class="reference external" href="https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html">여기</a>를 참고해주세요.</p>
+</li>
+<li><p>각종 x-openpibo 패키지와 도구들을 설치하는 방법입니다.</p>
+<p>데이터 유실 등의 이유로 패키지와 도구를 재설치 할 때 사용합니다.</p>
 <ul>
 <li><p>패키지 설치</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/themakerrobot/x-openpibo.git
-<span class="nb">cd</span> x-openpibo
-sudo python3 setup.py install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo pip3 install git+https://github.com/themakerrobot/x-openpibo
 
 <span class="c1"># 또는</span>
 
-sudo pip3 install git+https://github.com/themakerrobot/x-openpibo
+$ git clone https://github.com/themakerrobot/x-openpibo.git
+$ <span class="nb">cd</span> x-openpibo
+$ sudo python3 setup.py install
 </pre></div>
 </div>
 </li>
 <li><p>추가 도구 설치</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 샘플 데이터</span>
-git clone https://github.com/themakerrobot/x-openpibo-data.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 각종 툴</span>
+$ git clone https://github.com/themakerrobot/x-openpibo-tools.git
 
 <span class="c1"># 예제 코드</span>
-git clone https://github.com/themakerrobot/x-openpibo-example.git
+$ git clone https://github.com/themakerrobot/x-openpibo-example.git
 
-<span class="c1"># 각종 툴</span>
-git clone https://github.com/themakerrobot/x-openpibo-tools.git
+<span class="c1"># 샘플 데이터</span>
+$ git clone https://github.com/themakerrobot/x-openpibo-data.git
 </pre></div>
 </div>
 </li>
 </ul>
 </li>
-<li><p><a class="reference external" href="https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html">카카오 api키를 발급받습니다.</a></p></li>
 </ol>
 </div>
 
