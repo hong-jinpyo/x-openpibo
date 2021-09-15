@@ -302,7 +302,7 @@ class Pibo:
     # [Neopixel] - Create the color
     def add_color(self, color=None, *rgb):
         """
-        colordb에 원하는 색상을 추가합니다.
+        ``colordb`` 에 원하는 색상을 추가합니다.
 
         example::
 
@@ -398,7 +398,7 @@ class Pibo:
     # [Neopixel] - Save the colordb as a file
     def save_colordb(self, filename=None):
         """
-        colordb를 파일로 저장합니다.
+        ``colordb`` 를 파일로 저장합니다.
 
         example::
 
@@ -425,7 +425,7 @@ class Pibo:
     # [Neopixel] - Load colordb
     def load_colordb(self, filename=None):
         """
-        colordb를 불러옵니다.
+        ``colordb`` 를 불러옵니다.
 
         example::
 
@@ -456,7 +456,7 @@ class Pibo:
     # [Neopixel] - Delete color in the colordb
     def delete_color(self, color=None):
         """
-        colordb에 등록된 색상을 삭제합니다.
+        ``colordb`` 에 등록된 색상을 삭제합니다.
 
         example::
 

@@ -31,7 +31,7 @@
 
 5. 컴퓨터에서 파이보로 ssh 접속
 
-   Terminal을 켜고 다음과 같이 입력
+   **Terminal** (windows 에서는 **PowerShell**) 을 켜고 다음과 같이 입력
 
    ```bash
    ssh pi@<xxx.xxx.xxx.xxx>
@@ -42,12 +42,6 @@
    > pi@ 뒤에는 파이보 OLED에 표시된 ip번호를 입력합니다.
    >
    > 초기 비밀번호는 `raspberry`로 설정되어 있습니다.
-
-6. `lxml` 파서를 설치합니다. `추후 수정 요. os에서 미리 설치`
-
-   ```bash
-   sudo apt-get install python3-lxml -y
-   ```
 
 # Option
 
