@@ -1,5 +1,5 @@
 """
-``mp3`` , ``wav`` 파일을 재생 및 정지합니다.
+``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
 """
 
 import os
@@ -9,11 +9,12 @@ LOW = 0
 
 class Audio:
   """
-  ``mp3`` , ``wav`` 파일을 재생 및 정지합니다.
+  ``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
 
   example::
 
     pibo_audio = Audio()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
 
   """
   # out: local/hdmi/both
@@ -29,9 +30,9 @@ class Audio:
 
     example::
 
-      pibo_audio.play('/home/pi/.../test.mp3', 'local', '-2000', True)
+      pibo_audio.play('/home/pi/x-openpibo-data/data/audio/test.mp3', 'local', '-2000', True)
         
-    :param str filename: 재생할 파일의 경로.
+    :param str filename: 재생할 파일의 경로를 지정합니다.
     
       ``mp3`` 와 ``wav`` 형식을 지원합니다.
 
@@ -39,7 +40,13 @@ class Audio:
     
       ``local``, ``hdmi``, ``both`` 만 입력할 수 있습니다.
       
-      (default: ``local``)
+      * ``local``: 파이보의 머리에 부착되어있는 스피커에서 출력됩니다. (default)
+
+      * ``hdmi``: 라즈베리파이에 있는 micro hdmi 포트에 연결된 스피커가 있다면,
+      
+        그 스피커에서 출력됩니다.
+      
+      * ``both``: ``local`` 과 ``hdmi`` 모두에서 출력됩니다.
 
     :param str or int volume: 음량을 설정합니다.
     
@@ -51,8 +58,11 @@ class Audio:
 
     :param bool background: 오디오 파일을 백그라운드에서 실행할지 여부를 결정합니다.
 
-      * ``True``: 오디오 재생 중에 다른 명령어를 사용할 수 있습니다. (default)
-      * ``False``: 오디오 파일이 종료될 때 까지 다른 명령어를 실행할 수 없습니다.
+      백그라운드에서 오디오가 재생되면, 오디오 재생중에 또다른 명령어를 사용할 수 있습니다.
+
+      * ``True``: 백그라운드에서 재생합니다. (default)
+
+      * ``False``: 백그라운드에서 재생하지 않습니다.
     """
 
     if background:
@@ -61,7 +71,7 @@ class Audio:
       os.system("omxplayer -o {} --vol {} {}".format(out, volume, filename))
 
   def stop(self):
-    """background에서 재생중인 오디오를 정지합니다.
+    """백그라운드에서 재생중인 오디오를 정지합니다.
     
     example::
     
@@ -71,10 +81,14 @@ class Audio:
   
   def mute(self, value):
     """파이보를 무음모드로 만듭니다.
+
+    example::
+
+      pibo_audio.mute(True)
     
     :param bool value:
     
-      * ``True``: 무음모드
+      * ``True``: 무음모드 설정.
       * ``False``: 무음모드 해제."""
 
     if type(value) != bool:
