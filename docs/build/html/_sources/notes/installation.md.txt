@@ -84,9 +84,9 @@
       
       # 또는
       
-      $ git clone https://github.com/themakerrobot/x-openpibo.git
-      $ cd x-openpibo
-      $ sudo python3 setup.py install
+      $ git clone https://github.com/themakerrobot/x-openpibo.git # 패키지 파일 다운로드
+      $ cd x-openpibo # 다운받은 패키지 폴더에 접근
+      $ sudo python3 setup.py install # 패키지 설치
       ```
 
    - 추가 도구 설치
