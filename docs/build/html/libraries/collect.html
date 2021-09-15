@@ -91,8 +91,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html#option">Option</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">설치 및 부가설정</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
@@ -208,10 +207,18 @@
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Wikipedia</span></span><a class="headerlink" href="#openpibo.collect.Wikipedia" title="정의 주소">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>위키백과에서 단어를 검색합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.collect</span> <span class="kn">import</span> <span class="n">Wikipedia</span>
+
+<span class="n">wiki</span> <span class="o">=</span> <span class="n">Wikipedia</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia.search">
 <span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.search" title="정의 주소">¶</a></dt>
 <dd><p>위키백과에서 <code class="docutils literal notranslate"><span class="pre">search_text</span></code> 를 검색합니다.</p>
+<p>print(wiki)로 정보를 출력할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wiki</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;강아지&#39;</span><span class="p">)</span>
 </pre></div>
@@ -228,7 +235,8 @@
 <span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get_list" title="정의 주소">¶</a></dt>
 <dd><p>챕터의 목록을 list 형태로 가져옵니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wiki</span><span class="o">.</span><span class="n">get_list</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">wiki</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="c1"># [&#39;1&#39;, &#39;1.1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;3.1&#39;]</span>
 </pre></div>
 </div>
@@ -244,7 +252,8 @@
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chapter_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get" title="정의 주소">¶</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">chapter_num</span></code> 에 해당하는 내용을 출력합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wiki</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">wiki</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="c1"># 2. 본래 뜻과 다르게 사용하는 경우 어린 자식이나 손주를 부르는 말로도 쓰며, ...</span>
 </pre></div>
 </div>
@@ -273,13 +282,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>오늘, 내일, 모레의 날씨 정보를 가져옵니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span> <span class="o">=</span> <span class="n">Weather</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.collect</span> <span class="kn">import</span> <span class="n">Weather</span>
+
+<span class="n">pibo_weather</span> <span class="o">=</span> <span class="n">Weather</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Weather.search">
 <span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'전국'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.search" title="정의 주소">¶</a></dt>
-<dd><p>해당 지역의 날씨 정보를 가져옵니다.</p>
+<dd><p>해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">get_today</span></code>, <code class="docutils literal notranslate"><span class="pre">get_tomorrow</span></code>, <code class="docutils literal notranslate"><span class="pre">get_after_tomorrow</span></code> 메서드로 날씨 정보를 출력할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;서울&#39;</span><span class="p">)</span>
 </pre></div>
@@ -302,7 +315,8 @@
 <span class="sig-name descname"><span class="pre">get_today</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_today" title="정의 주소">¶</a></dt>
 <dd><p>오늘의 날씨를 반환합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_today</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_today</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -326,7 +340,8 @@
 <span class="sig-name descname"><span class="pre">get_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_tomorrow" title="정의 주소">¶</a></dt>
 <dd><p>내일의 날씨를 반환합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_tomorrow</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_tomorrow</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -350,7 +365,8 @@
 <span class="sig-name descname"><span class="pre">get_after_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_after_tomorrow" title="정의 주소">¶</a></dt>
 <dd><p>모레의 날씨를 반환합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_after_tomorrow</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_after_tomorrow</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -377,13 +393,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_news</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.collect</span> <span class="kn">import</span> <span class="n">News</span>
+
+<span class="n">pibo_news</span> <span class="o">=</span> <span class="n">News</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.News.search">
 <span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'뉴스랭킹'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.search" title="정의 주소">¶</a></dt>
-<dd><p>주제에 맞는 뉴스를 검색합니다.</p>
+<dd><p>주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">get_titles</span></code>, <code class="docutils literal notranslate"><span class="pre">get_articles</span></code> 메서드를 사용해 출력할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_news</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;속보&#39;</span><span class="p">)</span>
 </pre></div>
@@ -418,7 +438,8 @@
 <span class="sig-name descname"><span class="pre">get_titles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_titles" title="정의 주소">¶</a></dt>
 <dd><p>기사 제목 목록을 모두 보여줍니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_news</span><span class="o">.</span><span class="n">get_titles</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_news</span><span class="o">.</span><span class="n">get_titles</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -444,7 +465,8 @@
 <span class="sig-name descname"><span class="pre">get_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_article" title="정의 주소">¶</a></dt>
 <dd><p>기사 번호에 해당하는 기사 정보를 보여줍니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_news</span><span class="o">.</span><span class="n">get_article</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_news</span><span class="o">.</span><span class="n">get_article</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

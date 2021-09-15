@@ -2,9 +2,7 @@
 
 ## 설치
 
-1. 파이보 microSD카드에 `CIRCULUS_EDU_OS`를 설치합니다.
-
-2. 무선 인터넷(wifi)을 연결합니다.
+1. 무선 인터넷(wifi)을 연결합니다.
 
    - microSD카드를 USB 어뎁터에 연결하고, 이를 컴퓨터에 연결합니다.
 
@@ -25,7 +23,7 @@
      - `YOUR_NETWORK_NAME` : 접속하려는 wifi 주소로 수정
      - `YOUR_PASSWORD` : wifi 주소의 비밀번호로 수정
 
-   - microSD카드로 부팅을 하게되면 `wpa_supplicant.conf` 파일이 사라집니다.
+   **<참고> microSD카드로 부팅을 하게되면 `wpa_supplicant.conf` 파일이 사라집니다.**
 
       만약 새로운 네트워크에 접속하려면, `wpa_supplicant.conf.bak` 파일을 복사하여
       
@@ -33,7 +31,7 @@
 
       ![](images/bak.png)
 
-3. 파이보에 microSD카드 결합 후 전원을 켭니다.
+2. 파이보에 microSD카드 결합 후 전원을 켭니다.
 
    ![](images/sd_con.jpg)
 
@@ -41,9 +39,9 @@
 
    이 때, 왼쪽의 금박 부분을 바라보는 방향으로 삽입합니다.
 
-4. 컴퓨터에서도 파이보와 같은 네트워크에 접속합니다.
+3. 컴퓨터에서도 파이보와 같은 네트워크에 접속합니다.
 
-5. 컴퓨터에서 파이보로 ssh 접속 합니다.
+4. 컴퓨터에서 파이보로 ssh 접속 합니다.
 
    > ssh란, 원격으로 다른 컴퓨터와 통신을 할 수 있는 방법입니다.
    >
@@ -63,13 +61,19 @@
 
 ## 부가 설정
 
-1. TTS(텍스트를 음성으로 변환), STT(음성을 텍스트로 변환) 등의 기능을 사용하기 위해서는 `KAKAO REST API KEY` 가 있어야 합니다.
+1. TTS(텍스트를 음성으로 변환), STT(음성을 텍스트로 변환) 등의 기능을 사용하기 위해 `KAKAO REST API KEY` 를 발급받습니다.
+
+   openpibo의 TTS와 STT는 KAKAO에서 제공하는 서비스를 사용합니다.
+
+   해당 서비스를 이용하기 위해서는 `KAKAO REST API KEY`가 필요합니다.
+
+   따라서 TTS와 STT 기능을 사용하기 위해서는 kakao developers에 회원가입 후 REST API KEY를 발급받아야 합니다.
 
    해당 설정을 하는 방법은 [여기](https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html)를 참고해주세요.
 
 2. 각종 x-openpibo 패키지와 도구들을 설치하는 방법입니다.
 
-   `CIRCULUS_EDU_OS`를 설치할 때 자동으로 설치가 되지만,
+   파이보 제품을 받았을 때 기본적으로 설치가 되어 있지만,
 
    데이터를 잃어버리거나 실수로 중요한 파일을 수정했을 경우 패키지와 도구를 재설치 할 때 사용합니다.
 

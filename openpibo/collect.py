@@ -29,6 +29,14 @@ class _Chapter:
 class Wikipedia:
     """
     위키백과에서 단어를 검색합니다.
+
+
+    example::
+
+        from openpibo.collect import Wikipedia
+
+        wiki = Wikipedia()
+        # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
     """
 
     def __init__(self):
@@ -41,7 +49,7 @@ class Wikipedia:
         
         example::
 
-            print(wiki) 
+            print(wiki)
             >>> 강아지 (dog)는 개의 새끼를 일컫는다 ..."""
 
         return self._chapters['0']._content
@@ -49,6 +57,8 @@ class Wikipedia:
     def search(self, search_text: str):
         """
         위키백과에서 ``search_text`` 를 검색합니다.
+        
+        print(wiki)로 정보를 출력할 수 있습니다.
         
         example::
 
@@ -94,7 +104,8 @@ class Wikipedia:
         
         example::
 
-            print(wiki.get_list)
+            result = wiki.get_list()
+            print(result)
             # ['1', '1.1', '2', '3', '3.1']
         
         :returns: list 형태의 챕터 목록입니다.
@@ -108,7 +119,8 @@ class Wikipedia:
         
         example::
         
-            print(wiki.get('2'))
+            result = wiki.get('2')
+            print(result)
             # 2. 본래 뜻과 다르게 사용하는 경우 어린 자식이나 손주를 부르는 말로도 쓰며, ...
         
         :param str chapter_num: 챕터의 번호
@@ -157,8 +169,11 @@ class Weather:
     오늘, 내일, 모레의 날씨 정보를 가져옵니다.
     
     example::
+
+        from openpibo.collect import Weather
     
-        pibo_weather = Weather()"""
+        pibo_weather = Weather()
+        # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다."""
 
     def __init__(self):
         """해당 지역의 날씨를 가져옵니다."""
@@ -178,7 +193,9 @@ class Weather:
     
     def search(self, region:str='전국'):
         """
-        해당 지역의 날씨 정보를 가져옵니다.
+        해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.
+
+        ``get_today``, ``get_tomorrow``, ``get_after_tomorrow`` 메서드로 날씨 정보를 출력할 수 있습니다.
 
         example::
 
@@ -230,7 +247,8 @@ class Weather:
         
         example::
         
-            pibo_weather.get_today()
+            result = pibo_weather.get_today()
+            print(result)
         
         :returns: 오늘의 날씨 및 기온을 반환합니다.
 
@@ -251,7 +269,8 @@ class Weather:
         
         example::
         
-            pibo_weather.get_tomorrow()
+            result = pibo_weather.get_tomorrow()
+            print(result)
         
         :returns: 내일의 날씨 및 기온을 반환합니다.
 
@@ -272,7 +291,8 @@ class Weather:
         
         example::
         
-            pibo_weather.get_after_tomorrow()
+            result = pibo_weather.get_after_tomorrow()
+            print(result)
         
         :returns: 모레의 날씨 및 기온을 반환합니다.
 
@@ -309,8 +329,11 @@ class News:
     JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.
     
     example::
+
+        from openpibo.collect import News
     
         pibo_news = News()
+        # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
     """
 
     def __init__(self):
@@ -329,7 +352,9 @@ class News:
     
     def search(self, topic='뉴스랭킹'):
         """
-        주제에 맞는 뉴스를 검색합니다.
+        주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.
+
+        ``get_titles``, ``get_articles`` 메서드를 사용해 출력할 수 있습니다.
 
         example::
 
@@ -383,7 +408,8 @@ class News:
 
         example::
 
-            pibo_news.get_titles()
+            result = pibo_news.get_titles()
+            print(result)
         
         :returns: ``key=기사번호`` , ``value=title`` 인 dictionary 입니다.
 
@@ -409,7 +435,8 @@ class News:
 
         example::
 
-            pibo_news.get_article(1)
+            result = pibo_news.get_article(1)
+            print(result)
         
         :param int article_idx: 기사 번호
 

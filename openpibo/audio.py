@@ -13,6 +13,8 @@ class Audio:
 
   example::
 
+    from openpibo.audio import Audio
+    
     pibo_audio = Audio()
     # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
 
