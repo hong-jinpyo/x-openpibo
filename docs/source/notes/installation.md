@@ -23,7 +23,7 @@
      - `YOUR_NETWORK_NAME` : 접속하려는 wifi 주소로 수정
      - `YOUR_PASSWORD` : wifi 주소의 비밀번호로 수정
 
-   **<참고> microSD카드로 부팅을 하게되면 `wpa_supplicant.conf` 파일이 사라집니다.**
+   **<주의> microSD카드로 부팅을 하게되면 `wpa_supplicant.conf` 파일이 사라집니다.**
 
       만약 새로운 네트워크에 접속하려면, `wpa_supplicant.conf.bak` 파일을 복사하여
       
@@ -47,17 +47,35 @@
    >
    > 이를 통해 컴퓨터를 사용해 파이보를 제어할 수 있게 됩니다.
 
-   **Terminal** (windows 에서는 **PowerShell**) 을 켜고 다음과 같이 입력합니다.
+   터미널 창을 켜고 다음과 같이 입력합니다.
 
-   ```bash
-   ssh pi@<xxx.xxx.xxx.xxx>
-   
-   pi@xxx.xxx.xxx.xxx's password: raspberry
-   ```
+   *<참고> 여기서 터미널은 windows 운영체제에서는 **PowerShell**이고, linux에서는 **Terminal** 입니다.*
 
-   > pi@ 뒤에는 파이보 OLED에 표시된 ip번호를 입력합니다.
-   >
-   > 초기 비밀번호는 `raspberry`로 설정되어 있습니다.
+   ![](images/powershell_ssh.png)
+
+   이 때, `ssh pi@` 뒤 숫자는 파이보의 IP 입니다.
+
+   이 숫자는 파이보 가슴의 oled에서 확인할 수 있습니다.
+
+   IP를 입력하면, 다음과 같은 메시지가 출력됩니다.
+
+   ![](images/connect_yes.png)
+
+   처음으로 파이보에 ssh로 접속할 때 출력되는 메시지로, 보안키를 생성한다는 메시지 입니다.
+
+   `yes` 를 타이핑 하면 보안키가 생성됩니다.
+
+   ![](images/password.png)
+
+   패스워드를 입력합니다.
+
+   파이보를 처음 실행시킬때 기본 비밀번호는 `raspberry` 로 설정되어있습니다.
+
+   이 때 타이핑을 해도 반응이 없어보이지만 입력되는 중이기 때문에, 그냥 비밀번호를 타이핑하고 엔터를 치면 됩니다.
+
+   ![](images/connect.png)
+
+   연결이 완료되면 위 그림과 같이 코드 맨 아래에 `pi@raspberrypi:~ $` 가 출력됩니다.
 
 ## 부가 설정
 
@@ -123,7 +141,7 @@
 
          샘플로 사용할 수 있는 간단한 데이터 모음입니다.
 
-         오디오, 아이콘, 이미지가 들어있습니다.
+         오디오, 아이콘, 이미지 파일이 들어있습니다.
 
          ```bash
          $ git clone https://github.com/themakerrobot/x-openpibo-data.git

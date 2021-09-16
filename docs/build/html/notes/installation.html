@@ -229,7 +229,7 @@
 </ul>
 </li>
 </ul>
-<p><strong>&lt;참고&gt; microSD카드로 부팅을 하게되면 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일이 사라집니다.</strong></p>
+<p><strong>&lt;주의&gt; microSD카드로 부팅을 하게되면 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일이 사라집니다.</strong></p>
 <p>만약 새로운 네트워크에 접속하려면, <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf.bak</span></code> 파일을 복사하여</p>
 <p>새로운 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 를 만들어 wifi 설정 후 사용합니다.</p>
 <p><img alt="" src="../_images/bak.png" /></p>
@@ -245,16 +245,21 @@
 <div><p>ssh란, 원격으로 다른 컴퓨터와 통신을 할 수 있는 방법입니다.</p>
 <p>이를 통해 컴퓨터를 사용해 파이보를 제어할 수 있게 됩니다.</p>
 </div></blockquote>
-<p><strong>Terminal</strong> (windows 에서는 <strong>PowerShell</strong>) 을 켜고 다음과 같이 입력합니다.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh pi@&lt;xxx.xxx.xxx.xxx&gt;
-
-pi@xxx.xxx.xxx.xxx&#39;s password: raspberry
-</pre></div>
-</div>
-<blockquote>
-<div><p>pi&#64; 뒤에는 파이보 OLED에 표시된 ip번호를 입력합니다.</p>
-<p>초기 비밀번호는 <code class="docutils literal notranslate"><span class="pre">raspberry</span></code>로 설정되어 있습니다.</p>
-</div></blockquote>
+<p>터미널 창을 켜고 다음과 같이 입력합니다.</p>
+<p><em>&lt;참고&gt; 여기서 터미널은 windows 운영체제에서는 <strong>PowerShell</strong>이고, linux에서는 <strong>Terminal</strong> 입니다.</em></p>
+<p><img alt="" src="../_images/powershell_ssh.png" /></p>
+<p>이 때, <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;</span></code> 뒤 숫자는 파이보의 IP 입니다.</p>
+<p>이 숫자는 파이보 가슴의 oled에서 확인할 수 있습니다.</p>
+<p>IP를 입력하면, 다음과 같은 메시지가 출력됩니다.</p>
+<p><img alt="" src="../_images/connect_yes.png" /></p>
+<p>처음으로 파이보에 ssh로 접속할 때 출력되는 메시지로, 보안키를 생성한다는 메시지 입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> 를 타이핑 하면 보안키가 생성됩니다.</p>
+<p><img alt="" src="../_images/password.png" /></p>
+<p>패스워드를 입력합니다.</p>
+<p>파이보를 처음 실행시킬때 기본 비밀번호는 <code class="docutils literal notranslate"><span class="pre">raspberry</span></code> 로 설정되어있습니다.</p>
+<p>이 때 타이핑을 해도 반응이 없어보이지만 입력되는 중이기 때문에, 그냥 비밀번호를 타이핑하고 엔터를 치면 됩니다.</p>
+<p><img alt="" src="../_images/connect.png" /></p>
+<p>연결이 완료되면 위 그림과 같이 코드 맨 아래에 <code class="docutils literal notranslate"><span class="pre">pi&#64;raspberrypi:~</span> <span class="pre">$</span></code> 가 출력됩니다.</p>
 </li>
 </ol>
 </div>
@@ -304,7 +309,7 @@ $ sudo python3 setup.py install <span class="c1"># 패키지 설치</span>
 </li>
 <li><p>x-openpibo-data</p>
 <p>샘플로 사용할 수 있는 간단한 데이터 모음입니다.</p>
-<p>오디오, 아이콘, 이미지가 들어있습니다.</p>
+<p>오디오, 아이콘, 이미지 파일이 들어있습니다.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/themakerrobot/x-openpibo-data.git
 </pre></div>
 </div>
