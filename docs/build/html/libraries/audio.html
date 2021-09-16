@@ -231,9 +231,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">local</span></code>, <code class="docutils literal notranslate"><span class="pre">hdmi</span></code>, <code class="docutils literal notranslate"><span class="pre">both</span></code> 만 입력할 수 있습니다.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">local</span></code>: 파이보의 머리에 부착되어있는 스피커에서 출력됩니다. (default)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hdmi</span></code>: 라즈베리파이에 있는 micro hdmi 포트에 연결된 스피커가 있다면,</p>
-<p>그 스피커에서 출력됩니다.</p>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hdmi</span></code>: 파이보 등 부분 라즈베리파이에 있는 <code class="docutils literal notranslate"><span class="pre">micro</span> <span class="pre">hdmi</span></code> 포트에 연결된 스피커에서 출력됩니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">both</span></code>: <code class="docutils literal notranslate"><span class="pre">local</span></code> 과 <code class="docutils literal notranslate"><span class="pre">hdmi</span></code> 모두에서 출력됩니다.</p></li>
 </ul>
 </p></li>
@@ -243,7 +241,9 @@
 <p>(default: <code class="docutils literal notranslate"><span class="pre">-2000</span></code>)</p>
 </p></li>
 <li><p><strong>background</strong> (<em>bool</em>) – <p>오디오 파일을 백그라운드에서 실행할지 여부를 결정합니다.</p>
-<p>백그라운드에서 오디오가 재생되면, 오디오 재생중에 또다른 명령어를 사용할 수 있습니다.</p>
+<p>백그라운드에서 오디오가 재생되면, 오디오 재생되는 도중에</p>
+<p>다른 명령어를 사용할 수 있습니다.</p>
+<p>백그라운드에서 재생하지 않으면, <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code> 로 재생을 취소할 수 있습니다.</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: 백그라운드에서 재생합니다. (default)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: 백그라운드에서 재생하지 않습니다.</p></li>
@@ -268,6 +268,8 @@
 <dt class="sig sig-object py" id="openpibo.audio.Audio.mute">
 <span class="sig-name descname"><span class="pre">mute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.audio.Audio.mute" title="정의 주소">¶</a></dt>
 <dd><p>파이보를 무음모드로 만듭니다.</p>
+<p>인스턴스(pibo_audio)를 생성하면, 기본적으로 무음모드는 해제되어있습니다.</p>
+<p>무음모드에서는 <code class="docutils literal notranslate"><span class="pre">play</span></code> 메서드를 사용해도 소리가 출력되지 않습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">mute</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
