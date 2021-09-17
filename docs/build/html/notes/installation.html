@@ -214,9 +214,9 @@
 <ul class="simple">
 <li><p>microSD카드를 USB 어뎁터에 연결하고, 이를 컴퓨터에 연결합니다.</p></li>
 </ul>
-<p><img alt="" src="../_images/microsd_adapter.jpg" /></p>
+<p><img alt="" src="../_images/sdusb.png" /></p>
 <ul>
-<li><p>microSD카드 <code class="docutils literal notranslate"><span class="pre">boot</span></code> 디렉토리에서 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일을 수정합니다.</p>
+<li><p>microSD카드의 <code class="docutils literal notranslate"><span class="pre">boot</span></code> 디렉토리에서 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일을 수정합니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">country</span><span class="o">=</span><span class="n">KR</span>
 <span class="n">ctrl_interface</span><span class="o">=</span><span class="n">DIR</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span> <span class="n">GROUP</span><span class="o">=</span><span class="n">netdev</span>
 <span class="n">network</span><span class="o">=</span><span class="p">{</span>
@@ -227,9 +227,19 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">YOUR_NETWORK_NAME</span></code> : 접속하려는 wifi 주소로 수정</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">YOUR_PASSWORD</span></code> : wifi 주소의 비밀번호로 수정</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YOUR_NETWORK_NAME</span></code> : 접속하려는 wifi 이름을 입력합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">YOUR_PASSWORD</span></code> : 접속하려는 wifi의 비밀번호를 입력합니다.</p></li>
 </ul>
+<p>예시:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">country</span><span class="o">=</span><span class="n">KR</span>
+<span class="n">ctrl_interface</span><span class="o">=</span><span class="n">DIR</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">wpa_supplicant</span> <span class="n">GROUP</span><span class="o">=</span><span class="n">netdev</span>
+<span class="n">network</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">ssid</span><span class="o">=</span><span class="s2">&quot;circulus&quot;</span>
+    <span class="n">psk</span><span class="o">=</span><span class="s2">&quot;password1234&quot;</span>
+    <span class="n">key_mgmt</span><span class="o">=</span><span class="n">WPA</span><span class="o">-</span><span class="n">PSK</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </li>
 </ul>
 <p><strong>&lt;주의&gt; microSD카드로 부팅을 하게되면 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일이 사라집니다.</strong></p>
@@ -239,24 +249,31 @@
 </li>
 <li><p>파이보에 microSD카드 결합 후 전원을 켭니다.</p>
 <p><img alt="" src="../_images/sd_con.jpg" /></p>
-<p>파이보의 등껍질을 열고, 오른쪽 겨드랑이 부분에 삽입합니다.</p>
-<p>이 때, 왼쪽의 금박 부분을 바라보는 방향으로 삽입합니다.</p>
+<p>파이보의 등 우측 부분에 microSD카드 삽입 포트에 결합합니다.</p>
+<p>이 때, 사진과 같이 microSD카드의 금박 부분을 바라보는 방향으로 삽입합니다.</p>
 </li>
-<li><p>컴퓨터에서도 파이보와 같은 네트워크에 접속합니다.</p></li>
+<li><p>컴퓨터에서도 파이보와 같은 wifi 네트워크에 접속합니다.</p>
+<p><img alt="" src="../_images/network.png" /></p>
+</li>
 <li><p>컴퓨터에서 파이보로 ssh 접속 합니다.</p>
 <blockquote>
-<div><p>ssh란, 원격으로 다른 컴퓨터와 통신을 할 수 있는 방법입니다.</p>
-<p>이를 통해 컴퓨터를 사용해 파이보를 제어할 수 있게 됩니다.</p>
+<div><p>SSH(Secure Shell)란, 원격지 호스트 컴퓨터에 접속하기 위해 사용되는 인터넷 프로토콜입니다.</p>
+<p>PC로 파이보에 접속하여 사용하기 위해 SSH를 사용합니다.</p>
 </div></blockquote>
 <p>터미널 창을 켜고 다음과 같이 입력합니다.</p>
-<p><em>&lt;참고&gt; 여기서 터미널은 windows 운영체제에서는 <strong>PowerShell</strong>이고, linux에서는 <strong>Terminal</strong> 입니다.</em></p>
+<p><em>&lt;참고&gt; 여기서 터미널은 운영체제마다 다릅니다.</em>
+<em>windows에서는 <strong>PowerShell</strong>이고, linux에서는 <strong>Terminal</strong> 입니다.</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">pi</span><span class="nd">@xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">xxx</span>
+</pre></div>
+</div>
 <p><img alt="" src="../_images/powershell_ssh.png" /></p>
-<p>이 때, <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;</span></code> 뒤 숫자는 파이보의 IP 입니다.</p>
-<p>이 숫자는 파이보 가슴의 oled에서 확인할 수 있습니다.</p>
+<p>이 때, <code class="docutils literal notranslate"><span class="pre">xxx.xxx.xxx.xxx</span></code> 에는 파이보의 IP 주소를 입력합니다.</p>
+<p>이 숫자는 파이보 가슴의 OLED에서 확인할 수 있습니다.</p>
+<p><img alt="" src="notes/images/ip.jpg" /></p>
 <p>IP를 입력하면, 다음과 같은 메시지가 출력됩니다.</p>
 <p><img alt="" src="../_images/connect_yes.png" /></p>
 <p>처음으로 파이보에 ssh로 접속할 때 출력되는 메시지로, 보안키를 생성한다는 메시지 입니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> 를 타이핑 하면 보안키가 생성됩니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yes</span></code> 를 타이핑하여 보안키를 생성합니다.</p>
 <p><img alt="" src="../_images/password.png" /></p>
 <p>패스워드를 입력합니다.</p>
 <p>파이보를 처음 실행시킬때 기본 비밀번호는 <code class="docutils literal notranslate"><span class="pre">raspberry</span></code> 로 설정되어있습니다.</p>

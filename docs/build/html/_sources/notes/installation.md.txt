@@ -8,9 +8,9 @@
 
    - microSD카드를 USB 어뎁터에 연결하고, 이를 컴퓨터에 연결합니다.
 
-   ![](images/microsd_adapter.jpg)
+   ![](images/sdusb.png)
    
-   - microSD카드 `boot` 디렉토리에서 `wpa_supplicant.conf` 파일을 수정합니다.
+   - microSD카드의 `boot` 디렉토리에서 `wpa_supplicant.conf` 파일을 수정합니다.
 
      ```
      country=KR
@@ -22,8 +22,20 @@
      }
      ```
 
-     - `YOUR_NETWORK_NAME` : 접속하려는 wifi 주소로 수정
-     - `YOUR_PASSWORD` : wifi 주소의 비밀번호로 수정
+     - `YOUR_NETWORK_NAME` : 접속하려는 wifi 이름을 입력합니다.
+     - `YOUR_PASSWORD` : 접속하려는 wifi의 비밀번호를 입력합니다.
+
+      예시:
+
+     ```
+     country=KR
+     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+     network={
+         ssid="circulus"
+         psk="password1234"
+         key_mgmt=WPA-PSK
+     }
+     ```
 
    **<주의> microSD카드로 부팅을 하게되면 `wpa_supplicant.conf` 파일이 사라집니다.**
 
@@ -37,27 +49,36 @@
 
    ![](images/sd_con.jpg)
 
-   파이보의 등껍질을 열고, 오른쪽 겨드랑이 부분에 삽입합니다.
+   파이보의 등 우측 부분에 microSD카드 삽입 포트에 결합합니다.
 
-   이 때, 왼쪽의 금박 부분을 바라보는 방향으로 삽입합니다.
+   이 때, 사진과 같이 microSD카드의 금박 부분을 바라보는 방향으로 삽입합니다.
 
-3. 컴퓨터에서도 파이보와 같은 네트워크에 접속합니다.
+3. 컴퓨터에서도 파이보와 같은 wifi 네트워크에 접속합니다.
+
+   ![](images/network.png)
 
 4. 컴퓨터에서 파이보로 ssh 접속 합니다.
 
-   > ssh란, 원격으로 다른 컴퓨터와 통신을 할 수 있는 방법입니다.
+   > SSH(Secure Shell)란, 원격지 호스트 컴퓨터에 접속하기 위해 사용되는 인터넷 프로토콜입니다.
    >
-   > 이를 통해 컴퓨터를 사용해 파이보를 제어할 수 있게 됩니다.
+   > PC로 파이보에 접속하여 사용하기 위해 SSH를 사용합니다.
 
    터미널 창을 켜고 다음과 같이 입력합니다.
 
-   *<참고> 여기서 터미널은 windows 운영체제에서는 **PowerShell**이고, linux에서는 **Terminal** 입니다.*
+   *<참고> 여기서 터미널은 운영체제마다 다릅니다.*
+   *windows에서는 **PowerShell**이고, linux에서는 **Terminal** 입니다.*
+
+   ```
+   ssh pi@xxx.xxx.xxx.xxx
+   ```
 
    ![](images/powershell_ssh.png)
 
-   이 때, `ssh pi@` 뒤 숫자는 파이보의 IP 입니다.
+   이 때, `xxx.xxx.xxx.xxx` 에는 파이보의 IP 주소를 입력합니다.
 
-   이 숫자는 파이보 가슴의 oled에서 확인할 수 있습니다.
+   이 숫자는 파이보 가슴의 OLED에서 확인할 수 있습니다.
+
+   ![](images/ip.jpg)
 
    IP를 입력하면, 다음과 같은 메시지가 출력됩니다.
 
@@ -65,7 +86,7 @@
 
    처음으로 파이보에 ssh로 접속할 때 출력되는 메시지로, 보안키를 생성한다는 메시지 입니다.
 
-   `yes` 를 타이핑 하면 보안키가 생성됩니다.
+   `yes` 를 타이핑하여 보안키를 생성합니다.
 
    ![](images/password.png)
 
