@@ -87,7 +87,7 @@ if __name__ == "__main__":
 **chatbot_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/speech $ sudo python3 chatbot_test.py 
+pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 chatbot_test.py 
 ```
 
 **chatbot_test.py 결과**
@@ -130,7 +130,7 @@ if __name__ == "__main__":
 **mecab_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/speech $ sudo python3 mecab_test.py 
+pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 mecab_test.py 
 ```
 
 **mecab_test.py 결과**
@@ -166,7 +166,7 @@ print(ret)
 **stt_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/speech $ sudo python3 stt_test.py 
+pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 stt_test.py 
 ```
 
 ## translate_test.py
@@ -191,7 +191,7 @@ if __name__ == "__main__":
 **translate_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/speech $ sudo python3 translate_test.py 
+pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 translate_test.py 
 ```
 
 **translate_test.py 결과**
@@ -258,5 +258,5 @@ if __name__ == "__main__":
 **tts_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/speech $ sudo python3 tts_test.py 
+pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 tts_test.py 
 ```

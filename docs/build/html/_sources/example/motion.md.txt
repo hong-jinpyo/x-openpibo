@@ -38,7 +38,7 @@ if __name__ == "__main__":
 **motion_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/motion $ sudo python3 motion_test.py
+pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 motion_test.py
 ```
 
 ## motor_test.py
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 **motor_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/motion $ sudo python3 motor_test.py 
+pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 motor_test.py 
 ```
 
 ## multi_motor_test.py
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 **multi_motor_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/motion $ sudo python3 multi_motor_test.py
+pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 multi_motor_test.py
 ```
 
 ## pymotor_test.py
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 **pymotor_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/motion $ sudo python3 pymotor_test.py 
+pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 pymotor_test.py 
 ```
 
 **pymotor_test.py 결과**

@@ -22,7 +22,7 @@ if __name__ == "__main__":
 **figure_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 figure_test.py 
+pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 figure_test.py 
 ```
 
 **figure_test.py 결과**
@@ -55,7 +55,7 @@ if __name__ == "__main__":
 **image_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 image_test.py
+pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 image_test.py
 ```
 
 **image_test.py 결과**
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 **self_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 self_test.py
+pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 self_test.py
 ```
 
 ## text_test.py
@@ -116,7 +116,7 @@ if __name__ == "__main__":
 **text_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/oled $ sudo python3 text_test.py
+pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 text_test.py
 ```
 
 **text_test.py 결과**

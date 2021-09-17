@@ -59,7 +59,7 @@ Welcome to OPENPIBO's documentation!
 
    data/audio
    data/icon
-   data/images
+   data/image
 
 Indices and tables
 ==================

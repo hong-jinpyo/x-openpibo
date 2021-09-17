@@ -28,7 +28,7 @@
 
    ```json
    {
-       "DATA_PATH":"/home/pi/x-openpibo-data/data/",
+       "DATA_PATH":"/home/pi/openpibo-files/data/",
        "KAKAO_ACCOUNT": "<여기에 발급받은 REST API 키를 입력해주세요>",
        "robotId": ""
    }

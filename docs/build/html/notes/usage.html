@@ -130,7 +130,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../data/audio.html">Audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../data/icon.html">Icon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data/images.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data/image.html">Image</a></li>
 </ul>
 
             
@@ -204,7 +204,7 @@
 <div><p>아래는 <code class="docutils literal notranslate"><span class="pre">Audio</span></code> 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리와 메서드는 좌측 <strong>LIBRARIES</strong> 탭을 참고해주시기 바랍니다.</p>
 <p>가이드는 두 가지 전제 하에 작성되었습니다.</p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">x-openpibo-data</span></code>를 <code class="docutils literal notranslate"><span class="pre">/home/pi/</span></code> 경로에 clone 하였음.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">openpibo-files</span></code>를 <code class="docutils literal notranslate"><span class="pre">/home/pi/</span></code> 경로에 clone 하였음.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x-openpibo</span></code>를 <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip3</span> <span class="pre">install</span></code>명령어로 설치 하였음.</p></li>
 </ol>
 </div></blockquote>
@@ -225,7 +225,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">play</span></code> 메서드를 사용해 음악을 재생시킵니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;오디오</span> <span class="pre">데이터</span> <span class="pre">경로&gt;</span></code> 에는 절대경로, 또는 상대경로가 들어갑니다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/x-openpibo-data/data/audio/test.mp3&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pibo</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/openpibo-files/data/audio/test.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -250,11 +250,11 @@ $ sudo vi config.json
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>기본적으로 <code class="docutils literal notranslate"><span class="pre">DATA_PATH</span></code>가 <code class="docutils literal notranslate"><span class="pre">/home/pi/x-openpibo-data/data/</span></code> 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.</p></li>
+<li><p>기본적으로 <code class="docutils literal notranslate"><span class="pre">DATA_PATH</span></code>가 <code class="docutils literal notranslate"><span class="pre">/home/pi/openpibo-files/data/</span></code> 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.</p></li>
 </ul>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/x-openpibo-data/data/&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/x-openpibo-data/data/audio/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/openpibo-files/data/&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/home/pi/openpibo-files/data/audio/&quot;</span><span class="p">,</span>
     <span class="nt">&quot;KAKAO_ACCOUNT&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -268,7 +268,7 @@ $ sudo vi config.json
 &gt;&gt;&gt; openpibo.config
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/x-openpibo-data/data/&quot;</span><span class="p">,</span> <span class="s2">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/ ...}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/openpibo-files/data/&quot;</span><span class="p">,</span> <span class="s2">&quot;MY_DATA_PATH&quot;</span><span class="p">:</span><span class="s2">&quot;/home/pi/ ...}</span>
 </pre></div>
 </div>
 <ul class="simple">

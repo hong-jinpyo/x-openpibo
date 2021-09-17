@@ -104,13 +104,11 @@
 
 > 부가적인 기능을 사용하거나 패키지, 도구를 재설치하는 방법에 대해 안내합니다.
 
-1. TTS(텍스트를 음성으로 변환), STT(음성을 텍스트로 변환) 등의 기능을 사용하기 위해 `KAKAO REST API KEY` 를 발급받습니다.
+1. TTS(텍스트를 음성으로 변환), STT(음성을 텍스트로 변환) 등의 기능을 사용하기 위한 설정을 합니다.
 
    openpibo의 TTS와 STT는 KAKAO에서 제공하는 서비스를 사용합니다.
-
-   해당 서비스를 이용하기 위해서는 `KAKAO REST API KEY`가 필요합니다.
-
-   따라서 TTS와 STT 기능을 사용하기 위해서는 kakao developers에 회원가입 후 REST API KEY를 발급받아야 합니다.
+   
+   해당 서비스를 이용하기 위해 kakao developers에 회원가입 후 REST API KEY를 발급받아 `config.json` 에 저장합니다.
 
    해당 설정을 하는 방법은 [여기](https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html)를 참고해주세요.
 
@@ -138,36 +136,36 @@
 
    - 추가 도구 설치
 
-      - x-openpibo-tools
+      - openpibo-tools
 
          파이보를 다루는데 여러가지 도움을 주는 도구모음입니다.
 
          파이보 조립 후 조립이 잘 됐는지 확인하거나, 파이보의 모션을 만드는 등의 일을 할 수 있습니다.
 
          ```bash
-         $ git clone https://github.com/themakerrobot/x-openpibo-tools.git
+         $ git clone https://github.com/themakerrobot/openpibo-tools.git
          ```
 
-      - x-openpibo-example
+      - openpibo-examples
 
          패키지를 사용한 예제 코드들의 모음입니다.
 
          패키지를 어떻게 사용해야 하는지 알고 싶을 때 참고할 수 있습니다.
 
-         참고로, `x-openpibo-data`의 데이터를 사용하기 때문에,
+         참고로, `openpibo-files`의 데이터를 사용하기 때문에,
          
-         예제코드를 사용하기 전에 `x-openpibo-data`도 정상적으로 설치되어있어야 합니다.
+         예제코드를 사용하기 전에 `openpibo-files`도 정상적으로 설치되어있어야 합니다.
 
          ```bash
-         $ git clone https://github.com/themakerrobot/x-openpibo-example.git
+         $ git clone https://github.com/themakerrobot/openpibo-examples.git
          ```
       
-      - x-openpibo-data
+      - openpibo-files
 
          샘플로 사용할 수 있는 간단한 데이터 모음입니다.
 
          오디오, 아이콘, 이미지 파일이 들어있습니다.
 
          ```bash
-         $ git clone https://github.com/themakerrobot/x-openpibo-data.git
+         $ git clone https://github.com/themakerrobot/openpibo-files.git
          ```

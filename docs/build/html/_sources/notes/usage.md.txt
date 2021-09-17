@@ -3,7 +3,7 @@
 > 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리와 메서드는 좌측 **LIBRARIES** 탭을 참고해주시기 바랍니다.
 >
 > 가이드는 두 가지 전제 하에 작성되었습니다.
-> 1. `x-openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
+> 1. `openpibo-files`를 `/home/pi/` 경로에 clone 하였음.
 > 2. `x-openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
 
 - 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
@@ -23,7 +23,7 @@ $ sudo python3
 - `<오디오 데이터 경로>` 에는 절대경로, 또는 상대경로가 들어갑니다.
 
 ```python
->>> pibo.play('/home/pi/x-openpibo-data/data/audio/test.mp3')
+>>> pibo.play('/home/pi/openpibo-files/data/audio/test.mp3')
 ```
 
 - `stop` 메서드로 음악을 정지시킵니다.
@@ -47,12 +47,12 @@ $ cd ~
 $ sudo vi config.json
 ```
 
-- 기본적으로 `DATA_PATH`가 `/home/pi/x-openpibo-data/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
+- 기본적으로 `DATA_PATH`가 `/home/pi/openpibo-files/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
 
 ```json
 {
-    "DATA_PATH": "/home/pi/x-openpibo-data/data/",
-    "MY_DATA_PATH": "/home/pi/x-openpibo-data/data/audio/",
+    "DATA_PATH": "/home/pi/openpibo-files/data/",
+    "MY_DATA_PATH": "/home/pi/openpibo-files/data/audio/",
     "KAKAO_ACCOUNT": "..."
 }
 ```
@@ -67,7 +67,7 @@ $ sudo python3
 ```
 
 ```
-{"DATA_PATH":"/home/pi/x-openpibo-data/data/", "MY_DATA_PATH":"/home/pi/ ...}
+{"DATA_PATH":"/home/pi/openpibo-files/data/", "MY_DATA_PATH":"/home/pi/ ...}
 ```
 
 - 이를 활용하여 아래와 같이 데이터를 불러올 수 있습니다.

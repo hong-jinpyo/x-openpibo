@@ -28,7 +28,7 @@ if __name__ == "__main__":
 아래는 PIBO의 양쪽 눈 색깔을 변경(24)하는 명령어 입력 코드입니다.
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/device $ sudo python3 device_once_test.py --command "#24:255,0,0,0,0,255:!"
+pi@raspberrypi:~/openpibo-examples/device $ sudo python3 device_once_test.py --command "#24:255,0,0,0,0,255:!"
 ```
 
 **device_once_test.py 결과**
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 **device_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/device $ sudo python3 device_test.py
+pi@raspberrypi:~/openpibo-examples/device $ sudo python3 device_test.py
 ```
 
 **device_test.py 결과**
@@ -157,7 +157,7 @@ if __name__ == "__main__":
 **device_test_with_thread.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/device $ sudo python3 device_test_with_thread.py 
+pi@raspberrypi:~/openpibo-examples/device $ sudo python3 device_test_with_thread.py 
 ```
 
 **device_test_with_thread.py 결과**

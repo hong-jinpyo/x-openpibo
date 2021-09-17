@@ -34,7 +34,7 @@ if __name__ == "__main__":
 **camera_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/vision $ sudo python3 camera_test.py 
+pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 camera_test.py 
 ```
 
 **camera_test.py 결과**
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 **detect_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/vision $ sudo python3 detect_test.py 
+pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 detect_test.py 
 ```
 
 **detect_test.py 결과**
@@ -183,7 +183,7 @@ if __name__ == "__main__":
 **face_recognize_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/vision $ sudo python3 face_recognize_test.py 
+pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 face_recognize_test.py 
 ```
 
 **face_recognize_test.py 결과**
@@ -247,7 +247,7 @@ if __name__ == "__main__":
 **face_train_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/vision $ sudo python3 face_train_test.py
+pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 face_train_test.py
 ```
 
 **face_train_test.py 결과**
@@ -284,7 +284,7 @@ if __name__ == "__main__":
 **streaming_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/vision $ sudo python3 streaming_test.py 
+pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 streaming_test.py 
 ```
 
 **streaming_test.py 결과**

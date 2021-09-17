@@ -9,7 +9,7 @@
 __사용 방법__
 
 ```python
-$ cd ~/x-openpibo-tools/device-simulator
+$ cd ~/openpibo-tools/device-simulator
 $ sudo python3 main.py --port 8888
 ```
 

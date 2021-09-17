@@ -26,5 +26,5 @@ print(news) # 경제 뉴스 출력
 **collect_test.py 실행**
 
 ```shell
-pi@raspberrypi:~/x-openpibo-example/collect $ sudo python3 collect_test.py
+pi@raspberrypi:~/openpibo-examples/collect $ sudo python3 collect_test.py
 ```
