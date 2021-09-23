@@ -1,73 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Directory Structure &mdash; openpibo 0.8.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+  <title>폴더 구조 &mdash; openpibo 0.8.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/structure.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
-    <link rel="search" title="검색" href="../search.html" /> 
+    <link rel="search" title="검색" href="../search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="설정" href="setting.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> openpibo
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,23 +38,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">기본설정 및 부가설정</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setting.html">설정</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">폴더 구조</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">libraries</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pibo_device.html">PIBO Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kakao_api.html">KAKAO API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
@@ -131,117 +89,176 @@
 <li class="toctree-l1"><a class="reference internal" href="../data/image.html">Image</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">openpibo</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Directory Structure</li>
-    
-    
+      <li>폴더 구조</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/notes/structure.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="tex2jax_ignore mathjax_ignore section" id="directory-structure">
-<h1>Directory Structure<a class="headerlink" href="#directory-structure" title="제목 주소">¶</a></h1>
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>폴더 구조<a class="headerlink" href="#id1" title="제목 주소"></a></h1>
+<p>openpibo 패키지의 폴더 구조에 대해 설명합니다.</p>
+<p>openpibo 패키지는 파이보를 제어하기 위한 라이브러리 및 최소한의 파일들을 포함하고 있습니다.
+크게 data, modules, libraries 파트로 나뉘어져 있습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>openpibo
+├── __init__.py
+├── data
+│   └── models
+│       ├── KDL.ttf
+│       ├── motion_db.json
+│       ├── sample_db.json
+│       ├── MobileNetSSD_deploy.caffemodel
+│       ├── MobileNetSSD_deploy.prototxt.txt
+│       ├── age_net.caffemodel
+│       ├── deploy_age.prototxt
+│       ├── deploy_gender.prototxt
+│       ├── dialog.csv
+│       ├── dlib_face_recognition_resnet_model_v1.dat
+│       ├── gender_net.caffemodel
+│       ├── haarcascade_frontalface_default.xml
+│       └── shape_predictor_5_face_landmarks.dat
+├── modules
+│   ├── __init__.py
+│   ├── collect
+│   │   ├── __init__.py
+│   │   └── get_soup.py
+│   ├── oled
+│   │   ├── __init__.py
+│   │   ├── board.py
+│   │   ├── busio.py
+│   │   ├── chip.py
+│   │   ├── digitalio.py
+│   │   ├── framebuf.py
+│   │   ├── pure_spi.py
+│   │   ├── spi.py
+│   │   ├── spi_device.py
+│   │   ├── ssd1306.py
+│   │   └── util.py
+│   ├── speech
+│   │   ├── __init__.py
+│   │   ├── constant.py
+│   │   └── google_trans_new.py
+│   └── vision
+│       ├── __init__.py
+│       └── stream.py
+├── motion.py
+├── audio.py
+├── collect.py
+├── device.py
+├── edu_v1.py
+├── oled.py
+├── speech.py
+└── vision.py
+</pre></div>
 </div>
+<section id="data">
+<h2>data<a class="headerlink" href="#data" title="제목 주소"></a></h2>
+<p>폰트 파일, 모션 데이터베이스, 그리고 각종 인공지능 모델 등 라이브러리를 사용하기 위한 최소한의 데이터가 들어있습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>openpibo/data/models/
+├── KDL.ttf
+├── motion_db.json
+├── sample_db.json
+├── dialog.csv
+├── MobileNetSSD_deploy.caffemodel
+├── MobileNetSSD_deploy.prototxt.txt
+├── age_net.caffemodel
+├── deploy_age.prototxt
+├── deploy_gender.prototxt
+├── dlib_face_recognition_resnet_model_v1.dat
+├── gender_net.caffemodel
+├── haarcascade_frontalface_default.xml
+└── shape_predictor_5_face_landmarks.dat
+</pre></div>
+</div>
+<ul>
+<li><p>KDL.ttf</p>
+<p>oled에 텍스트를 출력할 때 사용하는 기본 글씨체입니다.</p>
+<p><img alt="" src="../_images/kdl.jpg" /></p>
+</li>
+<li><p>motion_db.json, sample_db.json</p>
+<p>motion_db.json은 파이보에 기본적으로 저장되어있는 동작이 저장되어있는 데이터베이스로, 저장된 모션 리스트는 다음과 같습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stop</span><span class="p">,</span> <span class="n">stop_body</span><span class="p">,</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">left_half</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">right_half</span><span class="p">,</span> <span class="n">foward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="n">backward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">step1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hifive</span><span class="p">,</span> <span class="n">cheer1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">wave1</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="n">think1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">wake_up1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">hey1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="n">yes_h</span><span class="p">,</span> <span class="n">no_h</span><span class="p">,</span> <span class="n">breath1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">breath_long</span><span class="p">,</span> <span class="n">head_h</span><span class="p">,</span> <span class="n">spin_h</span><span class="p">,</span> <span class="n">clapping1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hankshaking</span><span class="p">,</span>
+<span class="n">bow</span><span class="p">,</span> <span class="n">greeting</span><span class="p">,</span> <span class="n">hand1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">foot1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak_n1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">speak_q</span><span class="p">,</span> <span class="n">speak_r1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> 
+<span class="n">speak_l1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">welcome</span><span class="p">,</span> <span class="n">happy1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">excite1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">boring1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">sad1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">handup_r</span><span class="p">,</span> 
+<span class="n">handup_l</span><span class="p">,</span> <span class="n">look_r</span><span class="p">,</span> <span class="n">look_l</span><span class="p">,</span> <span class="n">dance1</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">motion_test</span><span class="p">,</span> <span class="n">test1</span><span class="o">-</span><span class="mi">4</span>
+<span class="c1"># foward1-2는 forward1, forward2 두 종류가 있음을 의미합니다.</span>
+</pre></div>
+</div>
+<p>sample_db.json은 json 파일 양식이 저장되어있습니다.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>// sample_db.json
+{
+  &quot;name&quot;: {
+    &quot;comment&quot;:&quot;description of this motion&quot;,
+    &quot;init_def&quot;:0,
+    &quot;init&quot;:[0,0,-70,-25,0,0,0,0,70,25],
+    &quot;pos&quot;:[
+      { &quot;d&quot;: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ] , &quot;seq&quot;: 0 }
+    ]
+  }
+}
+</pre></div>
+</div>
+<p>새로운 모션을 만들기 위해서는 위의 양식을 갖춰야하며, <a class="reference external" href="https://themakerrobot.github.io/x-openpibo/build/html/tools/motion_creator.html">Motion Creator</a>를 이용해 간편히 만들 수 있습니다.</p>
+</li>
+</ul>
+</section>
+<section id="modules">
+<h2>modules<a class="headerlink" href="#modules" title="제목 주소"></a></h2>
+</section>
+<section id="libraries">
+<h2>libraries<a class="headerlink" href="#libraries" title="제목 주소"></a></h2>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setting.html" class="btn btn-neutral float-left" title="설정" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Circulus.
-
-    </p>
+    <p>&#169; Copyright 2021, Circulus.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

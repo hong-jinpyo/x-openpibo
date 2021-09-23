@@ -1,73 +1,34 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용) &mdash; openpibo 0.8.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/kakao_ssml_guide.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> openpibo
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,23 +36,13 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">기본설정 및 부가설정</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setting.html">설정</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">Directory Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pibo_device.html">PIBO Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kakao_api.html">KAKAO API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
@@ -131,73 +82,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../data/image.html">Image</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">openpibo</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/notes/kakao_ssml_guide.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="tex2jax_ignore mathjax_ignore section" id="open-api-ssml-kakao-ssml-guide">
-<h1>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용)<a class="headerlink" href="#open-api-ssml-kakao-ssml-guide" title="제목 주소">¶</a></h1>
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="open-api-ssml-kakao-ssml-guide">
+<h1>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용)<a class="headerlink" href="#open-api-ssml-kakao-ssml-guide" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>정의 및 정책</p>
 <ul>
@@ -216,20 +126,20 @@
 <li><p>사용예 1 : 조사 처리를 하고 싶을 때</p></li>
 <li><p>사용예 2 : 효과음과 같이 음성을 내려보내주고 싶을 때</p></li>
 <li><p>사용예 3 : 새로 나온 영화명, 일반적인 규칙과 다르게 읽어주고 싶을 때</p></li>
-<li><p>사용예 4 : 성경에서는 특이하게 읽는 《10장 10절 → 십장 십절》 쉽게 적용하고 싶을때</p></li>
+<li><p>사용예 4 : 성경에서는 특이하게 읽는 “10장 10절 → 십장 십절” 쉽게 적용하고 싶을때</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>정의 및 정책<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>정의 및 정책<a class="headerlink" href="#id1" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>기본적으로 제공되는 TTS 외에, 원하는대로 언어 처리를 직접 수정할 수 있도록 제공되는 마크업 랭귀지 이다.</p></li>
 <li><p>예를 들어, 목소리를 바꾸거나 볼륨을 바꾸는 음성 변경, 상황 별로 특이하게 발음되는 언어 처리, 효과음 합성 등을 할 수 있다.</p></li>
 <li><p>w3c에서 제공하는 표준을 지켜 제작되었으며, 표준에 정의되지 않았지만 꼭 필요한 요소는 kakao custom tag, attribute를 통해 제공한다. (https://ww
 w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="ssml-tag-attribute">
-<h1>SSML 지원 tag, attribute<a class="headerlink" href="#ssml-tag-attribute" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="ssml-tag-attribute">
+<h1>SSML 지원 tag, attribute<a class="headerlink" href="#ssml-tag-attribute" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>SSML에서 지원할 수 있는 tag와 attribute는 아래와 같다.</p></li>
 <li><p>tag명</p>
@@ -288,9 +198,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
   <span class="o">-</span> <span class="n">speed</span> <span class="p">:</span> <span class="n">속도</span> <span class="n">조절</span> <span class="p">(</span><span class="mi">70</span><span class="o">~</span><span class="mi">130</span><span class="o">%</span><span class="n">까지</span> <span class="n">사용</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="speak">
-<h1>speak<a class="headerlink" href="#speak" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="speak">
+<h1>speak<a class="headerlink" href="#speak" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>기본적으로 모든 음성은 <speak> 태그로 감싸져야 한다</p></li>
 <li><p><speak> 태그 하위로, <speak>를 제외한 모든 tag가 존재할 수 있다.</p></li>
@@ -299,9 +209,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&lt;</span><span class="n">speak</span><span class="o">&gt;</span> <span class="n">안녕하세요</span><span class="o">.</span> <span class="n">반가워요</span><span class="o">.</span> <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="voice">
-<h1>voice<a class="headerlink" href="#voice" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="voice">
+<h1>voice<a class="headerlink" href="#voice" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>음성의 목소리를 변경하기 위해 사용하며, name attribute를 통해 원하는 목소리를 지정한다. 제공되는 목소리는 4가지이다.</p></li>
 <li><p>하위로 <speak>, <voice>를 제외한 모든 tag (kakao:effect, prosody, break, audio, say-as, sub)가 존재할 수 있다.</p></li>
@@ -323,9 +233,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="prosody">
-<h1>prosody<a class="headerlink" href="#prosody" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prosody">
+<h1>prosody<a class="headerlink" href="#prosody" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>음성의 속도와 볼륨을 변경하기 위해 사용하는 tag 이다. 속도와 볼륨 모두 3가지 value를 제공한다.</p></li>
 <li><p>하위로 <speak>, &lt; prosody&gt; 를 제외한 모든 tag (kakao:effect, break, audio, say-as, sub)가 올 수 있다.</p></li>
@@ -353,11 +263,11 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="break">
-<h1>break<a class="headerlink" href="#break" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="break">
+<h1>break<a class="headerlink" href="#break" title="제목 주소"></a></h1>
 <ul class="simple">
-<li><p>의도적으로 문장과 문장 사이에 《쉼》을 주기 위해 사용한다.</p></li>
+<li><p>의도적으로 문장과 문장 사이에 “쉼”을 주기 위해 사용한다.</p></li>
 <li><p><speak>, <prosody> 아래에 올 수 있으며, <break> 하위에 올 수 있는 tag는 없다.</p></li>
 <li><p>문장과 문장 사이에서만 사용한다. 단어와 단어 사이에 사용할 경우, 억양이 이상할 수 있다.</p></li>
 <li><p><break> tag 앞에 이전 텍스트가 없거나, 특수 문자 등으로 이전 텍스트의 합성이 실패하면 <break>가 적용되지 않는다.</p></li>
@@ -380,9 +290,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 &lt;/speak&gt;
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="kakao-effect">
-<h1>kakao:effect<a class="headerlink" href="#kakao-effect" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kakao-effect">
+<h1>kakao:effect<a class="headerlink" href="#kakao-effect" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>카카오에서 제공하는 custom tag이다.</p></li>
 <li><p>tone attribute를 사용하면, 존댓말을 반말로 바꿀 수 있다. 반말을 존댓말로 변경하는 것은 제공하지 않는다.</p></li>
@@ -403,9 +313,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 &lt;/speak&gt;
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="say-as">
-<h1>say-as<a class="headerlink" href="#say-as" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="say-as">
+<h1>say-as<a class="headerlink" href="#say-as" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>날짜/시간과 같은 축약형 표현이나 전화번호, 스펠링과 같은 자주 사용하는 특수 표현을 해석해서, 상황에 맞게 잘 읽어주기 위해 사용한다.</p></li>
 <li><p>formate은 interpret-as와 함께 쓰이며, interpret-as에서 date와 같은 일부 value를 지정했을 경우 사용한다.</p></li>
@@ -431,14 +341,14 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <li><p>m : 월</p></li>
 <li><p>y : 년</p></li>
 <li><p>d(일), m(월), y(년)의 다양한 조합 가능 (예 dmy, my, ymd, d, m 등)</p></li>
-<li><p>날짜 표기는 〈-〈, 〈/〉, 〈.〉 중 한가지를 사용</p></li>
+<li><p>날짜 표기는 ‘-’, ‘/’, ‘.’ 중 한가지를 사용</p></li>
 <li><p>time 의 다양한 포멧</p></li>
 <li><p>h : 시</p></li>
 <li><p>m : 분</p></li>
 <li><p>s : 초</p></li>
 <li><p>시간제 : 12 or 24</p></li>
 <li><p>hms 시간제의 다양한 조합 가능 (예 hms12, hm24, ms, hm, s등)</p></li>
-<li><p>시간 표기는 〈:〉 만 사용 가능</p></li>
+<li><p>시간 표기는 ‘:’ 만 사용 가능</p></li>
 <li><p>시간제를 표시 안할 경우, 오전/오후를 말하지 않고 숫자를 12시간제로 변화하여 읽어줌</p></li>
 <li><p>kakao:number 숫자 포멧 , 숫자 뒤의 수량 단위명사를 태그 안에 같이 넣어줘야 함</p></li>
 <li><p>korean : 한/하나, 두/둘, 세/셋</p></li>
@@ -476,9 +386,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="sub">
-<h1>sub<a class="headerlink" href="#sub" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sub">
+<h1>sub<a class="headerlink" href="#sub" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>일반적인 발음이 아니라 상황에 맞도록 특별하게 발음을 지정해야 할 경우, 사용한다.</p></li>
 <li><p>value 입력시, 가능한한 한글로 작성해야 해석이 용이하다.</p></li>
@@ -486,9 +396,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <li><p>alias 읽어주기를 원하는 한글 독음을 직접 입력
 <code class="docutils literal notranslate"><span class="pre">&lt;speak&gt;&lt;sub</span> <span class="pre">alias=&quot;알루미늄&quot;&gt;Al&lt;/sub&gt;은</span> <span class="pre">단단하다.&lt;/speak&gt;</span></code></p></li>
 </ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="audio">
-<h1>audio<a class="headerlink" href="#audio" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="audio">
+<h1>audio<a class="headerlink" href="#audio" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>외부 음원을 speak 채널을 통해 제공하기 위하여 사용한다.</p></li>
 <li><p>효과음 등을 음성과 같이 제공하기에 용이하다.</p></li>
@@ -554,14 +464,14 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id2">
-<h1>기타 주의할점<a class="headerlink" href="#id2" title="제목 주소">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>기타 주의할점<a class="headerlink" href="#id2" title="제목 주소"></a></h1>
 <ul class="simple">
 <li><p>escape 처리가 필요하다.</p></li>
 </ul>
-<div class="section" id="id3">
-<h2>사용예 1 : 조사 처리를 하고 싶을 때<a class="headerlink" href="#id3" title="제목 주소">¶</a></h2>
+<section id="id3">
+<h2>사용예 1 : 조사 처리를 하고 싶을 때<a class="headerlink" href="#id3" title="제목 주소"></a></h2>
 <ul class="simple">
 <li><p>문장 조사처리가 필요할경우, <say-as interpret-as="kakao:none">을 사용한다.</p></li>
 <li><p>조사나 어미 처리가 필요한 부분을 <say-as interpret-as="kakao:none">으로 감싼다.</p></li>
@@ -572,9 +482,9 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>사용예 2 : 효과음과 같이 음성을 내려보내주고 싶을 때<a class="headerlink" href="#id4" title="제목 주소">¶</a></h2>
+</section>
+<section id="id4">
+<h2>사용예 2 : 효과음과 같이 음성을 내려보내주고 싶을 때<a class="headerlink" href="#id4" title="제목 주소"></a></h2>
 <ul class="simple">
 <li><p>효과음과 음성을 같이 내려줄경우, <audio>를 사용한다.</p></li>
 </ul>
@@ -584,11 +494,11 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
 &lt;/speak&gt;
 </pre></div>
 </div>
-</div>
-<div class="section" id="id5">
-<h2>사용예 3 : 새로 나온 영화명, 일반적인 규칙과 다르게 읽어주고 싶을 때<a class="headerlink" href="#id5" title="제목 주소">¶</a></h2>
+</section>
+<section id="id5">
+<h2>사용예 3 : 새로 나온 영화명, 일반적인 규칙과 다르게 읽어주고 싶을 때<a class="headerlink" href="#id5" title="제목 주소"></a></h2>
 <ul class="simple">
-<li><p>영화 1987의 경우, 기존의 《천구백팔십칠》이 아니라 《일구팔칠》로 읽어야 한다. 이처럼, 기존의 읽는 방식과 다르게 읽어줘야 할때 <say-as>나 <sub> 태그를
+<li><p>영화 1987의 경우, 기존의 “천구백팔십칠”이 아니라 “일구팔칠”로 읽어야 한다. 이처럼, 기존의 읽는 방식과 다르게 읽어줘야 할때 <say-as>나 <sub> 태그를
 사용한다</p></li>
 <li><p><say-as>에서 정해진 규칙으로 변경이 불가능할 경우, <sub>를 활용한다.</p></li>
 <li><p>say-as를 활용할 경우</p></li>
@@ -606,11 +516,11 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h2>사용예 4 : 성경에서는 특이하게 읽는 《10장 10절 → 십장 십절》 쉽게 적용하고 싶을때<a class="headerlink" href="#id6" title="제목 주소">¶</a></h2>
+</section>
+<section id="id6">
+<h2>사용예 4 : 성경에서는 특이하게 읽는 “10장 10절 → 십장 십절” 쉽게 적용하고 싶을때<a class="headerlink" href="#id6" title="제목 주소"></a></h2>
 <ul class="simple">
-<li><p>기본 룰은 《10장》을 《열장》으로 읽는 것이다. 그러나 성경에서는 《십장》으로 읽어야 한다. 이 경우, <say-as>를 활용하여 숫자 읽는 규칙을 정의할 수 있다.</p></li>
+<li><p>기본 룰은 “10장”을 “열장”으로 읽는 것이다. 그러나 성경에서는 “십장”으로 읽어야 한다. 이 경우, <say-as>를 활용하여 숫자 읽는 규칙을 정의할 수 있다.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">speak</span><span class="o">&gt;</span>
  <span class="n">마태복음</span> <span class="o">&lt;</span><span class="n">say</span><span class="o">-</span><span class="k">as</span> <span class="n">interpret</span><span class="o">-</span><span class="k">as</span><span class="o">=</span><span class="s2">&quot;kakao:number&quot;</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;chinese&quot;</span><span class="o">&gt;</span><span class="mi">10</span><span class="o">&lt;/</span><span class="n">say</span><span class="o">-</span><span class="k">as</span><span class="o">&gt;</span><span class="n">장</span>
@@ -618,51 +528,35 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Circulus.
-
-    </p>
+    <p>&#169; Copyright 2021, Circulus.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

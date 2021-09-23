@@ -1,75 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ko" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Collect &mdash; openpibo 0.8.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/collect.html" />
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/translations.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="Device" href="device.html" />
     <link rel="prev" title="Audio" href="audio.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> openpibo
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,23 +38,13 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notes/installation.html">기본설정 및 부가설정</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/setting.html">설정</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/structure.html">Directory Structure</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notes/device.html">PIBO Device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes/pibo_device.html">PIBO Device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notes/kakao_api.html">KAKAO API</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
@@ -133,78 +84,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../data/image.html">Image</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">openpibo</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Collect</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/libraries/collect.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-openpibo.collect">
-<span id="collect"></span><h1>Collect<a class="headerlink" href="#module-openpibo.collect" title="제목 주소">¶</a></h1>
+             
+  <section id="module-openpibo.collect">
+<span id="collect"></span><h1>Collect<a class="headerlink" href="#module-openpibo.collect" title="제목 주소"></a></h1>
 <p>인터넷에서 유용한 정보를 가져옵니다.</p>
 <p><strong>단어정보, 날씨정보, 뉴스정보</strong> 를 가져올 수 있습니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Wikipedia</span></span><a class="headerlink" href="#openpibo.collect.Wikipedia" title="정의 주소">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Wikipedia</span></span><a class="headerlink" href="#openpibo.collect.Wikipedia" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>위키백과에서 단어를 검색합니다.</p>
 <p>example:</p>
@@ -216,7 +126,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.search" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_text</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.search" title="정의 주소"></a></dt>
 <dd><p>위키백과에서 <code class="docutils literal notranslate"><span class="pre">search_text</span></code> 를 검색합니다.</p>
 <p>print 인스턴스(pibo_wiki)로 개요 정보를 출력할 수 있습니다.</p>
 <p>example:</p>
@@ -240,7 +150,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia.get_list">
-<span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get_list" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get_list" title="정의 주소"></a></dt>
 <dd><p>챕터의 목록을 list 형태로 가져옵니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_wiki</span><span class="o">.</span><span class="n">get_list</span><span class="p">()</span>
@@ -257,7 +167,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chapter_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chapter_num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Wikipedia.get" title="정의 주소"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">chapter_num</span></code> 에 해당하는 내용을 출력합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_wiki</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -281,7 +191,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.collect.Weather">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Weather</span></span><a class="headerlink" href="#openpibo.collect.Weather" title="정의 주소">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Weather</span></span><a class="headerlink" href="#openpibo.collect.Weather" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>오늘, 내일, 모레의 날씨 정보를 가져옵니다.</p>
 <p>example:</p>
@@ -293,7 +203,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Weather.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'전국'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.search" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'전국'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.search" title="정의 주소"></a></dt>
 <dd><p>해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.</p>
 <p><code class="docutils literal notranslate"><span class="pre">get_today</span></code>, <code class="docutils literal notranslate"><span class="pre">get_tomorrow</span></code>, <code class="docutils literal notranslate"><span class="pre">get_after_tomorrow</span></code> 메서드로 날씨 정보를 출력할 수 있습니다.</p>
 <p>print 인스턴스(pibo_weather)로 전체적인 날씨를 출력할 수 있습니다.</p>
@@ -318,7 +228,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Weather.get_today">
-<span class="sig-name descname"><span class="pre">get_today</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_today" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_today</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_today" title="정의 주소"></a></dt>
 <dd><p>오늘의 날씨를 반환합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_today</span><span class="p">()</span>
@@ -343,7 +253,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Weather.get_tomorrow">
-<span class="sig-name descname"><span class="pre">get_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_tomorrow" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_tomorrow" title="정의 주소"></a></dt>
 <dd><p>내일의 날씨를 반환합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_tomorrow</span><span class="p">()</span>
@@ -368,7 +278,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.Weather.get_after_tomorrow">
-<span class="sig-name descname"><span class="pre">get_after_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_after_tomorrow" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_after_tomorrow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.get_after_tomorrow" title="정의 주소"></a></dt>
 <dd><p>모레의 날씨를 반환합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_weather</span><span class="o">.</span><span class="n">get_after_tomorrow</span><span class="p">()</span>
@@ -395,7 +305,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.collect.News">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">News</span></span><a class="headerlink" href="#openpibo.collect.News" title="정의 주소">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">News</span></span><a class="headerlink" href="#openpibo.collect.News" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.</p>
 <p>example:</p>
@@ -407,7 +317,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.News.search">
-<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'뉴스랭킹'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.search" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'뉴스랭킹'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.search" title="정의 주소"></a></dt>
 <dd><p>주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.</p>
 <p>print 인스턴스(pibo_news)로 첫번째 뉴스 헤드라인을 출력할 수 있습니다.</p>
 <p>example:</p>
@@ -443,7 +353,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.News.get_titles">
-<span class="sig-name descname"><span class="pre">get_titles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_titles" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_titles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_titles" title="정의 주소"></a></dt>
 <dd><p>기사 제목 목록을 모두 보여줍니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_news</span><span class="o">.</span><span class="n">get_titles</span><span class="p">()</span>
@@ -470,7 +380,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.collect.News.get_article">
-<span class="sig-name descname"><span class="pre">get_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_article" title="정의 주소">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_article</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">article_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.get_article" title="정의 주소"></a></dt>
 <dd><p>기사 번호에 해당하는 기사 정보를 보여줍니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pibo_news</span><span class="o">.</span><span class="n">get_article</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -501,54 +411,37 @@
 
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="device.html" class="btn btn-neutral float-right" title="Device" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="audio.html" class="btn btn-neutral float-left" title="Audio" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="device.html" class="btn btn-neutral float-right" title="Device" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, Circulus.
-
-    </p>
+    <p>&#169; Copyright 2021, Circulus.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
