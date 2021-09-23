@@ -10,9 +10,10 @@ Welcome to OPENPIBO's documentation!
    :maxdepth: 1
    :caption: Notes
 
-   notes/installation
+   notes/setting
+   notes/structure
    notes/usage
-   notes/device
+   notes/pibo_device
    notes/kakao_api
 
 .. toctree::
