@@ -1,5 +1,5 @@
 """
-``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
+mp3, wav 오디오 파일을 재생 및 정지합니다.
 """
 
 import os
@@ -9,7 +9,7 @@ LOW = 0
 
 class Audio:
   """
-  ``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
+  mp3, wav 오디오 파일을 재생 및 정지합니다.
 
   example::
 
@@ -17,7 +17,6 @@ class Audio:
     
     pibo_audio = Audio()
     # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
-
   """
   # out: local/hdmi/both
   # volume: mdB
@@ -28,15 +27,15 @@ class Audio:
 
   def play(self, filename, out='local', volume='-2000', background=True):
     """
-    ``mp3`` 또는 ``wav`` 파일을 재생합니다.
+    mp3 또는 wav 파일을 재생합니다.
 
     example::
 
-      pibo_audio.play('/home/pi/x-openpibo-data/data/audio/test.mp3', 'local', '-2000', True)
+      pibo_audio.play('/home/pi/openpibo-files/data/audio/test.mp3', 'local', '-2000', True)
         
     :param str filename: 재생할 파일의 경로를 지정합니다.
     
-      ``mp3`` 와 ``wav`` 형식을 지원합니다.
+      mp3와 wav 형식을 지원합니다.
 
     :param str out: 출력 대상을 설정합니다.
     
