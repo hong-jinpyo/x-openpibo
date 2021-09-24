@@ -1,4 +1,4 @@
-Device
+device
 =====================================================
 
 .. automodule:: openpibo.device
