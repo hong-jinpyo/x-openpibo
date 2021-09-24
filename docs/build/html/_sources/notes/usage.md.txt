@@ -1,81 +1,136 @@
-# Usage
+# 사용법
 
-> 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리와 메서드는 좌측 **LIBRARIES** 탭을 참고해주시기 바랍니다.
->
-> 가이드는 두 가지 전제 하에 작성되었습니다.
-> 1. `openpibo-files`를 `/home/pi/` 경로에 clone 하였음.
-> 2. `x-openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
+openpibo 패키지를 사용하여 파이보를 제어하는 방법과 데이터 경로를 입력하는 방법에 대해 설명합니다.
 
-- 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
+파이보의 기능을 사용하는 방법은 **클래스 호출 -> 인스턴스 생성 -> 메소드 사용** 순으로 이루어집니다.
 
-```bash
-$ sudo python3
-```
+## 클래스 호출 및 인스턴스 생성
 
-- 사용하고자 하는 라이브러리를 import하고, `Audio` 인스턴스를 만듭니다.
+클래스란, 정해진 기능을 사용할 수 있는 인스턴스를 생성하는 도구입니다.
+
+클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.
 
 ```python
->>> from openpibo.audio import Audio
->>> pibo = Audio()
+from openpibo.<라이브러리명> import <클래스명>
+
+<인스턴스명> = <클래스명>()
 ```
 
-- `play` 메서드를 사용해 음악을 재생시킵니다.
-- `<오디오 데이터 경로>` 에는 절대경로, 또는 상대경로가 들어갑니다.
+Ex) audio 라이브러리의 Audio 클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.
 
 ```python
->>> pibo.play('/home/pi/openpibo-files/data/audio/test.mp3')
+from openpibo.audio import Audio
+
+pibo_audio = Audio()
 ```
 
-- `stop` 메서드로 음악을 정지시킵니다.
+인스턴스명은 사용자 임의로 정할 수 있습니다.
+
+## 메소드 사용
+
+메소드란, 인스턴스로부터 사용할 수 있는 기능을 의미합니다.
+
+메소드를 사용하는 방법은 다음과 같습니다.
 
 ```python
->>> pibo.stop()
+<인스턴스명>.<메소드명>(<인자>)
 ```
 
-- 만약 너무 긴 경로를 반복해서 입력하기 번거롭다면, `config.json` 에 경로를 저장할 수 있습니다.
-
-```json
-{"DATA_PATH": "...", "KAKAO_ACCOUNT": "..."}
-```
-
-- `config.json` 파일을 수정하기 위해서는 sudo 권한이 필요합니다.
-
-```bash
->>> quit()
-
-$ cd ~
-$ sudo vi config.json
-```
-
-- 기본적으로 `DATA_PATH`가 `/home/pi/openpibo-files/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
-
-```json
-{
-    "DATA_PATH": "/home/pi/openpibo-files/data/",
-    "MY_DATA_PATH": "/home/pi/openpibo-files/data/audio/",
-    "KAKAO_ACCOUNT": "..."
-}
-```
-
-- `config.json` 는 `openpibo.config` 에 저장되어 있습니다.
+Ex) audio 라이브러리의 Audio 클래스 메소드를 사용하는 방법은 다음과 같습니다.
 
 ```python
-$ sudo python3
+# play 메소드: 오디오 파일을 재생합니다.
+pibo_audio.play('/home/pi/openpibo_files/data/audio/test.mp3')
 
->>> import openpibo
->>> openpibo.config
+# stop 메소드: 재생중인 오디오 파일을 중지합니다.
+pibo_audio.stop()
+
+# mute 메소드: 음소거 모드로 전환합니다.
+pibo_audio.mute(True)
 ```
 
-```
-{"DATA_PATH":"/home/pi/openpibo-files/data/", "MY_DATA_PATH":"/home/pi/ ...}
-```
+클래스마다 사용할 수 있는 메소드는 각기 다르며, 메소드마다 입력되는 인자또한 각기 다릅니다.
+좌측 Library 탭에 자세한 설명이 있습니다.
 
-- 이를 활용하여 아래와 같이 데이터를 불러올 수 있습니다.
+## 데이터 경로 설정
 
-```python
->>> from openpibo.audio import Audio
->>> import openpibo
->>> pibo = Audio()
->>> pibo.play(openpibo.config['MY_DATA_PATH'] + 'test.mp3')
->>> pibo.stop()
-```
+어떤 메소드는 인자로 파일 경로를 입력해야 합니다.
+
+파일 경로를 입력하는 방법에 대해 설명하며,  
+추가로 Audio 클래스로 만든 pibo_audio 인스턴스에서 play 메소드를 사용해 /home/pi/openpibo_files/data/audio/ 경로에 있는 test.mp3 파일 재생방법을 예시로 활용합니다.
+
+1. 절대경로를 사용하는 방법
+
+   절대경로란, 파일이 가지고있는 고유한 경로를 말합니다. 경로가 최상위 디렉토리부터 시작되는 특징이 있습니다.
+
+   test.mp3 파일을 재생하는 메소드는 다음과 같습니다.
+
+   ```python
+   pibo_audio.play('/home/pi/openpibo_files/data/audio/test.mp3')
+   ```
+
+2. 상대경로를 사용하는 방법
+
+   상대경로란, 현재 위치한 디렉토리를 기준으로 해서 대상 파일의 상대적인 경로를 의미합니다.
+
+   현재 디렉토리 위치가 /home/pi/ 일때 test.mp3 파일의 상대경로는 다음과 같습니다.
+
+   ```python
+   # 현재 디렉토리: /home/pi/
+   pibo_audio.play('openpibo_files/data/audio/test.mp3')
+   ```
+
+3. 미리 지정해둔 경로를 참조하는 방법
+
+   config.json 파일에 미리 지정해둔 경로를 호출하여 사용할 수 있습니다.
+
+   기본적으로 config.json에는 'DATA_PATH' key로 '/home/pi/openpibo_files/data' 경로가 설정되어있습니다.
+
+   python에서 config.json을 호출하는 방법은 다음과 같습니다.
+
+   ```python
+   import openpibo
+
+   print(openpibo.config)
+   # {'DATA_PATH': '/home/pi/openpibo-files/data', 'KAKAO_ACCOUNT': '*****', 'robotId': ''}
+   ```
+
+   이를 활용하여 test.mp3 파일을 재생하는 메소드는 다음과 같습니다.
+
+   ```python
+   pibo_audio.play(openpibo.config['DATA_PATH']+'/audio/test.mp3')
+   ```
+
+   *[참고] config.json 파일을 수정하여 데이터 경로를 커스텀하여 사용할 수도 있습니다.*
+
+   1. 데이터를 저장할 디렉토리를 생성하고 파일을 저장합니다.
+
+      - /home/pi/ 경로에 mydata 디렉토리를 생성합니다.
+      ![](images/mkdir_mydata_ad.png)
+
+      - 생성한 디렉토리에 test.mp3 파일을 복사합니다.
+      ![](images/cp_test.png)
+
+   2. config.json 파일을 수정합니다.
+
+      ```bash
+      $ sudo vi /home/pi/config.json # config.json 파일 에디터를 실행합니다.
+      ```
+
+      ![](images/config.png)
+
+      - i 키를 누르면 끼워넣기 모드가 활성화됩니다. 이때 키보드 타이핑을 하면 글씨가 입력됩니다.
+
+      ![](images/config_mydata.png)
+
+      - 입력을 마치면, esc 키를 눌러 끼워넣기 모드를 종료합니다. 이후 `:wq` 를 타이핑하여 파일을 저장하고 종료합니다.
+
+      ![](images/:wq.png)
+
+   3. 경로를 호출해서 사용합니다.
+
+      ```python
+      import openpibo
+
+      pibo_audio.play(openpibo.config['MY_DATA_PATH']+'/test.mp3')
+      ```
