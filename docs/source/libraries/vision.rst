@@ -1,4 +1,4 @@
-Vision
+vision
 =====================================================
 
 .. automodule:: openpibo.vision

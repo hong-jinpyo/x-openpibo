@@ -1,5 +1,5 @@
 """
-`OpenCV` 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)
+`OpenCV` 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다.
 
 카메라 기능, 얼굴 인식, 객체/바코드/문자 인식을 수행합니다.
 """
@@ -21,9 +21,16 @@ class Camera:
   * 사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.
   * Streaming, Cartoonize 기능을 사용할 수 있습니다.
 
+  일부 메소드는 GUI 환경에서만 동작합니다.
+  ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
+  정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
+
   example::
 
+    from openpibo.vision import Camera
+
     pibo_camera = Camera()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -38,11 +45,39 @@ class Camera:
 
     example::
 
-      pibo_camera('/home/pi/.../image.jpg')
+      pibo_camera.imread('/home/pi/openpibo-files/data/image/clear.png')
     
     :param str filename: 사용할 이미지 파일
 
     :returns: ``numpy.ndarray`` 타입 이미지 객체
+
+      example::
+
+        array([[[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              ...,
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]]], dtype=uint8)
     """
 
     return cv2.imread(filename)
@@ -59,11 +94,11 @@ class Camera:
     
     :param int w: 촬영할 이미지의 가로 픽셀 크기 입니다.
 
-      w의 최댓값은 2592 입니다.
+      0 ~ 2592 사이 값 입니다. (default 640)
 
     :param int h: 촬영할 이미지의 세로 픽셀 크기 입니다.
 
-      h의 최댓값은 1944 입니다.
+      0 ~ 1944 사이 값 입니다. (default 480)
 
     :returns: ``numpy.ndarray`` 타입 이미지 객체
     """
@@ -79,10 +114,12 @@ class Camera:
 
     example::
 
-      img = pibo.camera.read(640, 480)
-      pibo_camera.imwrite('/home/pi/.../image.jpg', img)
+      img = pibo_camera.read()
+      pibo_camera.imwrite('/home/pi/image.jpg', img)
     
-    :param str filename: 저장할 파일 이름
+    :param str filename: 저장할 파일 경로
+
+      확장자는 jpg 또는 png를 사용할 수 있습니다.
 
     :param numpy.ndarray img: 저장할 이미지 객체 
     """
@@ -93,13 +130,9 @@ class Camera:
     """
     모니터에서 이미지를 확인합니다. (GUI 환경에서만 동작)
 
-    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
-
-    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
-
     example::
 
-      img = pibo.camera.read(640, 480)
+      img = pibo_camera.read()
       pibo_camera.imshow(img, 'IMAGE')
 
     :param numpy.ndarray img: 보여줄 이미지
@@ -114,10 +147,6 @@ class Camera:
     이미지를 보는 시간을 설정합니다.
 
     **imshow** 함수와 함께 사용합니다. (GUI 환경에서만 동작)
-
-    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
-
-    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
 
     example::
 
@@ -136,9 +165,9 @@ class Camera:
 
     정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
 
-    :param int w: 사진의 width 값
+    :param int w: 스트리밍 이미지의 width 값
     
-    :param int h: 사진의 height 값
+    :param int h: 스트리밍 이미지의 height 값
 
     :param int timeout: 스트리밍 시간
     """

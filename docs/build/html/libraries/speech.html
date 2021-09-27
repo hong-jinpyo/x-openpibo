@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speech &mdash; openpibo 0.8.1 documentation</title>
+  <title>speech &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/speech.html" />
@@ -21,7 +21,7 @@
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="Vision" href="vision.html" />
-    <link rel="prev" title="OLED" href="oled.html" /> 
+    <link rel="prev" title="oled" href="oled.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,8 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
@@ -95,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Speech</li>
+      <li>speech</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/libraries/speech.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,28 +106,24 @@
            <div itemprop="articleBody">
              
   <section id="module-openpibo.speech">
-<span id="speech"></span><h1>Speech<a class="headerlink" href="#module-openpibo.speech" title="제목 주소"></a></h1>
-<p>Kakao 음성 API를 사용하여 PIBO에 장착되어 있는 마이크와 스피커를 통해 사람의 음성 언어를 인식하거나 합성할 수 있습니다.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="openpibo.speech.getDiff">
-<span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">getDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.getDiff" title="정의 주소"></a></dt>
-<dd><p>(<code class="docutils literal notranslate"><span class="pre">get_dialog</span></code> 메서드의 내부함수)</p>
-<p><code class="docutils literal notranslate"><span class="pre">get_dialog</span></code> 의 과정 중 사용자의 질문과 유사한 데이터를 찾는 함수입니다.</p>
-</dd></dl>
-
+<span id="speech"></span><h1>speech<a class="headerlink" href="#module-openpibo.speech" title="제목 주소"></a></h1>
+<p>번역, 형태소 분석, 자연어 인식 및 합성, 챗봇 등 다양한 자연어 처리를 합니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.speech.Speech">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Speech</span></span><a class="headerlink" href="#openpibo.speech.Speech" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보에서 말과 관련된 자연어처리 기능을 하는 클래스 입니다.</p>
+<p>Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성을 하거나 Google 번역 모듈을 사용하여 번역을 합니다.</p>
 <ul class="simple">
 <li><p>번역 (한국어, 영어)</p></li>
 <li><p>TTS (Text to Speech)</p></li>
 <li><p>STT (Speech to Text)</p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">config.json</span></code> 의 KAKAO_ACCOUNT에 본인의 <code class="docutils literal notranslate"><span class="pre">KAKAO</span> <span class="pre">REST</span> <span class="pre">API</span> <span class="pre">KEY</span></code> 를 입력해야 사용할 수 있습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">config.json</span></code> 의 <code class="docutils literal notranslate"><span class="pre">KAKAO_ACCOUNT</span></code> 에 본인의 <code class="docutils literal notranslate"><span class="pre">KAKAO</span> <span class="pre">REST</span> <span class="pre">API</span> <span class="pre">KEY</span></code> 를 입력해야 사용할 수 있습니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span> <span class="o">=</span> <span class="n">Speech</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Speech</span>
+
+<span class="n">pibo_speech</span> <span class="o">=</span> <span class="n">Speech</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -148,23 +144,28 @@
 </p></li>
 </ul>
 </dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p>번역 된 문장</p>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Speech.tts">
 <span class="sig-name descname"><span class="pre">tts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tts.mp3'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.tts" title="정의 주소"></a></dt>
-<dd><p>TTS(Speech to Speech)</p>
-<p>Speech(문자)를 Speech(말)로 변환합니다.</p>
+<dd><p>TTS(Text to Speech)</p>
+<p>Text(문자)를 Speech(말)로 변환하여 파일로 저장합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 반가워요!&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/pi/.../tts.mp3&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 반가워요!&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/pi/tts.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>string</strong> (<em>str</em>) – 변환할 문구</p></li>
-<li><p><strong>filename</strong> (<em>str</em>) – 변환된 음성파일의 경로</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – <p>변환된 음성파일의 경로</p>
+<p>파일의 확장자에는 제한이 없지만, 파이보에서 재생하기 위해서 <code class="docutils literal notranslate"><span class="pre">mp3</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">wav</span></code> 확장자를 추천합니다.</p>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -173,18 +174,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.speech.Speech.stt">
 <span class="sig-name descname"><span class="pre">stt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stream.wav'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.stt" title="정의 주소"></a></dt>
-<dd><p>STT(Speech to Speech)</p>
-<p>Speech(말)을 Speech(문자)로 변환합니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">timeout</span></code> 초 동안 녹음 후 <code class="docutils literal notranslate"><span class="pre">filename</span></code> 의 이름으로 저장하고, 이를 텍스트변환하여 출력합니다.</p>
+<dd><p>STT(Speech to Text)</p>
+<p>목소리를 녹음한 후 파일로 저장하고, 그 파일의 Speech(말)를 Text(문자)로 변환합니다.</p>
+<p>녹음 파일은 <code class="docutils literal notranslate"><span class="pre">timeout</span></code> 초 동안 녹음되며, <code class="docutils literal notranslate"><span class="pre">filename</span></code> 의 경로에 저장됩니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">stt</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../stream.wav&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">stt</span><span class="p">(</span><span class="s1">&#39;/home/pi/stt.wav&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – 저장할 파일 이름</p></li>
-<li><p><strong>timeout</strong> (<em>int</em>) – 녹음할 시간(s)</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – 녹음한 파일이 저장 될 경로</p></li>
+<li><p><strong>timeout</strong> (<em>int</em>) – 녹음 시간(s)</p></li>
 </ul>
 </dd>
 <dt class="field-even">반환</dt>
@@ -199,13 +200,16 @@
 <dt class="sig sig-object py" id="openpibo.speech.Dialog">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Dialog</span></span><a class="headerlink" href="#openpibo.speech.Dialog" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다.</p>
+<p>파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다. 다음 기능을 수행할 수 있습니다.</p>
 <ul class="simple">
 <li><p>형태소 및 명사 분석</p></li>
 <li><p>챗봇 기능</p></li>
 </ul>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Dialog</span>
+
+<span class="n">pibo_dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -222,8 +226,8 @@
 <dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
 </dd>
 <dt class="field-even">반환</dt>
-<dd class="field-even"><p><p>분석한 결과</p>
-<p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
+<dd class="field-even"><p><p>형태소 분석 결과</p>
+<p><code class="docutils literal notranslate"><span class="pre">list(형태소,</span> <span class="pre">품사)</span></code> 형태로 출력됩니다.</p>
 </p>
 </dd>
 </dl>
@@ -243,7 +247,7 @@
 <dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
 </dd>
 <dt class="field-even">반환</dt>
-<dd class="field-even"><p><p>분석한 결과</p>
+<dd class="field-even"><p><p>형태소 분석 결과</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
 </p>
 </dd>
@@ -264,7 +268,7 @@
 <dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – 분석할 문장 (한글)</p>
 </dd>
 <dt class="field-even">반환</dt>
-<dd class="field-even"><p><p>분석한 결과</p>
+<dd class="field-even"><p><p>문장에서 추출한 명사 목록</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code> 타입 입니다.</p>
 </p>
 </dd>
@@ -283,7 +287,7 @@
 </pre></div>
 </div>
 <p>이후 다음 경로로 저장된 데이터를 수정합니다:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># x-openpibo를 clone 한 경로로부터,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># x-openpibo를 clone 한 경로로부터</span>
 <span class="n">x</span><span class="o">-</span><span class="n">openpibo</span><span class="o">/</span><span class="n">openpibo</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">dialog</span><span class="o">.</span><span class="n">csv</span>
 </pre></div>
 </div>
@@ -296,13 +300,20 @@
 
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="openpibo.speech.getDiff">
+<span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">getDiff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bT</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.getDiff" title="정의 주소"></a></dt>
+<dd><p>(<code class="docutils literal notranslate"><span class="pre">Dialog</span></code> 클래스의 <code class="docutils literal notranslate"><span class="pre">get_dialog</span></code> 메소드의 내부함수)</p>
+<p>사용자의 질문과 유사한 데이터를 찾는 함수입니다.</p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="oled.html" class="btn btn-neutral float-left" title="OLED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="oled.html" class="btn btn-neutral float-left" title="oled" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="vision.html" class="btn btn-neutral float-right" title="Vision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

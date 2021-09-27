@@ -1,5 +1,5 @@
 """
-Kakao 음성 API를 사용하여 PIBO에 장착되어 있는 마이크와 스피커를 통해 사람의 음성 언어를 인식하거나 합성할 수 있습니다.
+번역, 형태소 분석, 자연어 인식 및 합성, 챗봇 등 다양한 자연어 처리를 합니다.
 """
 
 import csv
@@ -17,33 +17,22 @@ from . import config
 current_path = os.path.dirname(os.path.realpath(__file__))
 
 
-def getDiff(aT, bT):
-  """
-  (``get_dialog`` 메서드의 내부함수)
-
-  ``get_dialog`` 의 과정 중 사용자의 질문과 유사한 데이터를 찾는 함수입니다.
-  """
-
-  cnt = 0
-  for i in aT:
-    for j in bT:
-      if i == j:
-        cnt += 1
-  return cnt / len(aT)
-
 class Speech:
   """
-  파이보에서 말과 관련된 자연어처리 기능을 하는 클래스 입니다.
+  Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성을 하거나 Google 번역 모듈을 사용하여 번역을 합니다.
 
   * 번역 (한국어, 영어)
   * TTS (Text to Speech)
   * STT (Speech to Text)
 
-  ``config.json`` 의 KAKAO_ACCOUNT에 본인의 ``KAKAO REST API KEY`` 를 입력해야 사용할 수 있습니다.
+  ``config.json`` 의 ``KAKAO_ACCOUNT`` 에 본인의 ``KAKAO REST API KEY`` 를 입력해야 사용할 수 있습니다.
 
   example::
 
+    from openpibo.speech import Speech
+
     pibo_speech = Speech()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -64,6 +53,8 @@ class Speech:
     :param str to: 번역될 언어
 
       ``en`` 또는 ``ko``
+
+    :returns: 번역 된 문장
     """
 
     '''curl -v -X POST "https://dapi.kakao.com/v2/translation/translate" \
@@ -91,17 +82,19 @@ class Speech:
 
   def tts(self, string, filename="tts.mp3"):
     """
-    TTS(Speech to Speech)
+    TTS(Text to Speech)
     
-    Speech(문자)를 Speech(말)로 변환합니다.
+    Text(문자)를 Speech(말)로 변환하여 파일로 저장합니다.
 
     example::
 
-      pibo_speech.tts('안녕하세요! 만나서 반가워요!', '/home/pi/.../tts.mp3')
+      pibo_speech.tts('안녕하세요! 만나서 반가워요!', '/home/pi/tts.mp3')
     
     :param str string: 변환할 문구
 
     :param str filename: 변환된 음성파일의 경로
+
+      파일의 확장자에는 제한이 없지만, 파이보에서 재생하기 위해서 ``mp3`` 또는 ``wav`` 확장자를 추천합니다.
     """
 
     '''curl -v "https://kakaoi-newtone-openapi.kakao.com/v1/synthesize" \
@@ -122,20 +115,20 @@ class Speech:
 
   def stt(self, filename="stream.wav", timeout=5):
     """
-    STT(Speech to Speech)
-    
-    Speech(말)을 Speech(문자)로 변환합니다.
+    STT(Speech to Text)
 
-    ``timeout`` 초 동안 녹음 후 ``filename`` 의 이름으로 저장하고, 이를 텍스트변환하여 출력합니다.
+    목소리를 녹음한 후 파일로 저장하고, 그 파일의 Speech(말)를 Text(문자)로 변환합니다.
+
+    녹음 파일은 ``timeout`` 초 동안 녹음되며, ``filename`` 의 경로에 저장됩니다.
 
     example::
 
-      pibo_speech.stt('/home/pi/.../stream.wav', 5)
+      pibo_speech.stt('/home/pi/stt.wav', 5)
 
-    :param str filename: 저장할 파일 이름
+    :param str filename: 녹음한 파일이 저장 될 경로
 
-    :param int timeout: 녹음할 시간(s)
-  
+    :param int timeout: 녹음 시간(s)
+
     :returns: ``True`` / ``False``
     """
 
@@ -164,14 +157,17 @@ class Speech:
 
 class Dialog:
   """
-  파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다.
+  파이보에서 대화와 관련된 자연어처리 기능을 하는 클래스입니다. 다음 기능을 수행할 수 있습니다.
 
   * 형태소 및 명사 분석
   * 챗봇 기능
 
   example::
 
+    from openpibo.speech import Dialog
+
     pibo_dialog = Dialog()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -193,9 +189,9 @@ class Dialog:
     
     :param str string: 분석할 문장 (한글)
 
-    :returns: 분석한 결과
+    :returns: 형태소 분석 결과
 
-      ``list`` 타입 입니다.
+      ``list(형태소, 품사)`` 형태로 출력됩니다.
     """
 
     return self.mecab.pos(string)
@@ -212,7 +208,7 @@ class Dialog:
     
     :param str string: 분석할 문장 (한글)
 
-    :returns: 분석한 결과
+    :returns: 형태소 분석 결과
 
       ``list`` 타입 입니다.
     """
@@ -231,7 +227,7 @@ class Dialog:
     
     :param str string: 분석할 문장 (한글)
 
-    :returns: 분석한 결과
+    :returns: 문장에서 추출한 명사 목록
 
       ``list`` 타입 입니다.
     """
@@ -251,7 +247,7 @@ class Dialog:
 
     이후 다음 경로로 저장된 데이터를 수정합니다::
 
-      # x-openpibo를 clone 한 경로로부터,
+      # x-openpibo를 clone 한 경로로부터
       x-openpibo/openpibo/data/models/dialog.csv
 
     example::
@@ -274,3 +270,17 @@ class Dialog:
         max_ans = [line]
 
     return random.choice(max_ans)[1]
+
+def getDiff(aT, bT):
+  """
+  (``Dialog`` 클래스의 ``get_dialog`` 메소드의 내부함수)
+
+  사용자의 질문과 유사한 데이터를 찾는 함수입니다.
+  """
+
+  cnt = 0
+  for i in aT:
+    for j in bT:
+      if i == j:
+        cnt += 1
+  return cnt / len(aT)

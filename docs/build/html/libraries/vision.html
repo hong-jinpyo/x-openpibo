@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vision &mdash; openpibo 0.8.1 documentation</title>
+  <title>vision &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/vision.html" />
@@ -21,7 +21,7 @@
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
     <link rel="next" title="Edu version 1" href="edu_v1.html" />
-    <link rel="prev" title="Speech" href="speech.html" /> 
+    <link rel="prev" title="speech" href="speech.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,9 +53,9 @@
 <li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">speech</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
@@ -95,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Vision</li>
+      <li>vision</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/libraries/vision.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,8 +106,8 @@
            <div itemprop="articleBody">
              
   <section id="module-openpibo.vision">
-<span id="vision"></span><h1>Vision<a class="headerlink" href="#module-openpibo.vision" title="제목 주소"></a></h1>
-<p><cite>OpenCV</cite> 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)</p>
+<span id="vision"></span><h1>vision<a class="headerlink" href="#module-openpibo.vision" title="제목 주소"></a></h1>
+<p><cite>OpenCV</cite> 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다.</p>
 <p>카메라 기능, 얼굴 인식, 객체/바코드/문자 인식을 수행합니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.vision.Camera">
@@ -118,8 +118,14 @@
 <li><p>사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.</p></li>
 <li><p>Streaming, Cartoonize 기능을 사용할 수 있습니다.</p></li>
 </ul>
+<p>일부 메소드는 GUI 환경에서만 동작합니다.
+<code class="docutils literal notranslate"><span class="pre">cannot</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">X</span> <span class="pre">server</span></code> 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
+정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.vision</span> <span class="kn">import</span> <span class="n">Camera</span>
+
+<span class="n">pibo_camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -127,7 +133,7 @@
 <span class="sig-name descname"><span class="pre">imread</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.imread" title="정의 주소"></a></dt>
 <dd><p>이미지 파일을 읽습니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_camera</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../image.jpg&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_camera</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;/home/pi/openpibo-files/data/image/clear.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -135,7 +141,36 @@
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 사용할 이미지 파일</p>
 </dd>
 <dt class="field-even">반환</dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 타입 이미지 객체</p>
+<dd class="field-even"><p><p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> 타입 이미지 객체</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+      <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+      <span class="o">...</span><span class="p">,</span>
+
+      <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+
+      <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -153,10 +188,10 @@
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>w</strong> (<em>int</em>) – <p>촬영할 이미지의 가로 픽셀 크기 입니다.</p>
-<p>w의 최댓값은 2592 입니다.</p>
+<p>0 ~ 2592 사이 값 입니다. (default 640)</p>
 </p></li>
 <li><p><strong>h</strong> (<em>int</em>) – <p>촬영할 이미지의 세로 픽셀 크기 입니다.</p>
-<p>h의 최댓값은 1944 입니다.</p>
+<p>0 ~ 1944 사이 값 입니다. (default 480)</p>
 </p></li>
 </ul>
 </dd>
@@ -171,14 +206,16 @@
 <span class="sig-name descname"><span class="pre">imwrite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.imwrite" title="정의 주소"></a></dt>
 <dd><p>이미지를 파일로 저장합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
-<span class="n">pibo_camera</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../image.jpg&#39;</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">pibo_camera</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s1">&#39;/home/pi/image.jpg&#39;</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – 저장할 파일 이름</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – <p>저장할 파일 경로</p>
+<p>확장자는 jpg 또는 png를 사용할 수 있습니다.</p>
+</p></li>
 <li><p><strong>img</strong> (<em>numpy.ndarray</em>) – 저장할 이미지 객체</p></li>
 </ul>
 </dd>
@@ -189,10 +226,8 @@
 <dt class="sig sig-object py" id="openpibo.vision.Camera.imshow">
 <span class="sig-name descname"><span class="pre">imshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IMAEGE'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.imshow" title="정의 주소"></a></dt>
 <dd><p>모니터에서 이미지를 확인합니다. (GUI 환경에서만 동작)</p>
-<p><code class="docutils literal notranslate"><span class="pre">cannot</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">X</span> <span class="pre">server</span></code> 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.</p>
-<p>정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pibo_camera</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">pibo_camera</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;IMAGE&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -211,8 +246,6 @@
 <span class="sig-name descname"><span class="pre">waitKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.vision.Camera.waitKey" title="정의 주소"></a></dt>
 <dd><p>이미지를 보는 시간을 설정합니다.</p>
 <p><strong>imshow</strong> 함수와 함께 사용합니다. (GUI 환경에서만 동작)</p>
-<p><code class="docutils literal notranslate"><span class="pre">cannot</span> <span class="pre">connect</span> <span class="pre">to</span> <span class="pre">X</span> <span class="pre">server</span></code> 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.</p>
-<p>정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_camera</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
@@ -233,8 +266,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>w</strong> (<em>int</em>) – 사진의 width 값</p></li>
-<li><p><strong>h</strong> (<em>int</em>) – 사진의 height 값</p></li>
+<li><p><strong>w</strong> (<em>int</em>) – 스트리밍 이미지의 width 값</p></li>
+<li><p><strong>h</strong> (<em>int</em>) – 스트리밍 이미지의 height 값</p></li>
 <li><p><strong>timeout</strong> (<em>int</em>) – 스트리밍 시간</p></li>
 </ul>
 </dd>
@@ -650,7 +683,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="speech.html" class="btn btn-neutral float-left" title="Speech" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="speech.html" class="btn btn-neutral float-left" title="speech" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="edu_v1.html" class="btn btn-neutral float-right" title="Edu version 1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -14,12 +14,19 @@ class Oled:
   파이보의 OLED를 통해 다양한 그림을 표현합니다.
 
   * 사진 보기
-  * 글자 나타내기
+  * 문자 그리기
   * 도형 그리기
+
+  그림을 그리면 인스턴스 변수 ``image`` 에 저장됩니다. 이를 ``show`` 메소드를 사용하여 oled 화면에 출력할 수 있습니다.
+  
+  본 class에서 문자 또는 그림을 그리는 행위는 인스턴스 변수 ``image`` 의 데이터를 변경시키는 것으로 정의합니다.
 
   example::
 
+    from openpibo.oled import Oled
+
     pibo_oled = Oled()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -42,22 +49,53 @@ class Oled:
     self.image = Image.new("1", (self.width, self.height))
     self.oled.fill(0)
     self.oled.show()
+  
+  def show(self):
+    """
+    인스턴스 변수 ``image`` 를 oled 화면에 표시합니다.
+    
+    **이 메서드를 사용하지 않으면 그림을 그려도 oled 화면에 아무것도 출력되지 않습니다.**
+    
+    example::
+
+      # 그림을 그린 후
+    
+      pibo_oled.show()
+    """
+    
+    self.oled.image(self.image)
+    self.oled.show()
+ 
+  def clear(self):
+    """
+    인스턴스 변수 ``image`` 를 초기화 하고, oled 화면을 지웁니다.
+    
+    example::
+    
+      pibo_oled.clear()
+    """
+
+    self.image = Image.new("1", (self.width, self.height))
+    self.oled.fill(0)
+    self.oled.show()
 
   def set_font(self, filename=None, size=None):
     """
-    oled에 사용할 폰트를 설정합니다.
+    ``draw_text`` 메소드에 사용할 폰트를 설정합니다.
 
     example::
 
-      pibo_oled.set_font('/home/pi/.../font.ttf', 10)
+      # 불러올 폰트의 경로가 /home/pi/mydata/font.ttf 라면,
+
+      pibo_oled.set_font('/home/pi/mydata/font.ttf', 10)
     
-    :param str filename: 폰트 파일 이름
+    :param str filename: 폰트 파일 경로
 
       폰트 확장자는 **ttf** 와 **otf** 모두 지원합니다.
 
     :param int size: 폰트 사이즈
 
-      초기화 시 default는 10 입니다.
+      단위는 픽셀 입니다. (default 10)
     """
 
     if filename == None:
@@ -68,7 +106,7 @@ class Oled:
 
   def draw_text(self, points, text):
     """
-    문자 그리기(한글, 영어 지원)
+    문자를 그립니다.(한글, 영어 지원)
 
     example::
 
@@ -84,13 +122,13 @@ class Oled:
 
   def draw_image(self, filename):
     """
-    그림 그리기 
+    그림을 그립니다.
     
     **128x64** 크기의 **png** 확장자만 허용됩니다.
 
     example::
-    
-      pibo_oled.draw_image('/home/pi/.../image.png')
+
+      pibo_oled.draw_image('/home/pi/openpibo-files/data/image/clear.png')
 
     :param str filename: 그림파일 경로
     """
@@ -101,7 +139,7 @@ class Oled:
     """
     numpy 이미지 데이터를 입력받아 이미지로 변환합니다.
 
-    카메라 출력값을 OLED화면에 띄우기 위해 사용됩니다.
+    카메라 출력값이 numpy 형식이므로, 이를 oled화면에 띄우기 위해 사용됩니다.
 
     example::
 
@@ -119,15 +157,15 @@ class Oled:
 
   def draw_rectangle(self, points, fill=None):
     """
-    사각형 그리기
+    직사각형을 그립니다.
 
     example::
 
       pibo_oled.draw_rectangle((10, 10, 80, 40), True)
     
-    :param tuple points: 사각형의 좌측상단 좌표, 사각형의 우측하단 좌표 (x, y, x1, y1)
+    :param tuple points: 사각형의 좌측상단 좌표, 사각형의 우측하단 좌표 (x1, y1, x2, y2)
     
-    :param bool fill: 채움.
+    :param bool fill:
 
       * ``True`` : 사각형 내부를 채웁니다.
       * ``False`` : 사각형 내부를 채우지 않습니다.
@@ -138,32 +176,32 @@ class Oled:
 
   def draw_ellipse(self, points, fill=None):
     """
-    원 그리기
+    타원을 그립니다.
 
     example::
 
       pibo_oled.draw_ellipse((10, 10, 80, 40), False)
 
-    :param tuple points: 원을 둘러 싼 사각형의 좌측상단 좌표, 사각형의 우측하단 자표 (x, y, x1, y1)
+    :param tuple points: 타원에 외접하는 직사각형의 좌측상단 좌표, 우측하단 좌표 (x1, y1, x2, y2)
 
-    :param bool fill: 채움.
+    :param bool fill:
 
-      * ``True`` : 사각형 내부를 채웁니다.
-      * ``False`` : 사각형 내부를 채우지 않습니다.
+      * ``True`` : 타원 내부를 채웁니다.
+      * ``False`` : 타원 내부를 채우지 않습니다.
     """
 
     draw = ImageDraw.Draw(self.image)
     draw.ellipse(points, outline=1, fill=fill)
 
   def draw_line(self, points):
-    """선 그리기
+    """
+    직선을 그립니다.
 
     example::
 
       pibo_oled.draw_line((30, 20, 60, 50))
     
-    :param points points: 선의 시작 좌표, 선의 끝 좌표 (x, y, x1, y1)
-    
+    :param points points: 선의 시작 좌표, 선의 끝 좌표 (x1, y1, x2, y2)
     """
 
     draw = ImageDraw.Draw(self.image)
@@ -171,43 +209,15 @@ class Oled:
 
   def invert(self):
     """
-    이미지를 흑백 반전시킨다.
+    그려진 이미지를 흑백 반전시킵니다.
     
     example::
     
       pibo_oled.invert()
-    
     """
     self.image = self.image.convert("L")
     self.image = PIL.ImageOps.invert(self.image)
     self.image = self.image.convert("1")
-  
-  def show(self): 
-    """
-    화면에 표시하기
-    
-    **이 메서드를 사용하지 않으면 화면에 출력되지 않습니다.**
-    
-    example::
-    
-      pibo_oled.show()
-    """
-    
-    self.oled.image(self.image)
-    self.oled.show()
- 
-  def clear(self):
-    """
-    OLED 화면을 지웁니다.
-    
-    example::
-    
-      pibo_oled.clear()
-    """
-
-    self.image = Image.new("1", (self.width, self.height))
-    self.oled.fill(0)
-    self.oled.show()
 
   def size_check(self, filename):
     """
