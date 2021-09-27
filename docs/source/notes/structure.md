@@ -1,9 +1,9 @@
 # 폴더 구조
 
-openpibo 패키지의 폴더 구조에 대해 설명합니다.
+openpibo 패키지의 폴더 구조에 관해 설명합니다.
 
 openpibo 패키지는 파이보를 제어하기 위한 라이브러리 및 최소한의 파일들을 포함하고 있습니다.
-크게 data, modules, libraries 파트로 나뉘어져 있습니다.
+크게 data, modules, libraries 부분으로 나뉘어 있습니다.
 
 ![](images/structure.png)
 
@@ -31,7 +31,7 @@ openpibo/data/models/
 
    - **KDL.ttf**
 
-      oled에 텍스트를 출력할 때 사용하는 기본 글씨체입니다.
+      OLED에 텍스트를 출력할 때 사용하는 기본 글씨체입니다.
 
       ![](images/kdl.jpg)
 
@@ -68,7 +68,7 @@ openpibo/data/models/
       }
       ```
 
-   새로운 모션을 만들기 위해서는 sample_db.json의 양식을 갖춰야하며, [Motion Creator](https://themakerrobot.github.io/x-openpibo/build/html/tools/motion_creator.html)를 이용해 간편히 만들 수 있습니다.
+   새로운 모션을 만들기 위해서는 sample_db.json의 양식을 갖춰야 하며, [Motion Creator](https://themakerrobot.github.io/x-openpibo/build/html/tools/motion_creator.html)를 이용해 간편히 만들 수 있습니다.
 
 - **대화 데이터셋**
 
@@ -76,7 +76,7 @@ openpibo/data/models/
 
       질문과 답변 형식의 대화 데이터셋입니다.
 
-      챗봇 기능을 사용할때 질문에 대한 대답을 추론하기 위해 사용됩니다.
+      챗봇 기능을 사용할 때 질문에 대한 대답을 추론하기 위해 사용됩니다.
    
 - **인공지능 모델**
 
@@ -86,7 +86,7 @@ openpibo/data/models/
 
    - **MobileNetSSD_deploy.prototxt.txt, MobileNetSSD_deploy.caffemodel**
 
-      객체인식을 사용하기 위한 인공지능 네트워크 구조와 모델입니다.
+      객체 인식을 사용하기 위한 인공지능 네트워크 구조와 모델입니다.
    
    - **deploy_age.prototxt, age_net.caffemodel**
 
@@ -104,16 +104,16 @@ openpibo/data/models/
 
    - **haarcascade_frontalface_default.xml** # face_detector
 
-      얼굴을 검출하도록 미리 학습시켜 놓은 XML 포맷으로 저장된 검출기 입니다.
+      얼굴을 검출하도록 미리 학습시켜 놓은 XML 포맷으로 저장된 검출기입니다.
 
    - **shape_predictor_5_face_landmarks.dat** # predictor
 
-      얼굴에 5개의 특징점을 추출하여 표정을 예측하는 인공진으 모델입니다.
+      얼굴에 5개의 특징점을 추출하여 표정을 예측하는 인공지능 모델입니다.
 
 
 ## modules
 
-라이브러리를 사용하기 위해 필요한 각종 모듈입니다.
+라이브러리를 사용하는 데 필요한 각종 모듈입니다.
 
 사용되는 라이브러리의 종류에 따라 분류되어있습니다.
 
@@ -143,7 +143,7 @@ modules
       ├── __init__.py
       └── stream.py
 ```
-
+<!-- 
 - **collect**
 
    - **get_soup.py**
@@ -154,7 +154,7 @@ modules
 
    - **board.py**
 
-      사용가능한 핀을 정의
+      사용 가능한 핀을 정의합니다.
 
    - **busio.py**
 
@@ -165,9 +165,9 @@ modules
 
    - **digitalio.py**
 
+      디지털 input, output을 제어하는 모듈입니다.
 
    - **framebuf.py**
-   
    
    - **pure_spi.py**
    
@@ -187,7 +187,7 @@ modules
 
    - **stream.py**
 
-      파이보의 카메라를 작동시켜 실시간으로 정보를 읽을 수 있는 모듈입니다.
+      파이보의 카메라를 작동시켜 실시간으로 정보를 읽을 수 있는 모듈입니다. -->
 
 ## libraries
 

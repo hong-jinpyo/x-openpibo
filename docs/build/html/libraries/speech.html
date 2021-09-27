@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="Vision" href="vision.html" />
+    <link rel="next" title="vision" href="vision.html" />
     <link rel="prev" title="oled" href="oled.html" /> 
 </head>
 
@@ -55,7 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
@@ -112,7 +112,7 @@
 <dt class="sig sig-object py" id="openpibo.speech.Speech">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.speech.</span></span><span class="sig-name descname"><span class="pre">Speech</span></span><a class="headerlink" href="#openpibo.speech.Speech" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성을 하거나 Google 번역 모듈을 사용하여 번역을 합니다.</p>
+<p>Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성하거나 Google 번역 모듈을 사용하여 번역을 합니다.</p>
 <ul class="simple">
 <li><p>번역 (한국어, 영어)</p></li>
 <li><p>TTS (Text to Speech)</p></li>
@@ -131,7 +131,7 @@
 <span class="sig-name descname"><span class="pre">translate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ko'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.speech.Speech.translate" title="정의 주소"></a></dt>
 <dd><p>구글 번역기를 이용해서 문장을 번역합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 정말 반가워요!&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;ko&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_speech</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">&#39;안녕하세요! 만나서 정말 반가워요!&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
 <span class="c1"># &quot;Hello! I&#39;m really happy to meet you!&quot;</span>
 </pre></div>
 </div>
@@ -184,7 +184,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – 녹음한 파일이 저장 될 경로</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – 녹음한 파일이 저장 될 경로. <code class="docutils literal notranslate"><span class="pre">wav</span></code> 확장자를 사용합니다.</p></li>
 <li><p><strong>timeout</strong> (<em>int</em>) – 녹음 시간(s)</p></li>
 </ul>
 </dd>
@@ -314,7 +314,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="oled.html" class="btn btn-neutral float-left" title="oled" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vision.html" class="btn btn-neutral float-right" title="Vision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="vision.html" class="btn btn-neutral float-right" title="vision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

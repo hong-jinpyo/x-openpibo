@@ -53,9 +53,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
@@ -108,7 +108,7 @@
   <section id="module-openpibo.collect">
 <span id="collect"></span><h1>collect<a class="headerlink" href="#module-openpibo.collect" title="제목 주소"></a></h1>
 <p>인터넷에서 유용한 정보를 가져옵니다.</p>
-<p><strong>단어정보, 날씨정보, 뉴스정보</strong> 를 가져올 수 있습니다.</p>
+<p><strong>단어정보, 날씨 정보, 뉴스 정보</strong> 를 가져올 수 있습니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">Wikipedia</span></span><a class="headerlink" href="#openpibo.collect.Wikipedia" title="정의 주소"></a></dt>
@@ -212,7 +212,7 @@
 <dt class="sig sig-object py" id="openpibo.collect.Weather.search">
 <span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'전국'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.Weather.search" title="정의 주소"></a></dt>
 <dd><p>해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">get_today</span></code>, <code class="docutils literal notranslate"><span class="pre">get_tomorrow</span></code>, <code class="docutils literal notranslate"><span class="pre">get_after_tomorrow</span></code> 메서드로 날씨 정보를 출력할 수 있습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">get_today</span></code>, <code class="docutils literal notranslate"><span class="pre">get_tomorrow</span></code>, <code class="docutils literal notranslate"><span class="pre">get_after_tomorrow</span></code> 메소드로 날씨 정보를 출력할 수 있습니다.</p>
 <p>print 인스턴스(pibo_weather)로 전체적인 날씨를 출력할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_weather</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;서울&#39;</span><span class="p">)</span>
@@ -311,7 +311,7 @@
 <dt class="sig sig-object py" id="openpibo.collect.News">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.collect.</span></span><span class="sig-name descname"><span class="pre">News</span></span><a class="headerlink" href="#openpibo.collect.News" title="정의 주소"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.</p>
+<p>JTBC 뉴스 RSS 서비스를 사용해 뉴스 자료를 가져옵니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.collect</span> <span class="kn">import</span> <span class="n">News</span>
 
@@ -323,7 +323,7 @@
 <dt class="sig sig-object py" id="openpibo.collect.News.search">
 <span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'뉴스랭킹'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.collect.News.search" title="정의 주소"></a></dt>
 <dd><p>주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.</p>
-<p>print 인스턴스(pibo_news)로 첫번째 뉴스 헤드라인을 출력할 수 있습니다.</p>
+<p>print 인스턴스(pibo_news)로 첫 번째 뉴스 헤드라인을 출력할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_news</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;속보&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pibo_news</span><span class="p">)</span>

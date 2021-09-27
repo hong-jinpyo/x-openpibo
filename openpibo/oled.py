@@ -54,7 +54,7 @@ class Oled:
     """
     인스턴스 변수 ``image`` 를 oled 화면에 표시합니다.
     
-    **이 메서드를 사용하지 않으면 그림을 그려도 oled 화면에 아무것도 출력되지 않습니다.**
+    **이 메소드를 사용하지 않으면 그림을 그려도 oled 화면에 아무것도 출력되지 않습니다.**
     
     example::
 
@@ -148,8 +148,8 @@ class Oled:
       pibo_camera = Camera()
       img = pibo_camera.read(128, 64)
       
-      pibo.draw_data(img)
-      pibo.show()
+      pibo_oled.draw_data(img)
+      pibo_oled.show()
 
     :param numpy.ndarray img: 이미지 객체
     """
@@ -227,7 +227,7 @@ class Oled:
 
     example::
 
-      pibo_oled.size_check('/home/pi/.../image.png')
+      pibo_oled.size_check('/home/pi/openpibo-files/data/image/bus.jpg')
     
     :param str filename: 확인 할 파일 경로
 

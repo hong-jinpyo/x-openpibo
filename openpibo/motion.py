@@ -16,7 +16,7 @@ PIBO의 움직임을 제어합니다.
 
   **(파이보 기준으로 Right, Left 입니다.)**
 
-:모터 제한각도: 각 모터가 회전할 수 있는 범위가 제한되어있습니다.
+:모터 제한 각도: 각 모터가 회전할 수 있는 범위가 제한되어있습니다.
 
   * 0번 : ± 25˚
   * 1번 : ± 35˚
@@ -118,7 +118,7 @@ class Motion:
     :param int position: 모터 각도
     
       -80~80의 숫자가 들어갑니다.
-      자세한 범위는 상단의 ``모터 제한각도`` 를 참고해주세요.
+      자세한 범위는 상단의 ``모터 제한 각도`` 를 참고해주세요.
     """
 
     os.system("servo write {} {}".format(no, position*10))
@@ -267,8 +267,8 @@ class Motion:
     example::
 
       pibo_motion.set_motion_raw(
-        '{"pos":[{"d":[ 999, 999, 999, 999,  30, 999, 999, 999, 999, 999 ],"seq": 500}]}',
-        2
+        {'init_def': 1, 'init': [0, 0, -70, -25, 0, 0, 0, 0, 70, 25]},
+        1
       )
     
     :param str exe: 특정 동작을 위한 각 모터의 움직임이 기록된 데이터 입니다.
@@ -276,6 +276,7 @@ class Motion:
       다음과 같은 양식을 따릅니다::
 
         {
+          "init_def": 1
           "init":[0,0,-70,-25,0,0,0,0,70,25],
           "pos":[
             {"d":[999,999,999,999, 30,999,999,999,999,999],"seq":500},
@@ -284,6 +285,7 @@ class Motion:
           ]
         }
       
+      * ``init_def`` 는 초기동작의 유무입니다.
       * ``init`` 은 동작을 시작하기 전의 준비동작입니다.
       * ``pos`` 는 연속된 동작이 담긴 list 입니다.
         **seq** 시간(ms)에 **d** 의 동작이 완료됨을 의미합니다.
@@ -350,11 +352,11 @@ class Motion:
 
   def stop(self):
     """
-    수행중인 동작을 정지합니다.
+    수행 중인 동작을 정지합니다.
 
     example::
       
-      # 동작을 수행중일 때,
+      # 동작을 수행 중일 때,
       pibo_motion.stop()
     """
 
@@ -368,7 +370,10 @@ class PyMotion:
 
   example::
 
+    from openpibo.motion import PyMotion
+
     pibo_pymotion = PyMotion()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   _defaults = {
@@ -396,7 +401,7 @@ class PyMotion:
 
     :param int degree: 모터 각도. -80~80 사이의 정수입니다.
     
-      자세한 범위는 상단의 ``모터 제한각도`` 를 참고해주세요.
+      자세한 범위는 상단의 ``모터 제한 각도`` 를 참고해주세요.
 
     :returns: ``True`` / ``False``
     """
@@ -423,7 +428,7 @@ class PyMotion:
     
     :param list d_lst: 0~9번 모터각도.
     
-      **d_lst** 에 들어가는 범위는 상단의 ``모터 제한각도`` 와 같습니다.
+      **d_lst** 에 들어가는 범위는 상단의 ``모터 제한 각도`` 와 같습니다.
 
     :returns: ``True`` / ``False``
     """

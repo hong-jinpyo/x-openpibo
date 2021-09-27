@@ -19,7 +19,7 @@ current_path = os.path.dirname(os.path.realpath(__file__))
 
 class Speech:
   """
-  Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성을 하거나 Google 번역 모듈을 사용하여 번역을 합니다.
+  Kakao 음성 API를 사용하여 사람의 음성 언어를 인식, 합성하거나 Google 번역 모듈을 사용하여 번역을 합니다.
 
   * 번역 (한국어, 영어)
   * TTS (Text to Speech)
@@ -45,7 +45,7 @@ class Speech:
 
     example::
 
-      pibo_speech.translate('안녕하세요! 만나서 정말 반가워요!', to='ko')
+      pibo_speech.translate('안녕하세요! 만나서 정말 반가워요!', to='en')
       # "Hello! I'm really happy to meet you!"
 
     :param str string: 번역할 문장
@@ -125,14 +125,14 @@ class Speech:
 
       pibo_speech.stt('/home/pi/stt.wav', 5)
 
-    :param str filename: 녹음한 파일이 저장 될 경로
+    :param str filename: 녹음한 파일이 저장 될 경로. ``wav`` 확장자를 사용합니다.
 
     :param int timeout: 녹음 시간(s)
 
     :returns: ``True`` / ``False``
     """
 
-    cmd = "arecord -D dmic_sv -c2 -r 16000 -f S32_LE -d {} -t wav -q -vv -V streo stream.raw;sox stream.raw -c 1 -b 16 stream.wav;rm stream.raw".format(timeout)
+    cmd = "arecord -D dmic_sv -c2 -r 16000 -f S32_LE -d {} -t wav -q -vv -V streo stream.raw;sox stream.raw -c 1 -b 16 {};rm stream.raw".format(timeout, filename)
     os.system(cmd)
 
     '''curl -v "https://kakaoi-newtone-openapi.kakao.com/v1/recognize" \

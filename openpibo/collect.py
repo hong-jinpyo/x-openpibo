@@ -1,7 +1,7 @@
 """
 인터넷에서 유용한 정보를 가져옵니다.
 
-**단어정보, 날씨정보, 뉴스정보** 를 가져올 수 있습니다.
+**단어정보, 날씨 정보, 뉴스 정보** 를 가져올 수 있습니다.
 """
 
 from urllib.parse import quote
@@ -208,7 +208,7 @@ class Weather:
         """
         해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.
 
-        ``get_today``, ``get_tomorrow``, ``get_after_tomorrow`` 메서드로 날씨 정보를 출력할 수 있습니다.
+        ``get_today``, ``get_tomorrow``, ``get_after_tomorrow`` 메소드로 날씨 정보를 출력할 수 있습니다.
 
         print 인스턴스(pibo_weather)로 전체적인 날씨를 출력할 수 있습니다.
 
@@ -340,7 +340,7 @@ topic_table = {
 }
 class News:
     """
-    JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.
+    JTBC 뉴스 RSS 서비스를 사용해 뉴스 자료를 가져옵니다.
     
     example::
 
@@ -368,7 +368,7 @@ class News:
         """
         주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.
 
-        print 인스턴스(pibo_news)로 첫번째 뉴스 헤드라인을 출력할 수 있습니다.
+        print 인스턴스(pibo_news)로 첫 번째 뉴스 헤드라인을 출력할 수 있습니다.
 
         example::
 

@@ -107,12 +107,12 @@
              
   <section id="module-openpibo.edu_v1">
 <span id="edu-version-1"></span><h1>Edu version 1<a class="headerlink" href="#module-openpibo.edu_v1" title="제목 주소"></a></h1>
-<p>각 메서드의 반환값은 다음과 같은 형식으로 구성됩니다.</p>
+<p>각 메소드의 반환값은 다음과 같은 형식으로 구성됩니다.</p>
 <ul>
 <li><p>실행 성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">data</span> <span class="pre">또는</span> <span class="pre">None}</span></code></p>
 <blockquote>
 <div><ul class="simple">
-<li><p>메서드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.</p></li>
+<li><p>메소드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -123,15 +123,15 @@
 <li><p>err 숫자코드의 의미와 발생 원인은 다음과 같습니다.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> : 메서드 실행 성공</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-1</span></code> : Argument error - 메서드 실행에 필요한 필수 인자 값 미기입</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> : 메소드 실행 성공</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span></code> : Argument error - 메소드 실행에 필요한 필수 인자 값 미기입</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-2</span></code> : Extension error - filename에 확장자 미기입 또는 잘못된 확장자 형식 입력</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-3</span></code> : NotFound error - 존재하지 않는 데이터 입력</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-4</span></code> : Exist error - 이미 존재하는 데이터의 중복 생성</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-5</span></code> : Range error - 지정된 범위를 벗어난 값 입력</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-6</span></code> : Running error - 이미 실행 중인 함수의 중복 사용</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-7</span></code> : Syntax error - 잘못된 형식의 인자 값 입력</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-8</span></code> : Exception error - 위 error 이외의 다른 이유로 메서드 실행에 실패한 경우</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-8</span></code> : Exception error - 위 error 이외의 다른 이유로 메소드 실행에 실패한 경우</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -219,7 +219,7 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.isAlpha">
 <span class="sig-name descname"><span class="pre">isAlpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.isAlpha" title="정의 주소"></a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">eye_on</span></code> 의 내부함수)</p>
-<p><code class="docutils literal notranslate"><span class="pre">eye_on</span></code> 메서드에서 입력값이 숫자인지 문자인지 판단하기 위한 메서드 입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">eye_on</span></code> 메소드에서 입력값이 숫자인지 문자인지 판단하기 위한 메소드 입니다.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -440,7 +440,7 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.thread_device">
 <span class="sig-name descname"><span class="pre">thread_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.thread_device" title="정의 주소"></a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">start_devices</span></code> 의 내부함수)</p>
-<p><code class="docutils literal notranslate"><span class="pre">start_devices</span></code> 메서드에서 디바이스의 상태를 파악하여 해당 메시지를 <code class="docutils literal notranslate"><span class="pre">func</span></code> 하는 메서드입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">start_devices</span></code> 메소드에서 디바이스의 상태를 파악하여 해당 메시지를 <code class="docutils literal notranslate"><span class="pre">func</span></code> 하는 메소드입니다.</p>
 <p><code class="docutils literal notranslate"><span class="pre">func</span></code> 에는 print 함수가 들어가서 메시지가 계속해서 출력(print) 됩니다.</p>
 </dd></dl>
 
@@ -671,7 +671,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.check_motor">
 <span class="sig-name descname"><span class="pre">check_motor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.check_motor" title="정의 주소"></a></dt>
-<dd><p>(<code class="docutils literal notranslate"><span class="pre">motors</span></code> , <code class="docutils literal notranslate"><span class="pre">motors_movetime</span></code> 메서드의 내부함수 입니다.)</p>
+<dd><p>(<code class="docutils literal notranslate"><span class="pre">motors</span></code> , <code class="docutils literal notranslate"><span class="pre">motors_movetime</span></code> 메소드의 내부함수 입니다.)</p>
 <p>모터의 각도를 설정할 때, 허용 각도 범위 내에 해당하는지 판별하기 위한 함수입니다.</p>
 <p>각 모터의 허용 각도 범위는 아래와 같습니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">25</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
@@ -782,7 +782,7 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.show_display">
 <span class="sig-name descname"><span class="pre">show_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.show_display" title="정의 주소"></a></dt>
 <dd><p>화면에 표시합니다.</p>
-<p>이 메서드를 사용해야만 파이보의 oled에 표시가 됩니다.</p>
+<p>이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;안녕하세요&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">pibo</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
@@ -822,7 +822,7 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.points_check">
 <span class="sig-name descname"><span class="pre">points_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.points_check" title="정의 주소"></a></dt>
 <dd><p>(<code class="docutils literal notranslate"><span class="pre">draw_text</span></code> , <code class="docutils literal notranslate"><span class="pre">draw_figure</span></code> 의 내부함수 입니다.)</p>
-<p>text와 figure의 위치를 결정하는 points가 적절한 포멧인지 확인하기 위한 메서드입니다.</p>
+<p>text와 figure의 위치를 결정하는 points가 적절한 포맷인지 확인하기 위한 메소드입니다.</p>
 <p>text는 point가 2개 (x, y) 필요합니다. (시작지점)</p>
 <p>figure는 point가 4개 (x, y, x1, y1) 필요합니다. (시작지점, 끝지점)</p>
 </dd></dl>
@@ -973,7 +973,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.camera_on">
 <span class="sig-name descname"><span class="pre">camera_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.camera_on" title="정의 주소"></a></dt>
-<dd><p>(<code class="docutils literal notranslate"><span class="pre">start_camera</span></code> 메서드의 내부함수 입니다.)</p>
+<dd><p>(<code class="docutils literal notranslate"><span class="pre">start_camera</span></code> 메소드의 내부함수 입니다.)</p>
 <p>카메라로 짧은 주기로 사진을 찍어 128x64 크기로 변환한 후 OLED에 보여줍니다.</p>
 </dd></dl>
 

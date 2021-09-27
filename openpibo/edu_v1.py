@@ -1,24 +1,24 @@
 """
-각 메서드의 반환값은 다음과 같은 형식으로 구성됩니다.
+각 메소드의 반환값은 다음과 같은 형식으로 구성됩니다.
 
 * 실행 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": data 또는 None}``
 
-    * 메서드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.
+    * 메소드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.
 
 * 실행 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
 
     * ``errcode`` 에 err 숫자 코드가, ``errmsg`` 에 해당 error 발생 원인이 출력됩니다.
     * err 숫자코드의 의미와 발생 원인은 다음과 같습니다.
 
-        *  ``0`` : 메서드 실행 성공
-        * ``-1`` : Argument error - 메서드 실행에 필요한 필수 인자 값 미기입
+        *  ``0`` : 메소드 실행 성공
+        * ``-1`` : Argument error - 메소드 실행에 필요한 필수 인자 값 미기입
         * ``-2`` : Extension error - filename에 확장자 미기입 또는 잘못된 확장자 형식 입력
         * ``-3`` : NotFound error - 존재하지 않는 데이터 입력
         * ``-4`` : Exist error - 이미 존재하는 데이터의 중복 생성
         * ``-5`` : Range error - 지정된 범위를 벗어난 값 입력
         * ``-6`` : Running error - 이미 실행 중인 함수의 중복 사용
         * ``-7`` : Syntax error - 잘못된 형식의 인자 값 입력
-        * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메서드 실행에 실패한 경우
+        * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메소드 실행에 실패한 경우
 """
 
 
@@ -183,7 +183,7 @@ class Pibo:
         """
         (``eye_on`` 의 내부함수)
 
-        ``eye_on`` 메서드에서 입력값이 숫자인지 문자인지 판단하기 위한 메서드 입니다.
+        ``eye_on`` 메소드에서 입력값이 숫자인지 문자인지 판단하기 위한 메소드 입니다.
         """
         
         alpha_cnt = 0
@@ -530,7 +530,7 @@ class Pibo:
         """
         (``start_devices`` 의 내부함수)
 
-        ``start_devices`` 메서드에서 디바이스의 상태를 파악하여 해당 메시지를 ``func`` 하는 메서드입니다.
+        ``start_devices`` 메소드에서 디바이스의 상태를 파악하여 해당 메시지를 ``func`` 하는 메소드입니다.
 
         ``func`` 에는 print 함수가 들어가서 메시지가 계속해서 출력(print) 됩니다.
         """
@@ -846,7 +846,7 @@ class Pibo:
     # [Motion] - Check motors array
     def check_motor(self, mode, values):
         """
-        (``motors`` , ``motors_movetime`` 메서드의 내부함수 입니다.)
+        (``motors`` , ``motors_movetime`` 메소드의 내부함수 입니다.)
 
         모터의 각도를 설정할 때, 허용 각도 범위 내에 해당하는지 판별하기 위한 함수입니다.
 
@@ -1018,7 +1018,7 @@ class Pibo:
         """
         화면에 표시합니다.
 
-        이 메서드를 사용해야만 파이보의 oled에 표시가 됩니다.
+        이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.
 
         example::
 
@@ -1065,7 +1065,7 @@ class Pibo:
         """
         (``draw_text`` , ``draw_figure`` 의 내부함수 입니다.)
 
-        text와 figure의 위치를 결정하는 points가 적절한 포멧인지 확인하기 위한 메서드입니다.
+        text와 figure의 위치를 결정하는 points가 적절한 포맷인지 확인하기 위한 메소드입니다.
 
         text는 point가 2개 (x, y) 필요합니다. (시작지점)
 
@@ -1258,7 +1258,7 @@ class Pibo:
     # [Vision] - start_camera thread
     def camera_on(self):
         """
-        (``start_camera`` 메서드의 내부함수 입니다.)
+        (``start_camera`` 메소드의 내부함수 입니다.)
 
         카메라로 짧은 주기로 사진을 찍어 128x64 크기로 변환한 후 OLED에 보여줍니다.
         """

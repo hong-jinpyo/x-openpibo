@@ -1,22 +1,22 @@
 # 설정
 
-서큘러스가 제공하는 OS와 openpibo API를 사용하기 위해 필요한 사전 설정을 다룹니다.
+서큘러스가 제공하는 OS와 openpibo API를 사용하는 데 필요한 사전 설정을 다룹니다.
 
 OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://drive.google.com/file/d/1IewZY1GY3rrg4O8pWO-VTMWKx-NWa1WQ/view)에서 다운로드 받을 수 있습니다. openpibo API는 [깃허브](https://github.com/themakerrobot/x-openpibo)에 업로드 하였으며, 누구나 다운로드 받아 활용할 수 있습니다.
 
 ## 무선 네트워크 설정
 
-파이보를 사용하기 위해서는 파이보와 PC가 동일한 네트워크에 접속해야 합니다.
+파이보를 사용하기 위해서는 파이보와 PC가 같은 네트워크에 접속해야 합니다.
 
 ![](images/outline.png)
 
-이를 위해 선행해야할 것은 다음 절차를 따라 파이보를 무선 네트워크에 연결하고 IP주소를 확인하는 것입니다.
+이를 위해 선행해야 할 것은 다음 절차를 따라 파이보를 무선 네트워크에 연결하고 IP주소를 확인하는 것입니다.
 
-1. 파이보 DIY 키트에 포함된 Micro SD Card를 리더기에 연결하고 컴퓨터 USB 포트에 연결합니다.
+1. 파이보 DIY 키트에 포함된 MicroSD 카드를 리더기에 연결하고 컴퓨터 USB 포트에 연결합니다.
 
    ![](images/sdusb.png)
 
-2. Micro SD Card의 `boot` 폴더에서 `wpa_supplicant.conf` 파일을 수정합니다.
+2. MicroSD 카드의 `boot` 폴더에서 `wpa_supplicant.conf` 파일을 수정합니다.
 
    *<참고> PC에 .conf 파일 편집기가 설치되어있지 않다면 확장자를 .txt로 변경한 후 수정할 수 있습니다.*
 
@@ -28,7 +28,14 @@ OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://dr
    wifi의 비밀번호가 없는 경우, psk를 입력하지 않고,  
    key_mgmt에 WPA-PSK 대신 NONE을 입력합니다.
 
-3. 컴퓨터에서 Micro SD Card를 분리한 후 파이보에 연결합니다.
+   ```
+   network={
+      ssid="circulus-ops"
+      key_mgmt=NONE
+   }
+   ```
+
+3. 컴퓨터에서 MicroSD 카드를 분리한 후 파이보에 연결합니다.
 
    ![](images/sd_con.jpg)
 
@@ -85,7 +92,7 @@ SSH를 통해 파이보에 접속하고 파이보를 제어하거나 필요한 �
 
 ## openpibo 및 관련 패키지 설치
 
-openpibo 및 관련 패키지는 OS에 설치되어 있지만 필요에 따라 다시 설치할 수 있습니다.
+openpibo 및 관련 패키지는 OS에 설치되어 있지만, 필요에 따라 다시 설치할 수 있습니다.
 
 - openpibo 설치
 
@@ -132,7 +139,7 @@ openpibo 및 관련 패키지는 OS에 설치되어 있지만 필요에 따라 �
 
 - openpibo-examples 설치
 
-   openpibo를 사용한 예제 파일이 담긴 패키지입니다. 패키지 안에 있는 파이썬 파일을 실행하여 결과를 확인할 수 있고, 참고하여 프로그램을 만드는데 활용할 수 있습니다. 일부 파일에 사용하는 데이터는 openpibo-files에 있으므로 openpibo-files가 미리 설치되어 있어야 하며 설치 방법은 다음과 같습니다.
+   openpibo를 사용한 예제 파일이 담긴 패키지입니다. 패키지 안에 있는 파이썬 파일을 실행하여 결과를 확인할 수 있고, 참고하여 프로그램을 만드는 데 활용할 수 있습니다. 일부 파일에 사용하는 데이터는 openpibo-files에 있으므로 openpibo-files가 미리 설치되어 있어야 하며 설치 방법은 다음과 같습니다.
 
    ```bash
    $ git clone https://github.com/themakerrobot/openpibo-examples.git
@@ -142,7 +149,7 @@ openpibo 및 관련 패키지는 OS에 설치되어 있지만 필요에 따라 �
 
 openpibo에서 음성인식(STT)과 음성합성(TTS)을 위해 KAKAO를 사용합니다. KAKAO Developers에서 회원가입 및 Key 발급이 필요하며, 발급받는 방법은 [여기](https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html)를 참고합니다.
 
-발급 받은 Key는 파이보의 /home/pi/에 있는 config.json 파일에 다음과 같이 저장합니다.
+발급받은 Key는 파이보의 /home/pi/에 있는 config.json 파일에 다음과 같이 저장합니다.
 
 ```json
 {

@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="OLED" href="oled.html" />
+    <link rel="next" title="oled" href="oled.html" />
     <link rel="prev" title="device" href="device.html" /> 
 </head>
 
@@ -53,9 +53,9 @@
 <li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
@@ -124,7 +124,7 @@
 </ul>
 <p><strong>(파이보 기준으로 Right, Left 입니다.)</strong></p>
 </dd>
-<dt class="field-even">모터 제한각도</dt>
+<dt class="field-even">모터 제한 각도</dt>
 <dd class="field-even"><p>각 모터가 회전할 수 있는 범위가 제한되어있습니다.</p>
 <ul class="simple">
 <li><p>0번 : ± 25˚</p></li>
@@ -218,7 +218,7 @@
 </p></li>
 <li><p><strong>position</strong> (<em>int</em>) – <p>모터 각도</p>
 <p>-80~80의 숫자가 들어갑니다.
-자세한 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한각도</span></code> 를 참고해주세요.</p>
+자세한 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한</span> <span class="pre">각도</span></code> 를 참고해주세요.</p>
 </p></li>
 </ul>
 </dd>
@@ -376,8 +376,8 @@
 <dd><p>모션 프로파일의 동작을 실행합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_motion_raw</span><span class="p">(</span>
-  <span class="s1">&#39;{&quot;pos&quot;:[{&quot;d&quot;:[ 999, 999, 999, 999,  30, 999, 999, 999, 999, 999 ],&quot;seq&quot;: 500}]}&#39;</span><span class="p">,</span>
-  <span class="mi">2</span>
+  <span class="p">{</span><span class="s1">&#39;init_def&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">70</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">25</span><span class="p">]},</span>
+  <span class="mi">1</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -387,6 +387,7 @@
 <li><p><strong>exe</strong> (<em>str</em>) – <p>특정 동작을 위한 각 모터의 움직임이 기록된 데이터 입니다.</p>
 <p>다음과 같은 양식을 따릅니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;init_def&quot;</span><span class="p">:</span> <span class="mi">1</span>
   <span class="s2">&quot;init&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">70</span><span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">25</span><span class="p">],</span>
   <span class="s2">&quot;pos&quot;</span><span class="p">:[</span>
     <span class="p">{</span><span class="s2">&quot;d&quot;</span><span class="p">:[</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">,</span><span class="mi">999</span><span class="p">],</span><span class="s2">&quot;seq&quot;</span><span class="p">:</span><span class="mi">500</span><span class="p">},</span>
@@ -397,6 +398,7 @@
 </pre></div>
 </div>
 <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">init_def</span></code> 는 초기동작의 유무입니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">init</span></code> 은 동작을 시작하기 전의 준비동작입니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code> 는 연속된 동작이 담긴 list 입니다.
 <strong>seq</strong> 시간(ms)에 <strong>d</strong> 의 동작이 완료됨을 의미합니다.</p></li>
@@ -433,9 +435,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.motion.Motion.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.motion.Motion.stop" title="정의 주소"></a></dt>
-<dd><p>수행중인 동작을 정지합니다.</p>
+<dd><p>수행 중인 동작을 정지합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 동작을 수행중일 때,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 동작을 수행 중일 때,</span>
 <span class="n">pibo_motion</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -450,7 +452,10 @@
 <p>파이보의 움직임을 제어하는 클래스.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Motion</span></code> 클래스와의 차이점은, 모터 컨트롤러와 직접 통신한다는 점입니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_pymotion</span> <span class="o">=</span> <span class="n">PyMotion</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.motion</span> <span class="kn">import</span> <span class="n">PyMotion</span>
+
+<span class="n">pibo_pymotion</span> <span class="o">=</span> <span class="n">PyMotion</span><span class="p">()</span>
+<span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
 </div>
 <dl class="py method">
@@ -466,7 +471,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> (<em>int</em>) – 모터 번호. 0~9 사이의 정수입니다.</p></li>
 <li><p><strong>degree</strong> (<em>int</em>) – <p>모터 각도. -80~80 사이의 정수입니다.</p>
-<p>자세한 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한각도</span></code> 를 참고해주세요.</p>
+<p>자세한 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한</span> <span class="pre">각도</span></code> 를 참고해주세요.</p>
 </p></li>
 </ul>
 </dd>
@@ -487,7 +492,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>d_lst</strong> (<em>list</em>) – <p>0~9번 모터각도.</p>
-<p><strong>d_lst</strong> 에 들어가는 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한각도</span></code> 와 같습니다.</p>
+<p><strong>d_lst</strong> 에 들어가는 범위는 상단의 <code class="docutils literal notranslate"><span class="pre">모터</span> <span class="pre">제한</span> <span class="pre">각도</span></code> 와 같습니다.</p>
 </p>
 </dd>
 <dt class="field-even">반환</dt>
@@ -564,7 +569,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="device.html" class="btn btn-neutral float-left" title="device" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="oled.html" class="btn btn-neutral float-right" title="OLED" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="oled.html" class="btn btn-neutral float-right" title="oled" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
