@@ -1,10 +1,10 @@
-# Speech
+# speech
 
 ## chatbot_test.py
 
-> 입력한 문장에 대해 형태소 분석을 실시하여 파이보와 대화를 시작합니다.
->
-> 사용자가 입력한 문장에 db의 key 값(날씨, 음악, 뉴스)이 있으면 해당 함수를 실행하고, 없다면 대화봇을 실행합니다.
+입력한 문장에 대해 형태소 분석을 실시하여 파이보와 대화를 시작합니다.
+
+사용자가 입력한 문장에 db의 key 값(날씨, 음악, 뉴스)이 있으면 해당 함수를 실행하고, 없다면 대화봇을 실행합니다.
 
 ```python
 from openpibo.speech import Dialog
@@ -105,7 +105,7 @@ BOT > 댄스 음악 틀어줄게요.
 
 ## mecab_test.py
 
-> 사용자가 입력한 문장을 분석합니다. 3가지 모드 선택이 가능합니다.
+사용자가 입력한 문장을 분석합니다. 3가지 모드 선택이 가능합니다.
 
 ```python
 from openpibo.speech import Dialog
@@ -169,9 +169,13 @@ print(ret)
 pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 stt_test.py 
 ```
 
+**stt_test.py 결과**
+
+5초간 녹음된 음성을 텍스트로 변환하여 출력됩니다.
+
 ## translate_test.py
 
-> 문장을 번역합니다.
+문장을 번역합니다.
 
 ```python
 from openpibo.speech import Speech
@@ -203,7 +207,7 @@ Output: Good morning
 
 ## tts_test.py
 
-> 문자 데이터를 음성 언어로 변환합니다.
+문자 데이터를 음성 언어로 변환합니다.
 
 ```python
 import openpibo
@@ -213,7 +217,7 @@ from openpibo.audio import Audio
 # tts.mp3 파일의 문자 데이터를 음성 언어로 변환 후, 파이보 스피커에 출력
 def tts_f():
   tObj = Speech()
-  filename = openpibo.config['DATA_PATH']+"audio/tts.mp3"
+  filename = openpibo.config['DATA_PATH']+"/audio/tts.mp3"
   tObj.tts("<speak>\
               <voice name='MAN_READ_CALM'>안녕하세요. 반갑습니다.<break time='500ms'/></voice>\
             </speak>"\
@@ -260,3 +264,7 @@ if __name__ == "__main__":
 ```shell
 pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 tts_test.py 
 ```
+
+**tts_test.py 결과**
+
+남성의 목소리로 `안녕하세요, 반갑습니다.` 라고 출력됩니다.

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Audio &mdash; openpibo 0.8.1 documentation</title>
+  <title>audio &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/example/audio.html" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="Collect" href="collect.html" />
+    <link rel="next" title="collect" href="collect.html" />
     <link rel="prev" title="Device Simulator" href="../tools/device_simulator.html" /> 
 </head>
 
@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">oled</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">edu_v1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -66,16 +66,16 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Example</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Audio</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">audio</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#play-test-py">play_test.py</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="collect.html">Collect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speech.html">speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data</span></p>
 <ul>
@@ -98,7 +98,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Audio</li>
+      <li>audio</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example/audio.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,12 +109,10 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="audio">
-<h1>Audio<a class="headerlink" href="#audio" title="제목 주소"></a></h1>
+<h1>audio<a class="headerlink" href="#audio" title="제목 주소"></a></h1>
 <section id="play-test-py">
 <h2>play_test.py<a class="headerlink" href="#play-test-py" title="제목 주소"></a></h2>
-<blockquote>
-<div><p>mp3 파일을 재생 및 정지합니다.</p>
-</div></blockquote>
+<p>mp3 파일을 재생 및 정지합니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">import</span> <span class="nn">openpibo</span>
@@ -123,7 +121,7 @@
 <span class="c1"># test.mp3 파일 5초 재생 후 정지</span>
 <span class="k">def</span> <span class="nf">tts_f</span><span class="p">():</span>
   <span class="n">obj</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">()</span>
-  <span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;audio/test.mp3&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">)</span>
+  <span class="n">obj</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/audio/test.mp3&quot;</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="o">=-</span><span class="mi">2000</span><span class="p">)</span>
   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 5초동안 프로세스 정지</span>
   <span class="n">obj</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
@@ -136,6 +134,8 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-example/audio $ sudo python3 play_test.py
 </pre></div>
 </div>
+<p><strong>play_test.py 결과</strong></p>
+<p>음악이 5초간 재생됩니다.</p>
 </section>
 </section>
 
@@ -144,7 +144,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../tools/device_simulator.html" class="btn btn-neutral float-left" title="Device Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="collect.html" class="btn btn-neutral float-right" title="Collect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="collect.html" class="btn btn-neutral float-right" title="collect" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

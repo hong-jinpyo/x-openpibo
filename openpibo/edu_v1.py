@@ -21,7 +21,6 @@
         * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메소드 실행에 실패한 경우
 """
 
-
 import sys, time, pickle
 
 from .audio import Audio
@@ -68,6 +67,7 @@ class Pibo:
     example::
 
         from openpibo.edu_v1 import Pibo
+
         pibo_edu_v1 = Pibo()
         # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
     """
@@ -109,7 +109,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.play_audio('/home/pi/.../opening.mp3')
+            pibo_edu_v1.play_audio('/home/pi/openpibo-files/data/audio/opening.mp3')
             
         :param str filename: 재생할 파일의 경로.
         
@@ -402,7 +402,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.save_colordb('/home/pi/.../new_colordb')
+            pibo_edu_v1.save_colordb('/home/pi/new_colordb')
 
         :param str filename: 저장할 데이터베이스 파일 경로
 
@@ -429,7 +429,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.load_colordb('/home/pi/.../colordb)
+            pibo_edu_v1.load_colordb('/home/pi/new_colordb')
         
         :param str filename: 불러올 데이터베이스 파일 경로
 
@@ -872,14 +872,42 @@ class Pibo:
             return self.return_msg(False, "Exception error", e, None)
 
 
+    # [OLED] - Show display
+    def show_display(self):
+        """
+        화면에 표시합니다.
+
+        문자 또는 그림을 그린 후 이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.
+
+        example::
+
+            pibo_edu_v1.draw_text((10, 10), '안녕하세요', 10)
+            pibo.show_display()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        try:
+            self.oled.show()
+            return self.return_msg(True, "Success", "Success", None)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
     # [OLED] - Draw a text
     def draw_text(self, points=None, text=None, size=None):
         """
         문자를 씁니다. (한글/영어)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
         
             pibo_edu_v1.draw_text((10, 10), '안녕하세요.', 15)
+            pibo_edu_v1.show_display()
         
         :param tuple(int, int) points: 문자열의 좌측상단 좌표 튜플(x,y)
 
@@ -914,9 +942,12 @@ class Pibo:
         
         128X64 png 파일 외에는 지원하지 않습니다.
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
-            pibo_edu_v1.draw_image("/home/pi/.../test.png")
+            pibo_edu_v1.draw_image("/home/pi/openpibo-files/data/image/clear.png")
+            pibo_edu_v1.show_display()
 
         :param str filename: 이미지 파일의 경로
         
@@ -952,11 +983,14 @@ class Pibo:
         """
         도형을 그립니다. (사각형, 원, 선)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
             pibo_edu_v1.draw_figure((10,10,30,30), "rectangle", True)
             pibo_edu_v1.draw_figure((70,40,90,60), "circle", False)
             pibo_edu_v1.draw_figure((15,15,80,50), "line")
+            pibo_edu_v1.show_display()
 
         :param tuple(int, int, int, int) points: 선 - 시작 좌표, 끝 좌표(x, y, x1, y1)
         
@@ -996,9 +1030,12 @@ class Pibo:
         """
         이미지를 반전시킵니다. (색 반전)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
             pibo_edu_v1.invert()
+            pibo_edu_v1.show_display()
 
         :returns:
 
@@ -1008,31 +1045,6 @@ class Pibo:
 
         try:
             self.oled.invert()
-            return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [OLED] - Show display
-    def show_display(self):
-        """
-        화면에 표시합니다.
-
-        이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.
-
-        example::
-
-            pibo_edu_v1.draw_text((10, 10), '안녕하세요', 10)
-            pibo.show_display()
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        try:
-            self.oled.show()
             return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
@@ -1129,7 +1141,7 @@ class Pibo:
 
             pibo_edu_v1.tts(
                 "<speak><voice name='MAN_READ_CALM'>안녕하세요. 반갑습니다.<break time='500ms'/></voice></speak>", 
-                "/home/pi/.../tts.mp3"
+                "/home/pi/tts.mp3"
                 )
 
         :param str string: 변환할 문장
@@ -1206,7 +1218,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.stt('/home/pi/.../stream.wav', 5)
+            pibo_edu_v1.stt('/home/pi/stream.wav', 5)
 
         :param str filename: 저장할 파일 경로
 
@@ -1341,7 +1353,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.capture('/home/pi/.../test.png')
+            pibo_edu_v1.capture('/home/pi/test.png')
 
         :param str filename: 저장할 파일 경로
 
@@ -1377,7 +1389,7 @@ class Pibo:
     # [Vision] - Detect object
     def search_object(self):
         """
-        이미지 안의 객체를 인식합니다.
+        카메라 이미지 안의 객체를 인식합니다.
 
         example::
 
@@ -1415,7 +1427,7 @@ class Pibo:
     # [Vision] - Detect QR/barcode
     def search_qr(self):
         """
-        이미지 안의 QR 코드 및 바코드를 인식합니다.
+        카메라 이미지 안의 QR 코드 및 바코드를 인식합니다.
 
         example::
 
@@ -1444,7 +1456,7 @@ class Pibo:
     # [Vision] - Detect text
     def search_text(self):
         """
-        이미지 안의 문자를 인식합니다.
+        카메라 이미지 안의 문자를 인식합니다.
 
         example::
 
@@ -1467,7 +1479,7 @@ class Pibo:
     # [Vision] - Detect color
     def search_color(self):
         """
-        이미지(단색 이미지) 안의 색상을 인식합니다.
+        카메라 이미지(단색 이미지) 안의 색상을 인식합니다.
 
         (Red, Orange, Yellow, Green, Skyblue, Blue, Purple, Magenta)
 
@@ -1520,7 +1532,7 @@ class Pibo:
     # [Vision] - Detect face
     def detect_face(self):
         """
-        이미지 안의 얼굴을 탐색합니다.
+        카메라 이미지 안의 얼굴을 탐색합니다.
 
         example::
 
@@ -1551,13 +1563,15 @@ class Pibo:
     # [Vision] - Recognize face
     def search_face(self, filename="face.png"):
         """
-        이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.
+        카메라 이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.
+
+        얼굴 인식에 성공하면, 사진을 캡쳐 후 얼굴 위치와 이름, 나이, 성별을 기입 후 `filename` 에 저장합니다.
         
         (인식한 얼굴 중 가장 크게 인식한 얼굴에 적용됩니다.)
 
         example::
 
-            pibo_edu_v1.search_face("/home/pi/.../face.png")
+            pibo_edu_v1.search_face("/home/pi/test.png")
 
         :param str filename: 저장할 파일 경로
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edu version 1 &mdash; openpibo 0.8.1 documentation</title>
+  <title>edu_v1 &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/edu_v1.html" />
@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech.html">speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Edu version 1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">edu_v1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -66,13 +66,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Example</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data</span></p>
 <ul>
@@ -95,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Edu version 1</li>
+      <li>edu_v1</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/libraries/edu_v1.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="module-openpibo.edu_v1">
-<span id="edu-version-1"></span><h1>Edu version 1<a class="headerlink" href="#module-openpibo.edu_v1" title="제목 주소"></a></h1>
+<span id="edu-v1"></span><h1>edu_v1<a class="headerlink" href="#module-openpibo.edu_v1" title="제목 주소"></a></h1>
 <p>각 메소드의 반환값은 다음과 같은 형식으로 구성됩니다.</p>
 <ul>
 <li><p>실행 성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">data</span> <span class="pre">또는</span> <span class="pre">None}</span></code></p>
@@ -158,6 +158,7 @@
 </ul>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.edu_v1</span> <span class="kn">import</span> <span class="n">Pibo</span>
+
 <span class="n">pibo_edu_v1</span> <span class="o">=</span> <span class="n">Pibo</span><span class="p">()</span>
 <span class="c1"># 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.</span>
 </pre></div>
@@ -167,7 +168,7 @@
 <span class="sig-name descname"><span class="pre">play_audio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-2000'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.play_audio" title="정의 주소"></a></dt>
 <dd><p>입력한 경로의 파일을 재생합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">play_audio</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../opening.mp3&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">play_audio</span><span class="p">(</span><span class="s1">&#39;/home/pi/openpibo-files/data/audio/opening.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -351,7 +352,7 @@
 <span class="sig-name descname"><span class="pre">save_colordb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.save_colordb" title="정의 주소"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">colordb</span></code> 를 파일로 저장합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">save_colordb</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../new_colordb&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">save_colordb</span><span class="p">(</span><span class="s1">&#39;/home/pi/new_colordb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -373,7 +374,7 @@
 <span class="sig-name descname"><span class="pre">load_colordb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.load_colordb" title="정의 주소"></a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">colordb</span></code> 를 불러옵니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">load_colordb</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../colordb)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">load_colordb</span><span class="p">(</span><span class="s1">&#39;/home/pi/new_colordb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -681,11 +682,34 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.show_display">
+<span class="sig-name descname"><span class="pre">show_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.show_display" title="정의 주소"></a></dt>
+<dd><p>화면에 표시합니다.</p>
+<p>문자 또는 그림을 그린 후 이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;안녕하세요&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">pibo</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">반환</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
+<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.draw_text">
 <span class="sig-name descname"><span class="pre">draw_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.draw_text" title="정의 주소"></a></dt>
 <dd><p>문자를 씁니다. (한글/영어)</p>
+<p><cite>show_display</cite> 메소드와 함께 사용하여 oled에 표시할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;안녕하세요.&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -711,8 +735,10 @@
 <span class="sig-name descname"><span class="pre">draw_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.draw_image" title="정의 주소"></a></dt>
 <dd><p>이미지를 그립니다. (128X64 png 파일)</p>
 <p>128X64 png 파일 외에는 지원하지 않습니다.</p>
+<p><cite>show_display</cite> 메소드와 함께 사용하여 oled에 표시할 수 있습니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="s2">&quot;/home/pi/.../test.png&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_image</span><span class="p">(</span><span class="s2">&quot;/home/pi/openpibo-files/data/image/clear.png&quot;</span><span class="p">)</span>
+<span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -733,10 +759,12 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.draw_figure">
 <span class="sig-name descname"><span class="pre">draw_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.draw_figure" title="정의 주소"></a></dt>
 <dd><p>도형을 그립니다. (사각형, 원, 선)</p>
+<p><cite>show_display</cite> 메소드와 함께 사용하여 oled에 표시할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_figure</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span> <span class="s2">&quot;rectangle&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_figure</span><span class="p">((</span><span class="mi">70</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_figure</span><span class="p">((</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+<span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -763,29 +791,10 @@
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.invert">
 <span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.invert" title="정의 주소"></a></dt>
 <dd><p>이미지를 반전시킵니다. (색 반전)</p>
+<p><cite>show_display</cite> 메소드와 함께 사용하여 oled에 표시할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">invert</span><span class="p">()</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">반환</dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.show_display">
-<span class="sig-name descname"><span class="pre">show_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.show_display" title="정의 주소"></a></dt>
-<dd><p>화면에 표시합니다.</p>
-<p>이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.</p>
-<p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">draw_text</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;안녕하세요&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">pibo</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
+<span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">show_display</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -859,7 +868,7 @@
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span>
     <span class="s2">&quot;&lt;speak&gt;&lt;voice name=&#39;MAN_READ_CALM&#39;&gt;안녕하세요. 반갑습니다.&lt;break time=&#39;500ms&#39;/&gt;&lt;/voice&gt;&lt;/speak&gt;&quot;</span><span class="p">,</span> 
-    <span class="s2">&quot;/home/pi/.../tts.mp3&quot;</span>
+    <span class="s2">&quot;/home/pi/tts.mp3&quot;</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -927,7 +936,7 @@
 <span class="sig-name descname"><span class="pre">stt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stream.wav'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.stt" title="정의 주소"></a></dt>
 <dd><p>Speech(음성)를 Text(문자)로 변환합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">stt</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../stream.wav&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">stt</span><span class="p">(</span><span class="s1">&#39;/home/pi/stream.wav&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1020,7 +1029,7 @@
 <span class="sig-name descname"><span class="pre">capture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'capture.png'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.capture" title="정의 주소"></a></dt>
 <dd><p>사진을 촬영하여 이미지로 저장합니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s1">&#39;/home/pi/.../test.png&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s1">&#39;/home/pi/test.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1042,7 +1051,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.search_object">
 <span class="sig-name descname"><span class="pre">search_object</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.search_object" title="정의 주소"></a></dt>
-<dd><p>이미지 안의 객체를 인식합니다.</p>
+<dd><p>카메라 이미지 안의 객체를 인식합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_object</span><span class="p">()</span>
 </pre></div>
@@ -1077,7 +1086,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.search_qr">
 <span class="sig-name descname"><span class="pre">search_qr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.search_qr" title="정의 주소"></a></dt>
-<dd><p>이미지 안의 QR 코드 및 바코드를 인식합니다.</p>
+<dd><p>카메라 이미지 안의 QR 코드 및 바코드를 인식합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_qr</span><span class="p">()</span>
 </pre></div>
@@ -1103,7 +1112,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.search_text">
 <span class="sig-name descname"><span class="pre">search_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.search_text" title="정의 주소"></a></dt>
-<dd><p>이미지 안의 문자를 인식합니다.</p>
+<dd><p>카메라 이미지 안의 문자를 인식합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_text</span><span class="p">()</span>
 </pre></div>
@@ -1122,7 +1131,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.search_color">
 <span class="sig-name descname"><span class="pre">search_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.search_color" title="정의 주소"></a></dt>
-<dd><p>이미지(단색 이미지) 안의 색상을 인식합니다.</p>
+<dd><p>카메라 이미지(단색 이미지) 안의 색상을 인식합니다.</p>
 <p>(Red, Orange, Yellow, Green, Skyblue, Blue, Purple, Magenta)</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_color</span><span class="p">()</span>
@@ -1142,7 +1151,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.detect_face">
 <span class="sig-name descname"><span class="pre">detect_face</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.detect_face" title="정의 주소"></a></dt>
-<dd><p>이미지 안의 얼굴을 탐색합니다.</p>
+<dd><p>카메라 이미지 안의 얼굴을 탐색합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">detect_face</span><span class="p">()</span>
 </pre></div>
@@ -1168,10 +1177,11 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.search_face">
 <span class="sig-name descname"><span class="pre">search_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'face.png'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.search_face" title="정의 주소"></a></dt>
-<dd><p>이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.</p>
+<dd><p>카메라 이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.</p>
+<p>얼굴 인식에 성공하면, 사진을 캡쳐 후 얼굴 위치와 이름, 나이, 성별을 기입 후 <cite>filename</cite> 에 저장합니다.</p>
 <p>(인식한 얼굴 중 가장 크게 인식한 얼굴에 적용됩니다.)</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_face</span><span class="p">(</span><span class="s2">&quot;/home/pi/.../face.png&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">search_face</span><span class="p">(</span><span class="s2">&quot;/home/pi/test.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

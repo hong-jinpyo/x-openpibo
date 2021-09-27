@@ -1,4 +1,4 @@
-# Vision
+# vision
 
 - OpenCV DNN 모듈
 
@@ -6,7 +6,7 @@
 
 ## camera_test.py
 
-> 사진을 촬영하고 저장합니다.
+사진을 촬영하고 저장합니다.
 
 ```python
 from openpibo.vision import Camera
@@ -43,7 +43,7 @@ pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 camera_test.py
 
 ## detect_test.py
 
-> 이미지의 객체/QR코드/문자를 인식합니다.
+이미지의 객체/QR코드/문자를 인식합니다.
 
 ```python
 from openpibo.vision import Camera
@@ -90,7 +90,7 @@ Fs
 
 ## draw_test.py
 
-> 이미지에 그림과 글씨를 입력합니다.
+이미지에 그림과 글씨를 입력합니다.
 
 ```python
 from openpibo.vision import Camera
@@ -130,7 +130,7 @@ pi@raspberrypi:~/openpibo-example/vision $ sudo python3 draw_test.py
 
 ## face_recognize_test.py
 
-> 이미지에서 얼굴을 찾아 나이와 성별을 추정합니다. 
+이미지에서 얼굴을 찾아 나이와 성별을 추정합니다. 
 
 ```python
 from openpibo.vision import Camera
@@ -192,7 +192,7 @@ pi@raspberrypi:~/openpibo-examples/vision $ sudo python3 face_recognize_test.py
 
 ## face_train_test.py
 
-> 이미지에서 얼굴을 찾아 학습하여 데이터베이스에 저장하고 로드한  뒤 다시 삭제합니다.
+이미지에서 얼굴을 찾아 학습하여 데이터베이스에 저장하고 로드한  뒤 다시 삭제합니다.
 
 ```python
 from openpibo.vision import Camera
@@ -264,7 +264,7 @@ After Delete face: []
 
 ## streaming_test.py
 
-> 모니터에 이미지를 스트리밍합니다.
+모니터에 이미지를 스트리밍합니다.
 
 ```python
 from openpibo.vision import Camera

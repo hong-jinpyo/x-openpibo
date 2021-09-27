@@ -1,10 +1,8 @@
 # Device Simulator
 
-> 파이보의 device를 제어할 수 있는 툴 입니다.
->
-> 디바이스 부품(neopixel, battery, dc, button, pir, touch)을 제어하거나 상태를 확인할 수 있습니다.
->
-> `Chrome` 브라우저 사용을 권장합니다.
+파이보의 device를 제어하고 상태를 확인할 수 있는 툴 입니다.
+
+인터넷 브라우저가 필요합니다. (`Chrome` 브라우저 사용 권장)
 
 __사용 방법__
 
@@ -17,13 +15,15 @@ $ sudo python3 main.py --port 8888
 
   `--port` : 연결할 포트를 입력합니다. 만약 설정하지 않으면, 기본 포트는 `8888`입니다.
 
-  이후 `http://<PIBO IP>:8888`에 접속
+  이후 인터넷 브라우저에서 `http://<PIBO IP>:<PORT>`에 접속합니다.
+
+    * 예: http://192.168.2.144:8888
 
   ![image-20210820112314329](README.assets/devicesimulator.png)
 
   
 
-- 죄측 입력 바를 조작하여 **Neopixel** 을 제어할 수 있습니다.
+- 좌측 입력 바를 조작하여 **Neopixel** 을 제어할 수 있습니다.
 
   ![image-20210907162156112](README.assets/image-20210907162156112.png)
 

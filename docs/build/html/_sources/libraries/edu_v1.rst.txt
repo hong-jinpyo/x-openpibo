@@ -1,4 +1,4 @@
-Edu version 1
+edu_v1
 =====================================================
 
 .. automodule:: openpibo.edu_v1

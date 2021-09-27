@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speech &mdash; openpibo 0.8.1 documentation</title>
+  <title>speech &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/example/speech.html" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="Vision" href="vision.html" />
-    <link rel="prev" title="OLED" href="oled.html" /> 
+    <link rel="next" title="vision" href="vision.html" />
+    <link rel="prev" title="oled" href="oled.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">oled</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">edu_v1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -66,12 +66,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Example</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="collect.html">Collect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Speech</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">oled</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">speech</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#chatbot-test-py">chatbot_test.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mecab-test-py">mecab_test.py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stt-test-py">stt_test.py</a></li>
@@ -79,7 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tts-test-py">tts_test.py</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vision.html">vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data</span></p>
 <ul>
@@ -102,7 +102,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Speech</li>
+      <li>speech</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example/speech.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -113,13 +113,11 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="speech">
-<h1>Speech<a class="headerlink" href="#speech" title="제목 주소"></a></h1>
+<h1>speech<a class="headerlink" href="#speech" title="제목 주소"></a></h1>
 <section id="chatbot-test-py">
 <h2>chatbot_test.py<a class="headerlink" href="#chatbot-test-py" title="제목 주소"></a></h2>
-<blockquote>
-<div><p>입력한 문장에 대해 형태소 분석을 실시하여 파이보와 대화를 시작합니다.</p>
+<p>입력한 문장에 대해 형태소 분석을 실시하여 파이보와 대화를 시작합니다.</p>
 <p>사용자가 입력한 문장에 db의 key 값(날씨, 음악, 뉴스)이 있으면 해당 함수를 실행하고, 없다면 대화봇을 실행합니다.</p>
-</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Dialog</span>
 
 <span class="k">def</span> <span class="nf">weather</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
@@ -214,9 +212,7 @@ BOT &gt; 댄스 음악 틀어줄게요.
 </section>
 <section id="mecab-test-py">
 <h2>mecab_test.py<a class="headerlink" href="#mecab-test-py" title="제목 주소"></a></h2>
-<blockquote>
-<div><p>사용자가 입력한 문장을 분석합니다. 3가지 모드 선택이 가능합니다.</p>
-</div></blockquote>
+<p>사용자가 입력한 문장을 분석합니다. 3가지 모드 선택이 가능합니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Dialog</span>
 
 <span class="c1"># mode(pos, morphs, nouns)에 따른 문장 분석</span>
@@ -273,12 +269,12 @@ Output:  <span class="o">[</span><span class="s1">&#39;아버지&#39;</span>, <s
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 stt_test.py 
 </pre></div>
 </div>
+<p><strong>stt_test.py 결과</strong></p>
+<p>5초간 녹음된 음성을 텍스트로 변환하여 출력됩니다.</p>
 </section>
 <section id="translate-test-py">
 <h2>translate_test.py<a class="headerlink" href="#translate-test-py" title="제목 주소"></a></h2>
-<blockquote>
-<div><p>문장을 번역합니다.</p>
-</div></blockquote>
+<p>문장을 번역합니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Speech</span>
 
 <span class="c1"># &quot;안녕하세요&quot;를 영어로 번역 후 출력</span>
@@ -305,9 +301,7 @@ Output: Good morning
 </section>
 <section id="tts-test-py">
 <h2>tts_test.py<a class="headerlink" href="#tts-test-py" title="제목 주소"></a></h2>
-<blockquote>
-<div><p>문자 데이터를 음성 언어로 변환합니다.</p>
-</div></blockquote>
+<p>문자 데이터를 음성 언어로 변환합니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpibo</span>
 <span class="kn">from</span> <span class="nn">openpibo.speech</span> <span class="kn">import</span> <span class="n">Speech</span>
 <span class="kn">from</span> <span class="nn">openpibo.audio</span> <span class="kn">import</span> <span class="n">Audio</span>
@@ -315,7 +309,7 @@ Output: Good morning
 <span class="c1"># tts.mp3 파일의 문자 데이터를 음성 언어로 변환 후, 파이보 스피커에 출력</span>
 <span class="k">def</span> <span class="nf">tts_f</span><span class="p">():</span>
   <span class="n">tObj</span> <span class="o">=</span> <span class="n">Speech</span><span class="p">()</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;audio/tts.mp3&quot;</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;/audio/tts.mp3&quot;</span>
   <span class="n">tObj</span><span class="o">.</span><span class="n">tts</span><span class="p">(</span><span class="s2">&quot;&lt;speak&gt;</span><span class="se">\</span>
 <span class="s2">              &lt;voice name=&#39;MAN_READ_CALM&#39;&gt;안녕하세요. 반갑습니다.&lt;break time=&#39;500ms&#39;/&gt;&lt;/voice&gt;</span><span class="se">\</span>
 <span class="s2">            &lt;/speak&gt;&quot;</span>\
@@ -366,6 +360,8 @@ Output: Good morning
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pi@raspberrypi:~/openpibo-examples/speech $ sudo python3 tts_test.py 
 </pre></div>
 </div>
+<p><strong>tts_test.py 결과</strong></p>
+<p>남성의 목소리로 <code class="docutils literal notranslate"><span class="pre">안녕하세요,</span> <span class="pre">반갑습니다.</span></code> 라고 출력됩니다.</p>
 </section>
 </section>
 
@@ -373,8 +369,8 @@ Output: Good morning
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="oled.html" class="btn btn-neutral float-left" title="OLED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vision.html" class="btn btn-neutral float-right" title="Vision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="oled.html" class="btn btn-neutral float-left" title="oled" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vision.html" class="btn btn-neutral float-right" title="vision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

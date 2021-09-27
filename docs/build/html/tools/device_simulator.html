@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="Audio" href="../example/audio.html" />
+    <link rel="next" title="audio" href="../example/audio.html" />
     <link rel="prev" title="Motion Creator" href="motion_creator.html" /> 
 </head>
 
@@ -56,7 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">oled</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">edu_v1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="current">
@@ -66,13 +66,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Example</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">Audio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">Collect</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/device.html">Device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">OLED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">Speech</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/audio.html">audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/collect.html">collect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/device.html">device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/motion.html">motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/oled.html">oled</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/speech.html">speech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../example/vision.html">vision</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Data</span></p>
 <ul>
@@ -107,11 +107,8 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="device-simulator">
 <h1>Device Simulator<a class="headerlink" href="#device-simulator" title="제목 주소"></a></h1>
-<blockquote>
-<div><p>파이보의 device를 제어할 수 있는 툴 입니다.</p>
-<p>디바이스 부품(neopixel, battery, dc, button, pir, touch)을 제어하거나 상태를 확인할 수 있습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Chrome</span></code> 브라우저 사용을 권장합니다.</p>
-</div></blockquote>
+<p>파이보의 device를 제어하고 상태를 확인할 수 있는 툴 입니다.</p>
+<p>인터넷 브라우저가 필요합니다. (<code class="docutils literal notranslate"><span class="pre">Chrome</span></code> 브라우저 사용 권장)</p>
 <p><strong>사용 방법</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>$ cd ~/openpibo-tools/device-simulator
 $ sudo python3 main.py --port 8888
@@ -120,10 +117,13 @@ $ sudo python3 main.py --port 8888
 <ul>
 <li><p>프로그램을 실행합니다.</p>
 <p><code class="docutils literal notranslate"><span class="pre">--port</span></code> : 연결할 포트를 입력합니다. 만약 설정하지 않으면, 기본 포트는 <code class="docutils literal notranslate"><span class="pre">8888</span></code>입니다.</p>
-<p>이후 <code class="docutils literal notranslate"><span class="pre">http://&lt;PIBO</span> <span class="pre">IP&gt;:8888</span></code>에 접속</p>
+<p>이후 인터넷 브라우저에서 <code class="docutils literal notranslate"><span class="pre">http://&lt;PIBO</span> <span class="pre">IP&gt;:&lt;PORT&gt;</span></code>에 접속합니다.</p>
+<ul class="simple">
+<li><p>예: http://192.168.2.144:8888</p></li>
+</ul>
 <p><img alt="image-20210820112314329" src="../_images/devicesimulator.png" /></p>
 </li>
-<li><p>죄측 입력 바를 조작하여 <strong>Neopixel</strong> 을 제어할 수 있습니다.</p>
+<li><p>좌측 입력 바를 조작하여 <strong>Neopixel</strong> 을 제어할 수 있습니다.</p>
 <p><img alt="image-20210907162156112" src="../_images/image-20210907162156112.png" /></p>
 <p><img alt="image-20210907162233280" src="../_images/image-20210907162233280.png" /></p>
 </li>
@@ -144,7 +144,7 @@ $ sudo python3 main.py --port 8888
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="motion_creator.html" class="btn btn-neutral float-left" title="Motion Creator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../example/audio.html" class="btn btn-neutral float-right" title="Audio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../example/audio.html" class="btn btn-neutral float-right" title="audio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
