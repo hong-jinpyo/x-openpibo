@@ -1175,8 +1175,8 @@ class Pibo:
                 example::
 
                     <speak>
-                        <voice name="WOMAN_READ_CALM"> 지금은 여성 차분한 낭독체입니다.</voice>
-                        <voice name="MAN_READ_CALM"> 지금은 남성 차분한 낭독체입니다.</voice>
+                        <voice name="WOMAN_READ_CALM"> 여성 차분한 낭독체입니다.</voice>
+                        <voice name="MAN_READ_CALM"> 남성 차분한 낭독체입니다.</voice>
                         <voice name="WOMAN_DIALOG_BRIGHT"> 여성 밝은 대화체예요.</voice>
                         <voice name="MAN_DIALOG_BRIGHT"> 남성 밝은 대화체예요.</voice>
                     </speak>
@@ -1663,6 +1663,34 @@ class Pibo:
             return self.return_msg(False, "Exception error", e, None)
 
 
+    # [Vision] - Delete face in the facedb
+    def delete_face(self, name=None):
+        """
+        facedb에 등록된 얼굴을 삭제합니다.
+
+        example::
+
+            pibo_edu_v1.delete_face("kim")
+
+        :param str name: 삭제할 얼굴 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        if name == None:
+            return self.return_msg(False, "Argument error", "Name is required", None)
+        try:
+            ret = self.face.delete_face(name)
+            if ret == False:
+                return self.return_msg(ret, "NotFound error", "{} not exist in the facedb".format(name), None)
+            return self.return_msg(ret, "Success", "Success", None)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
     # [Vision] - Get facedb
     def get_facedb(self):
         """
@@ -1681,6 +1709,32 @@ class Pibo:
         try:
             facedb = self.face.get_db()
             return self.return_msg(True, "Success", "Success", facedb)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
+    # [Vision] - Save the facedb as a file
+    def save_facedb(self, filename=None):
+        """
+        facedb를 파일로 저장합니다.
+
+        example::
+
+            pibo_edu_v1.save_facedb("/home/pi/facedb")
+
+        :param str filename: 저장할 데이터베이스 파일 경로
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        if filename == None:
+            return self.return_msg(False, "Argument error", "Filename is required", None)
+        try:
+            self.face.save_db(filename)
+            return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
 
@@ -1714,7 +1768,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.load_facedb("/home/pi/.../facedb")
+            pibo_edu_v1.load_facedb("/home/pi/facedb")
 
         :param str filename: 불러올 데이터베이스 파일 경로
         
@@ -1733,60 +1787,6 @@ class Pibo:
         try:
             self.face.load_db(filename)
             return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [Vision] - Save the facedb as a file
-    def save_facedb(self, filename=None):
-        """
-        facedb를 파일로 저장합니다.
-
-        example::
-
-            pibo_edu_v1.save_facedb("/home/pi/.../facedb")
-
-        :param str filename: 저장할 데이터베이스 파일 경로
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        if filename == None:
-            return self.return_msg(False, "Argument error", "Filename is required", None)
-        try:
-            self.face.save_db(filename)
-            return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [Vision] - Delete face in the facedb
-    def delete_face(self, name=None):
-        """
-        facedb에 등록된 얼굴을 삭제합니다.
-
-        example::
-
-            pibo_edu_v1.delete_face("kim")
-
-        :param str name: 삭제할 얼굴 이름
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        if name == None:
-            return self.return_msg(False, "Argument error", "Name is required", None)
-        try:
-            ret = self.face.delete_face(name)
-            if ret == False:
-                return self.return_msg(ret, "NotFound error", "{} not exist in the facedb".format(name), None)
-            return self.return_msg(ret, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
 

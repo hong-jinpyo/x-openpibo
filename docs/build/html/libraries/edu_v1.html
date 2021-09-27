@@ -907,8 +907,8 @@
 </ul>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">speak</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WOMAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">지금은</span> <span class="n">여성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">지금은</span> <span class="n">남성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WOMAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">여성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAN_READ_CALM&quot;</span><span class="o">&gt;</span> <span class="n">남성</span> <span class="n">차분한</span> <span class="n">낭독체입니다</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;WOMAN_DIALOG_BRIGHT&quot;</span><span class="o">&gt;</span> <span class="n">여성</span> <span class="n">밝은</span> <span class="n">대화체예요</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
     <span class="o">&lt;</span><span class="n">voice</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MAN_DIALOG_BRIGHT&quot;</span><span class="o">&gt;</span> <span class="n">남성</span> <span class="n">밝은</span> <span class="n">대화체예요</span><span class="o">.&lt;/</span><span class="n">voice</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">speak</span><span class="o">&gt;</span>
@@ -1229,6 +1229,28 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.delete_face">
+<span class="sig-name descname"><span class="pre">delete_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.delete_face" title="정의 주소"></a></dt>
+<dd><p>facedb에 등록된 얼굴을 삭제합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">delete_face</span><span class="p">(</span><span class="s2">&quot;kim&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – 삭제할 얼굴 이름</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
+<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.get_facedb">
 <span class="sig-name descname"><span class="pre">get_facedb</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.get_facedb" title="정의 주소"></a></dt>
 <dd><p>사용 중인 facedb를 확인합니다.</p>
@@ -1240,6 +1262,28 @@
 <dt class="field-odd">반환</dt>
 <dd class="field-odd"><p><ul class="simple">
 <li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">현재</span> <span class="pre">사용</span> <span class="pre">중인</span> <span class="pre">facedb}</span></code></p></li>
+<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.save_facedb">
+<span class="sig-name descname"><span class="pre">save_facedb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.save_facedb" title="정의 주소"></a></dt>
+<dd><p>facedb를 파일로 저장합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">save_facedb</span><span class="p">(</span><span class="s2">&quot;/home/pi/facedb&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">매개 변수</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 저장할 데이터베이스 파일 경로</p>
+</dd>
+<dt class="field-even">반환</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
 <li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
 </ul>
 </p>
@@ -1271,56 +1315,12 @@
 <span class="sig-name descname"><span class="pre">load_facedb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.load_facedb" title="정의 주소"></a></dt>
 <dd><p>facedb를 불러옵니다.</p>
 <p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">load_facedb</span><span class="p">(</span><span class="s2">&quot;/home/pi/.../facedb&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">load_facedb</span><span class="p">(</span><span class="s2">&quot;/home/pi/facedb&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">매개 변수</dt>
 <dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 불러올 데이터베이스 파일 경로</p>
-</dd>
-<dt class="field-even">반환</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.save_facedb">
-<span class="sig-name descname"><span class="pre">save_facedb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.save_facedb" title="정의 주소"></a></dt>
-<dd><p>facedb를 파일로 저장합니다.</p>
-<p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">save_facedb</span><span class="p">(</span><span class="s2">&quot;/home/pi/.../facedb&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">매개 변수</dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – 저장할 데이터베이스 파일 경로</p>
-</dd>
-<dt class="field-even">반환</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p>성공: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">True,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;Success&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-<li><p>실패: <code class="docutils literal notranslate"><span class="pre">{&quot;result&quot;:</span> <span class="pre">False,</span> <span class="pre">&quot;errcode&quot;:</span> <span class="pre">errcode,</span> <span class="pre">&quot;errmsg&quot;:</span> <span class="pre">&quot;errmsg&quot;,</span> <span class="pre">&quot;data&quot;:</span> <span class="pre">None}</span></code></p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="openpibo.edu_v1.Pibo.delete_face">
-<span class="sig-name descname"><span class="pre">delete_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.edu_v1.Pibo.delete_face" title="정의 주소"></a></dt>
-<dd><p>facedb에 등록된 얼굴을 삭제합니다.</p>
-<p>example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_edu_v1</span><span class="o">.</span><span class="n">delete_face</span><span class="p">(</span><span class="s2">&quot;kim&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">매개 변수</dt>
-<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – 삭제할 얼굴 이름</p>
 </dd>
 <dt class="field-even">반환</dt>
 <dd class="field-even"><p><ul class="simple">
