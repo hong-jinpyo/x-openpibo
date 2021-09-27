@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Motion &mdash; openpibo 0.8.1 documentation</title>
+  <title>motion &mdash; openpibo 0.8.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/motion.html" />
@@ -52,14 +52,11 @@
 <li class="toctree-l1"><a class="reference internal" href="audio.html">audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="device.html">device</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Motion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -98,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Motion</li>
+      <li>motion</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/libraries/motion.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="module-openpibo.motion">
-<span id="motion"></span><h1>Motion<a class="headerlink" href="#module-openpibo.motion" title="제목 주소"></a></h1>
+<span id="motion"></span><h1>motion<a class="headerlink" href="#module-openpibo.motion" title="제목 주소"></a></h1>
 <p>PIBO의 움직임을 제어합니다.</p>
 <dl class="field-list">
 <dt class="field-odd">모터 번호당 위치</dt>
@@ -125,7 +122,7 @@
 <li><p>8번 : ‘Left Arm’</p></li>
 <li><p>9번 : ‘Left Hand’</p></li>
 </ul>
-<p><strong>(파이보의 입장에서 오른쪽, 왼쪽 입니다.)</strong></p>
+<p><strong>(파이보의 입장에서 Right, Left 입니다.)</strong></p>
 </dd>
 <dt class="field-even">모터 제한각도</dt>
 <dd class="field-even"><p>각 모터가 회전할 수 있는 범위가 제한되어있습니다.</p>
@@ -143,7 +140,7 @@
 </ul>
 </dd>
 <dt class="field-odd">모션 프로파일</dt>
-<dd class="field-odd"><p>모션 데이터가 저장되어있는 JSON형태의 데이터</p>
+<dd class="field-odd"><p>모션 데이터가 저장되어있는 JSON형태의 데이터입니다.</p>
 <p>기본 모션 프로파일 내 모션 리스트:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stop</span><span class="p">,</span> <span class="n">stop_body</span><span class="p">,</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">left_half</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">right_half</span><span class="p">,</span> <span class="n">foward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
 <span class="n">backward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">step1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hifive</span><span class="p">,</span> <span class="n">cheer1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">wave1</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="n">think1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">wake_up1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">hey1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
@@ -168,8 +165,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.motion.Motion.set_profile">
 <span class="sig-name descname"><span class="pre">set_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.motion.Motion.set_profile" title="정의 주소"></a></dt>
-<dd><p>모터 프로파일을 설정합니다.</p>
-<p>모션은 <strong>openpibo-tools</strong> 의 <strong>motion_creator</strong> 를 이용해 생성할 수 있습니다.</p>
+<dd><p>모션 프로파일을 설정합니다.</p>
+<p>모션은 <strong>openpibo-tools</strong> 의 <a class="reference external" href="https://themakerrobot.github.io/x-openpibo/build/html/tools/motion_creator.html">motion_creator</a> 를 이용해 생성할 수 있습니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_motion</span><span class="o">.</span><span class="n">set_profile</span><span class="p">(</span><span class="s1">&#39;/data/models/motion_db.json&#39;</span><span class="p">)</span>
 </pre></div>

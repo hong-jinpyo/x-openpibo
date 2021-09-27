@@ -5,57 +5,7 @@ openpibo 패키지의 폴더 구조에 대해 설명합니다.
 openpibo 패키지는 파이보를 제어하기 위한 라이브러리 및 최소한의 파일들을 포함하고 있습니다.
 크게 data, modules, libraries 파트로 나뉘어져 있습니다.
 
-```
-openpibo
-├── __init__.py
-├── data
-│   └── models
-│       ├── KDL.ttf
-│       ├── motion_db.json
-│       ├── sample_db.json
-│       ├── MobileNetSSD_deploy.caffemodel
-│       ├── MobileNetSSD_deploy.prototxt.txt
-│       ├── age_net.caffemodel
-│       ├── deploy_age.prototxt
-│       ├── deploy_gender.prototxt
-│       ├── dialog.csv
-│       ├── dlib_face_recognition_resnet_model_v1.dat
-│       ├── gender_net.caffemodel
-│       ├── haarcascade_frontalface_default.xml
-│       └── shape_predictor_5_face_landmarks.dat
-├── modules
-│   ├── __init__.py
-│   ├── collect
-│   │   ├── __init__.py
-│   │   └── get_soup.py
-│   ├── oled
-│   │   ├── __init__.py
-│   │   ├── board.py
-│   │   ├── busio.py
-│   │   ├── chip.py
-│   │   ├── digitalio.py
-│   │   ├── framebuf.py
-│   │   ├── pure_spi.py
-│   │   ├── spi.py
-│   │   ├── spi_device.py
-│   │   ├── ssd1306.py
-│   │   └── util.py
-│   ├── speech
-│   │   ├── __init__.py
-│   │   ├── constant.py
-│   │   └── google_trans_new.py
-│   └── vision
-│       ├── __init__.py
-│       └── stream.py
-├── audio.py
-├── collect.py
-├── device.py
-├── motion.py
-├── oled.py
-├── speech.py
-├── vision.py
-└── edu_v1.py
-```
+![](images/structure.png)
 
 ## data
 폰트 파일, 모션 데이터베이스, 그리고 각종 인공지능 모델 등 라이브러리를 사용하기 위한 최소한의 데이터가 들어있습니다.
@@ -89,7 +39,7 @@ openpibo/data/models/
 
    - **motion_db.json**
    
-      파이보에 기본적으로 저장되어있는 동작이 저장되어있는 데이터베이스로, 저장된 모션 리스트는 다음과 같습니다.
+      파이보에 기본적인 동작이 저장되어있는 데이터베이스로, 저장된 모션 리스트는 다음과 같습니다.
 
       ```
       stop, stop_body, sleep, lookup, left, left_half, right, right_half, foward1-2,
@@ -233,10 +183,15 @@ modules
    
    - **util.py**
 
+- **vision**
+
+   - **stream.py**
+
+      파이보의 카메라를 작동시켜 실시간으로 정보를 읽을 수 있는 모듈입니다.
 
 ## libraries
 
-파이보를 직접 컨트롤하는 파일입니다.
+파이보의 다양한 기능을 사용할 수 있는 Class가 저장된 파일입니다.
 
 ```
 openpibo

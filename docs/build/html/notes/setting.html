@@ -58,14 +58,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -120,7 +117,7 @@
 <p>OS는 파이보 DIY 키트에 포함되어 있으며, 이후 <a class="reference external" href="https://drive.google.com/file/d/1IewZY1GY3rrg4O8pWO-VTMWKx-NWa1WQ/view">여기</a>에서 다운로드 받을 수 있습니다. openpibo API는 <a class="reference external" href="https://github.com/themakerrobot/x-openpibo">깃허브</a>에 업로드 하였으며, 누구나 다운로드 받아 활용할 수 있습니다.</p>
 <section id="id2">
 <h2>무선 네트워크 설정<a class="headerlink" href="#id2" title="제목 주소"></a></h2>
-<p>파이보를 사용하기 위해서는 다음과 같은 실습환경을 구성하여야 합니다.</p>
+<p>파이보를 사용하기 위해서는 파이보와 PC가 동일한 네트워크에 접속해야 합니다.</p>
 <p><img alt="" src="../_images/outline.png" /></p>
 <p>이를 위해 선행해야할 것은 다음 절차를 따라 파이보를 무선 네트워크에 연결하고 IP주소를 확인하는 것입니다.</p>
 <ol>
@@ -128,21 +125,28 @@
 <p><img alt="" src="../_images/sdusb.png" /></p>
 </li>
 <li><p>Micro SD Card의 <code class="docutils literal notranslate"><span class="pre">boot</span></code> 폴더에서 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일을 수정합니다.</p>
+<p><em>&lt;참고&gt; PC에 .conf 파일 편집기가 설치되어있지 않다면 확장자를 .txt로 변경한 후 수정할 수 있습니다.</em></p>
 <p><img alt="" src="../_images/wpa_supplicant.png" /></p>
 <ul class="simple">
 <li><p>ssid: 연결할 wifi 이름입니다.</p></li>
 <li><p>psk: 연결할 wifi의 비밀번호입니다.</p></li>
 </ul>
+<p>wifi의 비밀번호가 없는 경우, psk를 입력하지 않고,<br />
+key_mgmt에 WPA-PSK 대신 NONE을 입력합니다.</p>
 </li>
 <li><p>컴퓨터에서 Micro SD Card를 분리한 후 파이보에 연결합니다.</p>
 <p><img alt="" src="../_images/sd_con.jpg" /></p>
 </li>
 <li><p>파이보를 부팅하고 설정한 무선 네트워크 정보가 정상적으로 보이는지 확인합니다.</p>
 <p><img alt="" src="../_images/ip.jpg" /></p>
+<ul class="simple">
+<li><p>W: 파이보의 IP주소입니다.</p></li>
+<li><p>S: 파이보가 접속한 wifi의 ssid 입니다.</p></li>
+</ul>
 </li>
 </ol>
 <p><strong>[주의] 파이보를 부팅하게 되면 네트워크 설정이 완료된 후 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 파일이 사라집니다.</strong></p>
-<p>새로운 네트워크에 접속하려면, <code class="docutils literal notranslate"><span class="pre">wqa_supplicant.conf.bak</span></code> 파일을 복사하여 새로운 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> 를 만들어 사용할 수 있습니다.</p>
+<p>새로운 네트워크에 접속하려면, <code class="docutils literal notranslate"><span class="pre">wqa_supplicant.conf.bak</span></code> 파일을 복사한 후, 파일명을 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code>로 변경하여 사용할 수 있습니다.</p>
 <p><img alt="" src="../_images/bak.png" /></p>
 </section>
 <section id="ssh">
@@ -161,8 +165,8 @@ SSH를 통해 파이보에 접속하고 파이보를 제어하거나 필요한 �
 <strong>맥/리눅스: Terminal</strong></p>
 </li>
 <li><p>터미널을 열고 원격 접속할 파이보 정보를 입력합니다. 정보를 입력하는 규칙은 다음과 같습니다.</p>
-<p><strong>규칙: ID&#64;접속할 IP주소</strong><br />
-<strong>예: pi&#64;192.168.2.144</strong><br />
+<p><strong>규칙: ssh ID&#64;접속할 IP주소</strong><br />
+<strong>예: ssh pi&#64;192.168.2.144</strong><br />
 <img alt="" src="../_images/ip_typing.png" /></p>
 </li>
 <li><p>보안 설정에 동의합니다. 이는 최초 접속할 때만 출력되는 메시지입니다.</p>

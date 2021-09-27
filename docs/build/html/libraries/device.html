@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="Motion" href="motion.html" />
+    <link rel="next" title="motion" href="motion.html" />
     <link rel="prev" title="collect" href="collect.html" /> 
 </head>
 
@@ -52,14 +52,11 @@
 <li class="toctree-l1"><a class="reference internal" href="audio.html">audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="collect.html">collect</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vision.html">Vision</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -111,8 +108,9 @@
   <section id="module-openpibo.device">
 <span id="device"></span><h1>device<a class="headerlink" href="#module-openpibo.device" title="제목 주소"></a></h1>
 <p>메인 컨트롤러를 제어합니다.</p>
-<p>메인 컨트롤러로 <code class="docutils literal notranslate"><span class="pre">#{메시지</span> <span class="pre">코드}:{메시지}!</span></code> 의 형식의 신호가 전달됩니다.</p>
-<p>이후 메인컨트롤러는 메시지 코드와 메시지를 파악하여 주어진 역할을 수행합니다.</p>
+<p>메인 컨트롤러로 메시지 (<code class="docutils literal notranslate"><span class="pre">#code:data!</span></code> 포멧) 가 전달됩니다.  
+이후 메인컨트롤러는 메시지를 파악하여 주어진 기능을 수행합니다.</p>
+<p>다음 메시지 상세 설명은 <strong>기능명 (code)</strong> 로 설명되며, <strong>data</strong> 는 code와 함께 전달되는 data의 샘플 값이고, <strong>get</strong> 은 메시지 전달 후 반환값, <strong>set</strong> 은 메시지 전달 후 수행되는 디바이스 설정을 의미합니다.</p>
 <dl class="field-list">
 <dt class="field-odd">메시지 상세 설명</dt>
 <dd class="field-odd"><ul>
@@ -204,7 +202,7 @@
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>PIR 감지:      <code class="docutils literal notranslate"><span class="pre">&quot;person&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;nobody&quot;</span></code></p></li>
-<li><p>Touch 감지:    <code class="docutils literal notranslate"><span class="pre">&quot;touch&quot;</span> <span class="pre">``or</span> <span class="pre">``&quot;&quot;</span></code></p></li>
+<li><p>Touch 감지:    <code class="docutils literal notranslate"><span class="pre">&quot;touch&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
 <li><p>DC잭 연결감지:  <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> of <code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code></p></li>
 <li><p>버튼 감지:      <code class="docutils literal notranslate"><span class="pre">&quot;on&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></li>
 <li><p>시스템리셋:     not support</p></li>
@@ -323,7 +321,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="collect.html" class="btn btn-neutral float-left" title="collect" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="motion.html" class="btn btn-neutral float-right" title="Motion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="motion.html" class="btn btn-neutral float-right" title="motion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

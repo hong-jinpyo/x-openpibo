@@ -16,7 +16,7 @@ from openpibo.<라이브러리명> import <클래스명>
 <인스턴스명> = <클래스명>()
 ```
 
-Ex) audio 라이브러리의 Audio 클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.
+예) audio 라이브러리의 Audio 클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.
 
 ```python
 from openpibo.audio import Audio
@@ -28,7 +28,8 @@ pibo_audio = Audio()
 
 ## 메소드 사용
 
-메소드란, 인스턴스로부터 사용할 수 있는 기능을 의미합니다.
+메소드란, 클래스에 묶여서 인스턴스와 관계되는 일을 하는 기능을 의미합니다.
+예를들어, Audio 클래스는 음악 재생, 정지 등의 메소드를 사용할 수 있습니다.
 
 메소드를 사용하는 방법은 다음과 같습니다.
 
@@ -36,7 +37,7 @@ pibo_audio = Audio()
 <인스턴스명>.<메소드명>(<인자>)
 ```
 
-Ex) audio 라이브러리의 Audio 클래스 메소드를 사용하는 방법은 다음과 같습니다.
+예) audio 라이브러리의 Audio 클래스 메소드를 사용하는 방법은 다음과 같습니다.
 
 ```python
 # play 메소드: 오디오 파일을 재생합니다.
@@ -47,17 +48,18 @@ pibo_audio.stop()
 
 # mute 메소드: 음소거 모드로 전환합니다.
 pibo_audio.mute(True)
+
+# pibo_audio 는 Audio 클래스의 인스턴스
 ```
 
 클래스마다 사용할 수 있는 메소드는 각기 다르며, 메소드마다 입력되는 인자또한 각기 다릅니다.
-좌측 Library 탭에 자세한 설명이 있습니다.
 
 ## 데이터 경로 설정
 
 어떤 메소드는 인자로 파일 경로를 입력해야 합니다.
 
 파일 경로를 입력하는 방법에 대해 설명하며,  
-추가로 Audio 클래스로 만든 pibo_audio 인스턴스에서 play 메소드를 사용해 /home/pi/openpibo_files/data/audio/ 경로에 있는 test.mp3 파일 재생방법을 예시로 활용합니다.
+추가로 /home/pi/openpibo_files/data/audio/ 경로에 있는 test.mp3 파일 재생방법을 예시로 활용합니다.
 
 1. 절대경로를 사용하는 방법
 
@@ -67,7 +69,10 @@ pibo_audio.mute(True)
 
    ```python
    pibo_audio.play('/home/pi/openpibo_files/data/audio/test.mp3')
+   # pibo_audio 는 Audio 클래스의 인스턴스
    ```
+
+   위 예시에서 `test.mp3`의 경로는 `'/home/pi/openpibo_files/data/audio/test.mp3'` 입니다.
 
 2. 상대경로를 사용하는 방법
 
@@ -80,11 +85,13 @@ pibo_audio.mute(True)
    pibo_audio.play('openpibo_files/data/audio/test.mp3')
    ```
 
+   위 예시에서 `test.mp3`의 경로는 `'openpibo_files/data/audio/test.mp3'` 입니다.
+
 3. 미리 지정해둔 경로를 참조하는 방법
 
    config.json 파일에 미리 지정해둔 경로를 호출하여 사용할 수 있습니다.
 
-   기본적으로 config.json에는 'DATA_PATH' key로 '/home/pi/openpibo_files/data' 경로가 설정되어있습니다.
+   기본적으로 config.json에는 'DATA_PATH' key의 value로 '/home/pi/openpibo_files/data' 경로가 설정되어있습니다.
 
    python에서 config.json을 호출하는 방법은 다음과 같습니다.
 
@@ -95,11 +102,13 @@ pibo_audio.mute(True)
    # {'DATA_PATH': '/home/pi/openpibo-files/data', 'KAKAO_ACCOUNT': '*****', 'robotId': ''}
    ```
 
-   이를 활용하여 test.mp3 파일을 재생하는 메소드는 다음과 같습니다.
+   이를 활용하여 test.mp3 파일의 경로를 다음과 같이 입력할 수 있습니다.
 
    ```python
    pibo_audio.play(openpibo.config['DATA_PATH']+'/audio/test.mp3')
    ```
+
+   위 예시에서 `test.mp3`의 경로는 `openpibo.config['DATA_PATH']+'/audio/test.mp3'` 입니다.
 
    *[참고] config.json 파일을 수정하여 데이터 경로를 커스텀하여 사용할 수도 있습니다.*
 
@@ -134,3 +143,5 @@ pibo_audio.mute(True)
 
       pibo_audio.play(openpibo.config['MY_DATA_PATH']+'/test.mp3')
       ```
+
+      위 예시에서 `test.mp3`의 경로는 `openpibo.config['MY_DATA_PATH']+'/test.mp3'` 입니다.

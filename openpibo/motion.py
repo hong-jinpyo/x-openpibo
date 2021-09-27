@@ -14,7 +14,7 @@ PIBO의 움직임을 제어합니다.
   * 8번 : 'Left Arm'
   * 9번 : 'Left Hand'
 
-  **(파이보의 입장에서 오른쪽, 왼쪽 입니다.)**
+  **(파이보의 입장에서 Right, Left 입니다.)**
 
 :모터 제한각도: 각 모터가 회전할 수 있는 범위가 제한되어있습니다.
 
@@ -29,7 +29,7 @@ PIBO의 움직임을 제어합니다.
   * 8번 : ± 80˚
   * 9번 : ± 30˚
 
-:모션 프로파일: 모션 데이터가 저장되어있는 JSON형태의 데이터
+:모션 프로파일: 모션 데이터가 저장되어있는 JSON형태의 데이터입니다.
 
   기본 모션 프로파일 내 모션 리스트::
 
@@ -65,9 +65,9 @@ class Motion:
       self.profile = json.load(f)
 
   def set_profile(self, path):
-    """모터 프로파일을 설정합니다.
+    """모션 프로파일을 설정합니다.
 
-    모션은 **openpibo-tools** 의 **motion_creator** 를 이용해 생성할 수 있습니다.
+    모션은 **openpibo-tools** 의 `motion_creator <https://themakerrobot.github.io/x-openpibo/build/html/tools/motion_creator.html>`_ 를 이용해 생성할 수 있습니다.
 
     example::
 

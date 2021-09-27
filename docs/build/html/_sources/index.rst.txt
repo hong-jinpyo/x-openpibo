@@ -27,12 +27,7 @@ Welcome to OPENPIBO's documentation!
    libraries/oled
    libraries/speech
    libraries/vision
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Edu Pibo
-
-   edu_pibo/edu_v1
+   libraries/edu_v1
 
 .. toctree::
    :maxdepth: 1

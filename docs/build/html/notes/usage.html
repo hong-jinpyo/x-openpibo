@@ -57,14 +57,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -126,7 +123,7 @@
 <span class="o">&lt;</span><span class="n">인스턴스명</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">클래스명</span><span class="o">&gt;</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Ex) audio 라이브러리의 Audio 클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.</p>
+<p>예) audio 라이브러리의 Audio 클래스를 호출하여 인스턴스를 생성하는 방법은 다음과 같습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.audio</span> <span class="kn">import</span> <span class="n">Audio</span>
 
 <span class="n">pibo_audio</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">()</span>
@@ -136,12 +133,13 @@
 </section>
 <section id="id3">
 <h2>메소드 사용<a class="headerlink" href="#id3" title="제목 주소"></a></h2>
-<p>메소드란, 인스턴스로부터 사용할 수 있는 기능을 의미합니다.</p>
+<p>메소드란, 클래스에 묶여서 인스턴스와 관계되는 일을 하는 기능을 의미합니다.
+예를들어, Audio 클래스는 음악 재생, 정지 등의 메소드를 사용할 수 있습니다.</p>
 <p>메소드를 사용하는 방법은 다음과 같습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">인스턴스명</span><span class="o">&gt;.&lt;</span><span class="n">메소드명</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">인자</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Ex) audio 라이브러리의 Audio 클래스 메소드를 사용하는 방법은 다음과 같습니다.</p>
+<p>예) audio 라이브러리의 Audio 클래스 메소드를 사용하는 방법은 다음과 같습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># play 메소드: 오디오 파일을 재생합니다.</span>
 <span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/openpibo_files/data/audio/test.mp3&#39;</span><span class="p">)</span>
 
@@ -150,23 +148,26 @@
 
 <span class="c1"># mute 메소드: 음소거 모드로 전환합니다.</span>
 <span class="n">pibo_audio</span><span class="o">.</span><span class="n">mute</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># pibo_audio 는 Audio 클래스의 인스턴스</span>
 </pre></div>
 </div>
-<p>클래스마다 사용할 수 있는 메소드는 각기 다르며, 메소드마다 입력되는 인자또한 각기 다릅니다.
-좌측 Library 탭에 자세한 설명이 있습니다.</p>
+<p>클래스마다 사용할 수 있는 메소드는 각기 다르며, 메소드마다 입력되는 인자또한 각기 다릅니다.</p>
 </section>
 <section id="id4">
 <h2>데이터 경로 설정<a class="headerlink" href="#id4" title="제목 주소"></a></h2>
 <p>어떤 메소드는 인자로 파일 경로를 입력해야 합니다.</p>
 <p>파일 경로를 입력하는 방법에 대해 설명하며,<br />
-추가로 Audio 클래스로 만든 pibo_audio 인스턴스에서 play 메소드를 사용해 /home/pi/openpibo_files/data/audio/ 경로에 있는 test.mp3 파일 재생방법을 예시로 활용합니다.</p>
+추가로 /home/pi/openpibo_files/data/audio/ 경로에 있는 test.mp3 파일 재생방법을 예시로 활용합니다.</p>
 <ol>
 <li><p>절대경로를 사용하는 방법</p>
 <p>절대경로란, 파일이 가지고있는 고유한 경로를 말합니다. 경로가 최상위 디렉토리부터 시작되는 특징이 있습니다.</p>
 <p>test.mp3 파일을 재생하는 메소드는 다음과 같습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;/home/pi/openpibo_files/data/audio/test.mp3&#39;</span><span class="p">)</span>
+<span class="c1"># pibo_audio 는 Audio 클래스의 인스턴스</span>
 </pre></div>
 </div>
+<p>위 예시에서 <code class="docutils literal notranslate"><span class="pre">test.mp3</span></code>의 경로는 <code class="docutils literal notranslate"><span class="pre">'/home/pi/openpibo_files/data/audio/test.mp3'</span></code> 입니다.</p>
 </li>
 <li><p>상대경로를 사용하는 방법</p>
 <p>상대경로란, 현재 위치한 디렉토리를 기준으로 해서 대상 파일의 상대적인 경로를 의미합니다.</p>
@@ -175,10 +176,11 @@
 <span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s1">&#39;openpibo_files/data/audio/test.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>위 예시에서 <code class="docutils literal notranslate"><span class="pre">test.mp3</span></code>의 경로는 <code class="docutils literal notranslate"><span class="pre">'openpibo_files/data/audio/test.mp3'</span></code> 입니다.</p>
 </li>
 <li><p>미리 지정해둔 경로를 참조하는 방법</p>
 <p>config.json 파일에 미리 지정해둔 경로를 호출하여 사용할 수 있습니다.</p>
-<p>기본적으로 config.json에는 ‘DATA_PATH’ key로 ‘/home/pi/openpibo_files/data’ 경로가 설정되어있습니다.</p>
+<p>기본적으로 config.json에는 ‘DATA_PATH’ key의 value로 ‘/home/pi/openpibo_files/data’ 경로가 설정되어있습니다.</p>
 <p>python에서 config.json을 호출하는 방법은 다음과 같습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openpibo</span>
 
@@ -186,10 +188,11 @@
 <span class="c1"># {&#39;DATA_PATH&#39;: &#39;/home/pi/openpibo-files/data&#39;, &#39;KAKAO_ACCOUNT&#39;: &#39;*****&#39;, &#39;robotId&#39;: &#39;&#39;}</span>
 </pre></div>
 </div>
-<p>이를 활용하여 test.mp3 파일을 재생하는 메소드는 다음과 같습니다.</p>
+<p>이를 활용하여 test.mp3 파일의 경로를 다음과 같이 입력할 수 있습니다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/audio/test.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>위 예시에서 <code class="docutils literal notranslate"><span class="pre">test.mp3</span></code>의 경로는 <code class="docutils literal notranslate"><span class="pre">openpibo.config['DATA_PATH']+'/audio/test.mp3'</span></code> 입니다.</p>
 <p><em>[참고] config.json 파일을 수정하여 데이터 경로를 커스텀하여 사용할 수도 있습니다.</em></p>
 <ol>
 <li><p>데이터를 저장할 디렉토리를 생성하고 파일을 저장합니다.</p>
@@ -220,6 +223,7 @@
 <span class="n">pibo_audio</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">openpibo</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;MY_DATA_PATH&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/test.mp3&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>위 예시에서 <code class="docutils literal notranslate"><span class="pre">test.mp3</span></code>의 경로는 <code class="docutils literal notranslate"><span class="pre">openpibo.config['MY_DATA_PATH']+'/test.mp3'</span></code> 입니다.</p>
 </li>
 </ol>
 </li>

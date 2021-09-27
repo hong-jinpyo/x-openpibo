@@ -6,7 +6,7 @@ OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://dr
 
 ## 무선 네트워크 설정
 
-파이보를 사용하기 위해서는 다음과 같은 실습환경을 구성하여야 합니다.
+파이보를 사용하기 위해서는 파이보와 PC가 동일한 네트워크에 접속해야 합니다.
 
 ![](images/outline.png)
 
@@ -18,10 +18,15 @@ OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://dr
 
 2. Micro SD Card의 `boot` 폴더에서 `wpa_supplicant.conf` 파일을 수정합니다.
 
+   *<참고> PC에 .conf 파일 편집기가 설치되어있지 않다면 확장자를 .txt로 변경한 후 수정할 수 있습니다.*
+
    ![](images/wpa_supplicant.png)
 
    - ssid: 연결할 wifi 이름입니다.
    - psk: 연결할 wifi의 비밀번호입니다.
+
+   wifi의 비밀번호가 없는 경우, psk를 입력하지 않고,  
+   key_mgmt에 WPA-PSK 대신 NONE을 입력합니다.
 
 3. 컴퓨터에서 Micro SD Card를 분리한 후 파이보에 연결합니다.
 
@@ -31,9 +36,12 @@ OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://dr
 
    ![](images/ip.jpg)
 
+   - W: 파이보의 IP주소입니다.
+   - S: 파이보가 접속한 wifi의 ssid 입니다.
+
 **[주의] 파이보를 부팅하게 되면 네트워크 설정이 완료된 후 `wpa_supplicant.conf` 파일이 사라집니다.**
 
-새로운 네트워크에 접속하려면, `wqa_supplicant.conf.bak` 파일을 복사하여 새로운 `wpa_supplicant.conf` 를 만들어 사용할 수 있습니다.
+새로운 네트워크에 접속하려면, `wqa_supplicant.conf.bak` 파일을 복사한 후, 파일명을 `wpa_supplicant.conf`로 변경하여 사용할 수 있습니다.
 
 ![](images/bak.png)
 
@@ -58,8 +66,8 @@ SSH를 통해 파이보에 접속하고 파이보를 제어하거나 필요한 �
 
 3. 터미널을 열고 원격 접속할 파이보 정보를 입력합니다. 정보를 입력하는 규칙은 다음과 같습니다.  
 
-   **규칙: ID@접속할 IP주소**  
-   **예: pi@192.168.2.144**  
+   **규칙: ssh ID@접속할 IP주소**  
+   **예: ssh pi@192.168.2.144**  
    ![](images/ip_typing.png)
 
 4. 보안 설정에 동의합니다. 이는 최초 접속할 때만 출력되는 메시지입니다.

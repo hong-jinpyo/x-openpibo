@@ -57,14 +57,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../libraries/audio.html">audio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/collect.html">collect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/device.html">device</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/motion.html">motion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/speech.html">Speech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../libraries/vision.html">Vision</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Edu Pibo</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../edu_pibo/edu_v1.html">Edu version 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/edu_v1.html">Edu version 1</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul>
@@ -118,57 +115,7 @@
 <p>openpibo 패키지의 폴더 구조에 대해 설명합니다.</p>
 <p>openpibo 패키지는 파이보를 제어하기 위한 라이브러리 및 최소한의 파일들을 포함하고 있습니다.
 크게 data, modules, libraries 파트로 나뉘어져 있습니다.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>openpibo
-├── __init__.py
-├── data
-│   └── models
-│       ├── KDL.ttf
-│       ├── motion_db.json
-│       ├── sample_db.json
-│       ├── MobileNetSSD_deploy.caffemodel
-│       ├── MobileNetSSD_deploy.prototxt.txt
-│       ├── age_net.caffemodel
-│       ├── deploy_age.prototxt
-│       ├── deploy_gender.prototxt
-│       ├── dialog.csv
-│       ├── dlib_face_recognition_resnet_model_v1.dat
-│       ├── gender_net.caffemodel
-│       ├── haarcascade_frontalface_default.xml
-│       └── shape_predictor_5_face_landmarks.dat
-├── modules
-│   ├── __init__.py
-│   ├── collect
-│   │   ├── __init__.py
-│   │   └── get_soup.py
-│   ├── oled
-│   │   ├── __init__.py
-│   │   ├── board.py
-│   │   ├── busio.py
-│   │   ├── chip.py
-│   │   ├── digitalio.py
-│   │   ├── framebuf.py
-│   │   ├── pure_spi.py
-│   │   ├── spi.py
-│   │   ├── spi_device.py
-│   │   ├── ssd1306.py
-│   │   └── util.py
-│   ├── speech
-│   │   ├── __init__.py
-│   │   ├── constant.py
-│   │   └── google_trans_new.py
-│   └── vision
-│       ├── __init__.py
-│       └── stream.py
-├── audio.py
-├── collect.py
-├── device.py
-├── motion.py
-├── oled.py
-├── speech.py
-├── vision.py
-└── edu_v1.py
-</pre></div>
-</div>
+<p><img alt="" src="../_images/structure.png" /></p>
 <section id="data">
 <h2>data<a class="headerlink" href="#data" title="제목 주소"></a></h2>
 <p>폰트 파일, 모션 데이터베이스, 그리고 각종 인공지능 모델 등 라이브러리를 사용하기 위한 최소한의 데이터가 들어있습니다.</p>
@@ -200,7 +147,7 @@
 <li><p><strong>모션 데이터베이스</strong></p>
 <ul>
 <li><p><strong>motion_db.json</strong></p>
-<p>파이보에 기본적으로 저장되어있는 동작이 저장되어있는 데이터베이스로, 저장된 모션 리스트는 다음과 같습니다.</p>
+<p>파이보에 기본적인 동작이 저장되어있는 데이터베이스로, 저장된 모션 리스트는 다음과 같습니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stop</span><span class="p">,</span> <span class="n">stop_body</span><span class="p">,</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">lookup</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">left_half</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">right_half</span><span class="p">,</span> <span class="n">foward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
 <span class="n">backward1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">step1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hifive</span><span class="p">,</span> <span class="n">cheer1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">wave1</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="n">think1</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">wake_up1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">hey1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>
 <span class="n">yes_h</span><span class="p">,</span> <span class="n">no_h</span><span class="p">,</span> <span class="n">breath1</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="n">breath_long</span><span class="p">,</span> <span class="n">head_h</span><span class="p">,</span> <span class="n">spin_h</span><span class="p">,</span> <span class="n">clapping1</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">hankshaking</span><span class="p">,</span>
@@ -322,11 +269,18 @@
 <li><p><strong>util.py</strong></p></li>
 </ul>
 </li>
+<li><p><strong>vision</strong></p>
+<ul>
+<li><p><strong>stream.py</strong></p>
+<p>파이보의 카메라를 작동시켜 실시간으로 정보를 읽을 수 있는 모듈입니다.</p>
+</li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="libraries">
 <h2>libraries<a class="headerlink" href="#libraries" title="제목 주소"></a></h2>
-<p>파이보를 직접 컨트롤하는 파일입니다.</p>
+<p>파이보의 다양한 기능을 사용할 수 있는 Class가 저장된 파일입니다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>openpibo
 ├── audio.py
 ├── collect.py
