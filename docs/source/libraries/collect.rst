@@ -1,4 +1,4 @@
-Collect
+collect
 =====================================================
 
 .. automodule:: openpibo.collect

@@ -1,7 +1,7 @@
 """
 인터넷에서 유용한 정보를 가져옵니다.
 
-**단어정보, 날씨정보, 뉴스정보** 를 가져올 수 있습니다.
+**단어정보, 날씨 정보, 뉴스 정보** 를 가져올 수 있습니다.
 """
 
 from urllib.parse import quote
@@ -68,9 +68,9 @@ class Wikipedia:
         
         만약 검색 결과가 없으면, 다음과 같이 출력됩니다::
 
-            pibo_wiki.search('고라니우스')
+            pibo_wiki.search('깡아지')
             print(pibo_wiki)
-            # '고라니우스'에 대한 검색결과가 없습니다.
+            # '깡아지'에 대한 검색결과가 없습니다.
         
         :param str search_text: 위키백과에서의 검색어
         """
@@ -112,11 +112,15 @@ class Wikipedia:
         
         example::
 
-            result = pibo_wiki.get_list()
-            print(result)
-            # ['0', '1', '2', '3', '4', '5', '6']
+            pibo_wiki.get_list()
         
         :returns: list 형태의 챕터 목록입니다.
+
+            list 안에 str 타입의 챕터 번호가 기록됩니다.
+
+            example::
+            
+                ['0', '1', '2', '3', '4', '5', '6']
         """
         
         return list(self._chapters.keys())
@@ -127,15 +131,20 @@ class Wikipedia:
         
         example::
         
-            result = pibo_wiki.get('1')
-            print(result)
-            # {'title': '명칭', 'content': "한국어 ‘강아지’는 ‘개’에 어린 짐승을 뜻하는 ‘아지’가 붙은 말이다...}
-        
+            pibo_wiki.get('1')
+
         :param str chapter_num: 챕터의 번호
 
-            ``1.3.1`` 과 같이 표현되기 때문에 ``int`` 또는 ``float`` 타입이 아닌 ``str`` 타입 입니다.
+            ``1.3.1`` 과 같이 표현되기 때문에 int 또는 float 타입이 아닌 **str 타입** 입니다.
         
         :returns: 해당 챕터 번호에 해당하는 내용이 dictionary 형태로 출력됩니다.
+
+            example::
+
+                {
+                    'title': '명칭', 
+                    'content': "한국어 ‘강아지’는 ‘개’에 어린 짐승을 뜻하는 ‘아지’가 붙은 말이다..."
+                }
         """
         
         title = self._chapters[chapter_num]._title
@@ -199,7 +208,7 @@ class Weather:
         """
         해당 지역의 날씨 정보를 가져와서 인스턴스(pibo_weather)에 저장합니다.
 
-        ``get_today``, ``get_tomorrow``, ``get_after_tomorrow`` 메서드로 날씨 정보를 출력할 수 있습니다.
+        ``get_today``, ``get_tomorrow``, ``get_after_tomorrow`` 메소드로 날씨 정보를 출력할 수 있습니다.
 
         print 인스턴스(pibo_weather)로 전체적인 날씨를 출력할 수 있습니다.
 
@@ -255,15 +264,14 @@ class Weather:
         
         example::
         
-            result = pibo_weather.get_today()
-            print(result)
+            pibo_weather.get_today()
         
         :returns: 오늘의 날씨 및 최저/최고기온을 반환합니다.
 
             example::
 
                 {
-                    'weather': '전국 대체로 흐림, 서쪽지역에 내리는 비는 밤에 동해안을 제외한 전국으로 확대되겠음',
+                    'weather': '전국 대체로 흐림',
                     'minimum_temp': '15.3 ~ 21.6', 
                     'highst_temp': '23.1 ~ 27.6'
                 }
@@ -277,8 +285,7 @@ class Weather:
         
         example::
         
-            result = pibo_weather.get_tomorrow()
-            print(result)
+            pibo_weather.get_tomorrow()
         
         :returns: 내일의 날씨 및 최저/최고기온을 반환합니다.
 
@@ -299,8 +306,7 @@ class Weather:
         
         example::
         
-            result = pibo_weather.get_after_tomorrow()
-            print(result)
+            pibo_weather.get_after_tomorrow()
         
         :returns: 모레의 날씨 및 최저/최고기온을 반환합니다.
 
@@ -334,7 +340,7 @@ topic_table = {
 }
 class News:
     """
-    JTBC뉴스 RSS서비스를 사용해 뉴스 자료를 가져옵니다.
+    JTBC 뉴스 RSS 서비스를 사용해 뉴스 자료를 가져옵니다.
     
     example::
 
@@ -362,7 +368,7 @@ class News:
         """
         주제에 맞는 뉴스를 검색하여 인스턴스(pibo_news)에 저장합니다.
 
-        print 인스턴스(pibo_news)로 첫번째 뉴스 헤드라인을 출력할 수 있습니다.
+        print 인스턴스(pibo_news)로 첫 번째 뉴스 헤드라인을 출력할 수 있습니다.
 
         example::
 
@@ -418,8 +424,7 @@ class News:
 
         example::
 
-            result = pibo_news.get_titles()
-            print(result)
+            pibo_news.get_titles()
         
         :returns: ``key=기사번호`` , ``value=title`` 인 dictionary 입니다.
 
@@ -445,12 +450,11 @@ class News:
 
         example::
 
-            result = pibo_news.get_article(1)
-            print(result)
+            pibo_news.get_article(1)
         
         :param int article_idx: 기사 번호
 
-            기사 번호는 0~19 사이 정수입니다.
+            기사 번호는 0~19 사이 int 타입 입니다.
         
         :returns: title, link, description, pubDate 요소가 있는 dictionary 입니다.
 
@@ -458,8 +462,8 @@ class News:
 
                 {
                     'title': '또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다', 
-                    'link': 'https://news.jtbc.joins.com/article/article.aspx?news_id=xxx',
-                    'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습. 〈사진-JTBC ...,
+                    'link': 'https://news.jtbc.joins.com/article/article.aspx?...',
+                    'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습...,
                     'pubDate': '2021.09.03'
                 }
         """

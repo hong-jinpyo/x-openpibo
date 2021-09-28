@@ -1,5 +1,5 @@
 """
-`OpenCV` 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다. (Local 실행 제약)
+`OpenCV` 라이브러리를 활용한 PIBO의 영상처리 관련 라이브러리입니다.
 
 카메라 기능, 얼굴 인식, 객체/바코드/문자 인식을 수행합니다.
 """
@@ -21,14 +21,21 @@ class Camera:
   * 사진 촬영, 읽기, 쓰기, 보기 등 카메라 기본 기능을 사용할 수 있습니다.
   * Streaming, Cartoonize 기능을 사용할 수 있습니다.
 
+  일부 메소드는 GUI 환경에서만 동작합니다.
+  ``cannot connect to X server`` 에러가 발생하는 이유는 GUI 환경이 아니기 때문입니다.
+  정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
+
   example::
 
+    from openpibo.vision import Camera
+
     pibo_camera = Camera()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
     """
-    Camera 클래스를 초기화 합니다.
+    Camera 클래스를 초기화합니다.
     """
     os.system('v4l2-ctl -c vertical_flip=1,horizontal_flip=1,white_balance_auto_preset=3')
 
@@ -38,11 +45,39 @@ class Camera:
 
     example::
 
-      pibo_camera('/home/pi/.../image.jpg')
+      pibo_camera.imread('/home/pi/openpibo-files/data/image/clear.png')
     
     :param str filename: 사용할 이미지 파일
 
     :returns: ``numpy.ndarray`` 타입 이미지 객체
+
+      example::
+
+        array([[[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              ...,
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]],
+
+              [[0, 0, 0],
+                [0, 0, 0],
+                ...,
+                [0, 0, 0],
+                [0, 0, 0]]], dtype=uint8)
     """
 
     return cv2.imread(filename)
@@ -59,11 +94,11 @@ class Camera:
     
     :param int w: 촬영할 이미지의 가로 픽셀 크기 입니다.
 
-      w의 최댓값은 2592 입니다.
+      0 ~ 2592 사이 값 입니다. (default 640)
 
     :param int h: 촬영할 이미지의 세로 픽셀 크기 입니다.
 
-      h의 최댓값은 1944 입니다.
+      0 ~ 1944 사이 값 입니다. (default 480)
 
     :returns: ``numpy.ndarray`` 타입 이미지 객체
     """
@@ -79,10 +114,12 @@ class Camera:
 
     example::
 
-      img = pibo.camera.read(640, 480)
-      pibo_camera.imwrite('/home/pi/.../image.jpg', img)
+      img = pibo_camera.read()
+      pibo_camera.imwrite('/home/pi/image.jpg', img)
     
-    :param str filename: 저장할 파일 이름
+    :param str filename: 저장할 파일 경로
+
+      확장자는 jpg 또는 png를 사용할 수 있습니다.
 
     :param numpy.ndarray img: 저장할 이미지 객체 
     """
@@ -93,13 +130,9 @@ class Camera:
     """
     모니터에서 이미지를 확인합니다. (GUI 환경에서만 동작)
 
-    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
-
-    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
-
     example::
 
-      img = pibo.camera.read(640, 480)
+      img = pibo_camera.read()
       pibo_camera.imshow(img, 'IMAGE')
 
     :param numpy.ndarray img: 보여줄 이미지
@@ -111,13 +144,9 @@ class Camera:
 
   def waitKey(self, timeout=1000):
     """
-    이미지를 보는 시간을 설정합니다.
+    이미지를 보는 시간을 설정합니다. (GUI 환경에서만 동작)
 
-    **imshow** 함수와 함께 사용합니다. (GUI 환경에서만 동작)
-
-    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
-
-    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
+    **imshow** 함수와 함께 사용합니다.
 
     example::
 
@@ -132,13 +161,9 @@ class Camera:
     """
     모니터에서 이미지를 스트리밍합니다. (GUI 환경에서만 동작)
 
-    ``cannot connect to X server`` 에러가 발생하는 이유는 GUI환경이 아니기 때문입니다.
-
-    정상 동작을 위해서는 GUI 환경이 구축된 OS에서 시도합니다.
-
-    :param int w: 사진의 width 값
+    :param int w: 스트리밍 이미지의 width 값
     
-    :param int h: 사진의 height 값
+    :param int h: 스트리밍 이미지의 height 값
 
     :param int timeout: 스트리밍 시간
     """
@@ -157,7 +182,7 @@ class Camera:
 
   def rectangle(self, img, p1, p2, color=(255,255,255), tickness=1):
     """
-    이미지에 사각형을 그립니다.
+    이미지에 직사각형을 그립니다.
 
     example::
 
@@ -172,7 +197,7 @@ class Camera:
 
     :param tuple(int, int, int) color: RGB 값 (r, g, b)
 
-    :param int tickness: 사각형 모서리의 두께 (픽셀 값입니다)
+    :param int tickness: 사각형 모서리의 두께 (픽셀 단위)
     """
 
     return cv2.rectangle(img, p1, p2, color, tickness)
@@ -190,7 +215,7 @@ class Camera:
 
     :param str text: 표시할 문자열
 
-    :param tuple(int, int) p: 좌측상단 좌표 (x, y)
+    :param tuple(int, int) p: 텍스트 블록 좌측하단 좌표 (x, y)
 
     :param int size: 표시할 글자의 크기
 
@@ -327,18 +352,25 @@ class Camera:
 
 class Face:
   """
-  얼굴과 관련된 다양한 기능을 수행하는 클래스 입니다.
+  얼굴과 관련된 다양한 기능을 수행하는 클래스입니다. 다음 기능을 수행할 수 있습니다.
 
   * 얼굴을 탐색합니다.
   * 얼굴을 학습/저장/삭제합니다.
   * 학습된 얼굴을 인식합니다.
   * 얼굴로 나이/성별을 추정합니다.
 
-  인스턴스마다 **facedb** 를 가지고 있으며, 여기에서 얼굴 데이터를 등록하고 불러오고 삭제합니다.
+  :얼굴 데이터베이스: 인스턴스 변수 **facedb** 를 의미하며, 여기에서 얼굴 데이터를 등록하고 불러오고 삭제합니다.
+
+    얼굴 데이터베이스의 포맷은 이중 list ``[[], []]`` 이며, 첫 번째 list에는 얼굴의 이름이, 두 번째 list에는 학습된 얼굴 데이터가 인코딩되어 들어갑니다.
+
+    또한 파일로 저장하여 인스턴스가 삭제된 후에도 얼굴 정보를 남겨둘 수 있습니다.
 
   example::
 
+    from openpibo.vision import Face
+
     pibo_face = Face()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -356,83 +388,56 @@ class Face:
     self.face_detector = cv2.CascadeClassifier(self.model_path + "/haarcascade_frontalface_default.xml")
     self.predictor = dlib.shape_predictor(self.model_path + "/shape_predictor_5_face_landmarks.dat")
     self.face_encoder = dlib.face_recognition_model_v1(self.model_path + "/dlib_face_recognition_resnet_model_v1.dat")
-  
-  def get_db(self):
-    """
-    사용중인 얼굴 데이터베이스를 확인합니다.
-
-    example::
-
-      pibo_face.get_db()
-
-    :returns: **facedb** (``list(list, list)`` 타입)
-    """
-
-    return self.facedb
 
   def init_db(self):
     """
-    얼굴 데이터베이스를 초기화 합니다.
+    얼굴 데이터베이스를 초기화합니다.
 
     초기화된 데이터베이스는 빈 이중 list ``[[], []]`` 입니다.
 
-    첫 번째 list에는 얼굴의 이름이, 두 번째 list에는 학습된 얼굴 데이터가 인코딩되어 들어갑니다.
-    
     example::
 
       pibo_face.init_db()
     """
 
     self.facedb = [[], []]
-
-  def load_db(self, filename):
-    """
-    얼굴 데이터베이스 파일을 불러옵니다.
-
-    example::
-
-      pibo_face.load_db('/home/pi/.../facedb')
-
-    :param str filename: 불러 올 ``facedb`` 파일의 경로입니다.
-    """
-
-    with open(filename, "rb") as f :
-      self.facedb = pickle.load(f)
   
-  def save_db(self, filename):
+  def detect(self, img):
     """
-    얼굴 데이터베이스를 파일로 저장합니다.
+    얼굴을 탐색합니다.
 
     example::
 
-      pibo_face.save_db('/home/pi/.../facedb')
-    
-    :param str filename: 저장 할 ``facedb`` 파일의 경로입니다.
-    """
+      img = pibo_camera.read()
+      pibo_face.detect(img)
 
-    with open(filename, "w+b") as f:
-      pickle.dump(self.facedb, f)
+    :param numpy.ndarray img: 이미지 객체
+
+    :returns: 인식된 얼굴들의 (x, y, w, h) 배열 입니다.
+
+      list 타입으로, 이미지 하나에 얼굴이 여러 개 인식된 경우 인식된 얼굴의 좌표가 모두 입력됩니다.
+
+      example::
+
+        [(10, 10, 40, 50), (120, 30, 160, 70), (130, 140, 200, 260)]
+    """
 
   def train_face(self, img, face, name):
     """
-    얼굴을 학습합니다.
-
-    학습된 얼굴은 ``get_db`` 메서드로 확인할 수 있습니다.
+    얼굴을 학습하여 얼굴 데이터베이스에 저장합니다.
 
     example::
 
-      pibo.camera = Camera()
       img = pibo_camera.read()
-
-      faces = pibo_face.detect()
-      face = faces[n] # face는 faces중 하나
+      faces = pibo_face.detect(img)
+      face = faces[0] # face는 faces중 하나
       pibo_face.train_face(img, face, 'honggildong')
     
     :param numpy.ndarray img: 이미지 객체
 
-    :param numpy.ndarray face: 얼굴의 좌표 (x1, y1, x2, y2)
+    :param numpy.ndarray face: 디텍팅한 얼굴의 사각형 좌측상단, 우측하단 포인트 (x1, y1, x2, y2)
 
-    :param str name: 저장할 얼굴의 이름
+    :param str name: 디텍팅한 얼굴에 붙일 이름
     """
 
     x,y,w,h = face
@@ -445,28 +450,6 @@ class Face:
     self.facedb[1].append(face_encoding)
     #cv2.imwrite(self.data_path+"/{}.jpg".format(name), img[y+3:y+h-3, x+3:x+w-3]);
 
-  def delete_face(self, name):
-    """
-    등록된 얼굴을 삭제합니다.
-
-    example::
-
-      pibo_face.delete_face('honggildong')
-    
-    :param str name: 삭제할 얼굴의 이름
-
-    :returns: ``True`` / ``False``
-    """
-
-    ret = name in self.facedb[0]
-    if ret == True:
-      idx = self.facedb[0].index(name)
-      #os.remove(self.data_path +"/" + name + ".jpg")
-      for item in self.facedb:
-        del item[idx]
-
-    return ret
-
   def recognize(self, img, face):
     """
     등록된 얼굴을 인식합니다.
@@ -474,14 +457,15 @@ class Face:
     example::
 
       img = pibo_camera.read()
-      face = pibo_face.detect(img)[0]
+      faces = pibo_face.detect(img)
+      face = faces[0] # face는 faces중 하나
       pibo_face.recognize(img, face)
     
     :param numpy.ndarray img: 이미지 객체
 
     :param numpy.ndarray face: 얼굴의 좌표 (x, y, w, h)
 
-    :returns dict: ``{"name": 이름, "score": 오차도}``
+    :returns: ``{"name": 이름, "score": 오차도}``
 
       얼굴이 비슷할수록 오차도가 낮게 측정됩니다.
 
@@ -504,20 +488,6 @@ class Face:
     if min(matches) < self.threshold:
       data["name"] = self.facedb[0][matches.index(min(matches))]
     return data
-  
-  def detect(self, img):
-    """
-    얼굴을 탐색합니다.
-
-    example::
-
-      img = pibo_camera.read()
-      pibo_face.detect(img)
-
-    :param numpy.ndarray img: 이미지 객체
-
-    :returns: 인식된 얼굴들의 (x, y, w, h) 배열 입니다.
-    """
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = self.face_detector.detectMultiScale(gray, 1.1, 5)
@@ -531,18 +501,21 @@ class Face:
     example::
 
       img = pibo_camera.read()
-      face = pibo_face.detect(img)[0]
+      faces = pibo_face.detect(img)
+      face = faces[0] # face는 faces중 하나
       pibo_face.get_ageGender(img, face)
     
     :param numpy.ndarray img: 이미지 객체
 
     :param numpy.ndarray face: 얼굴의 좌표 (x, y, w, h)
 
-    :returns dict: ``{"age": 나이, "gender": 성별}``
+    :returns: ``{"age": 나이, "gender": 성별}``
 
       * age: 나이의 범위를 tuple() 형태로 출력한다.
       
         ex) (15, 20) # 15살에서 20살 정도
+
+      * gender: ``male`` / ``female``
     
     참고: https://github.com/kairess/age_gender_estimation
     """
@@ -574,10 +547,86 @@ class Face:
     #cv2.rectangle(img, (x1, y1), (x2, y2), (255,255,255), 2)
     #cv2.putText(img, "{} {}".format(gender, age), (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,128,128), 2)
     return data
+  
+  def get_db(self):
+    """
+    사용 중인 얼굴 데이터베이스를 확인합니다.
+
+    example::
+
+      pibo_face.get_db()
+
+    :returns: **facedb** (``list(list, list)`` 타입)
+
+      example::
+
+        [
+          ['honggildong'],
+          [array([-0.06423206,  0.12474005,  0.0511112 , -0.05676335, -0.07211345,
+                  -0.03123881, -0.04119622, -0.12800875,  0.11717855, -0.11079554,
+                   0.22952782, -0.02007426, -0.17457265, -0.13562854, -0.04972655,
+                   0.15810637, -0.12785575, -0.16479518, -0.07002968, -0.00208595,
+                   0.169218  ,  0.03144928, -0.01074579,  0.04103286, -0.09245337,
+                  ...
+                  -0.00706697,  0.06025593, -0.0049719 ])]
+        ]
+    """
+
+    return self.facedb
+  
+  def save_db(self, filename):
+    """
+    얼굴 데이터베이스를 파일로 저장합니다.
+
+    example::
+
+      pibo_face.save_db('/home/pi/facedb')
+    
+    :param str filename: 저장할 얼굴 데이터베이스 파일의 경로입니다.
+    """
+
+    with open(filename, "w+b") as f:
+      pickle.dump(self.facedb, f)
+
+  def delete_face(self, name):
+    """
+    등록된 얼굴을 삭제합니다.
+
+    example::
+
+      pibo_face.delete_face('honggildong')
+    
+    :param str name: 삭제할 얼굴의 이름
+
+    :returns: ``True`` / ``False``
+    """
+
+    ret = name in self.facedb[0]
+    if ret == True:
+      idx = self.facedb[0].index(name)
+      #os.remove(self.data_path +"/" + name + ".jpg")
+      for item in self.facedb:
+        del item[idx]
+
+    return ret
+
+  def load_db(self, filename):
+    """
+    얼굴 데이터베이스 파일을 불러옵니다.
+
+    example::
+
+      pibo_face.load_db('/home/pi/facedb')
+
+    :param str filename: 불러 올 ``facedb`` 파일의 경로입니다.
+    """
+
+    with open(filename, "rb") as f :
+      self.facedb = pickle.load(f)
 
 class Detect:
   """
-  얼굴 인식과 관련된 다양한 기능을 사용할 수 있는 클래스 입니다.
+  인식과 관련된 다양한 기능을 사용할 수 있는 클래스입니다.
 
   * 20개 class 안에서의 객체 인식 (MobileNetSSD)
   * QR/바코드 인식 (pyzbar)
@@ -585,7 +634,10 @@ class Detect:
 
   example::
 
+    from openpibo.vision import Detect
+
     pibo_detect = Detect()
+    # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
   """
 
   def __init__(self):
@@ -609,7 +661,7 @@ class Detect:
 
     example::
 
-      img = pibo_camera()
+      img = pibo_camera.read()
       pibo_detect.detect_object(img)
     
     :param numpy.ndarray img: 이미지 객체
@@ -645,12 +697,12 @@ class Detect:
 
     example::
 
-      img = pibo_camera()
+      img = pibo_camera.read()
       pibo_detect.detect_qr(img)
     
     :param numpy.ndarray img: 이미지 객체
 
-    :returns: ``{"type": 바코드 / QR코드 , "data":내용}``
+    :returns: ``{"data": 내용, "type": 바코드 / QR코드}``
     """
 
     barcodes = pyzbar.decode(img)
@@ -662,7 +714,7 @@ class Detect:
 
     example::
 
-      img = pibo_camera()
+      img = pibo_camera.read()
       pibo_detect.detect_text(img)
 
     :param numpy.ndarray: 이미지 객체

@@ -1,12 +1,9 @@
 # KAKAO API
 
-> 본 문서는 `KAKAO REST API KEY` 를 발급받는 방법에 대해 안내합니다.
-> 
-> openpibo 패키지의 **Speech** 라이브러리의 **TTS, STT**기능은 KAKAO API를 사용하기 때문에
->
-> `KAKAO REST API KEY` 를 발급받아 ``config.json`` 파일에 저장해야합니다.
->
-> 키 발급 방법은 [kakao developers](https://developers.kakao.com/)에 회원가입 후 다음 과정으로 진행합니다.
+본 문서는 `KAKAO REST API KEY` 를 발급받는 방법에 대해 안내합니다.
+
+**Speech** 라이브러리의 음성인식(**STT**), 음성합성(**TTS**) 기능은 KAKAO API를 사용하기 때문에 `KAKAO REST API KEY` 가 필요합니다.
+키 발급 방법은 [kakao developers](https://developers.kakao.com/)에 회원가입 후 다음 과정으로 진행합니다.
 
 1. 로그인 후 [내 애플리케이션] 클릭
 
@@ -32,7 +29,7 @@
 
    ```json
    {
-       "DATA_PATH":"/home/pi/openpibo-files/data/",
+       "DATA_PATH":"/home/pi/openpibo-files/data",
        "KAKAO_ACCOUNT": "<여기에 발급받은 REST API 키를 입력해주세요>",
        "robotId": ""
    }

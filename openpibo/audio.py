@@ -1,5 +1,5 @@
 """
-``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
+mp3, wav 오디오 파일을 재생 및 정지합니다.
 """
 
 import os
@@ -9,7 +9,7 @@ LOW = 0
 
 class Audio:
   """
-  ``mp3`` , ``wav`` 오디오 파일을 재생 및 정지합니다.
+  mp3, wav 오디오 파일을 재생 및 정지합니다.
 
   example::
 
@@ -17,7 +17,6 @@ class Audio:
     
     pibo_audio = Audio()
     # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
-
   """
   # out: local/hdmi/both
   # volume: mdB
@@ -28,15 +27,15 @@ class Audio:
 
   def play(self, filename, out='local', volume='-2000', background=True):
     """
-    ``mp3`` 또는 ``wav`` 파일을 재생합니다.
+    mp3 또는 wav 파일을 재생합니다.
 
     example::
 
-      pibo_audio.play('/home/pi/x-openpibo-data/data/audio/test.mp3', 'local', '-2000', True)
+      pibo_audio.play('/home/pi/openpibo-files/data/audio/test.mp3', 'local', '-2000', True)
         
     :param str filename: 재생할 파일의 경로를 지정합니다.
     
-      ``mp3`` 와 ``wav`` 형식을 지원합니다.
+      mp3와 wav 형식을 지원합니다.
 
     :param str out: 출력 대상을 설정합니다.
     
@@ -44,7 +43,7 @@ class Audio:
       
       * ``local``: 파이보의 머리에 부착되어있는 스피커에서 출력됩니다. (default)
 
-      * ``hdmi``: 파이보 등 부분 라즈베리파이에 있는 ``micro hdmi`` 포트에 연결된 스피커에서 출력됩니다.
+      * ``hdmi``: 파이보 등 부분 라즈베리파이에 있는 ``micro HDMI`` 포트에 연결된 스피커에서 출력됩니다.
       
       * ``both``: ``local`` 과 ``hdmi`` 모두에서 출력됩니다.
 
@@ -84,7 +83,7 @@ class Audio:
 
     인스턴스(pibo_audio)를 생성하면, 기본적으로 무음모드는 해제되어있습니다.
 
-    무음모드에서는 ``play`` 메서드를 사용해도 소리가 출력되지 않습니다.
+    무음모드에서는 ``play`` 메소드를 사용해도 소리가 출력되지 않습니다.
 
     example::
 

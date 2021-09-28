@@ -1,26 +1,25 @@
 """
-각 메서드의 반환값은 다음과 같은 형식으로 구성됩니다.
+각 메소드의 반환값은 다음과 같은 형식으로 구성됩니다.
 
 * 실행 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": data 또는 None}``
 
-    * 메서드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.
+    * 메소드에서 반환되는 데이터가 있을 경우 해당 데이터가 출력되고, 없으면 None이 출력됩니다.
 
 * 실행 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
 
     * ``errcode`` 에 err 숫자 코드가, ``errmsg`` 에 해당 error 발생 원인이 출력됩니다.
     * err 숫자코드의 의미와 발생 원인은 다음과 같습니다.
 
-        *  ``0`` : 메서드 실행 성공
-        * ``-1`` : Argument error - 메서드 실행에 필요한 필수 인자 값 미기입
+        *  ``0`` : 메소드 실행 성공
+        * ``-1`` : Argument error - 메소드 실행에 필요한 필수 인자 값 미기입
         * ``-2`` : Extension error - filename에 확장자 미기입 또는 잘못된 확장자 형식 입력
         * ``-3`` : NotFound error - 존재하지 않는 데이터 입력
         * ``-4`` : Exist error - 이미 존재하는 데이터의 중복 생성
         * ``-5`` : Range error - 지정된 범위를 벗어난 값 입력
         * ``-6`` : Running error - 이미 실행 중인 함수의 중복 사용
         * ``-7`` : Syntax error - 잘못된 형식의 인자 값 입력
-        * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메서드 실행에 실패한 경우
+        * ``-8`` : Exception error - 위 error 이외의 다른 이유로 메소드 실행에 실패한 경우
 """
-
 
 import sys, time, pickle
 
@@ -68,6 +67,7 @@ class Pibo:
     example::
 
         from openpibo.edu_v1 import Pibo
+
         pibo_edu_v1 = Pibo()
         # 아래의 모든 예제 이전에 위 코드를 먼저 사용합니다.
     """
@@ -109,7 +109,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.play_audio('/home/pi/.../opening.mp3')
+            pibo_edu_v1.play_audio('/home/pi/openpibo-files/data/audio/opening.mp3')
             
         :param str filename: 재생할 파일의 경로.
         
@@ -183,7 +183,7 @@ class Pibo:
         """
         (``eye_on`` 의 내부함수)
 
-        ``eye_on`` 메서드에서 입력값이 숫자인지 문자인지 판단하기 위한 메서드 입니다.
+        ``eye_on`` 메소드에서 입력값이 숫자인지 문자인지 판단하기 위한 메소드 입니다.
         """
         
         alpha_cnt = 0
@@ -402,7 +402,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.save_colordb('/home/pi/.../new_colordb')
+            pibo_edu_v1.save_colordb('/home/pi/new_colordb')
 
         :param str filename: 저장할 데이터베이스 파일 경로
 
@@ -429,7 +429,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.load_colordb('/home/pi/.../colordb)
+            pibo_edu_v1.load_colordb('/home/pi/new_colordb')
         
         :param str filename: 불러올 데이터베이스 파일 경로
 
@@ -530,7 +530,7 @@ class Pibo:
         """
         (``start_devices`` 의 내부함수)
 
-        ``start_devices`` 메서드에서 디바이스의 상태를 파악하여 해당 메시지를 ``func`` 하는 메서드입니다.
+        ``start_devices`` 메소드에서 디바이스의 상태를 파악하여 해당 메시지를 ``func`` 하는 메소드입니다.
 
         ``func`` 에는 print 함수가 들어가서 메시지가 계속해서 출력(print) 됩니다.
         """
@@ -846,7 +846,7 @@ class Pibo:
     # [Motion] - Check motors array
     def check_motor(self, mode, values):
         """
-        (``motors`` , ``motors_movetime`` 메서드의 내부함수 입니다.)
+        (``motors`` , ``motors_movetime`` 메소드의 내부함수 입니다.)
 
         모터의 각도를 설정할 때, 허용 각도 범위 내에 해당하는지 판별하기 위한 함수입니다.
 
@@ -872,14 +872,42 @@ class Pibo:
             return self.return_msg(False, "Exception error", e, None)
 
 
+    # [OLED] - Show display
+    def show_display(self):
+        """
+        화면에 표시합니다.
+
+        문자 또는 그림을 그린 후 이 메소드를 사용해야만 파이보의 oled에 표시가 됩니다.
+
+        example::
+
+            pibo_edu_v1.draw_text((10, 10), '안녕하세요', 10)
+            pibo.show_display()
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        try:
+            self.oled.show()
+            return self.return_msg(True, "Success", "Success", None)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
     # [OLED] - Draw a text
     def draw_text(self, points=None, text=None, size=None):
         """
         문자를 씁니다. (한글/영어)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
         
             pibo_edu_v1.draw_text((10, 10), '안녕하세요.', 15)
+            pibo_edu_v1.show_display()
         
         :param tuple(int, int) points: 문자열의 좌측상단 좌표 튜플(x,y)
 
@@ -914,9 +942,12 @@ class Pibo:
         
         128X64 png 파일 외에는 지원하지 않습니다.
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
-            pibo_edu_v1.draw_image("/home/pi/.../test.png")
+            pibo_edu_v1.draw_image("/home/pi/openpibo-files/data/image/clear.png")
+            pibo_edu_v1.show_display()
 
         :param str filename: 이미지 파일의 경로
         
@@ -952,11 +983,14 @@ class Pibo:
         """
         도형을 그립니다. (사각형, 원, 선)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
             pibo_edu_v1.draw_figure((10,10,30,30), "rectangle", True)
             pibo_edu_v1.draw_figure((70,40,90,60), "circle", False)
             pibo_edu_v1.draw_figure((15,15,80,50), "line")
+            pibo_edu_v1.show_display()
 
         :param tuple(int, int, int, int) points: 선 - 시작 좌표, 끝 좌표(x, y, x1, y1)
         
@@ -996,9 +1030,12 @@ class Pibo:
         """
         이미지를 반전시킵니다. (색 반전)
 
+        `show_display` 메소드와 함께 사용하여 oled에 표시할 수 있습니다.
+
         example::
 
             pibo_edu_v1.invert()
+            pibo_edu_v1.show_display()
 
         :returns:
 
@@ -1008,31 +1045,6 @@ class Pibo:
 
         try:
             self.oled.invert()
-            return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [OLED] - Show display
-    def show_display(self):
-        """
-        화면에 표시합니다.
-
-        이 메서드를 사용해야만 파이보의 oled에 표시가 됩니다.
-
-        example::
-
-            pibo_edu_v1.draw_text((10, 10), '안녕하세요', 10)
-            pibo.show_display()
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        try:
-            self.oled.show()
             return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
@@ -1065,7 +1077,7 @@ class Pibo:
         """
         (``draw_text`` , ``draw_figure`` 의 내부함수 입니다.)
 
-        text와 figure의 위치를 결정하는 points가 적절한 포멧인지 확인하기 위한 메서드입니다.
+        text와 figure의 위치를 결정하는 points가 적절한 포맷인지 확인하기 위한 메소드입니다.
 
         text는 point가 2개 (x, y) 필요합니다. (시작지점)
 
@@ -1129,7 +1141,7 @@ class Pibo:
 
             pibo_edu_v1.tts(
                 "<speak><voice name='MAN_READ_CALM'>안녕하세요. 반갑습니다.<break time='500ms'/></voice></speak>", 
-                "/home/pi/.../tts.mp3"
+                "/home/pi/tts.mp3"
                 )
 
         :param str string: 변환할 문장
@@ -1163,8 +1175,8 @@ class Pibo:
                 example::
 
                     <speak>
-                        <voice name="WOMAN_READ_CALM"> 지금은 여성 차분한 낭독체입니다.</voice>
-                        <voice name="MAN_READ_CALM"> 지금은 남성 차분한 낭독체입니다.</voice>
+                        <voice name="WOMAN_READ_CALM"> 여성 차분한 낭독체입니다.</voice>
+                        <voice name="MAN_READ_CALM"> 남성 차분한 낭독체입니다.</voice>
                         <voice name="WOMAN_DIALOG_BRIGHT"> 여성 밝은 대화체예요.</voice>
                         <voice name="MAN_DIALOG_BRIGHT"> 남성 밝은 대화체예요.</voice>
                     </speak>
@@ -1206,7 +1218,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.stt('/home/pi/.../stream.wav', 5)
+            pibo_edu_v1.stt('/home/pi/stream.wav', 5)
 
         :param str filename: 저장할 파일 경로
 
@@ -1258,7 +1270,7 @@ class Pibo:
     # [Vision] - start_camera thread
     def camera_on(self):
         """
-        (``start_camera`` 메서드의 내부함수 입니다.)
+        (``start_camera`` 메소드의 내부함수 입니다.)
 
         카메라로 짧은 주기로 사진을 찍어 128x64 크기로 변환한 후 OLED에 보여줍니다.
         """
@@ -1341,7 +1353,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.capture('/home/pi/.../test.png')
+            pibo_edu_v1.capture('/home/pi/test.png')
 
         :param str filename: 저장할 파일 경로
 
@@ -1377,7 +1389,7 @@ class Pibo:
     # [Vision] - Detect object
     def search_object(self):
         """
-        이미지 안의 객체를 인식합니다.
+        카메라 이미지 안의 객체를 인식합니다.
 
         example::
 
@@ -1415,7 +1427,7 @@ class Pibo:
     # [Vision] - Detect QR/barcode
     def search_qr(self):
         """
-        이미지 안의 QR 코드 및 바코드를 인식합니다.
+        카메라 이미지 안의 QR 코드 및 바코드를 인식합니다.
 
         example::
 
@@ -1444,7 +1456,7 @@ class Pibo:
     # [Vision] - Detect text
     def search_text(self):
         """
-        이미지 안의 문자를 인식합니다.
+        카메라 이미지 안의 문자를 인식합니다.
 
         example::
 
@@ -1467,7 +1479,7 @@ class Pibo:
     # [Vision] - Detect color
     def search_color(self):
         """
-        이미지(단색 이미지) 안의 색상을 인식합니다.
+        카메라 이미지(단색 이미지) 안의 색상을 인식합니다.
 
         (Red, Orange, Yellow, Green, Skyblue, Blue, Purple, Magenta)
 
@@ -1520,7 +1532,7 @@ class Pibo:
     # [Vision] - Detect face
     def detect_face(self):
         """
-        이미지 안의 얼굴을 탐색합니다.
+        카메라 이미지 안의 얼굴을 탐색합니다.
 
         example::
 
@@ -1551,13 +1563,15 @@ class Pibo:
     # [Vision] - Recognize face
     def search_face(self, filename="face.png"):
         """
-        이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.
+        카메라 이미지 안의 얼굴을 인식하여 성별과 나이를 추측하고, facedb를 바탕으로 인식한 얼굴의 이름과 정확도를 제공합니다.
+
+        얼굴 인식에 성공하면, 사진을 캡쳐 후 얼굴 위치와 이름, 나이, 성별을 기입 후 `filename` 에 저장합니다.
         
         (인식한 얼굴 중 가장 크게 인식한 얼굴에 적용됩니다.)
 
         example::
 
-            pibo_edu_v1.search_face("/home/pi/.../face.png")
+            pibo_edu_v1.search_face("/home/pi/test.png")
 
         :param str filename: 저장할 파일 경로
 
@@ -1649,6 +1663,34 @@ class Pibo:
             return self.return_msg(False, "Exception error", e, None)
 
 
+    # [Vision] - Delete face in the facedb
+    def delete_face(self, name=None):
+        """
+        facedb에 등록된 얼굴을 삭제합니다.
+
+        example::
+
+            pibo_edu_v1.delete_face("kim")
+
+        :param str name: 삭제할 얼굴 이름
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        if name == None:
+            return self.return_msg(False, "Argument error", "Name is required", None)
+        try:
+            ret = self.face.delete_face(name)
+            if ret == False:
+                return self.return_msg(ret, "NotFound error", "{} not exist in the facedb".format(name), None)
+            return self.return_msg(ret, "Success", "Success", None)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
     # [Vision] - Get facedb
     def get_facedb(self):
         """
@@ -1667,6 +1709,32 @@ class Pibo:
         try:
             facedb = self.face.get_db()
             return self.return_msg(True, "Success", "Success", facedb)
+        except Exception as e:
+            return self.return_msg(False, "Exception error", e, None)
+
+
+    # [Vision] - Save the facedb as a file
+    def save_facedb(self, filename=None):
+        """
+        facedb를 파일로 저장합니다.
+
+        example::
+
+            pibo_edu_v1.save_facedb("/home/pi/facedb")
+
+        :param str filename: 저장할 데이터베이스 파일 경로
+
+        :returns:
+
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+        """
+
+        if filename == None:
+            return self.return_msg(False, "Argument error", "Filename is required", None)
+        try:
+            self.face.save_db(filename)
+            return self.return_msg(True, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
 
@@ -1700,7 +1768,7 @@ class Pibo:
 
         example::
 
-            pibo_edu_v1.load_facedb("/home/pi/.../facedb")
+            pibo_edu_v1.load_facedb("/home/pi/facedb")
 
         :param str filename: 불러올 데이터베이스 파일 경로
         
@@ -1719,60 +1787,6 @@ class Pibo:
         try:
             self.face.load_db(filename)
             return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [Vision] - Save the facedb as a file
-    def save_facedb(self, filename=None):
-        """
-        facedb를 파일로 저장합니다.
-
-        example::
-
-            pibo_edu_v1.save_facedb("/home/pi/.../facedb")
-
-        :param str filename: 저장할 데이터베이스 파일 경로
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        if filename == None:
-            return self.return_msg(False, "Argument error", "Filename is required", None)
-        try:
-            self.face.save_db(filename)
-            return self.return_msg(True, "Success", "Success", None)
-        except Exception as e:
-            return self.return_msg(False, "Exception error", e, None)
-
-
-    # [Vision] - Delete face in the facedb
-    def delete_face(self, name=None):
-        """
-        facedb에 등록된 얼굴을 삭제합니다.
-
-        example::
-
-            pibo_edu_v1.delete_face("kim")
-
-        :param str name: 삭제할 얼굴 이름
-
-        :returns:
-
-            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
-        """
-
-        if name == None:
-            return self.return_msg(False, "Argument error", "Name is required", None)
-        try:
-            ret = self.face.delete_face(name)
-            if ret == False:
-                return self.return_msg(ret, "NotFound error", "{} not exist in the facedb".format(name), None)
-            return self.return_msg(ret, "Success", "Success", None)
         except Exception as e:
             return self.return_msg(False, "Exception error", e, None)
 

@@ -1,5 +1,5 @@
-Audio
-=====================================================
+audio
+=====
 
 .. automodule:: openpibo.audio
     :members:

@@ -1,4 +1,4 @@
-Motion
+motion
 =====================================================
 
 .. automodule:: openpibo.motion

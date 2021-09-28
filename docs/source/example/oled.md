@@ -1,8 +1,8 @@
-# OLED
+# oled
 
 ## figure_test.py
 
-> OLED display에 도형과 선을 출력합니다.
+OLED display에 도형과 선을 출력합니다.
 
 ```python
 from openpibo.oled import Oled
@@ -31,7 +31,7 @@ pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 figure_test.py
 
 ## image_test.py
 
-> OLED display에 이미지를 출력합니다. (128X64만 가능합니다.)
+OLED display에 이미지를 출력합니다. (128X64만 가능합니다.)
 
 ```python
 import openpibo
@@ -42,7 +42,7 @@ import time
 # 화면에 clear.png 이미지 5초간 표시
 def oled_f():
   oObj = Oled()
-  oObj.draw_image(openpibo.config['DATA_PATH']+"images/clear.png")  # clear.png 그리기
+  oObj.draw_image(openpibo.config['DATA_PATH']+"/images/clear.png")  # clear.png 그리기
   oObj.show()   # 화면에 표시
   time.sleep(5) # 5초동안 프로세스 정지
   oObj.clear()  # 화면 지우기
@@ -64,7 +64,7 @@ pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 image_test.py
 
 ## self_test.py
 
-> 직접 실습해보세요.
+직접 실습해보세요.
 
 ```python
 from openpibo.oled import Oled
@@ -85,7 +85,7 @@ pi@raspberrypi:~/openpibo-examples/oled $ sudo python3 self_test.py
 
 ## text_test.py
 
-> OLED display에 문자열을 출력합니다.
+OLED display에 문자열을 출력합니다.
 
 ```python
 from openpibo.oled import Oled

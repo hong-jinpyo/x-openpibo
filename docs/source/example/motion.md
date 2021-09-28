@@ -1,4 +1,4 @@
-# Motion
+# motion
 
 ## motion_test.py
 
@@ -11,7 +11,7 @@ if __name__ == "__main__":
   m.set_motion(name="wave3", cycle=10)
 ```
 
-아래는 motion_db.json의 일부입니다. motion_db는 `Motion.get_motion(name=None)` 함수로 확인할 수 있습니다.
+아래는 motion_db.json의 일부입니다. motion_db는 `Motion.get_motion` 메소드로 확인할 수 있습니다.
 
 ```
 {
@@ -40,6 +40,10 @@ if __name__ == "__main__":
 ```shell
 pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 motion_test.py
 ```
+
+**motion_test.py 결과**
+
+파이보가 `wave3`의 동작을 10회 반복합니다.
 
 ## motor_test.py
 
@@ -76,6 +80,10 @@ if __name__ == "__main__":
 pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 motor_test.py 
 ```
 
+**motor_test.py 결과**
+
+파이보가 양팔을 서로 다른 속도로 무한히 움직입니다.
+
 ## multi_motor_test.py
 
 ```python
@@ -102,6 +110,10 @@ if __name__ == "__main__":
 ```shell
 pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 multi_motor_test.py
 ```
+
+**multi_motor_test.py 결과**
+
+파이보가 양팔을 무한히 움직입니다.
 
 ## pymotor_test.py
 
@@ -148,3 +160,5 @@ pi@raspberrypi:~/openpibo-examples/motion $ sudo python3 pymotor_test.py
 Init
 Start
 ```
+
+위와 같이 출력되며, 오른쪽 팔을 무한히 움직입니다.

@@ -1,4 +1,4 @@
-Speech
+speech
 =====================================================
 
 .. automodule:: openpibo.speech
