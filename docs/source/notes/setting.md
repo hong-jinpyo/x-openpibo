@@ -2,7 +2,7 @@
 
 서큘러스가 제공하는 OS와 openpibo API를 사용하는 데 필요한 사전 설정을 다룹니다.
 
-OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://drive.google.com/file/d/1IewZY1GY3rrg4O8pWO-VTMWKx-NWa1WQ/view)에서 다운로드 받을 수 있습니다. openpibo API는 [깃허브](https://github.com/themakerrobot/x-openpibo)에 업로드 하였으며, 누구나 다운로드 받아 활용할 수 있습니다.
+OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://github.com/themakerrobot)에서 다운로드 받을 수 있습니다. openpibo API는 [깃허브](https://github.com/themakerrobot/x-openpibo)에 업로드 하였으며, 누구나 다운로드 받아 활용할 수 있습니다.
 
 ## 무선 네트워크 설정
 
@@ -48,10 +48,7 @@ OS는 파이보 DIY 키트에 포함되어 있으며, 이후 [여기](https://dr
 
 **[주의] 파이보를 부팅하게 되면 네트워크 설정이 완료된 후 `wpa_supplicant.conf` 파일이 사라집니다.**
 
-새로운 네트워크에 접속하려면, `wqa_supplicant.conf.bak` 파일을 복사한 후, 파일명을 `wpa_supplicant.conf`로 변경하여 사용할 수 있습니다.
-
-![](images/bak.png)
-
+새로운 네트워크에 접속하려면, `wqa_supplicant.conf.example` 파일을 복사한 후, 파일명을 `wpa_supplicant.conf`로 변경하여 사용할 수 있습니다.
 
 ## SSH 연결
 

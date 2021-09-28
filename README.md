@@ -1,13 +1,6 @@
 # x-openpibo Guide
 
-> PIBO 교육용 라이브러리입니다. 아래와 같은 폴더들로 구성되어 있습니다.
-
-1. x-openpibo: 기능 구현을 위한 패키지
-2. x-openpibo-example: 각 분야 예제 파일 모음
-3. x-openpibo-data: 기능 구현을 위한 실험 데이터
-4. x-openpibo-tools: 교육에 필요한 tools
-
-
+> PIBO 교육용 라이브러리입니다.
 
 ## INDEX
 * [설치 및 설정](#설치-및-설정)
@@ -17,182 +10,63 @@
 * [공식 문서](#공식-문서)
 
 
-## 설치 및 설정
+## Setting
 
-1. 파이보 SD카드에 `CIRCULUS_EDU_OS`를 설치
+1. 파이보 microSD 카드에 `CIRCULUS_EDU_OS`가 기본적으로 설치되어있습니다.
 
-2. SD카드 `boot` 레포지토리에서 파일을 생성 및 수정
+2. 파이보와 PC를 같은 네트워크에 접속합니다.
 
-   - `ssh` 라는 이름의 빈 파일 생성
+3. 파이보 전원을 켜서 OLED패널에 표시된 IP주소를 확인합니다.
 
-   - `wpa_supplicant.conf`  파일 수정
+   ![](docs/source/notes/images/ip.jpg)
 
-     ```
-     country=KR
-     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-     network={
-         ssid="YOUR_NETWORK_NAME"
-         psk="YOUR_PASSWORD"
-         key_mgmt=WPA-PSK
-     }
-     ```
-
-     - `YOUR_NETWORK_NAME` : 접속하려는 wifi 주소로 수정
-     - `YOUR_PASSWORD` : wifi 주소의 비밀번호로 수정
-
-3. 파이보에 SD카드 결합 후 전원 on
-
-4. 컴퓨터에서도 파이보와 같은 네트워크에 접속
-
-5. 컴퓨터에서 파이보로 ssh 접속
-
-   Terminal을 켜고 다름과 같이 입력
+4. SSH로 파이보에 접속합니다.
 
    ```bash
-   ssh pi@<xxx.xxx.xxx.xxx>
-   
-   pi@xxx.xxx.xxx.xxx's password: raspberry
+   ssh pi@<IP주소>
+   # ssh pi@192.168.2.144
    ```
 
-   > pi@ 뒤에는 파이보 OLED에 표시된 ip번호를 입력합니다.
-   >
-   > 초기 비밀번호는 `raspberry`로 설정되어 있습니다.
+5. STT, TTS 기능을 사용하기 위해 [카카오 api키를 발급받습니다.](https://github.com/themakerrobot/x-openpibo/tree/master/docs/kakao_api.md)
 
-6. `lxml` 파서를 설치합니다. `추후 수정 요. os에서 미리 설치`
+더 자세한 설명은 [공식 문서](http://127.0.0.1:5500/x-openpibo/docs/build/html/notes/setting.html)를 참고하시기 바랍니다.
 
-   ```bash
-   sudo apt-get install python3-lxml -y
+## Usage
+
+- `openpibo` 는 아래와 같이 사용할 수 있습니다.
+
+- 첫째로, class를 import 하고 instance를 생성합니다.
+
+   class의 종류는 다음과 같습니다.
+
+   ```
+   audio:   Audio
+   collect: Wikipedia, Weather, News
+   device:  Device
+   motion:  Motion, PyMotion
+   oled:    Oled
+   speech:  Speech, Dialog
+   vision:  Camera, Face, Detect
    ```
 
-7. 각종 x-openpibo 패키지와 도구들을 설치합니다.
-
-   - 패키지 설치
-
-      ```bash
-      git clone https://github.com/themakerrobot/x-openpibo.git
-      cd x-openpibo
-      sudo python3 setup.py install
-      
-      # 또는
-      
-      sudo pip3 install git+https://github.com/themakerrobot/x-openpibo
-      ```
-
-   - 추가 도구 설치
-
-      ```bash
-      # 샘플 데이터
-      git clone https://github.com/themakerrobot/x-openpibo-data.git
-      
-      # 예제 코드
-      git clone https://github.com/themakerrobot/x-openpibo-example.git
-      
-      # 각종 툴
-      git clone https://github.com/themakerrobot/x-openpibo-tools.git
-      ```
-
-8. [카카오 api키를 발급받습니다.](https://github.com/themakerrobot/x-openpibo/tree/master/docs/kakao_api.md)
-
-
-
-
-## 사용법
-
-### 라이브러리 사용법
-
-> 아래는 `Audio` 라이브러리로 음악을 재생하는 예제입니다. 다른 라이브러리나 메서드는 [document](https://themakerrobot.github.io/x-openpibo/build/html/index.html)를 참고해주시기 바랍니다.
->
-> 가이드는 두 가지 전제 하에 작성되었습니다.
-> 1. `x-openpibo-data`를 `/home/pi/` 경로에 clone 하였음.
-> 2. `x-openpibo`를 `sudo pip3 install`명령어로 설치 하였음.
-
-- 먼저 다음 명령어를 작성해 python 인터프리터 모드로 들어갑니다.
-
-```bash
-$ sudo python3
+```python
+>>> from openpibo.<라이브러리 명> import <클래스 명>
+  # from openpibo.audio import Audio
 ```
-
-- 사용하고자 하는 라이브러리를 import하고, `Audio` 인스턴스를 만듭니다.
 
 ```python
->>> from openpibo.audio import Audio
->>> pibo = Audio()
+>>> <인스턴스 명> = <클래스 명>()
+  # pibo_audio = Audio()
 ```
 
-- `play` 메서드를 사용해 음악을 재생시킵니다.
-- `<오디오 데이터 경로>` 에는 절대경로, 또는 상대경로가 들어갑니다.
+- 다음으로 원하는 기능의 메소드를 사용합니다.
 
 ```python
->>> pibo.play('/home/pi/x-openpibo-data/data/audio/test.mp3')
+>>> <인스턴스 명>.<메소드 명>(<인자>)
+  # pibo_audio.play('/home/pi/openpibo-files/data/audio/test.mp3')
 ```
 
-- `stop` 메서드로 음악을 정지시킵니다.
-
-```python
->>> pibo.stop()
-```
-
-- 만약 너무 긴 경로를 반복해서 입력하기 번거롭다면, `config.json` 에 경로를 저장할 수 있습니다.
-
-```json
-{"DATA_PATH": "...", "KAKAO_ACCOUNT": "..."}
-```
-
-- `config.json` 파일을 수정하기 위해서는 sudo 권한이 필요합니다.
-
-```bash
->>> quit()
-
-$ cd ~
-$ sudo vi config.json
-```
-
-- 기본적으로 `DATA_PATH`가 `/home/pi/x-openpibo-data/data/` 경로로 설정되어있지만, 사용자 임의로 만들 수도 있습니다.
-
-```json
-{
-    "DATA_PATH": "/home/pi/x-openpibo-data/data/",
-    "MY_DATA_PATH": "/home/pi/x-openpibo-data/data/audio/",
-    "KAKAO_ACCOUNT": "..."
-}
-```
-
-- `config.json` 는 `openpibo.config` 에 저장되어 있습니다.
-
-```python
-$ sudo python3
-
->>> import openpibo
->>> openpibo.config
-```
-
-```
-{"DATA_PATH":"/home/pi/x-openpibo-data/data/", "MY_DATA_PATH":"/home/pi/ ...}
-```
-
-- 이를 활용하여 아래와 같이 데이터를 불러올 수 있습니다.
-
-```python
->>> from openpibo.audio import Audio
->>> import openpibo
->>> pibo = Audio()
->>> pibo.play(openpibo.config['MY_DATA_PATH'] + 'test.mp3')
->>> pibo.stop()
-```
-
-
-
-### Tools
-
-파이보 사용에 도움이 되는 각종 툴에 대한 사용법입니다.
-
-다음 도구들을 사용할 수 있습니다.
-
-- [process test](https://github.com/themakerrobot/x-openpibo-tools/blob/master/README.md#Process-Test)
-- [motion creator](https://github.com/themakerrobot/x-openpibo-tools/blob/master/README.md#Motion-Creator)
-- [device simulator](https://github.com/themakerrobot/x-openpibo-tools/blob/master/README.md#Device-Simulator)
-
-
+클래스 및 메소드의 종류 등 더 자세한 내용은 [공식 문서](http://127.0.0.1:5500/x-openpibo/docs/build/html/libraries/audio.html)의 LIBRARIES 탭에서 확인하실 수 있습니다.
 
 ## 공식 문서
 
