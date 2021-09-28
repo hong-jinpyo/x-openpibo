@@ -214,4 +214,4 @@ openpibo
 - [oled.py](https://themakerrobot.github.io/x-openpibo/build/html/libraries/oled.html)
 - [speech.py](https://themakerrobot.github.io/x-openpibo/build/html/libraries/speech.html)
 - [vision.py](https://themakerrobot.github.io/x-openpibo/build/html/libraries/vision.html)
-- [edu_v1.py](https://)
+- [edu_v1.py](https://themakerrobot.github.io/x-openpibo/build/html/libraries/edu_v1.html)
