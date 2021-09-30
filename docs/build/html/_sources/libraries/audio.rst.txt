@@ -1,12 +1,12 @@
-openpibo.audio
-==============
+openpibo.audio.Audio
+====================
 
-:meth:`~openpibo.audio.__init__`
-:meth:`~openpibo.audio.play`
-:meth:`~openpibo.audio.stop`
-:meth:`~openpibo.audio.mute`
+:meth:`~openpibo.audio.Audio.__init__`
+:meth:`~openpibo.audio.Audio.play`
+:meth:`~openpibo.audio.Audio.stop`
+:meth:`~openpibo.audio.Audio.mute`
 
-.. automodule:: openpibo.audio
+.. automodule:: openpibo.audio.Audio
     :members:
     :undoc-members:
     :show-inheritance:
