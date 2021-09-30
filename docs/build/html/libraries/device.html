@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>device &mdash; openpibo 0.8.1 documentation</title>
+  <title>device &mdash; openpibo 0.8.1 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/libraries/device.html" />
@@ -106,7 +106,7 @@
            <div itemprop="articleBody">
              
   <section id="module-openpibo.device">
-<span id="device"></span><h1>device<a class="headerlink" href="#module-openpibo.device" title="제목 주소"></a></h1>
+<span id="device"></span><h1>device<a class="headerlink" href="#module-openpibo.device" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>메인 컨트롤러를 제어합니다.</p>
 <p>메인 컨트롤러로 메시지 (<code class="docutils literal notranslate"><span class="pre">#code:data!</span></code> 포맷) 가 전달됩니다.  
 이후 메인컨트롤러는 메시지를 파악하여 주어진 기능을 수행합니다.</p>
@@ -348,8 +348,8 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.device.Device">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.device.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#openpibo.device.Device" title="정의 주소"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">openpibo.device.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#openpibo.device.Device" title="이 정의에 대한 퍼머링크"></a></dt>
+<dd><p>기반 클래스: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>메인컨트롤러를 제어하여 파이보의 여러가지 상태를 체크하거나, 눈 색깔을 변경합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openpibo.device</span> <span class="kn">import</span> <span class="n">Device</span>
@@ -360,14 +360,14 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.device.Device.locked">
-<span class="sig-name descname"><span class="pre">locked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.locked" title="정의 주소"></a></dt>
+<span class="sig-name descname"><span class="pre">locked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.locked" title="이 정의에 대한 퍼머링크"></a></dt>
 <dd><p>Device가 사용 중인지 확인합니다. Device가 사용 중일 때 메시지를 보내지 않도록 주의합니다.</p>
 <p>example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pibo_device</span><span class="o">.</span><span class="n">locked</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">반환</dt>
+<dt class="field-odd">반환값</dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> / <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
 </dl>
@@ -375,7 +375,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.device.Device.send_cmd">
-<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.send_cmd" title="정의 주소"></a></dt>
+<span class="sig-name descname"><span class="pre">send_cmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.send_cmd" title="이 정의에 대한 퍼머링크"></a></dt>
 <dd><p>Device에 메시지 코드/데이터를 전송합니다. 입력된 메시지는 <code class="docutils literal notranslate"><span class="pre">#code:data!</span></code> 의 포맷으로 변경되어 전달됩니다.
 메시지 상세 설명은 위에서 확인할 수 있습니다.</p>
 <p>example:</p>
@@ -383,7 +383,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">매개 변수</dt>
+<dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>code</strong> (<em>str</em><em> or </em><em>int</em>) – <p>메시지 코드</p>
 <ul>
@@ -431,7 +431,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="openpibo.device.Device.send_raw">
-<span class="sig-name descname"><span class="pre">send_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.send_raw" title="정의 주소"></a></dt>
+<span class="sig-name descname"><span class="pre">send_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openpibo.device.Device.send_raw" title="이 정의에 대한 퍼머링크"></a></dt>
 <dd><p>Device에 실제 메시지를 전송하고 응답을 받습니다.
 메시지 상세 설명은 위에서 확인할 수 있습니다.</p>
 <p>example:</p>
@@ -440,14 +440,14 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">매개 변수</dt>
+<dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>raw</strong> (<em>str</em>) – <p>실제 전달되는 메시지</p>
 <p>Device에 전송되는 메시지의 포맷은 <code class="docutils literal notranslate"><span class="pre">#code:data!</span></code> 입니다.
 해당 메시지를 메인 컨트롤러에 전송합니다.</p>
 <p><strong>자세한 설명은 상단 “메시지 상세 설명” 참고하시기 바랍니다</strong></p>
 </p>
 </dd>
-<dt class="field-even">반환</dt>
+<dt class="field-even">반환값</dt>
 <dd class="field-even"><p>Device로부터 받은 응답</p>
 </dd>
 </dl>
@@ -468,7 +468,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Circulus.</p>
+    <p>&#169; 저작권 2021, Circulus Education.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -18,7 +18,7 @@ from openpibo import __version__ as VERSION
 # -- Project information -----------------------------------------------------
 
 project = 'openpibo'
-copyright = '2021, Circulus'
+copyright = '2021, Circulus Education'
 author = 'Circulus'
 
 # The full version, including alpha/beta/rc tags

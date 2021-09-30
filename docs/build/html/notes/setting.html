@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>설정 &mdash; openpibo 0.8.1 documentation</title>
+  <title>설정 &mdash; openpibo 0.8.1 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/setting.html" />
@@ -112,11 +112,11 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>설정<a class="headerlink" href="#id1" title="제목 주소"></a></h1>
+<h1>설정<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>서큘러스가 제공하는 OS와 openpibo API를 사용하는 데 필요한 사전 설정을 다룹니다.</p>
 <p>OS는 파이보 DIY 키트에 포함되어 있으며, 이후 <a class="reference external" href="https://github.com/themakerrobot">여기</a>에서 다운로드 받을 수 있습니다. openpibo API는 <a class="reference external" href="https://github.com/themakerrobot/x-openpibo">깃허브</a>에 업로드 하였으며, 누구나 다운로드 받아 활용할 수 있습니다.</p>
 <section id="id2">
-<h2>무선 네트워크 설정<a class="headerlink" href="#id2" title="제목 주소"></a></h2>
+<h2>무선 네트워크 설정<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>파이보를 사용하기 위해서는 파이보와 PC가 같은 네트워크에 접속해야 합니다.</p>
 <p><img alt="" src="../_images/outline.png" /></p>
 <p>이를 위해 선행해야 할 것은 다음 절차를 따라 파이보를 무선 네트워크에 연결하고 IP주소를 확인하는 것입니다.</p>
@@ -155,7 +155,7 @@ key_mgmt에 WPA-PSK 대신 NONE을 입력합니다.</p>
 <p>새로운 네트워크에 접속하려면, <code class="docutils literal notranslate"><span class="pre">wqa_supplicant.conf.example</span></code> 파일을 복사한 후, 파일명을 <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code>로 변경하여 사용할 수 있습니다.</p>
 </section>
 <section id="ssh">
-<h2>SSH 연결<a class="headerlink" href="#ssh" title="제목 주소"></a></h2>
+<h2>SSH 연결<a class="headerlink" href="#ssh" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>SSH란, 원격 컴퓨터에 접속하기 위해 사용하는 보안 프로토콜로 파이보와 실습에 사용할 컴퓨터가 같은 네트워크에 있다면 파이보에 접속할 수 있습니다.
 SSH를 통해 파이보에 접속하고 파이보를 제어하거나 필요한 소프트웨어를 설치할 수 있습니다.</p>
 <p>다음의 절차를 따라 SSH를 이용하여 파이보에 원격 접속합니다.</p>
@@ -186,7 +186,7 @@ SSH를 통해 파이보에 접속하고 파이보를 제어하거나 필요한 �
 </ol>
 </section>
 <section id="openpibo">
-<h2>openpibo 및 관련 패키지 설치<a class="headerlink" href="#openpibo" title="제목 주소"></a></h2>
+<h2>openpibo 및 관련 패키지 설치<a class="headerlink" href="#openpibo" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>openpibo 및 관련 패키지는 OS에 설치되어 있지만, 필요에 따라 다시 설치할 수 있습니다.</p>
 <ul>
 <li><p>openpibo 설치</p>
@@ -236,7 +236,7 @@ $ sudo python3 setup.py install <span class="c1"># 패키지 설치</span>
 </ul>
 </section>
 <section id="kakao-developer-key">
-<h2>KAKAO Developer Key 발급<a class="headerlink" href="#kakao-developer-key" title="제목 주소"></a></h2>
+<h2>KAKAO Developer Key 발급<a class="headerlink" href="#kakao-developer-key" title="이 표제에 대한 퍼머링크"></a></h2>
 <p>openpibo에서 음성인식(STT)과 음성합성(TTS)을 위해 KAKAO를 사용합니다. KAKAO Developers에서 회원가입 및 Key 발급이 필요하며, 발급받는 방법은 <a class="reference external" href="https://themakerrobot.github.io/x-openpibo/build/html/notes/kakao_api.html">여기</a>를 참고합니다.</p>
 <p>발급받은 Key는 파이보의 /home/pi/에 있는 config.json 파일에 다음과 같이 저장합니다.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -260,7 +260,7 @@ $ sudo python3 setup.py install <span class="c1"># 패키지 설치</span>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Circulus.</p>
+    <p>&#169; 저작권 2021, Circulus Education.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

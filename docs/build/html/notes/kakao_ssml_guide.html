@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용) &mdash; openpibo 0.8.1 documentation</title>
+  <title>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용) &mdash; openpibo 0.8.1 문서</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
     <link rel="canonical" href="https://themakerrobot.github.io/x-openpibo/notes/kakao_ssml_guide.html" />
@@ -104,7 +104,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="open-api-ssml-kakao-ssml-guide">
-<h1>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용)<a class="headerlink" href="#open-api-ssml-kakao-ssml-guide" title="제목 주소"></a></h1>
+<h1>(외부 Open API) SSML (KAKAO_SSML_GUIDE 이용)<a class="headerlink" href="#open-api-ssml-kakao-ssml-guide" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>정의 및 정책</p>
 <ul>
@@ -127,7 +127,7 @@
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>정의 및 정책<a class="headerlink" href="#id1" title="제목 주소"></a></h1>
+<h1>정의 및 정책<a class="headerlink" href="#id1" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>기본적으로 제공되는 TTS 외에, 원하는대로 언어 처리를 직접 수정할 수 있도록 제공되는 마크업 랭귀지 이다.</p></li>
 <li><p>예를 들어, 목소리를 바꾸거나 볼륨을 바꾸는 음성 변경, 상황 별로 특이하게 발음되는 언어 처리, 효과음 합성 등을 할 수 있다.</p></li>
@@ -136,7 +136,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="ssml-tag-attribute">
-<h1>SSML 지원 tag, attribute<a class="headerlink" href="#ssml-tag-attribute" title="제목 주소"></a></h1>
+<h1>SSML 지원 tag, attribute<a class="headerlink" href="#ssml-tag-attribute" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>SSML에서 지원할 수 있는 tag와 attribute는 아래와 같다.</p></li>
 <li><p>tag명</p>
@@ -197,7 +197,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="speak">
-<h1>speak<a class="headerlink" href="#speak" title="제목 주소"></a></h1>
+<h1>speak<a class="headerlink" href="#speak" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>기본적으로 모든 음성은 <speak> 태그로 감싸져야 한다</p></li>
 <li><p><speak> 태그 하위로, <speak>를 제외한 모든 tag가 존재할 수 있다.</p></li>
@@ -208,7 +208,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="voice">
-<h1>voice<a class="headerlink" href="#voice" title="제목 주소"></a></h1>
+<h1>voice<a class="headerlink" href="#voice" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>음성의 목소리를 변경하기 위해 사용하며, name attribute를 통해 원하는 목소리를 지정한다. 제공되는 목소리는 4가지이다.</p></li>
 <li><p>하위로 <speak>, <voice>를 제외한 모든 tag (kakao:effect, prosody, break, audio, say-as, sub)가 존재할 수 있다.</p></li>
@@ -232,7 +232,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="prosody">
-<h1>prosody<a class="headerlink" href="#prosody" title="제목 주소"></a></h1>
+<h1>prosody<a class="headerlink" href="#prosody" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>음성의 속도와 볼륨을 변경하기 위해 사용하는 tag 이다. 속도와 볼륨 모두 3가지 value를 제공한다.</p></li>
 <li><p>하위로 <speak>, &lt; prosody&gt; 를 제외한 모든 tag (kakao:effect, break, audio, say-as, sub)가 올 수 있다.</p></li>
@@ -262,7 +262,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="break">
-<h1>break<a class="headerlink" href="#break" title="제목 주소"></a></h1>
+<h1>break<a class="headerlink" href="#break" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>의도적으로 문장과 문장 사이에 “쉼”을 주기 위해 사용한다.</p></li>
 <li><p><speak>, <prosody> 아래에 올 수 있으며, <break> 하위에 올 수 있는 tag는 없다.</p></li>
@@ -289,7 +289,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="kakao-effect">
-<h1>kakao:effect<a class="headerlink" href="#kakao-effect" title="제목 주소"></a></h1>
+<h1>kakao:effect<a class="headerlink" href="#kakao-effect" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>카카오에서 제공하는 custom tag이다.</p></li>
 <li><p>tone attribute를 사용하면, 존댓말을 반말로 바꿀 수 있다. 반말을 존댓말로 변경하는 것은 제공하지 않는다.</p></li>
@@ -312,7 +312,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="say-as">
-<h1>say-as<a class="headerlink" href="#say-as" title="제목 주소"></a></h1>
+<h1>say-as<a class="headerlink" href="#say-as" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>날짜/시간과 같은 축약형 표현이나 전화번호, 스펠링과 같은 자주 사용하는 특수 표현을 해석해서, 상황에 맞게 잘 읽어주기 위해 사용한다.</p></li>
 <li><p>formate은 interpret-as와 함께 쓰이며, interpret-as에서 date와 같은 일부 value를 지정했을 경우 사용한다.</p></li>
@@ -385,7 +385,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="sub">
-<h1>sub<a class="headerlink" href="#sub" title="제목 주소"></a></h1>
+<h1>sub<a class="headerlink" href="#sub" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>일반적인 발음이 아니라 상황에 맞도록 특별하게 발음을 지정해야 할 경우, 사용한다.</p></li>
 <li><p>value 입력시, 가능한한 한글로 작성해야 해석이 용이하다.</p></li>
@@ -395,7 +395,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="audio">
-<h1>audio<a class="headerlink" href="#audio" title="제목 주소"></a></h1>
+<h1>audio<a class="headerlink" href="#audio" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>외부 음원을 speak 채널을 통해 제공하기 위하여 사용한다.</p></li>
 <li><p>효과음 등을 음성과 같이 제공하기에 용이하다.</p></li>
@@ -463,12 +463,12 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>기타 주의할점<a class="headerlink" href="#id2" title="제목 주소"></a></h1>
+<h1>기타 주의할점<a class="headerlink" href="#id2" title="이 표제에 대한 퍼머링크"></a></h1>
 <ul class="simple">
 <li><p>escape 처리가 필요하다.</p></li>
 </ul>
 <section id="id3">
-<h2>사용예 1 : 조사 처리를 하고 싶을 때<a class="headerlink" href="#id3" title="제목 주소"></a></h2>
+<h2>사용예 1 : 조사 처리를 하고 싶을 때<a class="headerlink" href="#id3" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul class="simple">
 <li><p>문장 조사처리가 필요할경우, <say-as interpret-as="kakao:none">을 사용한다.</p></li>
 <li><p>조사나 어미 처리가 필요한 부분을 <say-as interpret-as="kakao:none">으로 감싼다.</p></li>
@@ -481,7 +481,7 @@ w.w3.org/TR/speech-synthesis/#S3.2.3 )</p></li>
 </div>
 </section>
 <section id="id4">
-<h2>사용예 2 : 효과음과 같이 음성을 내려보내주고 싶을 때<a class="headerlink" href="#id4" title="제목 주소"></a></h2>
+<h2>사용예 2 : 효과음과 같이 음성을 내려보내주고 싶을 때<a class="headerlink" href="#id4" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul class="simple">
 <li><p>효과음과 음성을 같이 내려줄경우, <audio>를 사용한다.</p></li>
 </ul>
@@ -493,7 +493,7 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
 </div>
 </section>
 <section id="id5">
-<h2>사용예 3 : 새로 나온 영화명, 일반적인 규칙과 다르게 읽어주고 싶을 때<a class="headerlink" href="#id5" title="제목 주소"></a></h2>
+<h2>사용예 3 : 새로 나온 영화명, 일반적인 규칙과 다르게 읽어주고 싶을 때<a class="headerlink" href="#id5" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul class="simple">
 <li><p>영화 1987의 경우, 기존의 “천구백팔십칠”이 아니라 “일구팔칠”로 읽어야 한다. 이처럼, 기존의 읽는 방식과 다르게 읽어줘야 할때 <say-as>나 <sub> 태그를
 사용한다</p></li>
@@ -515,7 +515,7 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
 </div>
 </section>
 <section id="id6">
-<h2>사용예 4 : 성경에서는 특이하게 읽는 “10장 10절 → 십장 십절” 쉽게 적용하고 싶을때<a class="headerlink" href="#id6" title="제목 주소"></a></h2>
+<h2>사용예 4 : 성경에서는 특이하게 읽는 “10장 10절 → 십장 십절” 쉽게 적용하고 싶을때<a class="headerlink" href="#id6" title="이 표제에 대한 퍼머링크"></a></h2>
 <ul class="simple">
 <li><p>기본 룰은 “10장”을 “열장”으로 읽는 것이다. 그러나 성경에서는 “십장”으로 읽어야 한다. 이 경우, <say-as>를 활용하여 숫자 읽는 규칙을 정의할 수 있다.</p></li>
 </ul>
@@ -536,7 +536,7 @@ clipEnd=&quot;3s&quot;/&gt; 안녕하세요?
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Circulus.</p>
+    <p>&#169; 저작권 2021, Circulus Education.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
