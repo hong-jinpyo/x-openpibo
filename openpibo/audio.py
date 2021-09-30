@@ -1,5 +1,7 @@
 """
 mp3, wav 오디오 파일을 재생 및 정지합니다.
+
+:meth:`~openpibo.audio.Audio`
 """
 
 import os
