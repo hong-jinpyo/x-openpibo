@@ -7,6 +7,10 @@ import os
 HIGH = 1
 LOW = 0
 
+class Audio2:
+  aaa = 10
+
+
 class Audio:
   """
   mp3, wav 오디오 파일을 재생 및 정지합니다.
@@ -25,12 +29,9 @@ class Audio:
     os.system('gpio mode 7 out')
     os.system(f'gpio write 7 {HIGH}')
 
-  """
-  play 함수
-  """
   def play(self, filename, out='local', volume='-2000', background=True):
     """
-    mp3 또는 wav 파일을 재생합니다
+    mp3 또는 wav 파일을 재생합니다.
 
     example::
 
