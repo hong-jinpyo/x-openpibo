@@ -1,6 +1,7 @@
 openpibo.audio
 ==============
 
+:meth:`~openpibo.audio.__init__`
 :meth:`~openpibo.audio.play`
 :meth:`~openpibo.audio.stop`
 :meth:`~openpibo.audio.mute`
