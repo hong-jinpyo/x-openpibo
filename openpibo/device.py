@@ -232,6 +232,7 @@ from threading import Lock
 class Device:
   """
   메인컨트롤러를 제어하여 파이보의 여러가지 상태를 체크하거나, 눈 색깔을 변경합니다.
+  :meth:`~openpibo.device.Device.locked`
 
   example::
 
