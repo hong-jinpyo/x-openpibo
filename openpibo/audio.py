@@ -25,9 +25,12 @@ class Audio:
     os.system('gpio mode 7 out')
     os.system(f'gpio write 7 {HIGH}')
 
+  """
+  play 함수
+  """
   def play(self, filename, out='local', volume='-2000', background=True):
     """
-    mp3 또는 wav 파일을 재생합니다.
+    mp3 또는 wav 파일을 재생합니다
 
     example::
 
