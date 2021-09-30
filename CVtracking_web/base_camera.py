@@ -76,8 +76,8 @@ class BaseCamera(object):
         BaseCamera.last_access = time.time()
 
         # wait for a signal from the camera thread
-        BaseCamera.event.wait()
-        BaseCamera.event.clear()
+        # BaseCamera.event.wait()
+        # BaseCamera.event.clear()
 
         return BaseCamera.frame
 
