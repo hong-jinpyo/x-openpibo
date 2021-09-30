@@ -1,5 +1,25 @@
 """
 번역, 형태소 분석, 자연어 인식 및 합성, 챗봇 등 다양한 자연어 처리를 합니다.
+Class:
+:obj:`openpibo.speech.Speech`
+
+Functions:
+:meth:`openpibo.speech.Speech.__init__`
+:meth:`openpibo.speech.Speech.translate`
+:meth:`openpibo.speech.Speech.tts`
+:meth:`openpibo.speech.Speech.stt`
+
+Class:
+:obj:`openpibo.speech.Dialog`
+
+Functions:
+:meth:`openpibo.speech.Dialog.__init__`
+:meth:`openpibo.speech.Dialog.mecab_pos`
+:meth:`openpibo.speech.Dialog.mecab_morphs`
+:meth:`openpibo.speech.Dialog.mecab_nouns`
+:meth:`openpibo.speech.Dialog.get_dialog`
+
+:meth:`openpibo.speech.Dialog.getDiff`
 """
 
 import csv

@@ -1,7 +1,32 @@
 """
 PIBO의 움직임을 제어합니다.
 
-:meth:`~openpibo.motion`
+Class:
+:obj:`~openpibo.motion.Motion`
+
+Functions:
+:meth:`~openpibo.motion.Motion.__init__`
+:meth:`~openpibo.motion.Motion.set_profile`
+:meth:`~openpibo.motion.Motion.set_motor`
+:meth:`~openpibo.motion.Motion.set_motors`
+:meth:`~openpibo.motion.Motion.set_speed`
+:meth:`~openpibo.motion.Motion.set_speeds`
+:meth:`~openpibo.motion.Motion.set_acceleration`
+:meth:`~openpibo.motion.Motion.set_accelerations`
+:meth:`~openpibo.motion.Motion.get_motion`
+:meth:`~openpibo.motion.Motion.set_motion_raw`
+:meth:`~openpibo.motion.Motion.stop`
+
+Class:
+:obj:`~openpibo.motion.PyMotion`
+
+Functions:
+:meth:`~openpibo.motion.PyMotion.__init__`
+:meth:`~openpibo.motion.PyMotion.set_motor`
+:meth:`~openpibo.motion.PyMotion.set_motors`
+:meth:`~openpibo.motion.PyMotion.set_speed`
+:meth:`~openpibo.motion.PyMotion.set_acceleration`
+:meth:`~openpibo.motion.PyMotion.set_init`
 
 :모터 번호당 위치:
 

@@ -108,7 +108,18 @@
   <section id="module-openpibo.collect">
 <span id="collect"></span><h1>collect<a class="headerlink" href="#module-openpibo.collect" title="이 표제에 대한 퍼머링크"></a></h1>
 <p>인터넷에서 유용한 정보를 가져옵니다.</p>
-<p><a class="reference internal" href="#module-openpibo.collect" title="openpibo.collect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">collect()</span></code></a></p>
+<p>Class:
+<a class="reference internal" href="#openpibo.collect.Wikipedia" title="openpibo.collect.Wikipedia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Wikipedia</span></code></a></p>
+<p>Functions:
+<a class="reference internal" href="#openpibo.collect.Wikipedia.search" title="openpibo.collect.Wikipedia.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a></p>
+<p>Class:
+<a class="reference internal" href="#openpibo.collect.Weather" title="openpibo.collect.Weather"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Weather</span></code></a></p>
+<p>Functions:
+<a class="reference internal" href="#openpibo.collect.Weather.search" title="openpibo.collect.Weather.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a></p>
+<p>Class:
+<a class="reference internal" href="#openpibo.collect.News" title="openpibo.collect.News"><code class="xref py py-obj docutils literal notranslate"><span class="pre">News</span></code></a></p>
+<p>Functions:
+<a class="reference internal" href="#openpibo.collect.News.search" title="openpibo.collect.News.search"><code class="xref py py-meth docutils literal notranslate"><span class="pre">search()</span></code></a></p>
 <p><strong>단어정보, 날씨 정보, 뉴스 정보</strong> 를 가져올 수 있습니다.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="openpibo.collect.Wikipedia">
@@ -142,6 +153,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">매개변수</dt>
 <dd class="field-odd"><p><strong>search_text</strong> (<em>str</em>) – 위키백과에서의 검색어</p>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p><p>내용이 dictionary 배열 형태로 출력됩니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;명칭&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;content&#39;</span><span class="p">:</span> <span class="s2">&quot;한국어 ‘강아지’는 ‘개’에 어린 짐승을 뜻하는 ‘아지’가 붙은 말이다...&quot;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,6 +249,33 @@
 <p>검색할 수 있는 지역은 다음과 같습니다:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;전국&#39;</span><span class="p">,</span> <span class="s1">&#39;서울&#39;</span><span class="p">,</span> <span class="s1">&#39;인천&#39;</span><span class="p">,</span> <span class="s1">&#39;경기&#39;</span><span class="p">,</span> <span class="s1">&#39;부산&#39;</span><span class="p">,</span> <span class="s1">&#39;울산&#39;</span><span class="p">,</span> <span class="s1">&#39;경남&#39;</span><span class="p">,</span> <span class="s1">&#39;대구&#39;</span><span class="p">,</span> <span class="s1">&#39;경북&#39;</span><span class="p">,</span> 
 <span class="s1">&#39;광주&#39;</span><span class="p">,</span> <span class="s1">&#39;전남&#39;</span><span class="p">,</span> <span class="s1">&#39;전북&#39;</span><span class="p">,</span> <span class="s1">&#39;대전&#39;</span><span class="p">,</span> <span class="s1">&#39;세종&#39;</span><span class="p">,</span> <span class="s1">&#39;충남&#39;</span><span class="p">,</span> <span class="s1">&#39;충북&#39;</span><span class="p">,</span> <span class="s1">&#39;강원&#39;</span><span class="p">,</span> <span class="s1">&#39;제주&#39;</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p><p>오늘/내일/모레의 날씨 및 최저/최고기온을 반환합니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;today&#39;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;weather&#39;</span><span class="p">:</span> <span class="s1">&#39;전국 대체로 흐림&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;minimum_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;15.3 ~ 21.6&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;highst_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;23.1 ~ 27.6&#39;</span>
+    <span class="p">}</span>
+    <span class="s1">&#39;tomorrow&#39;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;weather&#39;</span><span class="p">:</span> <span class="s1">&#39;전국 대체로 흐림&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;minimum_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;15.3 ~ 21.6&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;highst_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;23.1 ~ 27.6&#39;</span>
+    <span class="p">}</span>
+    <span class="s1">&#39;after_tomorrow&#39;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;weather&#39;</span><span class="p">:</span> <span class="s1">&#39;전국 대체로 흐림&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;minimum_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;15.3 ~ 21.6&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;highst_temp&#39;</span><span class="p">:</span> <span class="s1">&#39;23.1 ~ 27.6&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </p>
@@ -351,6 +400,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">썰전</span> <span class="pre">라이브</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">정치부회의</span></code></p></li>
 </ul>
+</p>
+</dd>
+<dt class="field-even">반환값</dt>
+<dd class="field-even"><p><p>title, link, description, pubDate 요소가 있는 dictionary 배열입니다.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;link&#39;</span><span class="p">:</span> <span class="s1">&#39;https://news.jtbc.joins.com/article/article.aspx?...&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습...,</span>
+        <span class="s1">&#39;pubDate&#39;</span><span class="p">:</span> <span class="s1">&#39;2021.09.03&#39;</span>
+    <span class="p">},</span> 
+<span class="p">]</span>
+</pre></div>
+</div>
 </p>
 </dd>
 </dl>

@@ -1,11 +1,26 @@
 """
 인터넷에서 유용한 정보를 가져옵니다.
 
-:meth:`~openpibo.collect`
+Class:
+:obj:`~openpibo.collect.Wikipedia`
+
+Functions:
+:meth:`~openpibo.collect.Wikipedia.search`
+
+Class:
+:obj:`~openpibo.collect.Weather`
+
+Functions:
+:meth:`~openpibo.collect.Weather.search`
+
+Class:
+:obj:`~openpibo.collect.News`
+
+Functions:
+:meth:`~openpibo.collect.News.search`
 
 **단어정보, 날씨 정보, 뉴스 정보** 를 가져올 수 있습니다.
 """
-
 from urllib.parse import quote
 from .modules.collect.get_soup import get_soup
 
@@ -75,6 +90,15 @@ class Wikipedia:
             # '깡아지'에 대한 검색결과가 없습니다.
         
         :param str search_text: 위키백과에서의 검색어
+        
+        :returns: 내용이 dictionary 배열 형태로 출력됩니다.
+
+            example::
+
+                [{
+                    'title': '명칭', 
+                    'content': "한국어 ‘강아지’는 ‘개’에 어린 짐승을 뜻하는 ‘아지’가 붙은 말이다..."
+                }]
         """
 
         self._chapters = {'0': _Chapter('개요')}
@@ -107,7 +131,9 @@ class Wikipedia:
                 self._chapters[chapter_idx].add_content(content.text)
             elif tag == 'ul':
                 self._chapters[chapter_idx].add_content(content.text)
-    
+        
+        return self._chapters
+
     def get_list(self):
         """
         챕터의 목록을 list 형태로 가져옵니다.
@@ -226,6 +252,31 @@ class Weather:
                 
                 '전국', '서울', '인천', '경기', '부산', '울산', '경남', '대구', '경북', 
                 '광주', '전남', '전북', '대전', '세종', '충남', '충북', '강원', '제주'
+        
+        :returns: 오늘/내일/모레의 날씨 및 최저/최고기온을 반환합니다.
+            
+            example::
+
+                {
+                    'today':
+                    {
+                        'weather': '전국 대체로 흐림',
+                        'minimum_temp': '15.3 ~ 21.6', 
+                        'highst_temp': '23.1 ~ 27.6'
+                    }
+                    'tomorrow':
+                    {
+                        'weather': '전국 대체로 흐림',
+                        'minimum_temp': '15.3 ~ 21.6', 
+                        'highst_temp': '23.1 ~ 27.6'
+                    }
+                    'after_tomorrow':
+                    {
+                        'weather': '전국 대체로 흐림',
+                        'minimum_temp': '15.3 ~ 21.6', 
+                        'highst_temp': '23.1 ~ 27.6'
+                    }
+                }
         """
 
         self._region = region
@@ -259,7 +310,9 @@ class Weather:
         all_temps = list(map(lambda x: x.text, temp_table.select('td')[:10]))
         self._today['minimum_temp'], self._tomorrow['minimum_temp'], self._after_tomorrow['minimum_temp'] = all_temps[2:5]
         self._today['highst_temp'], self._tomorrow['highst_temp'], self._after_tomorrow['highst_temp'] = all_temps[7:10]
-    
+        
+        return {'today':self._today, 'tomorrow':self._tomorrow, 'after_tomorrow':self._after_tomorrow}
+
     def get_today(self):
         """
         오늘의 날씨를 반환합니다.
@@ -396,6 +449,19 @@ class News:
             * ``아침&``
             * ``썰전 라이브``
             * ``정치부회의``
+
+        :returns: title, link, description, pubDate 요소가 있는 dictionary 배열입니다.
+
+            example::
+
+                [
+                    {
+                        'title': '또 소방차 막은 불법주차, 이번엔 가차없이 밀어버렸다', 
+                        'link': 'https://news.jtbc.joins.com/article/article.aspx?...',
+                        'description': '2019년 4월 소방당국의 불법주정차 강경대응 훈련 모습...,
+                        'pubDate': '2021.09.03'
+                    }, 
+                ]
         """
 
         self._topic = topic
@@ -419,6 +485,7 @@ class News:
                 }
             self._articles.append(article)
             self._titles.append(title)
+        return self._articles  
     
     def get_titles(self):
         """

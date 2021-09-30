@@ -1,12 +1,13 @@
 """
 mp3, wav 오디오 파일을 재생 및 정지합니다.
 
-CLASS - :obj:`~openpibo.audio.Audio`
+Class:
+:obj:`~openpibo.audio.Audio`
 
+Functions:
 :meth:`~openpibo.audio.Audio.play`
 :meth:`~openpibo.audio.Audio.stop`
 :meth:`~openpibo.audio.Audio.mute`
-
 """
 
 import os
