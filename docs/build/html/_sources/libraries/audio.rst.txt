@@ -1,5 +1,5 @@
-audio
-=====
+openpibo.audio
+==============
 
 :meth:`~openpibo.audio.play`
 :meth:`~openpibo.audio.stop`
