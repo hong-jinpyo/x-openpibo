@@ -7,10 +7,6 @@ import os
 HIGH = 1
 LOW = 0
 
-class Audio2:
-  aaa = 10
-
-
 class Audio:
   """
   mp3, wav 오디오 파일을 재생 및 정지합니다.

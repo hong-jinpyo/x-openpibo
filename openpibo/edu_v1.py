@@ -310,12 +310,12 @@ class Pibo:
 
         :param str color: 추가할 색상 이름
 
-        :param *rgb: RGB. 0~255 사이의 정수 입니다.
+        :param rgb: RGB. 0~255 사이의 정수 입니다.
 
         :returns:
 
-        * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
-        * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
+            * 성공: ``{"result": True, "errcode": 0, "errmsg": "Success", "data": None}``
+            * 실패: ``{"result": False, "errcode": errcode, "errmsg": "errmsg", "data": None}``
         """
 
         if color == None or type(color) != str:
