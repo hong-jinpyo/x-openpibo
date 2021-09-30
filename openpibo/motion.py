@@ -1,6 +1,8 @@
 """
 PIBO의 움직임을 제어합니다.
 
+:meth:`~openpibo.motion`
+
 :모터 번호당 위치:
 
   * 0번 : 'Right Foot'
